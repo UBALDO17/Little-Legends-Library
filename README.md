@@ -1,1 +1,1 @@
-# Welcome to Magic Quill
+# Welcome to Little Legends Library
