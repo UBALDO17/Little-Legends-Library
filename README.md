@@ -1,1 +1,1 @@
-# Magic-Quill
+# Welcome to Magic Quill
