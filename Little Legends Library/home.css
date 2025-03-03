@@ -118,3 +118,27 @@ body {
 .hero a {
     font-size: 1.5rem;
 }
+.Featured{
+    display: block;
+    padding: 100px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: white;
+    margin: 2.5rem auto;
+}
+.image-selection{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 50px;
+}
+.book-image {
+    width: 300px;
+    height: auto;
+}
+.book-1{
+    width: 300px;
+    height: auto;
+}
