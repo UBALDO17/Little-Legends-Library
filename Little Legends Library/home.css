@@ -92,6 +92,7 @@ body {
     border-radius: 1.25rem;
     max-width: 67%;
     margin: 2.5rem auto;
+    height: 75vh;
 }
 
 .hero-text {
@@ -121,18 +122,16 @@ body {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    padding: 100px;
-    height: 110vh;
+    height: 100vh;
     justify-content: center;
     align-items: center;
     text-align: center;
     background-color: #CCD2D5;
-    margin: 2.5rem auto;
+    margin-bottom: -20px;
     font-family: "Poppins", sans-serif;
 }
 .featured-text{
     font-size: 32px;
-    padding: 20px;
 }
 .image-selection{
     display: flex;
@@ -140,7 +139,7 @@ body {
     align-items: center;
     text-align: center;
     gap: 10px;
-    padding: 20px;
+
 }
 .book-image {
     width: 320px;
@@ -195,9 +194,11 @@ body {
     background-color: grey;
     border-radius: 10px;
     color: white;
+    transition: 0.5s ease-in-out;
 }
 .detail-1:hover{
-    
+    background-color: white;
+    color: black;
 }
 .button-container{
     display: flex;
@@ -217,4 +218,46 @@ body {
 }
 .view-workbooks:hover {
     background-color: #e03e00; 
+}
+.customer-reviews{
+    text-align: center;
+    justify-content: center;
+    height: 100vh;
+    background: url('background_1.jpg') no-repeat center center fixed;
+    background-size: cover;
+    padding: 100px;
+}
+.customer-title-container{
+    text-align: center;
+    background-color: #FCAC16;
+    width: 400px;
+    height: 100px;
+    padding: 20px;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    margin: 0 auto;
+    border-radius: 5px;
+}
+.customer-title{
+    font-family: "Poppins", sans-serif;
+    font-size: 32px;
+    font-weight: bold;
+}
+.customer-reviews-container{
+    padding: 100px;
+    text-align: center;
+    justify-content: center;
+}
+.customer-reviews-text{
+    color: black;
+    background-color: #FFEDC8;
+    opacity: 0.7;
+    padding: 100px;
+}
+.customer-reviews-text-comment{
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+    font-size: 32px;
+    opacity: 1;
 }
