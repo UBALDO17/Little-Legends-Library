@@ -129,7 +129,7 @@ body {
     font-family: "Poppins", sans-serif;
 }
 .featured-text{
-    font-size: 30px;
+    font-size: 32px;
     padding: 20px;
 }
 .image-selection{
@@ -138,6 +138,7 @@ body {
     align-items: center;
     text-align: center;
     gap: 20px;
+    padding: 20px;
 }
 .book-image {
     width: 320px;
@@ -154,7 +155,7 @@ body {
 }
 .book-1:hover{
     transition: 1s;
-    transform: scale(1.1);
+    transform: scale(1.02);
     background-color: #FF4500;
     color: white;
 }
