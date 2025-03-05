@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Little Legends Library</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        body {
+            background: url('https://res.cloudinary.com/du0ijg1nu/image/upload/v1740640785/Firefly_generate_a_background_for_a_banner_a_book_shop_and_download_instantly_and_this_should_be_the_wfjarm.jpg') no-repeat center center fixed;
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0, 114, 151, 0.2);
+            padding: 0.5rem 12.75rem;
+            height: 5.7rem;
+            box-shadow: 0 0.25rem 0.375rem rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            margin-right: 3.5rem;
+        }
+
+        .logo img {
+            width: 5.31rem;
+            height: 5.31rem;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-right: auto;
+        }
+
+        .nav-links a,
+        .nav-buttons a {
+            text-decoration: none;
+            color: #FFFFFF;
+            font-size: 1.7rem;
+            font-weight: 500;
+            transition: 0.3s ease-in-out;
+            padding: 0.45rem 1.76rem;
+            border-radius: 2.19rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-width: 8rem;
+            text-align: center;
+        }
+
+        .nav-links a.active {
+            background: #FF4500;
+            color: #ffffff;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255, 69, 0, 0.8);
+            color: #ffffff;
+        }
+
+        .nav-buttons {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .nav-free {
+            padding: 0.625rem 1.76rem;
+            background: #FF4500;
+            color: #ffffff;
+            border: none;
+            border-radius: 2.19rem;
+            text-decoration: none;
+        }
+
+        .btn {
+            font-weight: 500;
+            padding: 1rem 2.5rem;
+            background: #FF4500;
+            color: #ffffff;
+            border: none;
+            border-radius: 0.625rem;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .hero {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: rgba(217, 217, 217, 0.8);
+            border-radius: 1.25rem;
+            max-width: 67%;
+            height: calc(100vh - 5.7rem - 14vh);
+            margin: 7vh auto;
+            line-height: 1.4;
+        }
+
+        .hero-text {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.75rem;
+            margin: 4rem 1rem 2.5rem 1rem;
+        }
+
+        .hero h1 {
+            font-size: 5.2rem;
+            color: rgba(0, 0, 0, 0.7);
+            font-weight: 600;
+        }
+
+        .hero p {
+            font-size: 1.7rem;
+            font-weight: 500;
+            color: rgba(0, 0, 0, 0.493);
+            margin: 0.5rem 0 1rem;
+        }
+
+        .hero a {
+            font-size: 1.5rem;
+        }
+
+        .search-container {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            max-width: 500px;
+            background: transparent;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 2px solid #383C3E;
+            height: 9vh;
+            padding-left: 1rem;
+        }
+
+        .search-container input {
+            flex: 1;
+            border: none;
+            padding: 0.8rem;
+            font-size: 1.5rem;
+            font-weight: 600;
+            outline: none;
+            background: transparent;
+            min-width: 0;
+        }
+
+        .search-btn {
+            width: 35%;
+            background: #FF4500;
+            color: white;
+            border: none;
+            padding: 1rem 1rem;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1.5rem;
+            height: 100%;
+            border-top-left-radius: 12px;
+            border-bottom-left-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+        .search-btn:hover {
+            background: rgba(255, 69, 0, 0.8);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <nav class="navbar">
+            <div class="logo">
+                <img src="https://res.cloudinary.com/du0ijg1nu/image/upload/v1740641091/Untitled_design_3_pxsurq.png"
+                    alt="Logo">
+            </div>
+            <div class="hamburger" onclick="toggleMenu()">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <div class="nav-links">
+                <a href="/home">Home</a>
+                <a href="/shop" class="active">Shop</a>
+                <a href="/contact">Contact</a>
+            </div>
+            <div class="nav-buttons">
+                <a href="/cart"><img width="50" height="45"
+                        src="https://img.icons8.com/ios-glyphs/60/ff4500/shopping-cart--v1.png"
+                        alt="shopping-cart--v1" /></a>
+                <a href="/free-template" class="nav-free">Free Book!</a>
+            </div>
+        </nav>
+
+        <section class="hero">
+            <div class="hero-text">
+                <h1>Interactive Digital <br> Workbooks for Kids!</h1>
+                <p>Engaging and fun learning materials <br> in PDF format – download instantly.</p>
+                <div class="search-container">
+                    <img width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/383c3e/search--v1.png"
+                        alt="search--v1" />
+                    <input type="text" placeholder="Find your book...">
+                    <button class="search-btn" onclick="alert('Search button clicked!')">Search</button>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>
