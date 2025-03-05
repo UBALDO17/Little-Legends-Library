@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop Page</title>
+    <link rel="stylesheet" href="shop.css">
+    <link rel="stylesheet" href="responsive.css">
+</head>
+
+<body>
+    <div class="container">
+        <nav class="navbar">
+            <div class="logo">
+                <img src="logo.png" alt="Logo">
+            </div>
+            <div class="hamburger" onclick="toggleMenu()">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <div class="nav-links">
+                <a href="home.html">Home</a>
+                <a href="shop.html" class="active">Shop</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="nav-buttons">
+                <a href="#"><img width="50" height="45"
+                        src="https://img.icons8.com/ios-glyphs/60/ff4500/shopping-cart--v1.png"
+                        alt="shopping-cart--v1" /></a>
+                <a href="#" class="nav-free">Free Book!</a>
+            </div>
+        </nav>
+
+        <section class="hero">
+            <div class="hero-text">
+                <h1>Interactive Digital <br> Workbooks for Kids!</h1>
+                <p>Engaging and fun learning materials <br> in PDF format – download instantly.</p>
+                <div class="search-container">
+                    <img width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/383c3e/search--v1.png"
+                        alt="search--v1" />
+                    <input type="text" placeholder="Find your book...">
+                    <button class="search-btn" onclick="alert('Search button clicked!')">Search</button>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+<script src="hamburgerMenu.js">
+
+</script>
+
+</html>
