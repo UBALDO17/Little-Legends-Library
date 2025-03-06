@@ -2,8 +2,8 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Little Legends Library</title>
 
     <style>
@@ -16,9 +16,13 @@
             font-family: "Poppins", sans-serif;
         }
 
-        body {
+        .container {
             background: url('https://res.cloudinary.com/du0ijg1nu/image/upload/v1740640785/Firefly_generate_a_background_for_a_banner_a_book_shop_and_download_instantly_and_this_should_be_the_wfjarm.jpg') no-repeat center center fixed;
             background-size: cover;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
         }
 
         .navbar {
@@ -29,14 +33,12 @@
             padding: 0.5rem 12.75rem;
             height: 5.7rem;
             box-shadow: 0 0.25rem 0.375rem rgba(0, 0, 0, 0.1);
-            margin-bottom: 3.5rem;
         }
 
         .logo {
             display: flex;
             align-items: center;
             margin-right: 3.5rem;
-            /* Reduce gap between logo and nav-links */
         }
 
         .logo img {
@@ -47,7 +49,7 @@
         .nav-links {
             display: flex;
             align-items: center;
-            gap: 2.5rem;
+            gap: 0.5rem;
             margin-right: auto;
         }
 
@@ -58,28 +60,38 @@
             font-size: 1.7rem;
             font-weight: 500;
             transition: 0.3s ease-in-out;
+            padding: 0.35rem 1.76rem;
+            border-radius: 2.19rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-width: 8rem;
+            text-align: center;
+        }
+
+        .nav-links a.active {
+            background: #FF4500;
+            color: #ffffff;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255, 69, 0, 0.8);
+            color: #ffffff;
         }
 
         .nav-buttons {
             display: flex;
             align-items: center;
-            gap: 2.25rem;
+            gap: 1rem;
         }
 
-        .nav-free,
-        .nav-links a.active {
-            padding: 0.325rem 1.76rem;
+        .nav-free {
+            padding: 0.625rem 1.76rem;
             background: #FF4500;
             color: #ffffff;
             border: none;
             border-radius: 2.19rem;
             text-decoration: none;
-        }
-
-        .nav-links a:hover,
-        .nav-links a.active {
-            color: #FFFFFF;
-            background: #FF4500;
         }
 
         .btn {
@@ -101,7 +113,9 @@
             background: rgba(217, 217, 217, 0.8);
             border-radius: 1.25rem;
             max-width: 67%;
-            margin: 2.5rem auto;
+            height: calc(100vh - 5.7rem - 14vh);
+            margin: 7vh auto;
+            width: 100%;
             line-height: 1.4;
         }
 
@@ -129,33 +143,299 @@
         .hero a {
             font-size: 1.5rem;
         }
+
+        .Featured {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background-color: #CCD2D5;
+        }
+
+        .featured-text h1 {
+            font-size: 2.5rem;
+            color: #000000D9;
+        }
+
+        .image-selection {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            gap: 0.5rem;
+            flex-wrap: nowrap;
+            margin-top: 0.3rem;
+        }
+
+        .book-image {
+            width: 14rem;
+            height: 18rem;
+            border-radius: 0.7rem;
+        }
+
+        .book-1 {
+            width: auto;
+            height: 550px;
+            padding: 25px;
+            border-radius: 20px;
+            transition: 0.5s ease-in-out;
+            color: black;
+            text-decoration: none;
+        }
+
+        .book-1:hover {
+            transform: scale(1.02);
+            background-color: #FF4500;
+            color: white;
+        }
+
+        .book-1:hover .price {
+            color: white;
+            transition: 1s;
+        }
+
+        .featured-image-container {
+            text-align: left;
+            justify-content: center;
+        }
+
+        .book-text {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .book-text-desc {
+            font-size: 1rem;
+            line-height: 3vh;
+        }
+
+        .price {
+            color: #FF4500;
+            font-size: 2rem;
+        }
+
+        .price-details {
+            padding-top: 0.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .detail-1 {
+            display: flex;
+            justify-content: center;
+            font-size: 1.2rem;
+            padding: 0.6rem;
+            background-color: #585653;
+            border-radius: 0.5rem;
+            color: white;
+            transition: 0.5s ease-in-out;
+            width: 45%;
+        }
+
+        .detail-1:hover {
+            background-color: white;
+            color: black;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            background-color: #CCD2D5;
+        }
+
+        .view-workbooks {
+            padding: 1.2rem 2.5rem;
+            font-size: 1.3rem;
+            border: none;
+            cursor: pointer;
+            border-radius: 0.625rem;
+            transition: 0.3s ease-in-out;
+        }
+
+        .view-workbooks:hover {
+            background-color: #e03e00;
+        }
+
+
+        .customer-reviews {
+            text-align: center;
+            justify-content: center;
+            height: 100vh;
+            background: url('https://res.cloudinary.com/du0ijg1nu/image/upload/v1741143656/books_poster_background_rnjmkk.jpg') no-repeat center center fixed;
+            background-size: cover;
+            padding: 100px;
+        }
+
+        .customer-title-container {
+            text-align: center;
+            background-color: #FCAC16;
+            width: 400px;
+            height: 100px;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
+            border-radius: 5px;
+        }
+
+        .customer-title {
+            font-family: "Poppins", sans-serif;
+            font-size: 32px;
+            font-weight: bold;
+        }
+
+        .customer-reviews-container {
+            padding: 100px;
+            text-align: center;
+            justify-content: center;
+        }
+
+        .customer-reviews-text {
+            color: black;
+            background-color: #FFEDC8;
+            opacity: 0.7;
+            padding: 100px;
+        }
+
+        .customer-reviews-text-comment {
+            text-align: center;
+            font-family: "Poppins", sans-serif;
+            font-size: 32px;
+            opacity: 1;
+        }
     </style>
 </head>
 
 <body>
-    <nav class="navbar">
-        <div class="logo">
-            <img src="https://res.cloudinary.com/du0ijg1nu/image/upload/v1740641091/Untitled_design_3_pxsurq.png"
-                alt="Logo">
-        </div>
-        <div class="nav-links">
-            <a href="/" class="active">Home</a>
-            <a href="/shop">Shop</a>
-            <a href="/contact">Contact</a>
-        </div>
-        <div class="nav-buttons">
-            <a href="#"><img width="50" height="45"
-                    src="https://img.icons8.com/ios-glyphs/60/ff4500/shopping-cart--v1.png"
-                    alt="shopping-cart--v1" /></a>
-            <a href="#" class="nav-free">Free Book!</a>
-        </div>
-    </nav>
+    <div class="container">
+        <nav class="navbar">
+            <div class="logo">
+                <img src="https://res.cloudinary.com/du0ijg1nu/image/upload/v1740641091/Untitled_design_3_pxsurq.png"
+                    alt="Logo" />
+            </div>
+            <div class="nav-links">
+                <a href="/home" class="active">Home</a>
+                <a href="/shop">Shop</a>
+                <a href="/contact">Contact</a>
+            </div>
+            <div class="nav-buttons">
+                <a href="/cart"><img width="50" height="45"
+                        src="https://img.icons8.com/ios-glyphs/60/ff4500/shopping-cart--v1.png"
+                        alt="shopping-cart--v1" /></a>
+                <a href="/free-template" class="nav-free">Free Book!</a>
+            </div>
+        </nav>
 
-    <section class="hero">
-        <div class="hero-text">
-            <h1>Interactive Digital <br> Workbooks for Kids!</h1>
-            <p>Engaging and fun learning materials <br> in PDF format – download instantly.</p>
-            <a href="#" class="btn">Browse Workbooks</a>
+        <section class="hero">
+            <div class="hero-text">
+                <h1>
+                    Interactive Digital <br />
+                    Workbooks for Kids!
+                </h1>
+                <p>
+                    Engaging and fun learning materials <br />
+                    in PDF format – download instantly.
+                </p>
+                <a href="#Featured" class="btn">Browse Workbooks</a>
+            </div>
+        </section>
+    </div>
+    <section class="Featured" id="Featured">
+        <div class="featured-text">
+            <h1>Featured Workbooks</h1>
+        </div>
+        <div class="image-selection">
+            <a href="" class="book-1">
+                <div class="featured-image-container">
+                    <img src="https://res.cloudinary.com/du0ijg1nu/image/upload/v1741241390/Firefly_A_cheerful_white_8-year-old_boy_named_Marco_with_brown_hair_and_blue_eyes_wearing_a_futuris_my6xax.jpg"
+                        alt="" class="book-image" />
+                    <p class="book-text">Valentine's Day <br />Workbook</p>
+                    <p class="book-text-desc">
+                        Engaging and fun learning <br />
+                        materials in PDF format – <br />
+                        download instantly.
+                    </p>
+                    <div class="price-details">
+                        <h3 class="price">P300</h3>
+                        <p class="detail-1">Details</p>
+                    </div>
+                </div>
+            </a>
+            <a href="" class="book-1">
+                <div class="featured-image-container">
+                    <img src="https://res.cloudinary.com/du0ijg1nu/image/upload/v1741241390/Firefly_A_cheerful_white_8-year-old_boy_named_Marco_with_brown_hair_and_blue_eyes_wearing_a_futuris_my6xax.jpg"
+                        alt="" class="book-image" />
+                    <p class="book-text">Dinosaur <br />Workbook</p>
+                    <p class="book-text-desc">
+                        Engaging and fun learning <br />
+                        materials in PDF format – <br />
+                        download instantly.
+                    </p>
+                    <div class="price-details">
+                        <h3 class="price">P300</h3>
+                        <p class="detail-1">Details</p>
+                    </div>
+                </div>
+            </a>
+            <a href="" class="book-1">
+                <div class="featured-image-container">
+                    <img src="https://res.cloudinary.com/du0ijg1nu/image/upload/v1741241390/Firefly_A_cheerful_white_8-year-old_boy_named_Marco_with_brown_hair_and_blue_eyes_wearing_a_futuris_my6xax.jpg"
+                        alt="" class="book-image" />
+                    <p class="book-text">Prince <br />Workbook</p>
+                    <p class="book-text-desc">
+                        Engaging and fun learning <br />
+                        materials in PDF format – <br />
+                        download instantly.
+                    </p>
+                    <div class="price-details">
+                        <h3 class="price">P300</h3>
+                        <p class="detail-1">Details</p>
+                    </div>
+                </div>
+            </a>
+            <a href="" class="book-1">
+                <div class="featured-image-container">
+                    <img src="https://res.cloudinary.com/du0ijg1nu/image/upload/v1741241390/Firefly_A_cheerful_white_8-year-old_boy_named_Marco_with_brown_hair_and_blue_eyes_wearing_a_futuris_my6xax.jpg"
+                        alt="" class="book-image" />
+                    <p class="book-text">Workbook 32 <br />Workbook</p>
+                    <p class="book-text-desc">
+                        Engaging and fun learning <br />
+                        materials in PDF format – <br />
+                        download instantly.
+                    </p>
+                    <div class="price-details">
+                        <h3 class="price">P300</h3>
+                        <p class="detail-1">Details</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="button-container">
+            <button class="btn view-workbooks">View All Workbooks</button>
+        </div>
+    </section>
+
+    <section class="customer-reviews">
+        <div class="customer-title-container">
+            <h2 class="customer-title">Customer Reviews</h2>
+        </div>
+        <div class="customer-reviews-container">
+            <div class="profile-container">
+                <img src="" alt="" class="profile-pic" />
+            </div>
+            <div class="customer-reviews-text">
+                <p class="customer-reviews-text-comment">
+                    "Fun Learning Workbook" is an engaging and educational tool for
+                    kids, with interactive activities that make learning enjoyable.
+                    Bright illustrations and simple instructions keep young learners
+                    interested.
+                </p>
+            </div>
         </div>
     </section>
 </body>
