@@ -159,6 +159,7 @@
     gap: 0.5rem;
     flex-wrap: nowrap;
     margin-top: 0.3rem;
+    padding: 20px;
 }
 
 .book-image {
