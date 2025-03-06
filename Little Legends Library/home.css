@@ -296,5 +296,13 @@
     opacity: 1;
 }
 .profile-container{
-    width: 200px;
+    background-color: none;
+    color: none;
+}
+.profile-pic{
+    position: relative;
+    padding: 0px;
+    margin-bottom: 35px;
+    width: 250px;
+    border-radius: 100%;
 }
