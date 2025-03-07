@@ -293,6 +293,7 @@
     background-color: #FFEDC8;
     padding: 100px;
     border-radius: 20px;
+    height: 50vh;
 }
 .customer-reviews-text{
     z-index: 2;
