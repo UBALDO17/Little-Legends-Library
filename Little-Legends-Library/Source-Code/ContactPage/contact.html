@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Little Legends Library</title>
+    <link rel="stylesheet" href="contact.css">
+    <link rel="stylesheet" href="responsive.css">
+</head>
+
+<body>
+    <div class="container">
+        <nav class="navbar">
+            <div class="logo">
+                <img src="https://res.cloudinary.com/du0ijg1nu/image/upload/v1740641091/Untitled_design_3_pxsurq.png"
+                    alt="Logo">
+            </div>
+            <div class="hamburger" onclick="toggleMenu()">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <div class="nav-links">
+                <a href="..//HomePage/home.html">Home</a>
+                <a href="..//ShopPage/shop.html">Shop</a>
+                <a href="../ContactPage/contact.html" class="active">Contact</a>
+            </div>
+            <div class="nav-buttons">
+                <a href="/cart"><img width="50" height="45"
+                        src="https://img.icons8.com/ios-glyphs/60/ff4500/shopping-cart--v1.png"
+                        alt="shopping-cart--v1" /></a>
+                <a href="/free-template" class="nav-free">Free Book!</a>
+            </div>
+        </nav>
+
+        <section class="hero">
+            <div class="contact-text">
+                <h1>Contact Us</h1>
+                <p>Any questions or remarks? Just write us a message</p>
+
+                <form class="contact-form">
+                    <div class="input-group">
+                        <input type="text" placeholder="Enter your name" required>
+                        <input type="email" placeholder="Enter your email" required>
+                    </div>
+                    <textarea placeholder="Enter your message" rows="5" required></textarea>
+                    <div class="button-container">
+                        <button type="submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>
