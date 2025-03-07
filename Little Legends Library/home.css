@@ -259,7 +259,8 @@
     height: 100vh;
     background: url('background_1.jpg') no-repeat center center fixed;
     background-size: cover;
-    padding: 100px;
+    padding: 50px;
+    
 }
 .customer-title-container{
     text-align: center;
@@ -279,30 +280,29 @@
     font-weight: bold;
 }
 .customer-reviews-container{
-    padding: 100px;
+    padding: 50px;
     text-align: center;
     justify-content: center;
 }
-.customer-reviews-text{
-    color: black;
-    background-color: #FFEDC8;
-    opacity: 0.7;
-    padding: 100px;
-}
 .customer-reviews-text-comment{
+    z-index: 1;
     text-align: center;
     font-family: "Poppins", sans-serif;
     font-size: 32px;
+    color: black;
+    background-color: #FFEDC8;
+    padding: 100px;
+    border-radius: 20px;
+}
+.customer-reviews-text{
+    z-index: 2;
     opacity: 1;
 }
-.profile-container{
-    background-color: none;
-    color: none;
-}
 .profile-pic{
-    position: relative;
+    z-index: 3;
     padding: 0px;
-    margin-bottom: 35px;
-    width: 250px;
+    margin-bottom: -75px;
+    width: 200px;
     border-radius: 100%;
+    opacity: 1;
 }
