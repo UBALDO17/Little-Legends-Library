@@ -16,12 +16,13 @@
             font-family: "Poppins", sans-serif;
         }
 
-        body {
+        .container {
             background: url('https://res.cloudinary.com/du0ijg1nu/image/upload/v1740640785/Firefly_generate_a_background_for_a_banner_a_book_shop_and_download_instantly_and_this_should_be_the_wfjarm.jpg') no-repeat center center fixed;
             background-size: cover;
             height: 100vh;
             display: flex;
             flex-direction: column;
+            width: 100%;
         }
 
         .navbar {
@@ -102,6 +103,12 @@
             border-radius: 0.625rem;
             cursor: pointer;
             text-decoration: none;
+            transition: 0.5s ease-in-out;
+        }
+
+        .btn:hover {
+            transform: scale(0.9);
+            background-color: #e03e00;
         }
 
         .hero {
@@ -114,6 +121,7 @@
             max-width: 67%;
             height: calc(100vh - 5.7rem - 14vh);
             margin: 7vh auto;
+            width: 100%;
             line-height: 1.4;
         }
 
@@ -140,6 +148,167 @@
 
         .hero a {
             font-size: 1.5rem;
+        }
+
+        .Featured {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background-color: #CCD2D5;
+        }
+
+        .featured-text h1 {
+            font-size: 2.5rem;
+            color: #000000D9;
+        }
+
+        .image-selection {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            gap: 0.5rem;
+            flex-wrap: nowrap;
+            margin-top: 0.3rem;
+        }
+
+        .book-image {
+            width: 14rem;
+            height: 18rem;
+            border-radius: 0.7rem;
+        }
+
+        .book-1 {
+            width: auto;
+            height: 550px;
+            padding: 25px;
+            border-radius: 20px;
+            transition: 0.5s ease-in-out;
+            color: black;
+            text-decoration: none;
+        }
+
+        .book-1:hover {
+            transform: scale(0.9);
+            background-color: #FF4500;
+            color: white;
+        }
+
+        .book-1:hover .price {
+            color: white;
+            transition: 1s;
+        }
+
+        .featured-image-container {
+            text-align: left;
+            justify-content: center;
+        }
+
+        .book-text {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .book-text-desc {
+            font-size: 1rem;
+            line-height: 3vh;
+        }
+
+        .price {
+            color: #FF4500;
+            font-size: 2rem;
+        }
+
+        .price-details {
+            padding-top: 0.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .detail-1 {
+            display: flex;
+            justify-content: center;
+            font-size: 1.2rem;
+            padding: 0.6rem;
+            background-color: #585653;
+            border-radius: 0.5rem;
+            color: white;
+            transition: 0.5s ease-in-out;
+            width: 45%;
+        }
+
+        .detail-1:hover {
+            background-color: white;
+            color: black;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            background-color: #CCD2D5;
+        }
+
+        .view-workbooks {
+            padding: 1.2rem 2.5rem;
+            font-size: 1.3rem;
+            border: none;
+            cursor: pointer;
+            border-radius: 0.625rem;
+            transition: 0.3s ease-in-out;
+        }
+
+
+        .customer-reviews {
+            text-align: center;
+            justify-content: center;
+            height: 100vh;
+            background: url('https://res.cloudinary.com/du0ijg1nu/image/upload/v1741143656/books_poster_background_rnjmkk.jpg') no-repeat center center fixed;
+            background-size: cover;
+            padding: 100px;
+        }
+
+        .customer-title-container {
+            text-align: center;
+            background-color: #FCAC16;
+            width: 400px;
+            height: 100px;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
+            border-radius: 5px;
+        }
+
+        .customer-title {
+            font-family: "Poppins", sans-serif;
+            font-size: 32px;
+            font-weight: bold;
+        }
+
+        .customer-reviews-container {
+            padding: 100px;
+            text-align: center;
+            justify-content: center;
+        }
+
+        .customer-reviews-text {
+            color: black;
+            background-color: #FFEDC8;
+            opacity: 0.7;
+            padding: 100px;
+        }
+
+        .customer-reviews-text-comment {
+            text-align: center;
+            font-family: "Poppins", sans-serif;
+            font-size: 32px;
+            opacity: 1;
         }
     </style>
 </head>
@@ -174,10 +343,103 @@
                     Engaging and fun learning materials <br />
                     in PDF format – download instantly.
                 </p>
-                <a href="/shop" class="btn">Browse Workbooks</a>
+                <a href="#Featured" class="btn">Browse Workbooks</a>
             </div>
         </section>
     </div>
+    <section class="Featured" id="Featured">
+        <div class="featured-text">
+            <h1>Featured Workbooks</h1>
+        </div>
+        <div class="image-selection">
+            <a href="" class="book-1">
+                <div class="featured-image-container">
+                    <img src="https://res.cloudinary.com/du0ijg1nu/image/upload/v1741241390/Firefly_A_cheerful_white_8-year-old_boy_named_Marco_with_brown_hair_and_blue_eyes_wearing_a_futuris_my6xax.jpg"
+                        alt="" class="book-image" />
+                    <p class="book-text">Valentine's Day <br />Workbook</p>
+                    <p class="book-text-desc">
+                        Engaging and fun learning <br />
+                        materials in PDF format – <br />
+                        download instantly.
+                    </p>
+                    <div class="price-details">
+                        <h3 class="price">P300</h3>
+                        <p class="detail-1">Details</p>
+                    </div>
+                </div>
+            </a>
+            <a href="" class="book-1">
+                <div class="featured-image-container">
+                    <img src="https://res.cloudinary.com/du0ijg1nu/image/upload/v1741241390/Firefly_A_cheerful_white_8-year-old_boy_named_Marco_with_brown_hair_and_blue_eyes_wearing_a_futuris_my6xax.jpg"
+                        alt="" class="book-image" />
+                    <p class="book-text">Dinosaur <br />Workbook</p>
+                    <p class="book-text-desc">
+                        Engaging and fun learning <br />
+                        materials in PDF format – <br />
+                        download instantly.
+                    </p>
+                    <div class="price-details">
+                        <h3 class="price">P300</h3>
+                        <p class="detail-1">Details</p>
+                    </div>
+                </div>
+            </a>
+            <a href="" class="book-1">
+                <div class="featured-image-container">
+                    <img src="https://res.cloudinary.com/du0ijg1nu/image/upload/v1741241390/Firefly_A_cheerful_white_8-year-old_boy_named_Marco_with_brown_hair_and_blue_eyes_wearing_a_futuris_my6xax.jpg"
+                        alt="" class="book-image" />
+                    <p class="book-text">Prince <br />Workbook</p>
+                    <p class="book-text-desc">
+                        Engaging and fun learning <br />
+                        materials in PDF format – <br />
+                        download instantly.
+                    </p>
+                    <div class="price-details">
+                        <h3 class="price">P300</h3>
+                        <p class="detail-1">Details</p>
+                    </div>
+                </div>
+            </a>
+            <a href="" class="book-1">
+                <div class="featured-image-container">
+                    <img src="https://res.cloudinary.com/du0ijg1nu/image/upload/v1741241390/Firefly_A_cheerful_white_8-year-old_boy_named_Marco_with_brown_hair_and_blue_eyes_wearing_a_futuris_my6xax.jpg"
+                        alt="" class="book-image" />
+                    <p class="book-text">Workbook 32 <br />Workbook</p>
+                    <p class="book-text-desc">
+                        Engaging and fun learning <br />
+                        materials in PDF format – <br />
+                        download instantly.
+                    </p>
+                    <div class="price-details">
+                        <h3 class="price">P300</h3>
+                        <p class="detail-1">Details</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="button-container">
+            <button class="btn view-workbooks">View All Workbooks</button>
+        </div>
+    </section>
+
+    <section class="customer-reviews">
+        <div class="customer-title-container">
+            <h2 class="customer-title">Customer Reviews</h2>
+        </div>
+        <div class="customer-reviews-container">
+            <div class="profile-container">
+                <img src="" alt="" class="profile-pic" />
+            </div>
+            <div class="customer-reviews-text">
+                <p class="customer-reviews-text-comment">
+                    "Fun Learning Workbook" is an engaging and educational tool for
+                    kids, with interactive activities that make learning enjoyable.
+                    Bright illustrations and simple instructions keep young learners
+                    interested.
+                </p>
+            </div>
+        </div>
+    </section>
 </body>
 
 </html>

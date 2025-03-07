@@ -1,0 +1,303 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+.container {
+    background: url('https://res.cloudinary.com/du0ijg1nu/image/upload/v1740640785/Firefly_generate_a_background_for_a_banner_a_book_shop_and_download_instantly_and_this_should_be_the_wfjarm.jpg') no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0, 114, 151, 0.2);
+    padding: 0.5rem 12.75rem;
+    height: 5.7rem;
+    box-shadow: 0 0.25rem 0.375rem rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    margin-right: 3.5rem;
+}
+
+.logo img {
+    width: 5.31rem;
+    height: 5.31rem;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-right: auto;
+}
+
+.nav-links a,
+.nav-buttons a {
+    text-decoration: none;
+    color: #FFFFFF;
+    font-size: 1.7rem;
+    font-weight: 500;
+    transition: 0.3s ease-in-out;
+    padding: 0.35rem 1.76rem;
+    border-radius: 2.19rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 8rem;
+    text-align: center;
+}
+
+.nav-links a.active {
+    background: #FF4500;
+    color: #ffffff;
+}
+
+.nav-links a:hover {
+    background: rgba(255, 69, 0, 0.8);
+    color: #ffffff;
+}
+
+.nav-buttons {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.nav-free {
+    padding: 0.625rem 1.76rem;
+    background: #FF4500;
+    color: #ffffff;
+    border: none;
+    border-radius: 2.19rem;
+    text-decoration: none;
+}
+
+.btn {
+    font-weight: 500;
+    padding: 1rem 2.5rem;
+    background: #FF4500;
+    color: #ffffff;
+    border: none;
+    border-radius: 0.625rem;
+    cursor: pointer;
+    text-decoration: none;
+    transition: 0.5s ease-in-out;
+}
+
+.btn:hover {
+    transform: scale(0.9);
+    background-color: #e03e00;
+}
+
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: rgba(217, 217, 217, 0.8);
+    border-radius: 1.25rem;
+    max-width: 67%;
+    height: calc(100vh - 5.7rem - 14vh);
+    margin: 7vh auto;
+    width: 100%;
+    line-height: 1.4;
+}
+
+.hero-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    margin: 4rem 1rem 2.5rem 1rem;
+}
+
+.hero h1 {
+    font-size: 5.2rem;
+    color: rgba(0, 0, 0, 0.7);
+    font-weight: 600;
+}
+
+.hero p {
+    font-size: 1.7rem;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.493);
+    margin: 0.5rem 0 1rem;
+}
+
+.hero a {
+    font-size: 1.5rem;
+}
+
+.Featured {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #CCD2D5;
+}
+
+.featured-text h1 {
+    font-size: 2.5rem;
+    color: #000000D9;
+}
+
+.image-selection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 0.5rem;
+    flex-wrap: nowrap;
+    margin-top: 0.3rem;
+}
+
+.book-image {
+    width: 14rem;
+    height: 18rem;
+    border-radius: 0.7rem;
+}
+
+.book-1 {
+    width: auto;
+    height: 550px;
+    padding: 25px;
+    border-radius: 20px;
+    transition: 0.5s ease-in-out;
+    color: black;
+    text-decoration: none;
+}
+
+.book-1:hover {
+    transform: scale(0.9);
+    background-color: #FF4500;
+    color: white;
+}
+
+.book-1:hover .price {
+    color: white;
+    transition: 1s;
+}
+
+.featured-image-container {
+    text-align: left;
+    justify-content: center;
+}
+
+.book-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.book-text-desc {
+    font-size: 1rem;
+    line-height: 3vh;
+}
+
+.price {
+    color: #FF4500;
+    font-size: 2rem;
+}
+
+.price-details {
+    padding-top: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.detail-1 {
+    display: flex;
+    justify-content: center;
+    font-size: 1.2rem;
+    padding: 0.6rem;
+    background-color: #585653;
+    border-radius: 0.5rem;
+    color: white;
+    transition: 0.5s ease-in-out;
+    width: 45%;
+}
+
+.detail-1:hover {
+    background-color: white;
+    color: black;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    background-color: #CCD2D5;
+}
+
+.view-workbooks {
+    padding: 1.2rem 2.5rem;
+    font-size: 1.3rem;
+    border: none;
+    cursor: pointer;
+    border-radius: 0.625rem;
+    transition: 0.3s ease-in-out;
+}
+
+/* To Fix*/
+.customer-reviews {
+    text-align: center;
+    justify-content: center;
+    height: 100vh;
+    background: url('https://res.cloudinary.com/du0ijg1nu/image/upload/v1741143656/books_poster_background_rnjmkk.jpg') no-repeat center center fixed;
+    background-size: cover;
+    padding: 100px;
+}
+
+.customer-title-container {
+    text-align: center;
+    background-color: #FCAC16;
+    width: 400px;
+    height: 100px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    border-radius: 5px;
+}
+
+.customer-title {
+    font-family: "Poppins", sans-serif;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.customer-reviews-container {
+    padding: 100px;
+    text-align: center;
+    justify-content: center;
+}
+
+.customer-reviews-text {
+    color: black;
+    background-color: #FFEDC8;
+    opacity: 0.7;
+    padding: 100px;
+}
+
+.customer-reviews-text-comment {
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+    font-size: 32px;
+    opacity: 1;
+}
