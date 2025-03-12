@@ -410,4 +410,8 @@
 
 .faqs-text a {
     font-size: 1.5rem;
+    padding: 30px;
+    width: 50rem;
+    border-radius: 10rem;
+    background-color: white;
 }
