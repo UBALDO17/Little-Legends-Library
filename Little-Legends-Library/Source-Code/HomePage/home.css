@@ -303,13 +303,12 @@
 }
 .guide {
     text-align: center;
-    padding: 20px;
     height: 100vh;
 }
 
 .guide-title {
-    font-size: 24px;
-    margin-bottom: 20px;
+    font-size: 98px;
+    padding: 50px;
 }
 
 .step {
@@ -317,12 +316,11 @@
     align-items: center;
     justify-content: center;
     margin-bottom: 20px;
-    padding: 20px;
 }
 
 .circle {
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    height: 120px;
     background: #025786;
     color: white;
     display: flex;
@@ -337,31 +335,33 @@
 .step-box {
     display: flex;
     align-items: center;
+    text-align: center;
     background: #025786;
     color: white;
     padding: 15px;
+    gap: 200px;
     border-radius: 10px;
-    max-width: 400px;
+    max-width: 800px;
     flex-grow: 1;
+    height: 150px;
 }
 
 .icon1 {
-    width: 40px;
-    height: 40px;
+    width: 60px;
+    height: 60px;
     background: white;
     padding: 5px;
     border-radius: 5px;
-    margin-right: 15px;
     fill: #025786;
-}
+}   
 
 .step-text h3 {
-    font-size: 16px;
+    font-size: 32px;
     font-weight: bold;
     margin: 0;
 }
 
 .step-text p {
-    font-size: 14px;
+    font-size: 16px;
     margin: 5px 0 0 0;
 }
