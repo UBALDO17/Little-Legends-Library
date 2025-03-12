@@ -365,3 +365,49 @@
     font-size: 16px;
     margin: 5px 0 0 0;
 }
+.FAQs{
+    background: url('https://res.cloudinary.com/du0ijg1nu/image/upload/v1740640785/Firefly_generate_a_background_for_a_banner_a_book_shop_and_download_instantly_and_this_should_be_the_wfjarm.jpg') no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.faqs-main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: rgba(217, 217, 217, 0.8);
+    border-radius: 1.25rem;
+    max-width: 67%;
+    height: calc(100vh - 5.7rem - 14vh);
+    margin: 7vh auto;
+    width: 100%;
+    line-height: 1.4;
+}
+
+.faqs-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    margin: 4rem 1rem 2.5rem 1rem;
+}
+
+.faqs-text h2 {
+    font-size: 3.2rem;
+    color: rgba(0, 0, 0, 0.7);
+    font-weight: 600;
+}
+
+.faqs-text p {
+    font-size: 1.7rem;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.493);
+    margin: 0.5rem 0 1rem;
+}
+
+.faqs-text a {
+    font-size: 1.5rem;
+}
