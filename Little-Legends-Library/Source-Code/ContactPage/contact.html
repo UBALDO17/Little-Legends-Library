@@ -27,10 +27,15 @@
                 <a href="../ContactPage/contact.html" class="active">Contact</a>
             </div>
             <div class="nav-buttons">
-                <a href="/cart"><img width="50" height="45"
-                        src="https://img.icons8.com/ios-glyphs/60/ff4500/shopping-cart--v1.png"
-                        alt="shopping-cart--v1" /></a>
-                <a href="/free-template" class="nav-free">Free Book!</a>
+                <div class="cart-contain">
+                    <a href="Cart.html">
+                        <img width="50" height="45"
+                            src="https://img.icons8.com/ios-glyphs/60/ff4500/shopping-cart--v1.png"
+                            alt="shopping-cart--v1" />
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+                <a href="#" class="nav-free">Free Book!</a>
             </div>
         </nav>
 
@@ -39,19 +44,24 @@
                 <h1>Contact Us</h1>
                 <p>Any questions or remarks? Just write us a message</p>
 
-                <form class="contact-form">
+                <form class="contact-form" action="https://formsubmit.co/mghs.christiantsu@gmail.com" method="POST">
                     <div class="input-group">
-                        <input type="text" placeholder="Enter your name" required>
-                        <input type="email" placeholder="Enter your email" required>
+                        <input type="text" name="name" placeholder="Enter your name" required>
+                        <input type="email" name="email" placeholder="Enter your email" required>
                     </div>
-                    <textarea placeholder="Enter your message" rows="5" required></textarea>
+                    <textarea name="message" placeholder="Enter your message" rows="5" required></textarea>
                     <div class="button-container">
                         <button type="submit">Submit</button>
                     </div>
+
+                    <!-- Hidden fields (optional) -->
+                    <input type="hidden" name="_subject" value="New Contact Form Submission">
+                    <input type="hidden" name="_captcha" value="false">
                 </form>
             </div>
         </section>
     </div>
 </body>
+<script src="contact.js"></script>
 
 </html>
