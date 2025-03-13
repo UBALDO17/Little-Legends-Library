@@ -111,6 +111,33 @@
             background-color: #e03e00;
         }
 
+        /* Cart container to ensure the badge stays inside the cart icon */
+        .cart-contain {
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Cart badge styling */
+        .cart-count {
+            position: absolute;
+            bottom: -5px;
+            right: 0px;
+            background: white;
+            color: black;
+            font-size: 1rem;
+            min-width: 2rem;
+            height: 2rem;
+            padding: 0 0.3rem;
+            border-radius: 50%;
+            font-weight: bold;
+            display: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            transform: scale(0.9);
+        }
+
         .hero {
             display: flex;
             justify-content: center;
@@ -326,9 +353,14 @@
                 <a href="/contact">Contact</a>
             </div>
             <div class="nav-buttons">
-                <a href="/cart"><img width="50" height="45"
-                        src="https://img.icons8.com/ios-glyphs/60/ff4500/shopping-cart--v1.png"
-                        alt="shopping-cart--v1" /></a>
+                <div class="cart-contain">
+                    <a href="/cart">
+                        <img width="50" height="45"
+                            src="https://img.icons8.com/ios-glyphs/60/ff4500/shopping-cart--v1.png"
+                            alt="shopping-cart--v1" />
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
                 <a href="/free-template" class="nav-free">Free Book!</a>
             </div>
         </nav>
@@ -352,7 +384,7 @@
             <h1>Featured Workbooks</h1>
         </div>
         <div class="image-selection">
-            <a href="" class="book-1">
+            <a href="https://littlelegendslibrary.blogspot.com/2025/03/valentines-day-workbook.html" class="book-1">
                 <div class="featured-image-container">
                     <img src="https://res.cloudinary.com/du0ijg1nu/image/upload/v1741241390/Firefly_A_cheerful_white_8-year-old_boy_named_Marco_with_brown_hair_and_blue_eyes_wearing_a_futuris_my6xax.jpg"
                         alt="" class="book-image" />
@@ -368,7 +400,7 @@
                     </div>
                 </div>
             </a>
-            <a href="" class="book-1">
+            <a href="https://littlelegendslibrary.blogspot.com/2025/03/valentines-day-workbook.html" class="book-1">
                 <div class="featured-image-container">
                     <img src="https://res.cloudinary.com/du0ijg1nu/image/upload/v1741241390/Firefly_A_cheerful_white_8-year-old_boy_named_Marco_with_brown_hair_and_blue_eyes_wearing_a_futuris_my6xax.jpg"
                         alt="" class="book-image" />
@@ -384,7 +416,7 @@
                     </div>
                 </div>
             </a>
-            <a href="" class="book-1">
+            <a href="https://littlelegendslibrary.blogspot.com/2025/03/valentines-day-workbook.html" class="book-1">
                 <div class="featured-image-container">
                     <img src="https://res.cloudinary.com/du0ijg1nu/image/upload/v1741241390/Firefly_A_cheerful_white_8-year-old_boy_named_Marco_with_brown_hair_and_blue_eyes_wearing_a_futuris_my6xax.jpg"
                         alt="" class="book-image" />
@@ -400,7 +432,7 @@
                     </div>
                 </div>
             </a>
-            <a href="" class="book-1">
+            <a href="https://littlelegendslibrary.blogspot.com/2025/03/valentines-day-workbook.html" class="book-1">
                 <div class="featured-image-container">
                     <img src="https://res.cloudinary.com/du0ijg1nu/image/upload/v1741241390/Firefly_A_cheerful_white_8-year-old_boy_named_Marco_with_brown_hair_and_blue_eyes_wearing_a_futuris_my6xax.jpg"
                         alt="" class="book-image" />
@@ -441,5 +473,71 @@
         </div>
     </section>
 </body>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        updateCartCount(); // Ensure count updates on load
+
+        document.querySelectorAll(".add-to-cart").forEach(button => {
+            button.addEventListener("click", function () {
+                const product = {
+                    name: this.dataset.name,
+                    price: parseFloat(this.dataset.price),
+                    image: this.dataset.image
+                };
+
+                const isAdded = addToCart(product); // Add to cart and check if it's new
+                if (isAdded) {
+                    showAddedMessage("✅ Added to Cart!");
+                } else {
+                    showAddedMessage("⚠️ Item is already in the cart!");
+                }
+
+                updateCartCount(); // Update cart count after adding
+            });
+        });
+    });
+
+    // 🛒 **Add to Cart Function (Prevents duplicates)**
+    function addToCart(product) {
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        // Check if the item already exists
+        const existingProduct = cart.find(item => item.name === product.name);
+        if (!existingProduct) {
+            cart.push(product); // Add only if not already in the cart
+        }
+
+        localStorage.setItem("cart", JSON.stringify(cart));
+        return !existingProduct; // Return true if new item added, false if already exists
+    }
+
+    // 🔢 **Update Cart Count Badge**
+    function updateCartCount() {
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        const cartCount = cart.length; // Only counts unique items
+
+        const cartBadge = document.querySelector(".cart-count");
+        if (cartBadge) {
+            cartBadge.textContent = cartCount;
+            cartBadge.style.display = cartCount > 0 ? "flex" : "none"; // Hide if empty
+        }
+    }
+
+    // ✅ **Show "Added to Cart" Message**
+    function showAddedMessage(text) {
+        const message = document.createElement("div");
+        message.textContent = text;
+        message.classList.add("cart-message");
+        document.body.appendChild(message);
+
+        setTimeout(() => {
+            message.classList.add("fade-out"); // Fade out animation
+            setTimeout(() => message.remove(), 1000);
+        }, 1000);
+    }
+
+    // Ensure cart count updates when page loads
+    document.addEventListener("DOMContentLoaded", updateCartCount);
+</script>
 
 </html>
