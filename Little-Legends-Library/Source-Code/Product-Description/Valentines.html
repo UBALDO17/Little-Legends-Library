@@ -27,9 +27,14 @@
                 <a href="..//ContactPage/contact.html">Contact</a>
             </div>
             <div class="nav-buttons">
-                <a href="#"><img width="50" height="45"
-                        src="https://img.icons8.com/ios-glyphs/60/ff4500/shopping-cart--v1.png"
-                        alt="shopping-cart--v1" /></a>
+                <div class="cart-container">
+                    <a href="Cart.html">
+                        <img width="50" height="45"
+                            src="https://img.icons8.com/ios-glyphs/60/ff4500/shopping-cart--v1.png"
+                            alt="shopping-cart--v1" />
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
                 <a href="#" class="nav-free">Free Book!</a>
             </div>
         </nav>
@@ -50,7 +55,9 @@
                         <span class="payment-type"><i>One-time Payment <br> Instant Download</i></span>
                     </div>
                     <div class="product-buttons">
-                        <button class="add-to-cart">Add to Cart</button>
+                        <button class="add-to-cart" data-name="Valentine's Workbook" data-price="3500"
+                            data-image="https://res.cloudinary.com/du0ijg1nu/image/upload/v1741241390/Firefly_A_cheerful_white_8-year-old_boy_named_Marco_with_brown_hair_and_blue_eyes_wearing_a_futuris_my6xax.jpg">Add
+                            to Cart</button>
                         <button class="buy-now">Buy Now</button>
                     </div>
                 </div>
@@ -312,12 +319,7 @@
         </div>
     </section>
 </body>
-<script src="hamburgerMenu.js">
-
-</script>
-
-<script src="Valentines.js">
-
-</script>
+<script src="hamburgerMenu.js"></script>
+<script src="Valentines.js"></script>
 
 </html>

@@ -460,7 +460,7 @@ button:hover {
     font-size: 1.5rem;
     font-weight: bold;
     color: #333;
-    width: 3.5rem;
+    width: 4rem;
     text-align: center;
     display: flex;
     align-items: center;
@@ -496,7 +496,6 @@ button:hover {
     padding: 1rem 2rem;
     width: 15%;
 }
-
 
 /* Review List */
 .review-section {
@@ -676,4 +675,68 @@ button:hover {
 .detail-1:hover {
     background-color: white;
     color: black;
+}
+
+/* Cart container to ensure the badge stays inside the cart icon */
+.cart-container {
+    position: relative;
+    display: inline-block;
+}
+
+/* Cart badge styling */
+.cart-count {
+    position: absolute;
+    bottom: -5px;
+    right: 0px;
+    background: white;
+    color: black;
+    font-size: 1rem;
+    min-width: 2rem;
+    height: 2rem;
+    padding: 0 0.3rem;
+    border-radius: 50%;
+    font-weight: bold;
+    display: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transform: scale(0.9);
+}
+
+/* ✅ "Added to Cart" Floating Message */
+.cart-message {
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #ff4500;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    animation: fadeInOut 2s ease-in-out;
+}
+
+/* 🔄 Animation */
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -100%);
+    }
+
+    10% {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -100%);
+    }
 }
