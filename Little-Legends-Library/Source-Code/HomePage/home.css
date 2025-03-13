@@ -415,3 +415,45 @@
     border-radius: 10rem;
     background-color: white;
 }
+footer {
+    width: 100%;
+    max-width: 1200px; /* paadjust nalang sya*/
+    margin: 0 auto;
+    background-color: #ffffff; 
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-info {
+    width: 100vw; 
+    padding: 20px;
+    background-color: #025786; 
+    color: #ffffff;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: calc(-50vw + 50%); 
+}
+
+.footer-info h4 {
+    margin: 0;
+    padding: 10px;
+    font-size: 32px;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+.social-icons a{
+    color: white;
+}
+.last-text{
+    display: inline-block;
+}
+.orange{
+    color: orangered;
+}
