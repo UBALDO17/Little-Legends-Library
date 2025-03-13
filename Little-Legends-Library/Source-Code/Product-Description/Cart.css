@@ -122,6 +122,33 @@
     }
 }
 
+/* Cart container to ensure the badge stays inside the cart icon */
+.cart-contain {
+    position: relative;
+    display: inline-block;
+}
+
+/* Cart badge styling */
+.cart-count {
+    position: absolute;
+    bottom: -5px;
+    right: 0px;
+    background: white;
+    color: black;
+    font-size: 1rem;
+    min-width: 2rem;
+    height: 2rem;
+    padding: 0 0.3rem;
+    border-radius: 50%;
+    font-weight: bold;
+    display: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transform: scale(0.9);
+}
+
 /* 🛒 Cart Section (Now Grid Layout) */
 .cart-container {
     background: white;
