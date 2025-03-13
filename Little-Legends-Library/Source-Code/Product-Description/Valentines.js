@@ -36,7 +36,9 @@ document.addEventListener("DOMContentLoaded", function () {
 function addToCart(product) {
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-
+    // Check if the product already exists
+    const existingProduct = cart.find(item => item.name === product.name);
+    if (existingProduct) return false; // Don't add duplicate items
 
     cart.push(product); // Add only if not already in the cart
     localStorage.setItem("cart", JSON.stringify(cart));
