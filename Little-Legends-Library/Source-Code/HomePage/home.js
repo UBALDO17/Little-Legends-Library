@@ -62,3 +62,24 @@ function showAddedMessage(text) {
 
 // Ensure cart count updates when page loads
 document.addEventListener("DOMContentLoaded", updateCartCount);
+
+
+// Customer Reviews
+document.addEventListener("DOMContentLoaded", function () {
+    const reviews = document.querySelectorAll(".customer-reviews-container");
+    let index = 0;
+
+    function showNextReview() {
+        reviews.forEach((review, i) => {
+            review.classList.remove("active");
+            if (i === index) {
+                review.classList.add("active");
+            }
+        });
+        index = (index + 1) % reviews.length;
+    }
+
+    setInterval(showNextReview, 4000); // Slide every 4 seconds
+});
+
+
