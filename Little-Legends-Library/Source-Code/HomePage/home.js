@@ -72,13 +72,16 @@ document.addEventListener("DOMContentLoaded", function () {
     function showNextReview() {
         reviews.forEach((review, i) => {
             review.classList.remove("active");
-            if (i === index) {
-                review.classList.add("active");
-            }
+            review.style.display = "none"; // Hide all reviews
         });
-        index = (index + 1) % reviews.length;
+
+        reviews[index].classList.add("active");
+        reviews[index].style.display = "flex"; // Show only the active review
+
+        index = (index + 1) % reviews.length; // Loop back to the first review after last
     }
 
+    showNextReview(); // Show first review immediately
     setInterval(showNextReview, 4000); // Slide every 4 seconds
 });
 
