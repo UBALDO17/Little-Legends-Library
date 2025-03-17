@@ -1,4 +1,19 @@
 document.addEventListener("DOMContentLoaded", function () {
+    
+    // ✅ Check if cart should be cleared when returning from the form
+    if (localStorage.getItem("clearCartOnReturn") === "true") {
+        localStorage.removeItem("cart"); // Clear the cart
+        localStorage.removeItem("clearCartOnReturn"); // Remove the flag to prevent repeated clearing
+        updateCart();
+        updateCartCount();
+    }
+
+    // ✅ Notify user if order was placed
+    if (sessionStorage.getItem("showOrderSuccess")) {
+        alert(`✅ Your order has been successfully placed! Your Order ID is: ${localStorage.getItem("orderID")}`);
+        sessionStorage.removeItem("showOrderSuccess"); // Prevent alert from showing again
+    }
+    
     updateCartCount();
     updateCart();
     
@@ -110,3 +125,45 @@ function showAddedMessage(text) {
 
 // 🟢 Ensure cart updates on load
 document.addEventListener("DOMContentLoaded", updateCartCount);
+
+
+// Checkout or Buy Now Function
+function generateOrderID() {
+    return 'ORDER-' + Math.floor(Math.random() * 1000000);
+}
+
+function goToOrderForm() {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    if (cart.length === 0) {
+        alert("Your cart is empty!");
+        return;
+    }
+
+    let orderID = generateOrderID();
+    localStorage.setItem("orderID", orderID); // Store Order ID locally
+
+    // Convert cart items to a readable format (Title only, without price)
+    let bookList = cart.map(item => item.name).join(", ");
+    let totalPrice = cart.reduce((acc, item) => acc + item.price, 0);
+
+    // 🔹 Google Form Link (Your actual form URL)
+    let formURL = "https://docs.google.com/forms/d/e/1FAIpQLSc9BPxq--g3lNUQ1jtJB3rx6kYPuDrTfaQ-e1BEJ9-z9yvgOw/viewform?";
+
+    // 🔹 Google Form Entry IDs (Based on your provided IDs)
+    let orderIDField = "entry.771543493=" + encodeURIComponent(orderID);
+    let booksField = "&entry.271701913=" + encodeURIComponent(bookList);
+    let totalPriceField = "&entry.827177782=" + encodeURIComponent(totalPrice);
+
+    // ✅ Store session flag before redirecting to the form
+    sessionStorage.setItem("showOrderSuccess", "true");
+
+    
+    // Redirect to Google Form with prefilled data
+    window.location.href = formURL + orderIDField + booksField + totalPriceField;
+
+    // window.open(formURL + orderIDField + booksField + totalPriceField, "_blank");
+
+     // ✅ Store a flag to clear the cart when the user returns
+    localStorage.setItem("clearCartOnReturn", "true");
+
+}
