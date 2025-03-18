@@ -9,10 +9,10 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // ✅ Notify user if order was placed
-    if (sessionStorage.getItem("showOrderSuccess")) {
-        alert(`✅ Your order has been successfully placed! Your Order ID is: ${localStorage.getItem("orderID")}`);
-        sessionStorage.removeItem("showOrderSuccess"); // Prevent alert from showing again
-    }
+    // if (sessionStorage.getItem("showOrderSuccess")) {
+    //     alert(`✅ Your order has been successfully placed! Your Order ID is: ${localStorage.getItem("orderID")}`);
+    //     sessionStorage.removeItem("showOrderSuccess"); // Prevent alert from showing again
+    // }
     
     updateCartCount();
     updateCart();

@@ -1,3 +1,4 @@
+// Customer Reviews Comment
 document.querySelector(".toggle-reviews").addEventListener("click", function() {
     const hiddenReviews = document.querySelectorAll(".hidden");
     if (this.textContent === "Show More") {
@@ -9,9 +10,10 @@ document.querySelector(".toggle-reviews").addEventListener("click", function() {
     }
 });
 
+// Event listeners for Add to Cart and Buy Now buttons
 document.addEventListener("DOMContentLoaded", function () {
-    updateCartCount(); // Ensure count updates on load
 
+    // Handle Add to Cart button click
     document.querySelectorAll(".add-to-cart").forEach(button => {
         button.addEventListener("click", function () {
             const product = {
@@ -20,16 +22,33 @@ document.addEventListener("DOMContentLoaded", function () {
                 image: this.dataset.image
             };
 
-            const isAdded = addToCart(product); // Add to cart and check if it's new
+            const isAdded = addToCart(product);
             if (isAdded) {
-                showAddedMessage("✅ Added to Cart!");
+                showAddedMessage("\u2705 Added to Cart!");
             } else {
-                showAddedMessage("⚠️ Item is already in the cart!");
+                showAddedMessage("\u26A0\ufe0f Item is already in the cart!");
             }
 
-            updateCartCount(); // Update cart count after adding
+            // Update cart count immediately
+            updateCartCount();
         });
     });
+
+    // Handle Buy Now button click
+    document.querySelectorAll(".buy-now").forEach(button => {
+        button.addEventListener("click", function () {
+            const product = {
+                name: this.dataset.name,
+                price: parseFloat(this.dataset.price),
+                image: this.dataset.image
+            };
+
+            goToOrderForm(product); // Go to order form
+        });
+    });
+
+    // Initialize cart count on page load
+    updateCartCount();
 });
 
 // 🛒 **Add to Cart Function (Prevents duplicates)**
@@ -70,5 +89,21 @@ function showAddedMessage(text) {
     }, 1000);
 }
 
-// Ensure cart count updates when page loads
-document.addEventListener("DOMContentLoaded", updateCartCount);
+// Buy Now Function (Redirect to Google Form)
+function goToOrderForm(product) {
+    let orderID = generateOrderID();
+    localStorage.setItem("orderID", orderID); // Store Order ID locally
+
+    let formURL = "https://docs.google.com/forms/d/e/1FAIpQLSc9BPxq--g3lNUQ1jtJB3rx6kYPuDrTfaQ-e1BEJ9-z9yvgOw/viewform?";
+    let orderIDField = "entry.771543493=" + encodeURIComponent(orderID);
+    let productField = "&entry.271701913=" + encodeURIComponent(product.name);
+    let priceField = "&entry.827177782=" + encodeURIComponent(product.price);
+
+    sessionStorage.setItem("showOrderSuccess", "true");
+    window.location.href = formURL + orderIDField + productField + priceField;
+}
+
+// Generate Order ID Function
+function generateOrderID() {
+    return 'ORDER-' + Math.floor(Math.random() * 1000000);
+}
