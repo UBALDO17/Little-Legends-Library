@@ -701,48 +701,59 @@ footer {
     width: 100%;
     margin: 0 auto;
     background-color: #ffffff;
-    padding: 20px 0;
     text-align: center;
 }
 
+.footer-container {
+    height: 35vh;
+}
+
+.footer-top {
+    height: 9vh;
+}
+
 .footer-info {
-    padding: 20px;
+    padding: 1.5rem;
     background-color: #025786;
     color: #ffffff;
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-left: calc(-50vw + 50%);
 }
 
 .footer-info h4 {
     margin: 0;
     padding: 10px;
-    font-size: 32px;
+    font-size: 1.5rem;
+    letter-spacing: 0.2rem;
+    font-weight: 600;
 }
-
-
 
 .social-icons {
     display: flex;
     justify-content: center;
-    gap: 15px;
-    margin-top: 10px;
-}
-
-.social-icons a {
-    color: white;
+    gap: 1.5rem;
+    margin-top: 1rem;
 }
 
 .last-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
     text-align: center;
-    /* Ensures the text stays centered */
-    font-size: 24px;
+    font-size: 1.7rem;
+    letter-spacing: 0.3rem;
+    font-weight: 600;
+}
+
+.last-text a {
+    text-decoration: none;
+    color: inherit;
 }
 
 .orange {
     color: orangered;
     display: inline;
-    /* Keeps "Legends" inline within the text */
 }
