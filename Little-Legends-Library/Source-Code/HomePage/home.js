@@ -118,4 +118,35 @@ document.addEventListener("DOMContentLoaded", function () {
     setInterval(showNextReview, 4000); // Slide every 4 seconds
 });
 
+// FAQ Section
+document.addEventListener("DOMContentLoaded", function () {
+    const faqs = document.querySelectorAll(".faq-item");
+
+    faqs.forEach(faq => {
+        faq.querySelector(".faq-question").addEventListener("click", function () {
+            const isActive = faq.classList.contains("active");
+
+            // Hide all other FAQ items
+            faqs.forEach(item => {
+                if (item !== faq) {
+                    item.style.display = "none";
+                    item.classList.remove("active");
+                }
+            });
+
+            // Toggle the clicked FAQ
+            if (!isActive) {
+                faq.classList.add("active");
+                faq.style.display = "block";
+            } else {
+                faq.classList.remove("active");
+                faqs.forEach(item => item.style.display = "block"); // Show all FAQs when closing
+            }
+        });
+    });
+});
+
+
+
+
 

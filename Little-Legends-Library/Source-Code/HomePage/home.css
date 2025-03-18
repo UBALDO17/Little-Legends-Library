@@ -598,3 +598,151 @@
     margin: 0.5rem 0 0;
     opacity: 0.9;
 }
+
+/* Another Section */
+.FAQs {
+    background: url('https://res.cloudinary.com/du0ijg1nu/image/upload/v1740640785/Firefly_generate_a_background_for_a_banner_a_book_shop_and_download_instantly_and_this_should_be_the_wfjarm.jpg') no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.faqs-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: rgba(217, 217, 217, 0.8);
+    border-radius: 1.25rem;
+    height: calc(100vh - 5vh);
+    margin: 10vh auto;
+}
+
+.faqs-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    margin: 1rem 6rem;
+    width: 100%;
+}
+
+.faqs-text h2 {
+    font-size: 3.2rem;
+    color: rgba(0, 0, 0, 0.7);
+    font-weight: 600;
+}
+
+.faq-item {
+    width: 50rem;
+    background-color: white;
+    border-radius: 1rem;
+    overflow: hidden;
+    transition: 0.3s ease-in-out;
+}
+
+.faq-question {
+    width: 100%;
+    padding: 1.5rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    background: white;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    outline: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.faq-question::after {
+    content: "➕";
+    font-size: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.faq-item.active .faq-question::after {
+    content: "➖";
+}
+
+.faq-answer {
+    padding: 0 1.5rem;
+    font-size: 1.3rem;
+    text-align: left;
+    display: none;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+}
+
+.faq-item.active .faq-answer {
+    display: block;
+    max-height: 15rem;
+    padding: 1rem 1.5rem;
+}
+
+.faq-answer ul {
+    margin-top: 0.5rem;
+    padding-left: 1.5rem;
+}
+
+.faq-answer ul li {
+    list-style-type: "✅ ";
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Another Section */
+footer {
+    width: 100%;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-info {
+    padding: 20px;
+    background-color: #025786;
+    color: #ffffff;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: calc(-50vw + 50%);
+}
+
+.footer-info h4 {
+    margin: 0;
+    padding: 10px;
+    font-size: 32px;
+}
+
+
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.social-icons a {
+    color: white;
+}
+
+.last-text {
+    text-align: center;
+    /* Ensures the text stays centered */
+    font-size: 24px;
+}
+
+.orange {
+    color: orangered;
+    display: inline;
+    /* Keeps "Legends" inline within the text */
+}
