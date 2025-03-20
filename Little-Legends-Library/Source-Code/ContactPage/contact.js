@@ -11,9 +11,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
             const isAdded = addToCart(product); // Add to cart and check if it's new
             if (isAdded) {
-                showAddedMessage("✅ Added to Cart!");
+                showAddedMessage("\u2705 Added to Cart!");
             } else {
-                showAddedMessage("⚠️ Item is already in the cart!");
+                showAddedMessage("\u26A0\ufe0f Item is already in the cart!");
             }
 
             updateCartCount(); // Update cart count after adding

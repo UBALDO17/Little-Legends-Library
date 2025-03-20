@@ -1,0 +1,146 @@
+function sendEmailNotification(e) {
+  var sheet = e.source.getActiveSheet(); // Get active sheet
+  var lastRow = sheet.getLastRow();
+  var rowData = e.values; // Get form submission data
+
+  // Match column positions to your spreadsheet
+  var orderID = rowData[1]; // Column B (index starts from 0)
+  var booksOrdered = rowData[2]; // Column C
+  var totalPrice = rowData[3]; // Column D
+  var customerName = rowData[4]; // Column E
+  var customerEmail = rowData[5]; // Column F
+  var paymentScreenshot = rowData[6]; // Column G (Link to screenshot if applicable)
+
+  // Your email
+  var recipient = "mghs.christiantsu@gmail.com";
+  var subject = "📢 New Order Alert: " + orderID;
+
+  var message = "A new order has been placed!\n\n" +
+                "📌 Order ID: " + orderID + "\n" +
+                "👤 Customer Name: " + customerName + "\n" +
+                "📧 Customer Email: " + customerEmail + "\n" +
+                "📚 Books Ordered: " + booksOrdered + "\n" +
+                "💰 Total Price: ₱" + totalPrice + "\n\n" +
+                "📎 Payment Screenshot: " + paymentScreenshot + "\n\n" +
+                "✅ Please verify the payment and send the ebook.";
+
+  MailApp.sendEmail(recipient, subject, message);
+}
+
+
+function onEdit(e) {
+  var sheet = e.source.getActiveSheet();
+  var range = e.range;
+
+  // Adjust column index (example: column 8 is for Payment Verification)
+  var paymentColumn = 8; 
+  var paymentDateColumn = 9; // Column for Payment Date
+  var row = range.getRow();
+  var column = range.getColumn();
+
+  if (column == paymentColumn && range.getValue() == "Yes") {
+    // Record the current date and time
+    sheet.getRange(row, paymentDateColumn).setValue(new Date());
+
+    // Send the ebook to the customer
+    sendBookEmail(row);
+  }
+}
+
+
+function sendBookEmail(row) {
+  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var sheet = ss.getActiveSheet();
+  var booksSheet = ss.getSheetByName("Book Links"); // Get the Book Links sheet
+  
+  if (!booksSheet) {
+    Logger.log("⚠️ ERROR: 'Book Links' sheet not found!");
+    return;
+  }
+
+  var adminEmail = "mghs.christiantsu@gmail.com"; // Replace with real email
+  var customerEmail = sheet.getRange(row, 6).getValue().trim();
+  var customerName = sheet.getRange(row, 5).getValue().trim();
+  var booksOrdered = sheet.getRange(row, 3).getValue().trim(); // Books ordered (comma-separated)
+
+  var statusColumn = 10; // Adjust column index for "Status"
+  
+  // Start with Processing status
+  sheet.getRange(row, statusColumn).setValue("Processing..."); 
+
+  if (!customerEmail || !booksOrdered) {
+    sheet.getRange(row, statusColumn).setValue("❌ Error: Missing Email or Books");
+    Logger.log("⚠️ ERROR: Missing customer email or books in row " + row);
+    return;
+  }
+
+  var bookList = booksOrdered.split(",").map(book => book.trim()); // Trim spaces
+  var bookLinks = [];
+  var missingBooks = [];
+
+  // Get all book titles and links from the Book Links sheet
+  var data = booksSheet.getDataRange().getValues();
+
+  for (var i = 0; i < bookList.length; i++) {
+    var bookName = bookList[i];
+    var found = false;
+    
+    for (var j = 1; j < data.length; j++) { // Start from row 2 (skip headers)
+      if (data[j][0].trim().toLowerCase() === bookName.toLowerCase()) { // Case-insensitive match
+        bookLinks.push("📖 " + bookName + " - " + data[j][1]); // Add to list
+        found = true;
+        break;
+      }
+    }
+    
+    if (!found) {
+      missingBooks.push(bookName); // Keep track of missing books
+    }
+  }
+
+  if (bookLinks.length === 0) {
+    // If no books were found at all
+    sheet.getRange(row, statusColumn).setValue("❌ Error: No books found!");
+    Logger.log("⚠️ ERROR: No matching books for row " + row);
+    return;
+  }
+
+  var subject = "📖 Your Book Order is Ready!";
+  var message = "Hello " + customerName + ",\n\n" +
+                "Thank you for your order! Your payment has been verified, and your books are now ready to download.\n\n" +
+                bookLinks.join("\n") + "\n\n";
+
+  if (missingBooks.length > 0) {
+    var bookWord = missingBooks.length > 1 ? "books" : "book";
+    message += "⚠️ Note: We encountered an issue processing the following " + bookWord + ": " + missingBooks.join(", ") + ".\n" +
+               "We will send another email with this " + bookWord + " as soon as possible.\n\n";
+    
+    Logger.log("⚠️ WARNING: Missing " + bookWord + " for row " + row + " - " + missingBooks.join(", "));
+
+    // Send an alert to the admin about missing books
+    var adminSubject = "🚨 Missing Book Alert - Order Issue";
+    var adminMessage = "⚠️ Attention Admin,\n\n" +
+                       "An order has missing books.\n\n" +
+                       "Customer: " + customerName + " (" + customerEmail + ")\n" +
+                       "Missing Books: " + missingBooks.join(", ") + "\n\n" +
+                       "Please update the book links or notify the customer when available.\n\n" +
+                       "Best Regards,\nLittle Legends Library System";
+
+    MailApp.sendEmail(adminEmail, adminSubject, adminMessage);
+    
+    // Update status in sheet
+    sheet.getRange(row, statusColumn).setValue("⚠️ Partial: Missing Books - " + missingBooks.join(", "));
+  } else {
+    sheet.getRange(row, statusColumn).setValue("✅ Sent Successfully");
+  }
+
+  message += "Happy reading!\n\nBest Regards,\nLittle Legends Library";
+
+  try {
+    MailApp.sendEmail(customerEmail, subject, message);
+    Logger.log("✅ Email sent to: " + customerEmail);
+  } catch (error) {
+    sheet.getRange(row, statusColumn).setValue("❌ Error: Email Failed");
+    Logger.log("❌ ERROR: Failed to send email to " + customerEmail + " - " + error.message);
+  }
+}

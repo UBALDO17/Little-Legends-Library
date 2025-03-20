@@ -697,10 +697,11 @@
 }
 
 /* Another Section */
+/* Another Section */
 footer {
     width: 100%;
     margin: 0 auto;
-    background-color: #ffffff;
+    background-color: #CCD2D5;
     text-align: center;
 }
 
@@ -718,8 +719,10 @@ footer {
     color: #ffffff;
     text-align: center;
     display: flex;
+    justify-content: center;
     flex-direction: column;
     align-items: center;
+    height: 25vh;
 }
 
 .footer-info h4 {
@@ -746,6 +749,7 @@ footer {
     font-size: 1.7rem;
     letter-spacing: 0.3rem;
     font-weight: 600;
+    background-color: #CCD2D5;
 }
 
 .last-text a {

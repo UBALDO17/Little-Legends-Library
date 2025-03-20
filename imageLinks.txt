@@ -5,3 +5,18 @@ Hero Background: https://res.cloudinary.com/du0ijg1nu/image/upload/v1740640785/F
 Customer Reviews Background: https://res.cloudinary.com/du0ijg1nu/image/upload/v1741143656/books_poster_background_rnjmkk.jpg
 
 Sample Book Image: https://res.cloudinary.com/du0ijg1nu/image/upload/v1741241390/Firefly_A_cheerful_white_8-year-old_boy_named_Marco_with_brown_hair_and_blue_eyes_wearing_a_futuris_my6xax.jpg
+
+Valentines: https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303467/1_ggliia.png
+
+Dinosaur: https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303460/2_swbioi.png
+
+Prince: https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303466/3_a5gbhu.png
+
+Workbook32: https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303465/4_b3oiio.png
+
+Ramadan: https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303464/5_xqyfza.png
+
+Easter: https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303461/6_mflbyw.png
+
+Unesco: https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303461/7_sutn1d.png
+

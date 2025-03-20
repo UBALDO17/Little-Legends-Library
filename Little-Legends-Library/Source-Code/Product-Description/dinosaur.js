@@ -108,7 +108,6 @@ function generateOrderID() {
     return 'ORDER-' + Math.floor(Math.random() * 1000000);
 }
 
-
 // Write Review Form
 function writeReview(bookName) {
     const formUrl = "https://docs.google.com/forms/d/e/1FAIpQLSdMAvVk8X06BhMumPkjd9SmHAO_YzJIEit4Df4wOLrMmzmx6A/viewform";

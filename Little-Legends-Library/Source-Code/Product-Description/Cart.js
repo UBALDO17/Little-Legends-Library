@@ -27,9 +27,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
             const isAdded = addToCart(product);
             if (isAdded) {
-                showAddedMessage("✅ Added to Cart!");
+                showAddedMessage("\u2705 Added to Cart!");
             } else {
-                showAddedMessage("⚠️ Item is already in the cart!");
+                showAddedMessage("\u26A0\ufe0f Item is already in the cart!");
             }
 
             updateCart();
@@ -87,7 +87,7 @@ function updateCart() {
 
     if (cart.length === 0) {
         cartItemsContainer.innerHTML = "<p>Your cart is empty.</p>";
-        cartTotal.textContent = "₱0.00";
+        cartTotal.textContent = "\u20B10.00";
         return;
     }
 
@@ -107,7 +107,7 @@ function updateCart() {
         total += item.price;
     });
 
-    cartTotal.textContent = `₱${total.toFixed(2)}`;
+    cartTotal.textContent = `\u20B1${total.toFixed(2)}`;
 }
 
 // ✅ **Show "Added to Cart" Message**
@@ -157,7 +157,6 @@ function goToOrderForm() {
     // ✅ Store session flag before redirecting to the form
     sessionStorage.setItem("showOrderSuccess", "true");
 
-    
     // Redirect to Google Form with prefilled data
     window.location.href = formURL + orderIDField + booksField + totalPriceField;
 

@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Little Legends Library</title>
-    <link rel="stylesheet" href="contact.css">
+    <link rel="stylesheet" href="freebook.css">
     <link rel="stylesheet" href="responsive.css">
 </head>
 
@@ -24,7 +24,7 @@
             <div class="nav-links">
                 <a href="..//HomePage/home.html">Home</a>
                 <a href="..//ShopPage/shop.html">Shop</a>
-                <a href="../ContactPage/contact.html" class="active">Contact</a>
+                <a href="../ContactPage/contact.html">Contact</a>
             </div>
             <div class="nav-buttons">
                 <div class="cart-contain">
@@ -35,33 +35,32 @@
                         <span class="cart-count">0</span>
                     </a>
                 </div>
-                <a href="..//FreebookPage/freebook.html" class="nav-free">Free Book!</a>
+                <div class="freebook active">
+                    <a href="..//FreebookPage/freebook.html" class="nav-free active">Free Book!</a>
+                </div>
             </div>
         </nav>
 
         <section class="hero">
-            <div class="contact-text">
-                <h1>Contact Us</h1>
-                <p>Any questions or remarks? Just write us a message</p>
-
-                <form class="contact-form" action="https://formsubmit.co/mghs.christiantsu@gmail.com" method="POST">
-                    <div class="input-group">
-                        <input type="text" name="name" placeholder="Enter your name" required>
-                        <input type="email" name="email" placeholder="Enter your email" required>
+            <h2>Try our Free Books!</h2>
+            <div class="book-container">
+                <div class="book-list">
+                    <div class="book">
+                        <a href="book-preview1.html">
+                            <img src="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303467/1_ggliia.png"
+                                alt="Books">
+                        </a>
+                        <a href="book-preview1.html" class="free-sticker">FREE</a>
                     </div>
-                    <textarea name="message" placeholder="Enter your message" rows="5" required></textarea>
-                    <div class="button-container">
-                        <button type="submit">Submit</button>
-                    </div>
-
-                    <!-- Hidden fields (optional) -->
-                    <input type="hidden" name="_subject" value="New Contact Form Submission">
-                    <input type="hidden" name="_captcha" value="false">
-                </form>
+                </div>
+            </div>
+            <div class="slide-button">
+                <button class="prev-btn" onclick="prevBooks()">&#10094;</button>
+                <button class="next-btn" onclick="nextBooks()">&#10095;</button>
             </div>
         </section>
     </div>
 </body>
-<script src="contact.js"></script>
+<script src="freebook.js"></script>
 
 </html>
