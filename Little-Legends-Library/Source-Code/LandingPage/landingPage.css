@@ -1,0 +1,896 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+.container {
+    background: url('https://res.cloudinary.com/du0ijg1nu/image/upload/v1740640785/Firefly_generate_a_background_for_a_banner_a_book_shop_and_download_instantly_and_this_should_be_the_wfjarm.jpg') no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background: rgba(217, 217, 217, 0.8);
+    border-radius: 1.25rem;
+    max-width: 70%;
+    height: calc(100vh - 16vh);
+    margin: 8vh auto;
+    width: 100%;
+}
+
+.hero-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+    text-align: center;
+    border-bottom: 2px solid black;
+    padding: 1rem;
+}
+
+.position-logo {
+    height: 70px;
+    width: 70px;
+}
+
+.LittleLegendText {
+    font-size: 2.2rem;
+    color: rgba(0, 0, 0, 0.7);
+    font-weight: bold;
+}
+
+.Section-body {
+    flex-grow: 0.7;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    gap: 1rem;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    color: rgba(0, 0, 0, 0.7);
+    font-weight: 600;
+}
+
+.hero p {
+    font-size: 1.7rem;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.5);
+    margin-bottom: 1rem;
+}
+
+.hero a {
+    font-size: 1.5rem;
+}
+
+.btn {
+    font-weight: 500;
+    padding: 1rem 2.5rem;
+    background: #FF4500;
+    color: #ffffff;
+    border: none;
+    border-radius: 0.625rem;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+/* Another Section */
+.featured-section {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #CCD2D5;
+}
+
+.featured-container {
+    width: 80%;
+    height: calc(100vh - 14vh);
+    border-radius: 1.25rem;
+    background-color: rgba(88, 86, 83, 0.4);
+    margin: 7vh auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Header Section */
+.featured-header {
+    text-align: center;
+}
+
+.featured-title {
+    margin-top: 0.5rem;
+    font-size: 2.3rem;
+    color: #FFFFFF;
+}
+
+/* Countdown Timer */
+.countdown-timer ul {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0;
+    list-style: none;
+}
+
+.countdown-timer span {
+    font-size: 2rem;
+    font-weight: bold;
+    color: red;
+    transition: 0.3s ease-in-out;
+}
+
+/* Hover effect: Countdown digits glow */
+.countdown-timer span:hover {
+    color: #FFD700;
+    text-shadow: 0 0 8px #FFD700;
+}
+
+.countdown-colon {
+    font-size: 2rem;
+    color: red;
+}
+
+/* Featured Items */
+.featured-items {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    margin-top: 1rem;
+}
+
+/* Featured Item */
+.featured-item {
+    text-decoration: none;
+    transition: transform 0.3s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Hover Effect: Scale up */
+.featured-item:hover {
+    transform: scale(1.05);
+}
+
+/* Featured Image Wrapper */
+.featured-image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    max-height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Featured Image (Now Larger) */
+.featured-image {
+    width: 100%;
+    height: 100%;
+    max-width: 250px;
+    max-height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: 0.3s ease-in-out;
+}
+
+/* Hover Effect: Brightness Increase */
+.featured-image:hover {
+    filter: brightness(1.2);
+}
+
+/* Price Tag */
+.price-tag {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Buy Button */
+.buy-button {
+    background-color: #FF4500;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+    font-size: 1.2rem;
+    font-weight: 600;
+    width: 10vw;
+}
+
+.buy-button:hover,
+.featured-action-btn:hover {
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.9);
+    transform: scale(1.1);
+}
+
+@keyframes glowing {
+    0% {
+        box-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+    }
+
+    50% {
+        box-shadow: 0 0 20px rgba(255, 215, 0, 1);
+    }
+
+    100% {
+        box-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+    }
+}
+
+.buy-button,
+.featured-action-btn {
+    animation: glowing 1.5s infinite alternate;
+}
+
+/* Footer */
+.featured-footer {
+    margin-top: 1rem;
+    margin-bottom: 1.2rem;
+}
+
+/* Action Button */
+.featured-action-btn {
+    background-color: #FFD700;
+    color: black;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+/* Hover Effect: Scale and Color Change */
+.featured-action-btn:hover {
+    background-color: #FFC107;
+    transform: scale(1.05);
+}
+
+
+/* Another Section */
+.Header-Workbook {
+    text-align: center;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    padding: 20px;
+}
+
+/* Title Section */
+.Workbook {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.Workbook h1 {
+    font-size: 2.5rem;
+}
+
+.Workbook img {
+    width: 50px;
+    height: 50px;
+}
+
+.Header {
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Container for icons */
+.icons {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    width: 100%;
+}
+
+/* Individual Icon Container */
+.icon-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 250px;
+    text-align: left;
+}
+
+/* Icon and Title in Horizontal Alignment */
+.icon-title {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+/* Icon Styling */
+.icon-title img {
+    width: 60px;
+    height: 60px;
+}
+
+/* Title Styling */
+.icon-title h2 {
+    font-size: 28px;
+    color: #333;
+    margin: 0;
+    text-align: left;
+    width: 100%;
+}
+
+/* Paragraph Styling */
+.icon-container p {
+    font-size: 17px;
+    color: #555;
+    margin-top: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .icons {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+}
+
+.btn {
+    font-weight: 500;
+    padding: 1rem 2.5rem;
+    background: #FF4500;
+    color: #ffffff;
+    border: none;
+    border-radius: 0.625rem;
+    cursor: pointer;
+    text-decoration: none;
+    transition: 0.5s ease-in-out;
+}
+
+.btn:hover {
+    transform: scale(0.9);
+    background-color: #e03e00;
+}
+
+/* Another Section */
+.BestSelling {
+    background: url('https://res.cloudinary.com/du0ijg1nu/image/upload/v1740640785/Firefly_generate_a_background_for_a_banner_a_book_shop_and_download_instantly_and_this_should_be_the_wfjarm.jpg') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.bestselling-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    background: rgba(217, 217, 217, 0.8);
+    border-radius: 1.25rem;
+    max-width: 75%;
+    height: calc(100vh - 13vh);
+    margin: 7.5vh auto;
+    width: 100%;
+}
+
+.bestselling-text h1 {
+    margin-top: 1rem;
+    font-size: 2.3rem;
+    color: #000000D9;
+}
+
+.image-selection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 0.1rem;
+    width: 100%;
+}
+
+.book-1 {
+    width: auto;
+    max-width: 15rem;
+    padding: 1.3rem;
+    border-radius: 1.25rem;
+    transition: 0.3s ease-in-out;
+    color: black;
+    text-decoration: none;
+}
+
+.book-1:hover {
+    transform: scale(0.9);
+    background-color: #FF4500;
+    color: white;
+}
+
+.book-1:hover .price {
+    color: white;
+    transition: 1s;
+}
+
+/* 📦 Shop Image Container */
+.shop-image-container {
+    position: relative;
+    text-align: left;
+    justify-content: center;
+}
+
+/* 📷 Book Image */
+.book-image {
+    width: 100%;
+    height: auto;
+    max-height: 250px;
+    object-fit: cover;
+    border-radius: 0.5rem;
+}
+
+/* 🛒 Buttons Positioned at the Bottom Inside the Image */
+.product-buttons {
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    width: 100%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    z-index: 10;
+}
+
+/* 🛒 Add to Cart Button */
+.product-buttons .add-to-cart {
+    background: #FF4500;
+    border: none;
+    padding: 6px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+}
+
+.product-buttons .add-to-cart img {
+    width: 20px;
+    height: 20px;
+}
+
+.product-buttons .add-to-cart:hover img {
+    filter: invert(1);
+}
+
+.product-buttons .add-to-cart:hover {
+    background: white;
+    transform: scale(1.1);
+}
+
+/* 💳 Buy Now Button */
+.product-buttons .buy-now {
+    background: #FF4500;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 0.5rem;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: 0.3s ease-in-out;
+}
+
+.product-buttons .buy-now:hover {
+    background: white;
+    color: black;
+    transform: scale(1.05);
+}
+
+/* 📄 Left-Aligned Book Text */
+.book-text {
+    font-size: 1.2rem;
+    text-align: left;
+    margin-top: 0.1rem;
+    font-weight: 600;
+}
+
+.book-text-desc {
+    font-size: 0.8rem;
+    text-align: left;
+    line-height: 1.3;
+}
+
+/* 💰 Price Details */
+.price {
+    color: #FF4500;
+    font-size: 1.8rem;
+}
+
+.price-details {
+    padding-top: 0.2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.detail-1 {
+    display: flex;
+    justify-content: center;
+    font-size: 1rem;
+    padding: 0.4rem;
+    background-color: #585653;
+    border-radius: 0.5rem;
+    color: white;
+    transition: 0.5s ease-in-out;
+    width: 45%;
+}
+
+.detail-1:hover {
+    background-color: white;
+    color: black;
+}
+
+/* 🚫 Remove underline from "Details" */
+.no-underline {
+    text-decoration: none;
+}
+
+/* ✅ "Added to Cart" Floating Message */
+.cart-message {
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #ff4500;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    animation: fadeInOut 2s ease-in-out;
+    z-index: 1000;
+}
+
+/* 🔄 Animation */
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -100%);
+    }
+
+    10% {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -100%);
+    }
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    background-color: #CCD2D5;
+}
+
+.view-workbooks {
+    padding: 0.8rem 2rem;
+    font-size: 1.3rem;
+    border: none;
+    cursor: pointer;
+    border-radius: 0.625rem;
+    transition: 0.3s ease-in-out;
+}
+
+
+/* Another Section */
+.guide {
+    text-align: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+
+.guide-title {
+    font-size: 3.5rem;
+    font-weight: bold;
+    padding: 1.5rem 2.5rem 0rem 2.5rem;
+    color: black;
+    display: inline-block;
+}
+
+.guide-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 85%;
+    max-width: 45rem;
+}
+
+
+.step {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    margin-bottom: 2rem;
+    gap: 2rem;
+}
+
+
+.step:last-child {
+    margin-bottom: 0;
+}
+
+
+.circle {
+    width: 7rem;
+    height: 7rem;
+    background: #025786;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    border-radius: 50%;
+    flex-shrink: 0;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+.step-box {
+    display: flex;
+    align-items: center;
+    text-align: left;
+    background: #025786;
+    color: white;
+    border-radius: 10px;
+    flex-grow: 1;
+    height: 8rem;
+    width: 100%;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+    padding: 1.5rem;
+}
+
+
+.step-box img {
+    width: 5rem;
+    height: 5rem;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+}
+
+
+.step-text {
+    flex-grow: 1;
+    padding-left: 1.6rem;
+}
+
+.step-text h3 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+.step-text p {
+    font-size: 1.2rem;
+    margin: 0.5rem 0 0;
+    opacity: 0.9;
+}
+
+.FAQs {
+    background: url('https://res.cloudinary.com/du0ijg1nu/image/upload/v1740640785/Firefly_generate_a_background_for_a_banner_a_book_shop_and_download_instantly_and_this_should_be_the_wfjarm.jpg') no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.faqs-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: rgba(217, 217, 217, 0.8);
+    border-radius: 1.25rem;
+    height: calc(100vh - 5vh);
+    margin: 10vh auto;
+}
+
+.faqs-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    margin: 1rem 6rem;
+    width: 100%;
+}
+
+.faqs-text h2 {
+    font-size: 3.2rem;
+    color: rgba(0, 0, 0, 0.7);
+    font-weight: 600;
+}
+
+.faq-item {
+    width: 50rem;
+    background-color: white;
+    border-radius: 1rem;
+    overflow: hidden;
+    transition: 0.3s ease-in-out;
+}
+
+.faq-question {
+    width: 100%;
+    padding: 1.5rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    background: white;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    outline: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.faq-question::after {
+    content: "➕";
+    font-size: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.faq-item.active .faq-question::after {
+    content: "➖";
+}
+
+.faq-answer {
+    padding: 0 1.5rem;
+    font-size: 1.3rem;
+    text-align: left;
+    display: none;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+}
+
+.faq-item.active .faq-answer {
+    display: block;
+    max-height: 15rem;
+    padding: 1rem 1.5rem;
+}
+
+.faq-answer ul {
+    margin-top: 0.5rem;
+    padding-left: 1.5rem;
+}
+
+.faq-answer ul li {
+    list-style-type: "✅ ";
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+footer {
+    width: 100%;
+    margin: 0 auto;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.footer-container {
+    height: 35vh;
+}
+
+.footer-top {
+    height: 9vh;
+}
+
+.footer-info {
+    padding: 1.5rem;
+    background-color: #025786;
+    color: #ffffff;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-info h4 {
+    margin: 0;
+    padding: 10px;
+    font-size: 1.5rem;
+    letter-spacing: 0.2rem;
+    font-weight: 600;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.last-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+    text-align: center;
+    font-size: 1.7rem;
+    letter-spacing: 0.3rem;
+    font-weight: 600;
+}
+
+.last-text a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.orange {
+    color: orangered;
+    display: inline;
+}
