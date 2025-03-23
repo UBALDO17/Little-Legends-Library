@@ -308,6 +308,7 @@
     }
 }
 
+/* Footer Section */
 @media screen and (max-width: 768px) {
     .footer-container {
         height: auto !important;

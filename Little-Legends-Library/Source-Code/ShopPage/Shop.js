@@ -95,3 +95,11 @@ function goToOrderForm(product) {
 function generateOrderID() {
     return 'ORDER-' + Math.floor(Math.random() * 1000000);
 }
+
+// Search Blogger
+function searchBloggerPosts() {
+    var query = document.getElementById("search-box").value;
+    if (query) {
+        window.location.href = "/search?q=" + encodeURIComponent(query);
+    }
+}

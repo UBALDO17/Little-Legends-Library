@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Little Legends Library</title>
     <link rel="stylesheet" href="contact.css">
-    <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="contactResponsive.css">
+    <link rel="stylesheet" href="navResponsive.css">
 </head>
 
 <body>
@@ -16,10 +17,30 @@
                 <img src="https://res.cloudinary.com/du0ijg1nu/image/upload/v1740641091/Untitled_design_3_pxsurq.png"
                     alt="Logo">
             </div>
-            <div class="hamburger" onclick="toggleMenu()">
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
+            <div class="nav-right">
+                <div class="cart-contain">
+                    <a href="../CartPage/cart.html">
+                        <img width="50" height="45"
+                            src="https://img.icons8.com/ios-glyphs/60/ff4500/shopping-cart--v1.png"
+                            alt="shopping-cart--v1" />
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+
+                <div class="hamburger" onclick="toggleMenu()">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+
+            <div class="mobile-menu">
+                <div class="menu-content">
+                    <a href="../HomePage/home.html" class="nav-link" data-page="home">Home</a>
+                    <a href="../ShopPage/shop.html" class="nav-link" data-page="shop">Shop</a>
+                    <a href="../ContactPage/contact.html" class="nav-link" data-page="contact">Contact</a>
+                    <a href="../FreebookPage/freebook.html" class="nav-link" data-page="freebook">Free Book!</a>
+                </div>
             </div>
             <div class="nav-links">
                 <a href="..//HomePage/home.html">Home</a>
@@ -28,7 +49,7 @@
             </div>
             <div class="nav-buttons">
                 <div class="cart-contain">
-                    <a href="..//Product-Description/Cart.html">
+                    <a href="../CartPage/cart.html">
                         <img width="50" height="45"
                             src="https://img.icons8.com/ios-glyphs/60/ff4500/shopping-cart--v1.png"
                             alt="shopping-cart--v1" />
@@ -63,5 +84,6 @@
     </div>
 </body>
 <script src="contact.js"></script>
+<script src="nav.js"></script>
 
 </html>

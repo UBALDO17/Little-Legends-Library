@@ -1,0 +1,92 @@
+@media (max-width: 768px) {
+    .cart-container h2 {
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+
+    .cart-container {
+        margin-top: 1rem !important;
+        max-width: 92%;
+        padding: 1rem;
+    }
+
+    /* 🛒 Stack Cart Items and Summary on Mobile */
+    .cart-content {
+        display: flex;
+        flex-direction: column;
+        /* Stack items vertically */
+        gap: 1.5rem;
+    }
+
+    .cart-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.2rem !important;
+        padding: 1rem;
+        position: relative;
+    }
+
+    .cart-details {
+        flex: 1;
+        min-width: 0;
+        /* Prevents overflow */
+        padding-right: 2rem;
+        /* Adds space for the remove button */
+    }
+
+    .remove-item {
+        font-size: 1.5rem;
+        font-weight: bold;
+        background: transparent;
+        border: none;
+        color: red;
+        cursor: pointer;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        text-indent: -9999px;
+        /* Hide original text */
+        overflow: hidden;
+        /* Ensure no extra text appears */
+        top: 5px !important;
+            /* Adjust as needed */
+            right: 5px !important;
+    }
+
+    /* Replace text with "X" */
+    .remove-item::before {
+        content: "✖";
+        /* Unicode for X */
+        font-size: 1.5rem;
+        color: red;
+        text-indent: 0;
+        position: absolute;
+    }
+
+    /* 💰 Move Cart Summary Below */
+    .cart-summary {
+        width: 100%;
+        max-width: none;
+        position: static;
+        /* Remove sticky effect */
+        text-align: center;
+    }
+
+    /* 📌 Buttons Adjustments */
+    .cart-buttons {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .clear-cart,
+    .buy-now,
+    .continue-shopping {
+        width: 100%;
+        font-size: 1.1rem;
+        padding: 0.9rem;
+    }
+}
