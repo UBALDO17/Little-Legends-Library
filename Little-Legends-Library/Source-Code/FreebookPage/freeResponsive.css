@@ -1,0 +1,40 @@
+@media (max-width: 768px) {
+    .hero {
+        max-width: 90% !important;
+        height: auto !important;
+        padding: 3rem 1rem !important;
+        margin: 5vh auto !important;
+    }
+
+    .hero h2 {
+        font-size: 1.5rem !important;
+    }
+
+    .book-list {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        width: 100% !important;
+    }
+
+    .book {
+        width: 90% !important;
+        max-width: 300px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+    }
+
+    .book img {
+        width: 100% !important;
+        height: auto !important;
+    }
+
+    .free-sticker {
+        font-size: 1.2rem !important;
+        padding: 0.7rem 1rem !important;
+        width: 70% !important;
+        text-align: center !important;
+    }
+}

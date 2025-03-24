@@ -1,0 +1,421 @@
+/* 📱 Mobile Responsiveness */
+@media (max-width: 768px) {
+    .hero {
+        max-width: 90% !important;
+        height: 77% !important;
+        padding: 1.5rem !important;
+        margin: 12vh auto !important;
+    }
+
+    .position-logo {
+        height: 80px !important;
+        width: 80px !important;
+    }
+
+    .LittleLegendText {
+        font-size: 1.5rem !important;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem !important;
+    }
+
+    .hero p {
+        font-size: 1rem !important;
+    }
+
+    .btn {
+        font-size: 1rem !important;
+        padding: 0.7rem 1.5rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        max-width: 90% !important;
+        padding: 1rem !important;
+    }
+
+    .position-logo {
+        height: 80px !important;
+        width: 80px !important;
+    }
+
+    .LittleLegendText {
+        font-size: 1.5rem !important;
+    }
+
+    .hero h1 {
+        font-size: 2rem !important;
+    }
+
+    .hero p {
+        font-size: 1rem !important;
+    }
+
+    .btn {
+        font-size: 1.2rem !important;
+        padding: 0.7rem 1.5rem !important;
+    }
+}
+
+/* Another Section */
+@media (max-width: 768px) {
+    .featured-section {
+        display: flex !important;
+        flex-direction: column !important;
+        height: auto !important;
+    }
+
+    .featured-container {
+        padding: 1rem !important;
+        height: auto !important;
+        width: 90% !important;
+    }
+
+    .featured-title {
+        margin-top: 1rem !important;
+        font-size: 1.7rem !important;
+    }
+
+    .countdown-timer span {
+        font-size: 1.5rem !important;
+    }
+
+    .countdown-colon {
+        font-size: 1.5rem !important;
+    }
+
+    .countdown-timer span {
+        font-size: 1.5rem !important;
+    }
+
+    .countdown-colon {
+        font-size: 1.5rem !important;
+    }
+
+    .featured-items {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 2.5rem !important;
+        margin-top: 1.5rem !important;
+    }
+
+    .featured-item {
+        width: 70% !important;
+    }
+
+    .featured-image-wrapper {
+        width: 100% !important;
+        height: 100% !important;
+    }
+
+    .buy-button {
+        width: 100% !important;
+        font-size: 1rem !important;
+        padding: 0.3rem 1.5rem !important;
+    }
+
+    .featured-action-btn {
+        margin-top: 1rem !important;
+        padding: 1.5rem 1.6rem !important;
+        font-size: 1.4rem !important; 
+    }
+}
+
+/* Another Section */
+@media (max-width: 768px) {
+    .Header-Workbook {
+        padding: 0.6rem !important;
+        height: auto !important;
+    }
+
+    .Workbook h1 {
+        margin-top: 1rem;
+        font-size: 1.7rem !important;
+        text-align: center !important;
+        padding: 1rem 1rem 0.2rem 1rem !important;
+    }
+
+    .icons {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 1.2rem !important;
+        width: 100% !important;
+        align-items: start !important;
+        justify-content: center !important;
+        margin-bottom: 2rem !important;
+    }
+
+    .icon-container {
+        max-width: 95% !important;
+        text-align: center !important;
+    }
+
+    .icon-title {
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+    }
+
+    .icon-title img {
+        width: 45px !important;
+        height: 45px !important;
+    }
+
+    .icon-title h2 {
+        font-size: 20px !important;
+        text-align: center !important;
+    }
+
+    .icon-container p {
+        font-size: 15px !important;
+    }
+}
+
+/* Best-Selling Section */
+@media (max-width: 768px) {
+    .BestSelling {
+        height: auto !important;
+        padding: 1rem 0 !important;
+    }
+
+    .bestselling-container {
+        max-width: 90% !important;
+        height: auto !important;
+        padding: 1rem !important;
+        margin: 1rem auto !important;
+    }
+
+    .bestselling-text h1 {
+        font-size: 1.8rem !important;
+        margin-bottom: 1rem !important;
+    }
+
+    .image-selection {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 1.2rem !important;
+    }
+
+    .book-1 {
+        max-width: 85% !important;
+        padding: 0.5rem;
+    }
+
+    .book-text {
+        font-size: 1.5rem !important;
+    }
+
+    .book-text-desc {
+        font-size: 1rem !important;
+    }
+
+    .view-workbooks{
+        margin-top: 1.5rem !important;
+        margin-bottom: 1rem !important;
+    }
+}
+
+/* 3-Step Section */
+@media (max-width: 768px) {
+    .guide {
+        height: auto !important;
+        padding: 2rem 1rem !important;
+    }
+
+    .guide-title {
+        font-size: 2.5rem !important;
+        padding: 1rem 1.5rem !important;
+    }
+
+    .guide-content {
+        width: 95% !important;
+        max-width: 100% !important;
+    }
+
+    .step {
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        gap: 1.5rem !important;
+    }
+
+    .circle {
+        width: 6rem !important;
+        height: 6rem !important;
+        font-size: 2rem !important;
+    }
+
+    .step-box {
+        height: auto !important;
+        width: 100% !important;
+        padding: 1rem !important;
+        flex-direction: column !important;
+        text-align: center !important;
+    }
+
+    .step-box img {
+        width: 4rem !important;
+        height: 4rem !important;
+        margin-bottom: 0.5rem !important;
+    }
+
+    .step-text {
+        padding-left: 0 !important;
+    }
+
+    .step-text h3 {
+        font-size: 1.5rem !important;
+    }
+
+    .step-text p {
+        font-size: 1.1rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .guide-title {
+        font-size: 2rem !important;
+        padding: 0.8rem !important;
+    }
+
+    .circle {
+        width: 5rem !important;
+        height: 5rem !important;
+        font-size: 1.8rem !important;
+    }
+
+    .step-box img {
+        width: 4rem !important;
+        height: 4rem !important;
+    }
+
+    .step-text h3 {
+        font-size: 1.3rem !important;
+    }
+
+    .step-text p {
+        font-size: 1rem !important;
+    }
+}
+
+/* FAQs Section */
+@media screen and (max-width: 768px) {
+    .FAQs {
+        height: auto !important;
+        padding: 5vh 2rem !important;
+        background-attachment: scroll !important;
+    }
+
+    .faqs-main {
+        height: auto !important;
+        margin: 2vh auto !important;
+        padding: 2rem 1rem !important;
+    }
+
+    .faqs-text {
+        margin: 1rem auto !important;
+        width: 95% !important;
+        gap: 0.1rem !important;
+    }
+
+    .faqs-text h2 {
+        font-size: 2rem !important;
+        text-align: center !important;
+        margin-bottom: 1.5rem !important;
+    }
+
+    .faq-item {
+        width: 95% !important;
+        max-width: 600px !important;
+        margin: 1rem auto !important;
+    }
+
+    .faq-question {
+        font-size: 1.2rem !important;
+        padding: 1rem !important;
+    }
+
+    .faq-question::after {
+        font-size: 1.2rem !important;
+    }
+
+    .faq-answer {
+        font-size: 1.1rem !important;
+        padding: 0 1rem !important;
+        max-height: 0 !important;
+        overflow: hidden !important;
+        transition: max-height 0.4s ease-out, padding 0.4s ease-out !important;
+    }
+
+    .faq-item.active .faq-answer {
+        display: block;
+        max-height: 100% !important;
+        padding: 1rem 1.5rem !important;
+    }
+
+    .faq-answer ul {
+        padding-left: 1rem !important;
+    }
+
+    .faq-answer ul li {
+        font-size: 1rem !important;
+    }
+}
+
+/* Footer Section */
+@media screen and (max-width: 768px) {
+    .footer-container {
+        height: auto !important;
+    }
+
+    .footer-top {
+        height: 6vh !important;
+    }
+
+    .footer-info {
+        height: auto !important;
+        padding: 1rem !important;
+    }
+
+    .footer-info h4 {
+        font-size: 1.2rem !important;
+        padding: 5px !important;
+    }
+
+    .social-icons {
+        gap: 1rem !important;
+    }
+
+    .social-icons img {
+        width: 40px !important;
+        height: 40px !important;
+    }
+
+    .last-text {
+        font-size: 1.2rem !important;
+        height: 7vh !important;
+        padding: 1rem !important;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .footer-info h4 {
+        font-size: 1rem !important;
+    }
+
+    .social-icons {
+        gap: 0.8rem !important;
+    }
+
+    .social-icons img {
+        width: 35px !important;
+        height: 35px !important;
+    }
+
+    .last-text {
+        font-size: 1.2rem !important;
+        letter-spacing: 0.2rem !important;
+    }
+}
