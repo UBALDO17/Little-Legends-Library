@@ -102,13 +102,11 @@
     background-color: #e03e00;
 }
 
-/* Cart container to ensure the badge stays inside the cart icon */
 .cart-container {
     position: relative;
     display: inline-block;
 }
 
-/* Cart badge styling */
 .cart-count {
     position: absolute;
     bottom: -5px;
@@ -268,7 +266,6 @@
     transition: 1s;
 }
 
-/* 📦 Shop Image Container */
 .shop-image-container {
     position: relative;
     text-align: left;
@@ -283,7 +280,6 @@
     display: block;
 }
 
-/* 🛒 Buttons Positioned at the Bottom Inside the Image */
 .product-buttons {
     position: absolute;
     bottom: 5px;
@@ -296,7 +292,6 @@
     z-index: 10;
 }
 
-/* 🛒 Add to Cart Button */
 .product-buttons .add-to-cart {
     background: #FF4500;
     border: none;
@@ -325,7 +320,6 @@
     transform: scale(1.1);
 }
 
-/* 💳 Buy Now Button */
 .product-buttons .buy-now {
     background: #FF4500;
     color: white;
@@ -343,7 +337,6 @@
     transform: scale(1.05);
 }
 
-/* 📄 Left-Aligned Book Text */
 .book-text {
     font-size: 1.5rem;
     font-weight: bold;
@@ -357,7 +350,6 @@
     line-height: 1.5;
 }
 
-/* 💰 Price Details */
 .price {
     color: #FF4500;
     font-size: 2rem;
@@ -387,12 +379,10 @@
     color: black;
 }
 
-/* 🚫 Remove underline from "Details" */
 .no-underline {
     text-decoration: none;
 }
 
-/* ✅ "Added to Cart" Floating Message */
 .cart-message {
     position: fixed;
     top: 10%;
@@ -408,7 +398,6 @@
     z-index: 1000;
 }
 
-/* 🔄 Animation */
 @keyframes fadeInOut {
     0% {
         opacity: 0;

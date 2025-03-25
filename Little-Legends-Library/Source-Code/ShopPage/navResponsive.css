@@ -70,7 +70,6 @@
         visibility: visible;
     }
 
-    /* Menu Content */
     .menu-content {
         display: flex;
         flex-direction: column;

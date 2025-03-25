@@ -86,7 +86,7 @@ function updateCart() {
     cartItemsContainer.innerHTML = "";
 
     if (cart.length === 0) {
-        cartItemsContainer.innerHTML = "<p>Your cart is empty.</p>";
+        cartItemsContainer.innerHTML = '<div style="text-align: center;">Your cart is empty.</div>';
         cartTotal.textContent = "\u20B10.00";
         return;
     }

@@ -1,18 +1,15 @@
-/* Wrapper for Cart and Hamburger */
 .nav-right {
     display: flex;
     align-items: center;
     gap: 1rem;
 }
 
-/* Hide Hamburger by Default */
 .hamburger {
     display: none;
     cursor: pointer;
     flex-direction: column;
 }
 
-/* Mobile Menu Styling */
 .mobile-menu {
     display: flex;
     position: fixed;
@@ -30,7 +27,6 @@
     padding: 2rem 1.5rem;
 }
 
-/* When Active, Slide in from Right */
 .mobile-menu.active {
     right: 0;
     opacity: 1;
@@ -51,7 +47,6 @@
         transition: 0.3s;
     }
 
-    /* Overlay for Click Outside Effect */
     .overlay {
         position: fixed;
         top: 0;
@@ -70,7 +65,6 @@
         visibility: visible;
     }
 
-    /* Menu Content */
     .menu-content {
         display: flex;
         flex-direction: column;

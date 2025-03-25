@@ -1,0 +1,1875 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DJHG2RBWRB"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-DJHG2RBWRB');
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Little Legends Library</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        .container {
+            background: url('https://res.cloudinary.com/du0ijg1nu/image/upload/v1740640785/Firefly_generate_a_background_for_a_banner_a_book_shop_and_download_instantly_and_this_should_be_the_wfjarm.jpg') no-repeat center center fixed;
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0, 114, 151, 0.2);
+            padding: 0.5rem 12.75rem;
+            height: 5.7rem;
+            box-shadow: 0 0.25rem 0.375rem rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            margin-right: 3.5rem;
+        }
+
+        .logo img {
+            width: 5.31rem;
+            height: 5.31rem;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-right: auto;
+        }
+
+        .nav-links a,
+        .nav-buttons a {
+            text-decoration: none;
+            color: #FFFFFF;
+            font-size: 1.7rem;
+            font-weight: 500;
+            transition: 0.3s ease-in-out;
+            padding: 0.35rem 1.76rem;
+            border-radius: 2.19rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-width: 8rem;
+            text-align: center;
+        }
+
+        .nav-links a.active {
+            background: #FF4500;
+            color: #ffffff;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255, 69, 0, 0.8);
+            color: #ffffff;
+        }
+
+        .nav-buttons {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .nav-free {
+            padding: 0.625rem 1.76rem;
+            background: #FF4500;
+            color: #ffffff;
+            border: none;
+            border-radius: 2.19rem;
+            text-decoration: none;
+        }
+
+        .btn {
+            font-weight: 500;
+            padding: 1rem 2.5rem;
+            background: #FF4500;
+            color: #ffffff;
+            border: none;
+            border-radius: 0.625rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: 0.5s ease-in-out;
+        }
+
+        .btn:hover {
+            transform: scale(0.9);
+            background-color: #e03e00;
+        }
+
+        .cart-contain {
+            position: relative;
+            display: inline-block;
+        }
+
+        .cart-count {
+            position: absolute;
+            bottom: -5px;
+            right: 0px;
+            background: white;
+            color: black;
+            font-size: 1rem;
+            min-width: 2rem;
+            height: 2rem;
+            padding: 0 0.3rem;
+            border-radius: 50%;
+            font-weight: bold;
+            display: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            transform: scale(0.9);
+        }
+
+        .hero {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: rgba(217, 217, 217, 0.8);
+            border-radius: 1.25rem;
+            max-width: 67%;
+            height: calc(100vh - 5.7rem - 14vh);
+            margin: 7vh auto;
+            width: 100%;
+            line-height: 1.4;
+        }
+
+        .hero-text {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.75rem;
+            margin: 4rem 1rem 2.5rem 1rem;
+        }
+
+        .hero h1 {
+            font-size: 5.2rem;
+            color: rgba(0, 0, 0, 0.7);
+            font-weight: 600;
+        }
+
+        .hero p {
+            font-size: 1.7rem;
+            font-weight: 500;
+            color: rgba(0, 0, 0, 0.493);
+            margin: 0.5rem 0 1rem;
+        }
+
+        .hero a {
+            font-size: 1.5rem;
+        }
+
+        .Featured {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background-color: #CCD2D5;
+        }
+
+        .featured-text h1 {
+            font-size: 2.5rem;
+            color: #000000D9;
+        }
+
+        .image-selection {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 0.3rem;
+            width: 100%;
+        }
+
+        .book-image {
+            width: 100%;
+            height: auto;
+            border-radius: 0.7rem;
+        }
+
+        .book-1 {
+            width: auto;
+            max-width: 17rem;
+            padding: 1.5rem;
+            border-radius: 1.25rem;
+            transition: 0.3s ease-in-out;
+            color: black;
+            text-decoration: none;
+        }
+
+        .book-1:hover {
+            transform: scale(0.9);
+            background-color: #FF4500;
+            color: white;
+        }
+
+        .book-1:hover .price {
+            color: white;
+            transition: 1s;
+        }
+
+        .shop-image-container {
+            position: relative;
+            text-align: left;
+            justify-content: center;
+        }
+
+        .book-image {
+            width: 100%;
+            height: auto;
+            border-radius: 0.7rem;
+            display: block;
+        }
+
+        .product-buttons {
+            position: absolute;
+            bottom: 5px;
+            left: 50%;
+            width: 100%;
+            transform: translateX(-50%);
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem;
+            z-index: 10;
+        }
+
+        .product-buttons .add-to-cart {
+            background: #FF4500;
+            border: none;
+            padding: 8px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: 0.3s ease-in-out;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 45px;
+            height: 45px;
+        }
+
+        .product-buttons .add-to-cart img {
+            width: 24px;
+            height: 24px;
+        }
+
+        .product-buttons .add-to-cart:hover img {
+            filter: invert(1);
+        }
+
+        .product-buttons .add-to-cart:hover {
+            background: white;
+            transform: scale(1.1);
+        }
+
+        .product-buttons .buy-now {
+            background: #FF4500;
+            color: white;
+            padding: 8px 14px;
+            border-radius: 0.5rem;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: 0.3s ease-in-out;
+        }
+
+        .product-buttons .buy-now:hover {
+            background: white;
+            color: black;
+            transform: scale(1.05);
+        }
+
+        .book-text {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-align: left;
+            margin-top: 10px;
+        }
+
+        .book-text-desc {
+            font-size: 1rem;
+            text-align: left;
+            line-height: 1.5;
+        }
+
+        .price {
+            color: #FF4500;
+            font-size: 2rem;
+        }
+
+        .price-details {
+            padding-top: 0.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .detail-1 {
+            display: flex;
+            justify-content: center;
+            font-size: 1.2rem;
+            padding: 0.6rem;
+            background-color: #585653;
+            border-radius: 0.5rem;
+            color: white;
+            transition: 0.5s ease-in-out;
+            width: 45%;
+        }
+
+        .detail-1:hover {
+            background-color: white;
+            color: black;
+        }
+
+        .no-underline {
+            text-decoration: none;
+        }
+
+        .cart-message {
+            position: fixed;
+            top: 10%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #ff4500;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            animation: fadeInOut 2s ease-in-out;
+            z-index: 1000;
+        }
+
+        @keyframes fadeInOut {
+            0% {
+                opacity: 0;
+                transform: translate(-50%, -100%);
+            }
+
+            10% {
+                opacity: 1;
+                transform: translate(-50%, 0);
+            }
+
+            90% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+                transform: translate(-50%, -100%);
+            }
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            background-color: #CCD2D5;
+        }
+
+        .view-workbooks {
+            padding: 1.2rem 2.5rem;
+            font-size: 1.3rem;
+            border: none;
+            cursor: pointer;
+            border-radius: 0.625rem;
+            transition: 0.3s ease-in-out;
+        }
+
+        /* Another Section */
+        .customer-reviews {
+            height: 100vh;
+            background: url('https://res.cloudinary.com/du0ijg1nu/image/upload/v1741143656/books_poster_background_rnjmkk.jpg') no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .customer-title {
+            background: #FCAC16;
+            padding: 1.2rem 3rem;
+            border-radius: 0.5rem;
+            display: inline-block;
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: black;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            margin-bottom: 7rem;
+        }
+
+        .customer-reviews-slider {
+            max-width: 45rem;
+            width: 100%;
+            position: relative;
+            overflow: visible;
+        }
+
+        .customer-reviews-container {
+            background: rgba(255, 237, 200, 0.7);
+            padding: 5rem 3rem 3rem;
+            border-radius: 1rem;
+            width: 100%;
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: absolute;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+            overflow: visible;
+        }
+
+        .customer-reviews-container.active {
+            opacity: 1;
+            position: relative;
+        }
+
+        .profile-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #FF4500;
+            width: 7rem;
+            height: 7rem;
+            border-radius: 50%;
+            padding: 0.5rem;
+            position: absolute;
+            top: -3.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            overflow: visible;
+        }
+
+        .profile-pic {
+            width: 6rem;
+            height: 6rem;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .customer-reviews-text-comment {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: black;
+            text-align: center;
+            line-height: 1.8;
+            margin-top: 0.5rem;
+        }
+
+        .star-rating {
+            font-size: 3rem;
+            color: gold;
+            font-weight: bold;
+            margin-top: 0.5rem;
+        }
+
+        .reviewer-name {
+            font-size: 1.7rem;
+            font-weight: bold;
+            color: black;
+            margin-top: 0.5rem;
+        }
+
+        /* 🏗️ Guide Section */
+        .guide {
+            text-align: center;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .guide-title {
+            font-size: 3.5rem;
+            font-weight: bold;
+            padding: 1.5rem 2.5rem 0rem 2.5rem;
+            color: black;
+            display: inline-block;
+        }
+
+        .guide-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 85%;
+            max-width: 45rem;
+        }
+
+        .step {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            width: 100%;
+            margin-bottom: 2rem;
+            gap: 2rem;
+        }
+
+        .step:last-child {
+            margin-bottom: 0;
+        }
+
+        .circle {
+            width: 7rem;
+            height: 7rem;
+            background: #025786;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            font-weight: bold;
+            border-radius: 50%;
+            flex-shrink: 0;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .step-box {
+            display: flex;
+            align-items: center;
+            text-align: left;
+            background: #025786;
+            color: white;
+            border-radius: 10px;
+            flex-grow: 1;
+            height: 8rem;
+            width: 100%;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+            padding: 1.5rem;
+        }
+
+        .step-box img {
+            width: 5rem;
+            height: 5rem;
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+        }
+
+        .step-text {
+            flex-grow: 1;
+            padding-left: 1.6rem;
+        }
+
+        .step-text h3 {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .step-text p {
+            font-size: 1.2rem;
+            margin: 0.5rem 0 0;
+            opacity: 0.9;
+        }
+
+        /* Another Section */
+        .FAQs {
+            background: url('https://res.cloudinary.com/du0ijg1nu/image/upload/v1740640785/Firefly_generate_a_background_for_a_banner_a_book_shop_and_download_instantly_and_this_should_be_the_wfjarm.jpg') no-repeat center center fixed;
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+
+        .faqs-main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: rgba(217, 217, 217, 0.8);
+            border-radius: 1.25rem;
+            height: calc(100vh - 5vh);
+            margin: 10vh auto;
+        }
+
+        .faqs-text {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+            margin: 1rem 6rem;
+            width: 100%;
+        }
+
+        .faqs-text h2 {
+            font-size: 3.2rem;
+            color: rgba(0, 0, 0, 0.7);
+            font-weight: 600;
+        }
+
+        .faq-item {
+            width: 50rem;
+            background-color: white;
+            border-radius: 1rem;
+            overflow: hidden;
+            transition: 0.3s ease-in-out;
+        }
+
+        .faq-question {
+            width: 100%;
+            padding: 1.5rem;
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: white;
+            border: none;
+            text-align: left;
+            cursor: pointer;
+            transition: 0.3s ease-in-out;
+            outline: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question::after {
+            content: "\2795";
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-question::after {
+            content: "\2796";
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem;
+            font-size: 1.3rem;
+            text-align: left;
+            display: none;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+            max-height: 15rem;
+            padding: 1rem 1.5rem;
+        }
+
+        .faq-answer ul {
+            margin-top: 0.5rem;
+            padding-left: 1.5rem;
+        }
+
+        .faq-answer ul li {
+            list-style-type: "\2705 ";
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Another Section */
+        footer {
+            width: 100%;
+            margin: 0 auto;
+            background-color: #CCD2D5;
+            text-align: center;
+        }
+
+        .footer-container {
+            height: 35vh;
+        }
+
+        .footer-top {
+            height: 9vh;
+        }
+
+        .footer-info {
+            padding: 1.5rem;
+            background-color: #025786;
+            color: #ffffff;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            height: 25vh;
+        }
+
+        .footer-info h4 {
+            margin: 0;
+            padding: 10px;
+            font-size: 1.5rem;
+            letter-spacing: 0.2rem;
+            font-weight: 600;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .last-text {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 10vh;
+            text-align: center;
+            font-size: 1.7rem;
+            letter-spacing: 0.3rem;
+            font-weight: 600;
+            background-color: #CCD2D5;
+        }
+
+        .last-text a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .orange {
+            color: orangered;
+            display: inline;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+        }
+
+        .mobile-menu {
+            display: flex;
+            position: fixed;
+            top: 0;
+            right: -75vw;
+            width: 75vw;
+            height: 100vh;
+            background: white;
+            z-index: 1000;
+            transition: right 0.3s ease-in-out, opacity 0.3s ease-in-out;
+            opacity: 0;
+            visibility: hidden;
+            flex-direction: column;
+            justify-content: center;
+            padding: 2rem 1.5rem;
+        }
+
+        .mobile-menu.active {
+            right: 0;
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Mobile View */
+        @media (max-width: 768px) {
+            .mobile-menu {
+                background: rgba(0, 113, 151, 0.918);
+            }
+
+            .hamburger div {
+                width: 30px;
+                height: 3.5px;
+                background-color: white;
+                margin: 3px;
+                transition: 0.3s;
+            }
+
+            .overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 100vh;
+                background: rgba(0, 0, 0, 0.5);
+                opacity: 0;
+                visibility: hidden;
+                transition: opacity 0.3s ease-in-out;
+                z-index: 998;
+            }
+
+            .overlay.active {
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .menu-content {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+                width: 100%;
+            }
+
+            .menu-content a {
+                color: white;
+                font-size: 1.5rem;
+                text-decoration: none;
+                font-weight: bold;
+                padding: 0.75rem 1.5rem;
+                border-radius: 0.5rem;
+                transition: background 0.3s ease-in-out;
+            }
+
+            .menu-content a.active {
+                background: rgba(255, 69, 0, 0.2);
+                color: #ffffff;
+                width: 100%;
+                border-left: 6px solid #FF4500;
+                padding-left: 2.5rem;
+            }
+
+            body.no-scroll {
+                overflow: hidden;
+            }
+
+            .logo img {
+                width: 4.5rem;
+                height: 4.5rem;
+            }
+
+            .cart-count {
+                position: absolute;
+                top: -2px;
+                right: -5px;
+                background: white;
+                color: black;
+                font-size: 0.9rem;
+                min-width: 1.7rem;
+                height: 1.7rem;
+                padding: 0 0.3rem;
+                border-radius: 50%;
+                font-weight: bold;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                transform: scale(0.9);
+            }
+
+            .navbar {
+                padding: 0.5rem 2rem;
+            }
+
+            .nav-right {
+                display: flex;
+                align-items: center;
+                gap: 1.5rem;
+            }
+
+            .nav-links,
+            .nav-buttons {
+                display: none !important;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .nav-right .cart-contain {
+                display: none !important;
+            }
+
+            .nav-buttons .cart-contain {
+                display: flex !important;
+            }
+
+            .mobile-menu {
+                display: none !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                max-width: 90% !important;
+                height: 77% !important;
+                padding: 3rem 1rem !important;
+                margin: 5vh auto !important;
+            }
+
+            .hero-text {
+                margin: 2rem 1rem !important;
+                gap: 0.5rem !important;
+            }
+
+            .hero h1 {
+                font-size: 3rem !important;
+                line-height: 1.2 !important;
+            }
+
+            .hero p {
+                font-size: 1rem !important;
+            }
+
+            .hero a {
+                font-size: 1.2rem !important;
+                padding: 0.8rem 1.5rem !important;
+            }
+        }
+
+        /* Featured Section */
+        @media screen and (max-width: 1024px) {
+            .Featured {
+                height: auto !important;
+                padding: 2rem 1rem !important;
+            }
+
+            .image-selection {
+                flex-wrap: wrap;
+                gap: 1.5rem;
+            }
+
+            .book-1 {
+                max-width: 15rem;
+                padding: 1rem;
+            }
+
+            .product-buttons {
+                padding: 0.8rem;
+            }
+
+            .product-buttons .buy-now {
+                font-size: 0.9rem;
+                padding: 6px 12px;
+            }
+
+            .price {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .featured-text h1 {
+                font-size: 2rem !important;
+            }
+
+            .image-selection {
+                flex-direction: column !important;
+                align-items: center !important;
+            }
+
+            .book-1 {
+                max-width: 80% !important;
+            }
+
+            .book-text {
+                font-size: 1.25rem !important;
+            }
+
+            .book-text-desc {
+                font-size: 0.9rem !important;
+            }
+        }
+
+        /* Another Section */
+        @media (max-width: 768px) {
+            .customer-reviews {
+                height: auto !important;
+                padding: 1.5rem !important;
+            }
+
+            .customer-title {
+                font-size: 2rem !important;
+                padding: 1rem 2rem !important;
+                margin-bottom: 4rem !important;
+            }
+
+            .customer-reviews-slider {
+                max-width: 100% !important;
+                padding: 0 1rem !important;
+            }
+
+            .customer-reviews-container {
+                padding: 4rem 2rem 2rem !important;
+            }
+
+            .profile-container {
+                width: 5rem !important;
+                height: 5rem !important;
+                top: -2.5rem !important;
+            }
+
+            .profile-pic {
+                width: 4rem !important;
+                height: 4rem !important;
+            }
+
+            .customer-reviews-text-comment {
+                font-size: 1.2rem !important;
+                line-height: 1.5 !important;
+            }
+
+            .star-rating {
+                font-size: 2rem !important;
+            }
+
+            .reviewer-name {
+                font-size: 1.5rem !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .customer-title {
+                font-size: 1.8rem !important;
+                padding: 0.8rem 1.5rem !important;
+            }
+
+            .customer-reviews-container {
+                padding: 3rem 1.5rem 1.5rem !important;
+            }
+
+            .profile-container {
+                width: 4rem !important;
+                height: 4rem !important;
+                top: -2rem !important;
+            }
+
+            .profile-pic {
+                width: 3.5rem !important;
+                height: 3.5rem !important;
+            }
+
+            .customer-reviews-text-comment {
+                font-size: 1rem !important;
+            }
+
+            .star-rating {
+                font-size: 1.8rem !important;
+            }
+
+            .reviewer-name {
+                font-size: 1.3rem !important;
+            }
+        }
+
+        /* Another Section */
+        @media (max-width: 768px) {
+            .guide {
+                height: auto !important;
+                padding: 2rem 1rem !important;
+            }
+
+            .guide-title {
+                font-size: 2.5rem !important;
+                padding: 1rem 1.5rem !important;
+            }
+
+            .guide-content {
+                width: 95% !important;
+                max-width: 100% !important;
+            }
+
+            .step {
+                flex-direction: column !important;
+                align-items: center !important;
+                text-align: center !important;
+                gap: 1.5rem !important;
+            }
+
+            .circle {
+                width: 6rem !important;
+                height: 6rem !important;
+                font-size: 2rem !important;
+            }
+
+            .step-box {
+                height: auto !important;
+                width: 100% !important;
+                padding: 1rem !important;
+                flex-direction: column !important;
+                text-align: center !important;
+            }
+
+            .step-box img {
+                width: 4rem !important;
+                height: 4rem !important;
+                margin-bottom: 0.5rem !important;
+            }
+
+            .step-text {
+                padding-left: 0 !important;
+            }
+
+            .step-text h3 {
+                font-size: 1.5rem !important;
+            }
+
+            .step-text p {
+                font-size: 1.1rem !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .guide-title {
+                font-size: 2rem !important;
+                padding: 0.8rem !important;
+            }
+
+            .circle {
+                width: 5rem !important;
+                height: 5rem !important;
+                font-size: 1.8rem !important;
+            }
+
+            .step-box img {
+                width: 4rem !important;
+                height: 4rem !important;
+            }
+
+            .step-text h3 {
+                font-size: 1.3rem !important;
+            }
+
+            .step-text p {
+                font-size: 1rem !important;
+            }
+        }
+
+        /* Another Section */
+        @media screen and (max-width: 768px) {
+            .FAQs {
+                height: auto !important;
+                padding: 5vh 2rem !important;
+                background-attachment: scroll !important;
+            }
+
+            .faqs-main {
+                height: auto !important;
+                margin: 2vh auto !important;
+                padding: 2rem 1rem !important;
+            }
+
+            .faqs-text {
+                margin: 1rem auto !important;
+                width: 95% !important;
+                gap: 0.1rem !important;
+            }
+
+            .faqs-text h2 {
+                font-size: 2rem !important;
+                text-align: center !important;
+                margin-bottom: 1.5rem !important;
+            }
+
+            .faq-item {
+                width: 95% !important;
+                max-width: 600px !important;
+                margin: 1rem auto !important;
+            }
+
+            .faq-question {
+                font-size: 1.2rem !important;
+                padding: 1rem !important;
+            }
+
+            .faq-question::after {
+                font-size: 1.2rem !important;
+            }
+
+            .faq-answer {
+                font-size: 1.1rem !important;
+                padding: 0 1rem !important;
+                max-height: 0 !important;
+                overflow: hidden !important;
+                transition: max-height 0.4s ease-out, padding 0.4s ease-out !important;
+            }
+
+            .faq-item.active .faq-answer {
+                display: block;
+                max-height: 100% !important;
+                padding: 1rem 1.5rem !important;
+            }
+
+            .faq-answer ul {
+                padding-left: 1rem !important;
+            }
+
+            .faq-answer ul li {
+                font-size: 1rem !important;
+            }
+        }
+
+        /* Footer Section */
+        @media screen and (max-width: 768px) {
+            .footer-container {
+                height: auto !important;
+            }
+
+            .footer-top {
+                height: 6vh !important;
+            }
+
+            .footer-info {
+                height: auto !important;
+                padding: 1rem !important;
+            }
+
+            .footer-info h4 {
+                font-size: 1.2rem !important;
+                padding: 5px !important;
+            }
+
+            .social-icons {
+                gap: 1rem !important;
+            }
+
+            .social-icons img {
+                width: 40px !important;
+                height: 40px !important;
+            }
+
+            .last-text {
+                font-size: 1.2rem !important;
+                height: 7vh !important;
+                padding: 1rem !important;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .footer-info h4 {
+                font-size: 1rem !important;
+            }
+
+            .social-icons {
+                gap: 0.8rem !important;
+            }
+
+            .social-icons img {
+                width: 35px !important;
+                height: 35px !important;
+            }
+
+            .last-text {
+                font-size: 1.2rem !important;
+                letter-spacing: 0.2rem !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <nav class="navbar">
+            <div class="logo">
+                <img src="https://res.cloudinary.com/du0ijg1nu/image/upload/v1740641091/Untitled_design_3_pxsurq.png"
+                    alt="Logo" />
+            </div>
+            <div class="nav-right">
+                <div class="cart-contain">
+                    <a href="/cart">
+                        <img width="50" height="45"
+                            src="https://img.icons8.com/ios-glyphs/60/ff4500/shopping-cart--v1.png"
+                            alt="shopping-cart--v1" />
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+
+                <div class="hamburger" onclick="toggleMenu()">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+
+            <div class="mobile-menu">
+                <div class="menu-content">
+                    <a href="/home" class="nav-link" data-page="home">Home</a>
+                    <a href="/shop" class="nav-link" data-page="shop">Shop</a>
+                    <a href="/contact" class="nav-link" data-page="contact">Contact</a>
+                    <a href="/free-book" class="nav-link" data-page="freebook">Free Book!</a>
+                </div>
+            </div>
+
+            <div class="nav-links">
+                <a href="/home" class="active">Home</a>
+                <a href="/shop">Shop</a>
+                <a href="/contact">Contact</a>
+            </div>
+            <div class="nav-buttons">
+                <div class="cart-contain">
+                    <a href="/cart">
+                        <img width="50" height="45"
+                            src="https://img.icons8.com/ios-glyphs/60/ff4500/shopping-cart--v1.png"
+                            alt="shopping-cart--v1" />
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+                <a href="/free-book" class="nav-free">Free Book!</a>
+            </div>
+        </nav>
+
+        <section class="hero">
+            <div class="hero-text">
+                <h1>Interactive Digital Workbooks for Kids!</h1>
+                <p>
+                    Engaging and fun learning materials <br />
+                    in PDF format – download instantly.
+                </p>
+                <a href="#Featured" class="btn">Browse Workbooks</a>
+            </div>
+        </section>
+    </div>
+
+    <section class="Featured" id="Featured">
+        <div class="featured-text">
+            <h1>Featured Workbooks</h1>
+        </div>
+        <div class="image-selection">
+            <div class="book-1">
+                <div class="shop-image-container">
+                    <img src="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303467/1_ggliia.png" alt=""
+                        class="book-image" />
+
+                    <div class="product-buttons">
+                        <button class="add-to-cart" data-name="Valentine's Day Workbook" data-price="350"
+                            data-image="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303467/1_ggliia.png">
+                            <img src="https://img.icons8.com/ios-glyphs/30/ffffff/shopping-cart--v1.png" alt="cart" />
+                        </button>
+                        <button id="buy-now" class="buy-now" data-name="Valentine's Day Workbook" data-price="350"
+                            data-image="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303467/1_ggliia.png">
+                            Buy Now
+                        </button>
+                    </div>
+                </div>
+
+                <p class="book-text">Valentine's Day <br />Workbook</p>
+                <p class="book-text-desc">
+                    Learn and celebrate love with fun activities themed around
+                    Valentine’s Day.
+                </p>
+
+                <div class="price-details">
+                    <h3 class="price">P350</h3>
+                    <a href="https://littlelegendslibrary.blogspot.com/2025/03/valentines-day-workbook.html"
+                        class="detail-1 no-underline">Details</a>
+                </div>
+            </div>
+
+            <div class="book-1">
+                <div class="shop-image-container">
+                    <img src="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303460/2_swbioi.png" alt=""
+                        class="book-image" />
+
+                    <div class="product-buttons">
+                        <button class="add-to-cart" data-name="Dinosaur Workbook" data-price="350"
+                            data-image="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303460/2_swbioi.png">
+                            <img src="https://img.icons8.com/ios-glyphs/30/ffffff/shopping-cart--v1.png" alt="cart" />
+                        </button>
+                        <button id="buy-now" class="buy-now" data-name="Dinosaur Workbook" data-price="350"
+                            data-image="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303460/2_swbioi.png">
+                            Buy Now
+                        </button>
+                    </div>
+                </div>
+
+                <p class="book-text">Dinosaur <br />Workbook</p>
+                <p class="book-text-desc">
+                    Learn with dinosaurs through tracing, counting, and coloring fun
+                    activities!
+                </p>
+
+                <div class="price-details">
+                    <h3 class="price">P350</h3>
+                    <a href="https://littlelegendslibrary.blogspot.com/2025/03/dinosaur-workbook.html"
+                        class="detail-1 no-underline">Details</a>
+                </div>
+            </div>
+
+            <div class="book-1">
+                <div class="shop-image-container">
+                    <img src="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303466/3_a5gbhu.png" alt=""
+                        class="book-image" />
+
+                    <div class="product-buttons">
+                        <button class="add-to-cart" data-name="Prince Workbook" data-price="350"
+                            data-image="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303466/3_a5gbhu.png">
+                            <img src="https://img.icons8.com/ios-glyphs/30/ffffff/shopping-cart--v1.png" alt="cart" />
+                        </button>
+                        <button id="buy-now" class="buy-now" data-name="Prince Workbook" data-price="350"
+                            data-image="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303466/3_a5gbhu.png">
+                            Buy Now
+                        </button>
+                    </div>
+                </div>
+
+                <p class="book-text">Prince <br />Workbook</p>
+                <p class="book-text-desc">
+                    Learn and have fun with a royal touch through tracing, matching, and
+                    mazes!
+                </p>
+
+                <div class="price-details">
+                    <h3 class="price">P350</h3>
+                    <a href="https://littlelegendslibrary.blogspot.com/2025/03/prince-workbook.html"
+                        class="detail-1 no-underline">Details</a>
+                </div>
+            </div>
+
+            <div class="book-1">
+                <div class="shop-image-container">
+                    <img src="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303465/4_b3oiio.png" alt=""
+                        class="book-image" />
+
+                    <div class="product-buttons">
+                        <button class="add-to-cart" data-name="Workbook 32 Workbook" data-price="350"
+                            data-image="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303465/4_b3oiio.png">
+                            <img src="https://img.icons8.com/ios-glyphs/30/ffffff/shopping-cart--v1.png" alt="cart" />
+                        </button>
+                        <button id="buy-now" class="buy-now" data-name="Workbook 32 Workbook" data-price="350"
+                            data-image="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303465/4_b3oiio.png">
+                            Buy Now
+                        </button>
+                    </div>
+                </div>
+
+                <p class="book-text">Workbook 32 <br />Workbook</p>
+                <p class="book-text-desc">
+                    Learn and have fun with a mix of engaging puzzles, tracing, and
+                    games!
+                </p>
+
+                <div class="price-details">
+                    <h3 class="price">P350</h3>
+                    <a href="https://littlelegendslibrary.blogspot.com/2025/03/workbook-32-activities.html"
+                        class="detail-1 no-underline">Details</a>
+                </div>
+            </div>
+        </div>
+        <div class="button-container">
+            <button class="btn view-workbooks" onclick="window.location.assign('../ShopPage/shop.html#shop')">
+                View All Workbooks
+            </button>
+        </div>
+    </section>
+
+    <section class="customer-reviews">
+        <div class="customer-title-container">
+            <h2 class="customer-title">Customer Reviews</h2>
+        </div>
+
+        <div class="customer-reviews-slider">
+            <div class="customer-reviews-container active">
+                <div class="profile-container">
+                    <img src="https://img.icons8.com/ios-filled/100/ffffff/user-male-circle.png" alt="Profile Picture"
+                        class="profile-pic" />
+                </div>
+                <div class="customer-reviews-text">
+                    <p class="customer-reviews-text-comment">
+                        "Highly recommended! The activities are fun, educational, and easy
+                        for kids to follow."
+                    </p>
+                    <div class="star-rating">★★★★★</div>
+                    <p class="reviewer-name">John Doe</p>
+                </div>
+            </div>
+
+            <div class="customer-reviews-container">
+                <div class="profile-container">
+                    <img src="https://img.icons8.com/ios-filled/100/ffffff/user-female-circle.png" alt="Profile Picture"
+                        class="profile-pic" />
+                </div>
+                <div class="customer-reviews-text">
+                    <p class="customer-reviews-text-comment">
+                        "A must-have for kids! My child loves it, and I’ve seen real
+                        improvement in their learning."
+                    </p>
+                    <div class="star-rating">★★★★★</div>
+                    <p class="reviewer-name">Jane Smith</p>
+                </div>
+            </div>
+
+            <div class="customer-reviews-container">
+                <div class="profile-container">
+                    <img src="https://img.icons8.com/ios-filled/100/ffffff/user-male-circle.png" alt="Profile Picture"
+                        class="profile-pic" />
+                </div>
+                <div class="customer-reviews-text">
+                    <p class="customer-reviews-text-comment">
+                        "Highly recommended! The activities are fun, educational, and easy
+                        for kids to follow."
+                    </p>
+                    <div class="star-rating">★★★★★</div>
+                    <p class="reviewer-name">Mark Wilson</p>
+                </div>
+            </div>
+
+            <div class="customer-reviews-container">
+                <div class="profile-container">
+                    <img src="https://img.icons8.com/ios-filled/100/ffffff/user-female-circle.png" alt="Profile Picture"
+                        class="profile-pic" />
+                </div>
+                <div class="customer-reviews-text">
+                    <p class="customer-reviews-text-comment">
+                        "A must-have for kids! My child loves it, and I’ve seen real
+                        improvement in their learning."
+                    </p>
+                    <div class="star-rating">★★★★★</div>
+                    <p class="reviewer-name">Jane Smith</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="guide">
+        <div class="guide-title-container">
+            <h2 class="guide-title">Simple 3-Step Guide</h2>
+        </div>
+
+        <div class="guide content">
+            <div class="step">
+                <div class="circle">1</div>
+                <div class="step-box">
+                    <img width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/FFFFFF/google-web-search.png"
+                        alt="google-web-search" />
+                    <div class="step-text">
+                        <h3>Browse & Choose a Workbook</h3>
+                        <p>Find engaging workbooks</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="circle">2</div>
+                <div class="step-box">
+                    <img width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/FFFFFF/visa.png" alt="visa" />
+                    <div class="step-text">
+                        <h3>One-Time Payment</h3>
+                        <p>Pay once and access immediately</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="circle">3</div>
+                <div class="step-box">
+                    <img width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/FFFFFF/open-book--v1.png"
+                        alt="open-book--v1" />
+                    <div class="step-text">
+                        <h3>Start Learning!</h3>
+                        <p>Enjoy interactive and printable materials</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="FAQs">
+        <div class="faqs-main">
+            <div class="faqs-text">
+                <h2>
+                    Frequently Asked <br />
+                    Questions (FAQs)
+                </h2>
+
+                <div class="faq-item">
+                    <button class="faq-question">What is your return policy?</button>
+                    <div class="faq-answer">
+                        Due to the digital nature of our eBooks, all sales are final and
+                        non-refundable once the download link has been accessed. However,
+                        if you experience technical issues (e.g., file not received,
+                        corrupted download), please contact us at support@example.com
+                        within 7 days of purchase for assistance or a replacement.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">How can I contact support?</button>
+                    <div class="faq-answer">
+                        Our support team is available
+                        <b>Monday to Friday from 9 AM - 5 PM (PST).</b>
+                        You can reach us via:
+                        <ul>
+                            <li>📧 Email: support@example.com</li>
+                            <li>📞 Phone: +1 800 123 4567</li>
+                        </ul>
+                        Response time is usually <b>within 24 hours.</b>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">How will I receive my eBook?</button>
+                    <div class="faq-answer">
+                        After completing your purchase, you will receive an
+                        <b>email confirmation</b> with a <b>download link</b> to your
+                        eBook. If you don’t receive the email within <b>24 hours</b>,
+                        please check your spam/junk folder or contact us at
+                        <b>support@example.com</b> for assistance. 📌 <b>Tip:</b> Use a
+                        valid email address at checkout to ensure smooth delivery.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-top"></div>
+        <div class="footer-container">
+            <div class="footer-info">
+                <h4>Stay connected! Follow us on social media.</h4>
+                <div class="social-icons">
+                    <a href="facebook.com"><img width="70" height="70"
+                            src="https://img.icons8.com/ios-filled/70/FFFFFF/facebook-new.png" alt="facebook-new" /></a>
+                    <a href="instagram.com"><img width="70" height="70"
+                            src="https://img.icons8.com/ios-glyphs/70/FFFFFF/instagram-circle.png"
+                            alt="instagram-circle" /></a>
+                    <a href="youtube.com"><img width="70" height="70"
+                            src="https://img.icons8.com/ios-filled/70/FFFFFF/youtube-play.png" alt="youtube-play" /></a>
+                </div>
+            </div>
+            <div class="last-text">
+                <a href="#">
+                    <p>LITTLE <span class="orange">LEGENDS</span> LIBRARY</p>
+                </a>
+            </div>
+        </div>
+    </footer>
+</body>
+<script>
+    // Event listeners for Add to Cart and Buy Now buttons
+    document.addEventListener("DOMContentLoaded", function () {
+
+        // Handle Add to Cart button click
+        document.querySelectorAll(".add-to-cart").forEach(button => {
+            button.addEventListener("click", function () {
+                const product = {
+                    name: this.dataset.name,
+                    price: parseFloat(this.dataset.price),
+                    image: this.dataset.image
+                };
+
+                const isAdded = addToCart(product);
+                if (isAdded) {
+                    showAddedMessage("\u2705 Added to Cart!");
+                } else {
+                    showAddedMessage("\u26A0\ufe0f Item is already in the cart!");
+                }
+
+                // Update cart count immediately
+                updateCartCount();
+            });
+        });
+
+        // Handle Buy Now button click
+        document.querySelectorAll(".buy-now").forEach(button => {
+            button.addEventListener("click", function () {
+                const product = {
+                    name: this.dataset.name,
+                    price: parseFloat(this.dataset.price),
+                    image: this.dataset.image
+                };
+
+                goToOrderForm(product); // Go to order form
+            });
+        });
+
+        // Initialize cart count on page load
+        updateCartCount();
+    });
+
+    // 🛒 **Add to Cart Function (Prevents duplicates)**
+    function addToCart(product) {
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        // Check if the product already exists
+        const existingProduct = cart.find(item => item.name === product.name);
+        if (existingProduct) return false; // Don't add duplicate items
+
+        cart.push(product); // Add only if not already in the cart
+        localStorage.setItem("cart", JSON.stringify(cart));
+        return true; // Item added successfully
+    }
+
+    // 🔢 **Update Cart Count Badge**
+    function updateCartCount() {
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        const cartCount = cart.length; // Only counts unique items
+
+        const cartBadge = document.querySelector(".cart-count");
+        if (cartBadge) {
+            cartBadge.textContent = cartCount;
+            cartBadge.style.display = cartCount > 0 ? "flex" : "none"; // Hide if empty
+        }
+    }
+
+    // ✅ **Show "Added to Cart" Message**
+    function showAddedMessage(text) {
+        const message = document.createElement("div");
+        message.textContent = text;
+        message.classList.add("cart-message");
+        document.body.appendChild(message);
+
+        setTimeout(() => {
+            message.classList.add("fade-out"); // Fade out animation
+            setTimeout(() => message.remove(), 1000);
+        }, 1000);
+    }
+
+    // Buy Now Function (Redirect to Google Form)
+    function goToOrderForm(product) {
+        let orderID = generateOrderID();
+        localStorage.setItem("orderID", orderID); // Store Order ID locally
+
+        let formURL = "https://docs.google.com/forms/d/e/1FAIpQLSc9BPxq--g3lNUQ1jtJB3rx6kYPuDrTfaQ-e1BEJ9-z9yvgOw/viewform?";
+        let orderIDField = "entry.771543493=" + encodeURIComponent(orderID);
+        let productField = "&entry.271701913=" + encodeURIComponent(product.name);
+        let priceField = "&entry.827177782=" + encodeURIComponent(product.price);
+
+        sessionStorage.setItem("showOrderSuccess", "true");
+        window.location.href = formURL + orderIDField + productField + priceField;
+    }
+
+    // Generate Order ID Function
+    function generateOrderID() {
+        return 'ORDER-' + Math.floor(Math.random() * 1000000);
+    }
+
+
+    // Customer Reviews
+    document.addEventListener("DOMContentLoaded", function () {
+        const reviews = document.querySelectorAll(".customer-reviews-container");
+        let index = 0;
+
+        function showNextReview() {
+            reviews.forEach((review, i) => {
+                review.classList.remove("active");
+                review.style.display = "none"; // Hide all reviews
+            });
+
+            reviews[index].classList.add("active");
+            reviews[index].style.display = "flex"; // Show only the active review
+
+            index = (index + 1) % reviews.length; // Loop back to the first review after last
+        }
+
+        showNextReview(); // Show first review immediately
+        setInterval(showNextReview, 4000); // Slide every 4 seconds
+    });
+
+    // FAQ Section
+    document.addEventListener("DOMContentLoaded", function () {
+        const faqs = document.querySelectorAll(".faq-item");
+
+        faqs.forEach(faq => {
+            faq.querySelector(".faq-question").addEventListener("click", function () {
+                const isActive = faq.classList.contains("active");
+
+                // Hide all other FAQ items
+                faqs.forEach(item => {
+                    if (item !== faq) {
+                        item.style.display = "none";
+                        item.classList.remove("active");
+                    }
+                });
+
+                // Toggle the clicked FAQ
+                if (!isActive) {
+                    faq.classList.add("active");
+                    faq.style.display = "block";
+                } else {
+                    faq.classList.remove("active");
+                    faqs.forEach(item => item.style.display = "block"); // Show all FAQs when closing
+                }
+            });
+        });
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const menuToggle = document.querySelector(".hamburger");
+        const mobileMenu = document.querySelector(".mobile-menu");
+        const overlay = document.createElement("div");
+        overlay.classList.add("overlay");
+        document.body.appendChild(overlay);
+
+        function toggleMenu() {
+            const isActive = mobileMenu.classList.contains("active");
+
+            if (isActive) {
+                mobileMenu.classList.remove("active");
+                overlay.classList.remove("active");
+                document.body.classList.remove("no-scroll"); // Restore scrolling
+            } else {
+                mobileMenu.classList.add("active");
+                overlay.classList.add("active");
+                document.body.classList.add("no-scroll"); // Prevent scrolling
+            }
+        }
+
+        menuToggle.addEventListener("click", function (event) {
+            event.stopPropagation();
+            toggleMenu();
+        });
+
+        overlay.addEventListener("click", toggleMenu);
+
+        document.addEventListener("keydown", function (event) {
+            if (event.key === "Escape" && mobileMenu.classList.contains("active")) {
+                toggleMenu();
+            }
+        });
+    });
+
+
+    function updateCartCount() {
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        let cartCount = cart.length;
+
+        document.querySelectorAll(".cart-count").forEach(cartBadge => {
+            cartBadge.textContent = cartCount;
+            cartBadge.style.display = cartCount > 0 ? "flex" : "none"; // Hide when empty
+        });
+    }
+
+
+    // Example: Simulating cart count update
+    document.addEventListener("DOMContentLoaded", function () {
+        let cartCount = localStorage.getItem("cartCount") || 0; // Get saved count
+        updateCartCount(cartCount); // Apply it to both elements
+    });
+
+
+    document.addEventListener("DOMContentLoaded", function () {
+        let currentPage = window.location.pathname.split("/").pop().replace(".html", "");
+
+        document.querySelectorAll(".nav-link").forEach(link => {
+            if (link.dataset.page === currentPage) {
+                link.classList.add("active");
+            }
+        });
+    });
+</script>
+
+</html>

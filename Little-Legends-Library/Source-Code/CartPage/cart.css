@@ -103,7 +103,6 @@
     background-color: #e03e00;
 }
 
-/* ✨ Smooth White Edge Glow Effect */
 .cart-icon.active img {
     animation: edgeGlowWhite 1.5s infinite ease-in-out;
 }
@@ -122,13 +121,11 @@
     }
 }
 
-/* Cart container to ensure the badge stays inside the cart icon */
 .cart-contain {
     position: relative;
     display: inline-block;
 }
 
-/* Cart badge styling */
 .cart-count {
     position: absolute;
     bottom: -5px;
@@ -149,7 +146,6 @@
     transform: scale(0.9);
 }
 
-/* 🛒 Cart Section (Now Grid Layout) */
 .cart-container {
     background: white;
     max-width: 85%;
@@ -159,14 +155,12 @@
     box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
 }
 
-/* 🛒 Cart Content Grid */
 .cart-content {
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 2rem;
 }
 
-/* 📦 Cart Items (Left Column) */
 .cart-items {
     display: flex;
     flex-direction: column;
@@ -205,7 +199,6 @@
     color: #666;
 }
 
-/* 🗑 Remove Button */
 .remove-item {
     background: red;
     color: white;
@@ -219,7 +212,6 @@
     background: darkred;
 }
 
-/* 💰 Cart Summary (Right Column) */
 .cart-summary {
     background: #f4f4f4;
     padding: 1.5rem;
@@ -228,12 +220,9 @@
     box-shadow: inset 0px 4px 10px rgba(0, 0, 0, 0.05);
     width: 100%;
     max-width: 350px;
-    /* Prevents it from stretching too much */
     position: sticky;
     top: 1rem;
-    /* Keeps it in place when scrolling */
     align-self: flex-start;
-    /* Keeps it aligned at the top */
 }
 
 .cart-summary h3 {
@@ -242,7 +231,6 @@
     margin-bottom: 1.5rem;
 }
 
-/* 📌 Cart Buttons */
 .cart-buttons {
     display: flex;
     flex-direction: column;
@@ -279,13 +267,11 @@
     background: #218838;
 }
 
-/* 🚀 Separate Container for "Continue Shopping" */
 .continue-shopping-container {
     margin-top: 2rem;
     text-align: center;
 }
 
-/* 🛍 Continue Shopping Button */
 .continue-shopping {
     font-size: 1.2rem;
     font-weight: bold;

@@ -72,15 +72,12 @@
 }
 
 /* Shop Section */
-/* Ensure two products per row on small screens */
 @media (max-width: 768px) {
     .book-1 {
         width: 48% !important;
-        /* Adjust width to fit two per row */
     }
 }
 
-/* Ensure full width for single column on very small screens */
 @media (max-width: 480px) {
     .book-1 {
         width: 100% !important;

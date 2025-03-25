@@ -102,13 +102,11 @@
     background-color: #e03e00;
 }
 
-/* Cart container to ensure the badge stays inside the cart icon */
 .cart-contain {
     position: relative;
     display: inline-block;
 }
 
-/* Cart badge styling */
 .cart-count {
     position: absolute;
     bottom: -5px;
@@ -212,7 +210,6 @@ textarea {
     overflow-y: auto;
 }
 
-/* Placeholder Text Color */
 .input-group input::placeholder,
 textarea::placeholder {
     color: rgba(255, 255, 255, 0.7);

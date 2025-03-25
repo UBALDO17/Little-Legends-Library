@@ -102,13 +102,11 @@
     background-color: #e03e00;
 }
 
-/* Cart container to ensure the badge stays inside the cart icon */
 .cart-contain {
     position: relative;
     display: inline-block;
 }
 
-/* Cart badge styling */
 .cart-count {
     position: absolute;
     bottom: -5px;
@@ -222,14 +220,12 @@
     transition: 1s;
 }
 
-/* 📦 Shop Image Container */
 .shop-image-container {
     position: relative;
     text-align: left;
     justify-content: center;
 }
 
-/* 📷 Book Image */
 .book-image {
     width: 100%;
     height: auto;
@@ -237,7 +233,6 @@
     display: block;
 }
 
-/* 🛒 Buttons Positioned at the Bottom Inside the Image */
 .product-buttons {
     position: absolute;
     bottom: 5px;
@@ -250,7 +245,6 @@
     z-index: 10;
 }
 
-/* 🛒 Add to Cart Button */
 .product-buttons .add-to-cart {
     background: #FF4500;
     border: none;
@@ -279,7 +273,6 @@
     transform: scale(1.1);
 }
 
-/* 💳 Buy Now Button */
 .product-buttons .buy-now {
     background: #FF4500;
     color: white;
@@ -297,7 +290,6 @@
     transform: scale(1.05);
 }
 
-/* 📄 Left-Aligned Book Text */
 .book-text {
     font-size: 1.5rem;
     font-weight: bold;
@@ -311,7 +303,6 @@
     line-height: 1.5;
 }
 
-/* 💰 Price Details */
 .price {
     color: #FF4500;
     font-size: 2rem;
@@ -341,12 +332,10 @@
     color: black;
 }
 
-/* 🚫 Remove underline from "Details" */
 .no-underline {
     text-decoration: none;
 }
 
-/* ✅ "Added to Cart" Floating Message */
 .cart-message {
     position: fixed;
     top: 10%;
@@ -362,7 +351,6 @@
     z-index: 1000;
 }
 
-/* 🔄 Animation */
 @keyframes fadeInOut {
     0% {
         opacity: 0;
@@ -508,7 +496,6 @@
     padding: 2rem;
 }
 
-/* 🏆 Title Styling */
 .guide-title {
     font-size: 3.5rem;
     font-weight: bold;
@@ -526,7 +513,6 @@
     max-width: 45rem;
 }
 
-/* 🔢 Step Container */
 .step {
     display: flex;
     align-items: center;
@@ -536,15 +522,12 @@
     gap: 2rem;
 }
 
-/* Ensure last step does not have extra margin */
 .step:last-child {
     margin-bottom: 0;
 }
 
-/* 🔵 Number Circle */
 .circle {
     width: 7rem;
-    /* Match the step-box height */
     height: 7rem;
     background: #025786;
     color: white;
@@ -558,7 +541,6 @@
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* 📦 Step Box */
 .step-box {
     display: flex;
     align-items: center;
@@ -573,7 +555,6 @@
     padding: 1.5rem;
 }
 
-/* 🖼️ Icon */
 .step-box img {
     width: 5rem;
     height: 5rem;
@@ -581,7 +562,6 @@
     border-radius: 0.5rem;
 }
 
-/* 📝 Step Text */
 .step-text {
     flex-grow: 1;
     padding-left: 1.6rem;
@@ -660,13 +640,13 @@
 }
 
 .faq-question::after {
-    content: "➕";
+    content: "\2795";
     font-size: 1.5rem;
     transition: transform 0.3s ease;
 }
 
 .faq-item.active .faq-question::after {
-    content: "➖";
+    content: "\2796";
 }
 
 .faq-answer {
@@ -691,7 +671,7 @@
 }
 
 .faq-answer ul li {
-    list-style-type: "✅ ";
+    list-style-type: "\2705 ";
     font-size: 1.2rem;
     margin-bottom: 0.5rem;
 }

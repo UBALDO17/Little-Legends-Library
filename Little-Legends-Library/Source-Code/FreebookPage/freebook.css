@@ -102,7 +102,6 @@
     background-color: #e03e00;
 }
 
-/* ✨ Smooth White Edge Glow Effect */
 .freebook.active a {
     animation: edgeGlowWhite 1.5s infinite ease-in-out;
 }
@@ -121,13 +120,11 @@
     }
 }
 
-/* Cart container to ensure the badge stays inside the cart icon */
 .cart-contain {
     position: relative;
     display: inline-block;
 }
 
-/* Cart badge styling */
 .cart-count {
     position: absolute;
     bottom: -5px;
@@ -223,7 +220,6 @@
     box-shadow: 0px 4px 15px rgba(255, 69, 0, 0.6);
 }
 
-/* Free button (clickable) */
 .free-sticker {
     position: absolute;
     top: 50%;
@@ -248,13 +244,13 @@
     animation: glowPulse 1.5s infinite ease-in-out;
     width: 50%;
 }
-/* Hover effect */
+
 .free-sticker:hover {
     background: #ff5722;
     transform: translateX(-50%) scale(1.1);
 }
 
-/* Glow pulse animation */
+
 @keyframes glowPulse {
     0% {
         box-shadow: 0px 0px 10px rgba(255, 69, 0, 0.5);
@@ -272,7 +268,6 @@
     }
 }
 
-/* Center buttons below books */
 .slide-button {
     display: flex;
     justify-content: center;
