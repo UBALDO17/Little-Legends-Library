@@ -1,0 +1,365 @@
+@media (max-width: 768px) {
+    .hero {
+        max-width: 90% !important;
+        height: 77% !important;
+        padding: 3rem 1rem !important;
+        margin: 5vh auto !important;
+    }
+
+    .hero-text {
+        margin: 2rem 1rem !important;
+        gap: 0.5rem !important;
+    }
+
+    .hero h1 {
+        font-size: 3rem !important;
+        line-height: 1.2 !important;
+    }
+
+    .hero p {
+        font-size: 1rem !important;
+    }
+
+    .hero a {
+        font-size: 1.2rem !important;
+        padding: 0.8rem 1.5rem !important;
+    }
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1024px) {
+    .Featured {
+        height: auto !important;
+        padding: 2rem 1rem !important;
+    }
+
+    .image-selection {
+        flex-wrap: wrap;
+        gap: 1.5rem;
+    }
+
+    .book-1 {
+        max-width: 15rem;
+        padding: 1rem;
+    }
+
+    .product-buttons {
+        padding: 0.8rem;
+    }
+
+    .product-buttons .buy-now {
+        font-size: 0.9rem;
+        padding: 6px 12px;
+    }
+
+    .price {
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .featured-text h1 {
+        font-size: 2rem !important;
+    }
+
+    .image-selection {
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+
+    .book-1 {
+        max-width: 80% !important;
+    }
+
+    .book-text {
+        font-size: 1.25rem !important;
+    }
+
+    .book-text-desc {
+        font-size: 0.9rem !important;
+    }
+}
+
+/* Another Section */
+@media (max-width: 768px) {
+    .customer-reviews {
+        height: auto !important;
+        padding: 1.5rem !important;
+    }
+
+    .customer-title {
+        font-size: 2rem !important;
+        padding: 1rem 2rem !important;
+        margin-bottom: 4rem !important;
+    }
+
+    .customer-reviews-slider {
+        max-width: 100% !important;
+        padding: 0 1rem !important;
+    }
+
+    .customer-reviews-container {
+        padding: 4rem 2rem 2rem !important;
+    }
+
+    .profile-container {
+        width: 5rem !important;
+        height: 5rem !important;
+        top: -2.5rem !important;
+    }
+
+    .profile-pic {
+        width: 4rem !important;
+        height: 4rem !important;
+    }
+
+    .customer-reviews-text-comment {
+        font-size: 1.2rem !important;
+        line-height: 1.5 !important;
+    }
+
+    .star-rating {
+        font-size: 2rem !important;
+    }
+
+    .reviewer-name {
+        font-size: 1.5rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .customer-title {
+        font-size: 1.8rem !important;
+        padding: 0.8rem 1.5rem !important;
+    }
+
+    .customer-reviews-container {
+        padding: 3rem 1.5rem 1.5rem !important;
+    }
+
+    .profile-container {
+        width: 4rem !important;
+        height: 4rem !important;
+        top: -2rem !important;
+    }
+
+    .profile-pic {
+        width: 3.5rem !important;
+        height: 3.5rem !important;
+    }
+
+    .customer-reviews-text-comment {
+        font-size: 1rem !important;
+    }
+
+    .star-rating {
+        font-size: 1.8rem !important;
+    }
+
+    .reviewer-name {
+        font-size: 1.3rem !important;
+    }
+}
+
+/* Another Section */
+@media (max-width: 768px) {
+    .guide {
+        height: auto !important;
+        padding: 2rem 1rem !important;
+    }
+
+    .guide-title {
+        font-size: 2.5rem !important;
+        padding: 1rem 1.5rem !important;
+    }
+
+    .guide-content {
+        width: 95% !important;
+        max-width: 100% !important;
+    }
+
+    .step {
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        gap: 1.5rem !important;
+    }
+
+    .circle {
+        width: 6rem !important;
+        height: 6rem !important;
+        font-size: 2rem !important;
+    }
+
+    .step-box {
+        height: auto !important;
+        width: 100% !important;
+        padding: 1rem !important;
+        flex-direction: column !important;
+        text-align: center !important;
+    }
+
+    .step-box img {
+        width: 4rem !important;
+        height: 4rem !important;
+        margin-bottom: 0.5rem !important;
+    }
+
+    .step-text {
+        padding-left: 0 !important;
+    }
+
+    .step-text h3 {
+        font-size: 1.5rem !important;
+    }
+
+    .step-text p {
+        font-size: 1.1rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .guide-title {
+        font-size: 2rem !important;
+        padding: 0.8rem !important;
+    }
+
+    .circle {
+        width: 5rem !important;
+        height: 5rem !important;
+        font-size: 1.8rem !important;
+    }
+
+    .step-box img {
+        width: 4rem !important;
+        height: 4rem !important;
+    }
+
+    .step-text h3 {
+        font-size: 1.3rem !important;
+    }
+
+    .step-text p {
+        font-size: 1rem !important;
+    }
+}
+
+/* Another Section */
+@media screen and (max-width: 768px) {
+    .FAQs {
+        height: auto !important;
+        padding: 5vh 2rem !important;
+        background-attachment: scroll !important;
+    }
+
+    .faqs-main {
+        height: auto !important;
+        margin: 2vh auto !important;
+        padding: 2rem 1rem !important;
+    }
+
+    .faqs-text {
+        margin: 1rem auto !important;
+        width: 95% !important;
+        gap: 0.1rem !important;
+    }
+
+    .faqs-text h2 {
+        font-size: 2rem !important;
+        text-align: center !important;
+        margin-bottom: 1.5rem !important;
+    }
+
+    .faq-item {
+        width: 95% !important;
+        max-width: 600px !important;
+        margin: 1rem auto !important;
+    }
+
+    .faq-question {
+        font-size: 1.2rem !important;
+        padding: 1rem !important;
+    }
+
+    .faq-question::after {
+        font-size: 1.2rem !important;
+    }
+
+    .faq-answer {
+        font-size: 1.1rem !important;
+        padding: 0 1rem !important;
+        max-height: 0 !important;
+        overflow: hidden !important;
+        transition: max-height 0.4s ease-out, padding 0.4s ease-out !important;
+    }
+
+    .faq-item.active .faq-answer {
+        display: block;
+        max-height: 100% !important;
+        padding: 1rem 1.5rem !important;
+    }
+
+    .faq-answer ul {
+        padding-left: 1rem !important;
+    }
+
+    .faq-answer ul li {
+        font-size: 1rem !important;
+    }
+}
+
+/* Footer Section */
+@media screen and (max-width: 768px) {
+    .footer-container {
+        height: auto !important;
+    }
+
+    .footer-top {
+        height: 6vh !important;
+    }
+
+    .footer-info {
+        height: auto !important;
+        padding: 1rem !important;
+    }
+
+    .footer-info h4 {
+        font-size: 1.2rem !important;
+        padding: 5px !important;
+    }
+
+    .social-icons {
+        gap: 1rem !important;
+    }
+
+    .social-icons img {
+        width: 40px !important;
+        height: 40px !important;
+    }
+
+    .last-text {
+        font-size: 1.2rem !important;
+        height: 7vh !important;
+        padding: 1rem !important;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .footer-info h4 {
+        font-size: 1rem !important;
+    }
+
+    .social-icons {
+        gap: 0.8rem !important;
+    }
+
+    .social-icons img {
+        width: 35px !important;
+        height: 35px !important;
+    }
+
+    .last-text {
+        font-size: 1.2rem !important;
+        letter-spacing: 0.2rem !important;
+    }
+}

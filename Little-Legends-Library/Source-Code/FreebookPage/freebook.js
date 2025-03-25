@@ -73,20 +73,21 @@ const books = [
     { img: "https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303465/4_b3oiio.png", link: "book-preview4.html" },
     { img: "https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303464/5_xqyfza.png", link: "book-preview5.html" },
     { img: "https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303461/6_mflbyw.png", link: "book-preview6.html" },
-    { img: "https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303461/7_sutn1d.png", link: "book-preview6.html" }
+    { img: "https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303461/7_sutn1d.png", link: "book-preview6.html" },
 ];
 
 function updateBooks() {
     const bookList = document.querySelector(".book-list");
     bookList.innerHTML = "";
 
-    for (let i = bookIndex; i < bookIndex + 3; i++) {
+    let booksPerSlide = window.innerWidth <= 768 ? 1 : 3; // 1 book per slide on mobile
+
+    for (let i = bookIndex; i < bookIndex + booksPerSlide; i++) {
         if (i >= books.length) break;
 
         const bookDiv = document.createElement("div");
         bookDiv.classList.add("book");
 
-        // Book Image Link
         const bookLink = document.createElement("a");
         bookLink.href = books[i].link;
 
@@ -97,7 +98,6 @@ function updateBooks() {
         bookLink.appendChild(bookImg);
         bookDiv.appendChild(bookLink);
 
-        // FREE Button (Clickable)
         const freeSticker = document.createElement("a");
         freeSticker.href = books[i].link;
         freeSticker.classList.add("free-sticker");
@@ -109,22 +109,25 @@ function updateBooks() {
 }
 
 function nextBooks() {
-    if (bookIndex + 3 < books.length) {
-        bookIndex += 3;
+    let booksPerSlide = window.innerWidth <= 768 ? 1 : 3;
+    if (bookIndex + booksPerSlide < books.length) {
+        bookIndex += booksPerSlide;
     } else {
-        bookIndex = 0; // Loop back to the first set of books
+        bookIndex = 0;
     }
     updateBooks();
 }
 
 function prevBooks() {
+    let booksPerSlide = window.innerWidth <= 768 ? 1 : 3;
     if (bookIndex > 0) {
-        bookIndex -= 3;
+        bookIndex -= booksPerSlide;
     } else {
-        bookIndex = books.length - 3; // Jump to the last set of books
+        bookIndex = books.length - booksPerSlide;
     }
     updateBooks();
 }
 
 document.addEventListener("DOMContentLoaded", updateBooks);
+window.addEventListener("resize", updateBooks);
 

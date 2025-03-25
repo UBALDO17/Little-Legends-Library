@@ -302,19 +302,3 @@
 .continue-shopping:hover {
     background: #e68900;
 }
-
-/* 📱 Responsive */
-@media (max-width: 768px) {
-    .cart-container {
-        max-width: 95%;
-        padding: 2rem;
-    }
-
-    .cart-content {
-        grid-template-columns: 1fr;
-    }
-
-    .cart-buttons {
-        flex-direction: column;
-    }
-}

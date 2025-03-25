@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ramadan Workbook 52</title>
     <link rel="stylesheet" href="ramadan.css">
-    <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="universalResponsive.css">
+    <link rel="stylesheet" href="navResponsive.css">
 </head>
 
 <body>
@@ -16,10 +17,30 @@
                 <img src="https://res.cloudinary.com/du0ijg1nu/image/upload/v1740641091/Untitled_design_3_pxsurq.png"
                     alt="Logo">
             </div>
-            <div class="hamburger" onclick="toggleMenu()">
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
+            <div class="nav-right">
+                <div class="cart-contain">
+                    <a href="../CartPage/cart.html">
+                        <img width="50" height="45"
+                            src="https://img.icons8.com/ios-glyphs/60/ff4500/shopping-cart--v1.png"
+                            alt="shopping-cart--v1" />
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+
+                <div class="hamburger" onclick="toggleMenu()">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+
+            <div class="mobile-menu">
+                <div class="menu-content">
+                    <a href="../HomePage/home.html" class="nav-link" data-page="home">Home</a>
+                    <a href="../ShopPage/shop.html" class="nav-link" data-page="shop">Shop</a>
+                    <a href="../ContactPage/contact.html" class="nav-link" data-page="contact">Contact</a>
+                    <a href="../FreebookPage/freebook.html" class="nav-link" data-page="freebook">Free Book!</a>
+                </div>
             </div>
             <div class="nav-links">
                 <a href="..//HomePage/home.html">Home</a>
@@ -28,7 +49,7 @@
             </div>
             <div class="nav-buttons">
                 <div class="cart-container">
-                    <a href="Cart.html">
+                    <a href="../CartPage/cart.html">
                         <img width="50" height="45"
                             src="https://img.icons8.com/ios-glyphs/60/ff4500/shopping-cart--v1.png"
                             alt="shopping-cart--v1" />
@@ -47,7 +68,8 @@
                 </div>
                 <div class="product-details">
                     <h1>Ramadan <br>Workbook 52 </h1>
-                    <p> 52 Ramadan-themed activities with tracing, coloring, and basic vocabulary for holiday learning.</p>
+                    <p> 52 Ramadan-themed activities with tracing, coloring, and basic vocabulary for holiday learning.
+                    </p>
                     <div class="product-info">
                         <span class="price">₱350</span>
                         <span class="discount">80% OFF</span>
@@ -82,8 +104,9 @@
                     <img src="https://img.icons8.com/ios-filled/100/book.png" alt="Target Audience">
                 </div>
                 <h2>Who Is This Book Perfect For?</h2>
-                <p>This workbook is ideal for children who want to engage with the theme of Ramadan through fun, educational activities. 
-                   </p>
+                <p>This workbook is ideal for children who want to engage with the theme of Ramadan through fun,
+                    educational activities.
+                </p>
             </div>
 
             <!-- How Soon Will You Receive It? -->
@@ -103,7 +126,8 @@
                     <img src="https://img.icons8.com/ios-filled/100/crown.png" alt="Unique Features">
                 </div>
                 <h2>What Makes This Book Special?</h2>
-                <p> It offers 52 activities centered around the spirit of Ramadan, combining fun exercises like shading, drawing, coloring, 
+                <p> It offers 52 activities centered around the spirit of Ramadan, combining fun exercises like shading,
+                    drawing, coloring,
                     and basic language skills to help children learn while observing the holiday.</p>
             </div>
 
@@ -204,6 +228,9 @@
                     </div>
                     <div class="review-text">
                         <h4>Christian Ubaldo</h4>
+                        <div class="starss">
+                            <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+                        </div>
                         <p>Great way to learn about writing your own story for kids! Easy to follow.</p>
                     </div>
                 </div>
@@ -213,6 +240,9 @@
                     </div>
                     <div class="review-text">
                         <h4>Ana Dela Cruz</h4>
+                        <div class="starss">
+                            <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+                        </div>
                         <p>Very informative and engaging. Highly recommended!</p>
                     </div>
                 </div>
@@ -222,6 +252,9 @@
                     </div>
                     <div class="review-text">
                         <h4>Michael Reyes</h4>
+                        <div class="starss">
+                            <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+                        </div>
                         <p>Good insights, but could be improved with more examples.</p>
                     </div>
                 </div>
@@ -231,6 +264,9 @@
                     </div>
                     <div class="review-text">
                         <h4>John Doe</h4>
+                        <div class="starss">
+                            <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+                        </div>
                         <p>Very detailed and well-explained!</p>
                     </div>
                 </div>
@@ -240,6 +276,9 @@
                     </div>
                     <div class="review-text">
                         <h4>Jane Smith</h4>
+                        <div class="starss">
+                            <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+                        </div>
                         <p>Helpful and insightful. Thanks!</p>
                     </div>
                 </div>
@@ -407,7 +446,7 @@
         </div>
     </footer>
 </body>
-<script src="hamburgerMenu.js"></script>
+<script src="nav.js"></script>
 <script src="ramadan.js"></script>
 
 </html>

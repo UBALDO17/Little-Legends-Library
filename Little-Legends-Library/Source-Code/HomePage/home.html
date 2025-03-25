@@ -5,8 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="homeResponsive.css">
     <link rel="stylesheet" href="home.css">
-    <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="navResponsive.css">
 </head>
 
 <body>
@@ -16,6 +17,32 @@
                 <img src="https://res.cloudinary.com/du0ijg1nu/image/upload/v1740641091/Untitled_design_3_pxsurq.png"
                     alt="Logo">
             </div>
+            <div class="nav-right">
+                <div class="cart-contain">
+                    <a href="../CartPage/cart.html">
+                        <img width="50" height="45"
+                            src="https://img.icons8.com/ios-glyphs/60/ff4500/shopping-cart--v1.png"
+                            alt="shopping-cart--v1" />
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+
+                <div class="hamburger" onclick="toggleMenu()">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+
+            <div class="mobile-menu">
+                <div class="menu-content">
+                    <a href="../HomePage/home.html" class="nav-link" data-page="home">Home</a>
+                    <a href="../ShopPage/shop.html" class="nav-link" data-page="shop">Shop</a>
+                    <a href="../ContactPage/contact.html" class="nav-link" data-page="contact">Contact</a>
+                    <a href="../FreebookPage/freebook.html" class="nav-link" data-page="freebook">Free Book!</a>
+                </div>
+            </div>
+
             <div class="nav-links">
                 <a href="..//HomePage/home.html" class="active">Home</a>
                 <a href="..//ShopPage/shop.html">Shop</a>
@@ -23,7 +50,7 @@
             </div>
             <div class="nav-buttons">
                 <div class="cart-contain">
-                    <a href="../Product-Description/Cart.html">
+                    <a href="../CartPage/cart.html">
                         <img width="50" height="45"
                             src="https://img.icons8.com/ios-glyphs/60/ff4500/shopping-cart--v1.png"
                             alt="shopping-cart--v1" />
@@ -36,7 +63,7 @@
 
         <section class="hero">
             <div class="hero-text">
-                <h1>Interactive Digital <br> Workbooks for Kids!</h1>
+                <h1>Interactive Digital Workbooks for Kids!</h1>
                 <p>Engaging and fun learning materials <br> in PDF format – download instantly.</p>
                 <a href="#Featured" class="btn">Browse Workbooks</a>
             </div>
@@ -49,12 +76,10 @@
         </div>
         <div class="image-selection">
             <div class="book-1">
-                <!-- 📖 Product Image (No Anchor Here) -->
                 <div class="shop-image-container">
                     <img src="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303467/1_ggliia.png" alt=""
                         class="book-image" />
 
-                    <!-- 🛒 Add to Cart & Buy Now Buttons Inside Image -->
                     <div class="product-buttons">
                         <button class="add-to-cart" data-name="Valentine's Day Workbook" data-price="350"
                             data-image="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303467/1_ggliia.png">
@@ -66,27 +91,22 @@
                     </div>
                 </div>
 
-                <!-- 📄 Product Details (Left-Aligned) -->
                 <p class="book-text">Valentine's Day <br />Workbook</p>
                 <p class="book-text-desc">
                     Learn and celebrate love with fun activities themed around Valentine’s Day.
                 </p>
 
-                <!-- 💰 Price & Details -->
                 <div class="price-details">
                     <h3 class="price">P350</h3>
-                    <!-- 🏷 Clickable "Details" Without Underline -->
                     <a href="..//Product-Description/Valentines.html" class="detail-1 no-underline">Details</a>
                 </div>
             </div>
 
             <div class="book-1">
-                <!-- 📖 Product Image (No Anchor Here) -->
                 <div class="shop-image-container">
                     <img src="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303460/2_swbioi.png" alt=""
                         class="book-image" />
 
-                    <!-- 🛒 Add to Cart & Buy Now Buttons Inside Image -->
                     <div class="product-buttons">
                         <button class="add-to-cart" data-name="Dinosaur Workbook" data-price="350"
                             data-image="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303460/2_swbioi.png">
@@ -98,27 +118,22 @@
                     </div>
                 </div>
 
-                <!-- 📄 Product Details (Left-Aligned) -->
                 <p class="book-text">Dinosaur <br />Workbook</p>
                 <p class="book-text-desc">
                     Learn with dinosaurs through tracing, counting, and coloring fun activities!
                 </p>
 
-                <!-- 💰 Price & Details -->
                 <div class="price-details">
-                    <h3 class="price">P350</h3>
-                    <!-- 🏷 Clickable "Details" Without Underline -->
+                    <h3 class="price">P320</h3>
                     <a href="..//Product-Description/dinosaur.html" class="detail-1 no-underline">Details</a>
                 </div>
             </div>
 
             <div class="book-1">
-                <!-- 📖 Product Image (No Anchor Here) -->
                 <div class="shop-image-container">
                     <img src="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303466/3_a5gbhu.png" alt=""
                         class="book-image" />
 
-                    <!-- 🛒 Add to Cart & Buy Now Buttons Inside Image -->
                     <div class="product-buttons">
                         <button class="add-to-cart" data-name="Prince Workbook" data-price="350"
                             data-image="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303466/3_a5gbhu.png">
@@ -130,27 +145,22 @@
                     </div>
                 </div>
 
-                <!-- 📄 Product Details (Left-Aligned) -->
                 <p class="book-text">Prince <br />Workbook</p>
                 <p class="book-text-desc">
                     Learn and have fun with a royal touch through tracing, matching, and mazes!
                 </p>
 
-                <!-- 💰 Price & Details -->
                 <div class="price-details">
-                    <h3 class="price">P350</h3>
-                    <!-- 🏷 Clickable "Details" Without Underline -->
+                    <h3 class="price">P330</h3>
                     <a href="..//Product-Description/prince.html" class="detail-1 no-underline">Details</a>
                 </div>
             </div>
 
             <div class="book-1">
-                <!-- 📖 Product Image (No Anchor Here) -->
                 <div class="shop-image-container">
                     <img src="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303465/4_b3oiio.png" alt=""
                         class="book-image" />
 
-                    <!-- 🛒 Add to Cart & Buy Now Buttons Inside Image -->
                     <div class="product-buttons">
                         <button class="add-to-cart" data-name="Workbook 32 Workbook" data-price="350"
                             data-image="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303465/4_b3oiio.png">
@@ -162,16 +172,13 @@
                     </div>
                 </div>
 
-                <!-- 📄 Product Details (Left-Aligned) -->
                 <p class="book-text">Workbook 32 <br />Workbook</p>
                 <p class="book-text-desc">
                     Learn and have fun with a mix of engaging puzzles, tracing, and games!
                 </p>
 
-                <!-- 💰 Price & Details -->
                 <div class="price-details">
-                    <h3 class="price">P350</h3>
-                    <!-- 🏷 Clickable "Details" Without Underline -->
+                    <h3 class="price">P340</h3>
                     <a href="..//Product-Description/workbook32.html" class="detail-1 no-underline">Details</a>
                 </div>
             </div>
@@ -360,5 +367,6 @@
 
 </body>
 <script src="home.js"></script>
+<script src="nav.js"></script>
 
 </html>
