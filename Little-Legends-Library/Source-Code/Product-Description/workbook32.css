@@ -658,6 +658,12 @@ button.write-review {
     margin-bottom: 0.3rem;
 }
 
+.starsss {
+    font-size: 2rem;
+    color: #ffcc00;
+    margin-bottom: 0.5rem;
+}
+
 .starss {
     text-align: left;
     font-size: 1rem;
