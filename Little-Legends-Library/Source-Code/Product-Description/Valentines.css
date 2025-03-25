@@ -395,7 +395,7 @@
 .benefit-container {
     max-width: 1100px;
     margin: 0 auto;
-    background: #fff;
+    background: #ccd2d5cb;
     padding: 3rem;
     border-radius: 12px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
@@ -473,7 +473,7 @@
     }
 }
 
-/* Another Section */
+/* Customer Section */
 .customer-reviews {
     padding: 2rem;
     background: #CCD2D5;
@@ -746,14 +746,12 @@ button.write-review {
     transition: 1s;
 }
 
-/* 📦 Shop Image Container */
 .shop-image-container {
     position: relative;
     text-align: left;
     justify-content: center;
 }
 
-/* 📷 Book Image */
 .book-image {
     width: 100%;
     height: auto;
@@ -761,7 +759,6 @@ button.write-review {
     display: block;
 }
 
-/* 🛒 Buttons Positioned at the Bottom Inside the Image */
 .product-buttons {
     position: absolute;
     bottom: 5px;
@@ -774,7 +771,6 @@ button.write-review {
     z-index: 10;
 }
 
-/* 🛒 Add to Cart Button */
 .product-buttons .add-to-cart {
     background: #FF4500;
     border: none;
