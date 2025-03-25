@@ -33,7 +33,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-
 function updateCartCount() {
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
     let cartCount = cart.length;
@@ -43,7 +42,6 @@ function updateCartCount() {
         cartBadge.style.display = cartCount > 0 ? "flex" : "none"; // Hide when empty
     });
 }
-
 
 // Example: Simulating cart count update
 document.addEventListener("DOMContentLoaded", function () {
