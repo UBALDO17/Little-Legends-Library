@@ -67,13 +67,13 @@ document.addEventListener("DOMContentLoaded", updateCartCount);
 // Book Slide
 let bookIndex = 0;
 const books = [
-    { img: "https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303467/1_ggliia.png", link: "book-preview1.html" },
-    { img: "https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303460/2_swbioi.png", link: "book-preview2.html" },
-    { img: "https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303466/3_a5gbhu.png", link: "book-preview3.html" },
+    { img: "https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303467/1_ggliia.png", link: "https://heyzine.com/flip-book/e38e304573.html" },
+    { img: "https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303460/2_swbioi.png", link: "https://heyzine.com/flip-book/b65a85dfb5.html" },
+    { img: "https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303466/3_a5gbhu.png", link: "https://heyzine.com/flip-book/a0ebefb2cc.html" },
     { img: "https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303465/4_b3oiio.png", link: "book-preview4.html" },
-    { img: "https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303464/5_xqyfza.png", link: "book-preview5.html" },
-    { img: "https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303461/6_mflbyw.png", link: "book-preview6.html" },
-    { img: "https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303461/7_sutn1d.png", link: "book-preview6.html" },
+    { img: "https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303464/5_xqyfza.png", link: "https://heyzine.com/flip-book/8bdc0f2f8c.html" },
+    { img: "https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303461/6_mflbyw.png", link: "https://heyzine.com/flip-book/2a7fb4c219.html" },
+    { img: "https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303461/7_sutn1d.png", link: "https://heyzine.com/flip-book/6d949c168e.html" },
 ];
 
 function updateBooks() {
