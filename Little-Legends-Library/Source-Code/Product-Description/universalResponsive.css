@@ -1,0 +1,402 @@
+/* Mobile Styles */
+@media screen and (max-width: 768px) {
+    .container {
+        height: auto !important;
+    }
+
+    .product-container {
+        max-width: 90% !important;
+        padding: 1rem !important;
+        height: auto !important;
+        margin: 1.5rem auto !important;
+    }
+
+    .product-content {
+        flex-direction: column !important;
+        text-align: center !important;
+        gap: 0.5rem !important;
+    }
+
+    .product-image img {
+        width: 80% !important;
+        max-width: 250px !important;
+        height: auto !important;
+        margin-top: 1rem !important;
+    }
+
+    .product-details {
+        text-align: center !important;
+        gap: 0.5rem !important;
+    }
+
+    .product-details h1 {
+        font-size: 2rem !important;
+    }
+
+    .product-details p {
+        font-size: 1rem !important;
+    }
+
+    .product-info {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        align-items: center !important;
+        gap: 0.7rem !important;
+        text-align: center !important;
+    }
+
+    .price {
+        font-size: 2rem !important;
+        font-weight: bold !important;
+    }
+
+    .discount {
+        background: #ff0000 !important;
+        color: white !important;
+        padding: 0.3rem 0.6rem !important;
+        border-radius: 5px !important;
+        font-size: 1rem !important;
+    }
+
+    .payment-type {
+        font-size: 1rem !important;
+        color: rgba(0, 0, 0, 0.7) !important;
+        white-space: nowrap !important;
+    }
+
+    .product-buttons-top {
+        flex-direction: row !important;
+        align-items: center !important;
+        gap: 1rem !important;
+    }
+
+    .product-buttons-top button {
+        width: 100% !important;
+        max-width: 250px !important;
+    }
+
+    .product-tags {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        gap: 0.5rem !important;
+        margin-bottom: 0.5rem !important;
+    }
+
+    .tag {
+        font-size: 0.8rem !important;
+        padding: 0.4rem 0.8rem !important;
+        border-radius: 15px !important;
+        white-space: nowrap !important;
+    }
+}
+
+/* Mini FAQs Section */
+@media screen and (max-width: 1024px) {
+    .info-content {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 2rem !important;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .book-info-v2 {
+        padding: 2rem 2rem !important;
+    }
+
+    .info-content {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+    }
+
+    .info-box {
+        padding: 1rem !important;
+        text-align: center !important;
+    }
+
+    .info-icon img {
+        width: 60px !important;
+        margin-bottom: 0.5rem !important;
+    }
+
+    .info-box h2 {
+        font-size: 1.4rem !important;
+    }
+
+    .info-box p {
+        font-size: 0.95rem !important;
+        line-height: 1.5 !important;
+    }
+
+    .info-box:hover {
+        transform: none !important;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .table-of-contents {
+        height: auto !important;
+        /* Allow flexible height */
+        padding: 2rem 0.5rem !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        background: linear-gradient(135deg, #025786, #013B5A) !important;
+    }
+
+    .toc-container {
+        flex-direction: column !important;
+        text-align: center !important;
+        height: auto !important;
+        width: 100% !important;
+    }
+
+    .toc-content {
+        padding: 1.5rem 1.5rem !important;
+        background: rgba(255, 255, 255, 0.1) !important;
+        border-radius: 1rem !important;
+        backdrop-filter: blur(10px) !important;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2) !important;
+        width: 100% !important;
+        margin: 0 auto !important;
+    }
+
+    .toc-content h2 {
+        font-size: 2rem !important;
+        color: #FFD700 !important;
+        text-transform: uppercase !important;
+        letter-spacing: 1px !important;
+        margin-bottom: 1.5rem !important;
+    }
+
+    .toc-content ul {
+        list-style: none !important;
+        padding: 0 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 1rem !important;
+    }
+
+    .toc-content li {
+        font-size: 1.2rem !important;
+        background: rgba(255, 255, 255, 0.15) !important;
+        padding: 1rem !important;
+        border-radius: 8px !important;
+        display: flex !important;
+        align-items: center !important;
+        gap: 0.8rem !important;
+        justify-content: center !important;
+        transition: all 0.3s ease-in-out !important;
+    }
+
+    .toc-content li:hover {
+        background: rgba(255, 215, 0, 0.3) !important;
+        transform: scale(1.05) !important;
+        cursor: pointer !important;
+    }
+
+    .toc-image {
+        display: none !important;
+    }
+}
+
+/* Customer Review Section */
+@media (max-width: 768px) {
+    .customer-reviews {
+        padding: 1.5rem;
+    }
+
+    .customer-reviews h2 {
+        font-size: 2rem;
+    }
+
+    .rating-section {
+        max-width: 100%;
+        padding: 0 1rem;
+    }
+
+    .average-score {
+        font-size: 3rem;
+    }
+
+    .average-rating .stars {
+        font-size: 1.8rem;
+    }
+
+    .average-rating p {
+        font-size: 1.2rem;
+    }
+
+    .reviews-container {
+        max-width: 100%;
+        padding: 1rem;
+    }
+
+    .rating-bars {
+        gap: 0.8rem;
+    }
+
+    .stars,
+    .count {
+        font-size: 1.2rem;
+        width: 3rem;
+    }
+
+    .progress-bar {
+        height: 1rem;
+    }
+
+    .write-review {
+        width: 80%;
+        font-size: 1rem;
+    }
+
+    .review-section {
+        max-width: 100%;
+        padding: 1rem;
+    }
+
+    .review-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+        padding: 0.8rem;
+    }
+
+    .review-avatar {
+        width: 4rem;
+        height: 4rem;
+    }
+
+    .review-text {
+        text-align: center !important;
+    }
+
+    .starss {
+        text-align: center !important;
+    }
+
+    .review-text h4 {
+        font-size: 1.1rem;
+    }
+
+    .review-text p {
+        font-size: 0.9rem;
+    }
+
+    .toggle-reviews {
+        font-size: 1rem;
+        padding: 0.6rem;
+    }
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1024px) {
+    .mayLike {
+        height: auto !important;
+        padding: 2rem 1rem !important;
+    }
+
+    .image-selection {
+        flex-wrap: wrap;
+        gap: 1.5rem;
+    }
+
+    .book-1 {
+        max-width: 15rem;
+        padding: 1rem;
+    }
+
+    .product-buttons {
+        padding: 0.8rem;
+    }
+
+    .product-buttons .buy-now {
+        font-size: 0.9rem;
+        padding: 6px 12px;
+    }
+
+    .price {
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .mayLike-text h1 {
+        font-size: 2rem !important;
+    }
+
+    .image-selection {
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+
+    .book-1 {
+        max-width: 80% !important;
+    }
+
+    .book-text {
+        font-size: 1.5rem !important;
+    }
+
+    .book-text-desc {
+        font-size: 0.9rem !important;
+    }
+}
+
+/* Footer Section */
+@media screen and (max-width: 768px) {
+    .footer-container {
+        height: auto !important;
+    }
+
+    .footer-top {
+        height: 6vh !important;
+    }
+
+    .footer-info {
+        height: auto !important;
+        padding: 1rem !important;
+    }
+
+    .footer-info h4 {
+        font-size: 1.2rem !important;
+        padding: 5px !important;
+    }
+
+    .social-icons {
+        gap: 1rem !important;
+    }
+
+    .social-icons img {
+        width: 40px !important;
+        height: 40px !important;
+    }
+
+    .last-text {
+        font-size: 1.2rem !important;
+        height: 7vh !important;
+        padding: 1rem !important;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .footer-info h4 {
+        font-size: 1rem !important;
+    }
+
+    .social-icons {
+        gap: 0.8rem !important;
+    }
+
+    .social-icons img {
+        width: 35px !important;
+        height: 35px !important;
+    }
+
+    .last-text {
+        font-size: 1.2rem !important;
+        letter-spacing: 0.2rem !important;
+    }
+}
