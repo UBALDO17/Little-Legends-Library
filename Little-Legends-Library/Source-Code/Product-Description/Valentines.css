@@ -401,7 +401,6 @@
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
-/* Heading */
 .benefits h1 {
     text-align: center;
     font-size: 2.5rem;
@@ -410,14 +409,12 @@
     margin-bottom: 2rem;
 }
 
-/* Benefits List */
 .benefits-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 1.5rem;
 }
 
-/* Benefit Box */
 .benefit {
     background: linear-gradient(to right, #eef2f3, #ffffff);
     padding: 1.8rem;
@@ -442,7 +439,7 @@
     color: #555;
 }
 
-/* Responsive Design */
+/* Responsive Design for Benefits */
 @media screen and (max-width: 768px) {
     .benefits {
         padding: 1.5rem 1rem !important;
@@ -468,14 +465,11 @@
 
     .benefit h2 {
         font-size: 1.1rem;
-        /* Make headers slightly smaller */
     }
 
     .benefit p {
         font-size: 0.9rem;
-        /* Reduce paragraph size for better fit */
         line-height: 1.4;
-        /* Improve readability */
     }
 }
 
