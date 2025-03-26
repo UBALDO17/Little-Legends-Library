@@ -120,11 +120,24 @@
     border-radius: 50%;
     font-weight: bold;
     display: none;
-    display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     transform: scale(0.9);
+}
+
+.cart-count.show {
+    display: flex !important;
+}
+
+@media (max-width: 768px) {
+    .cart-count {
+        display: none !important;
+    }
+
+    .cart-count.show {
+        display: flex !important;
+    }
 }
 
 .hero {

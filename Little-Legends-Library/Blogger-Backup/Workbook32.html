@@ -26,8 +26,18 @@
         }
 
         .date-header,
-        .status-msg-wrap {
+        .status-msg-wrap,
+        .post-footer {
             display: none;
+        }
+
+        html .post {
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+
+        html .post-body img {
+            max-width: 100% !important;
         }
 
         .container {
@@ -37,6 +47,11 @@
             display: flex;
             flex-direction: column;
             width: 100%;
+        }
+
+        .date-header,
+        .status-msg-wrap {
+            display: none;
         }
 
         .navbar {
@@ -405,7 +420,93 @@
             box-shadow: 0px 10px 30px rgba(255, 215, 0, 0.3);
         }
 
-        /* Another Section */
+        /* Benefits Container */
+        .benefits {
+            padding: 4rem 1rem;
+        }
+
+        .benefit-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: #ccd2d5cb;
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .benefits h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 2rem;
+        }
+
+        .benefits-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .benefit {
+            background: linear-gradient(to right, #eef2f3, #ffffff);
+            padding: 1.8rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .benefit:hover {
+            transform: translateY(-5px);
+        }
+
+        .benefit h2 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #34495e;
+            margin-bottom: 0.8rem;
+        }
+
+        .benefit p {
+            font-size: 1rem;
+            color: #555;
+        }
+
+        /* Responsive Design for Benefits */
+        @media screen and (max-width: 768px) {
+            .benefits {
+                padding: 1.5rem 1rem !important;
+            }
+
+            .benefit-container {
+                padding: 1.5rem;
+            }
+
+            .benefits h1 {
+                font-size: 1.8rem;
+                text-align: center;
+            }
+
+            .benefits-list {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .benefit {
+                padding: 1.2rem;
+            }
+
+            .benefit h2 {
+                font-size: 1.1rem;
+            }
+
+            .benefit p {
+                font-size: 0.9rem;
+                line-height: 1.4;
+            }
+        }
+
+        /* Customer Section */
         .customer-reviews {
             padding: 2rem;
             background: #CCD2D5;
@@ -590,6 +691,19 @@
             margin-bottom: 0.3rem;
         }
 
+        .starsss {
+            font-size: 2rem;
+            color: #ffcc00;
+            margin-bottom: 0.5rem;
+        }
+
+        .starss {
+            text-align: left;
+            font-size: 1rem;
+            color: #ffcc00;
+            margin-bottom: 0.5rem;
+        }
+
         .review-text p {
             font-size: 1rem;
             color: #555;
@@ -671,14 +785,12 @@
             transition: 1s;
         }
 
-        /* 📦 Shop Image Container */
         .shop-image-container {
             position: relative;
             text-align: left;
             justify-content: center;
         }
 
-        /* 📷 Book Image */
         .book-image {
             width: 100%;
             height: auto;
@@ -686,7 +798,6 @@
             display: block;
         }
 
-        /* 🛒 Buttons Positioned at the Bottom Inside the Image */
         .product-buttons {
             position: absolute;
             bottom: 5px;
@@ -699,7 +810,6 @@
             z-index: 10;
         }
 
-        /* 🛒 Add to Cart Button */
         .product-buttons .add-to-cart {
             background: #FF4500;
             border: none;
@@ -815,11 +925,24 @@
             border-radius: 50%;
             font-weight: bold;
             display: none;
-            display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             transform: scale(0.9);
+        }
+
+        .cart-count.show {
+            display: flex !important;
+        }
+
+        @media (max-width: 768px) {
+            .cart-count {
+                display: none !important;
+            }
+
+            .cart-count.show {
+                display: flex !important;
+            }
         }
 
         /* ✅ "Added to Cart" Floating Message */
@@ -923,6 +1046,555 @@
             color: orangered;
             display: inline;
         }
+
+        /* Mobile Styles */
+        @media screen and (max-width: 768px) {
+            .container {
+                height: auto !important;
+            }
+
+            .product-container {
+                max-width: 90% !important;
+                padding: 1rem !important;
+                height: auto !important;
+                margin: 1.5rem auto !important;
+            }
+
+            .product-content {
+                flex-direction: column !important;
+                text-align: center !important;
+                gap: 0.5rem !important;
+            }
+
+            .product-image img {
+                width: 80% !important;
+                max-width: 250px !important;
+                height: auto !important;
+                margin-top: 1rem !important;
+            }
+
+            .product-details {
+                text-align: center !important;
+                gap: 0.5rem !important;
+            }
+
+            .product-details h1 {
+                font-size: 2rem !important;
+            }
+
+            .product-details p {
+                font-size: 1rem !important;
+            }
+
+            .product-info {
+                display: flex !important;
+                flex-wrap: wrap !important;
+                justify-content: center !important;
+                align-items: center !important;
+                gap: 0.7rem !important;
+                text-align: center !important;
+            }
+
+            .price {
+                font-size: 2rem !important;
+                font-weight: bold !important;
+            }
+
+            .discount {
+                background: #ff0000 !important;
+                color: white !important;
+                padding: 0.3rem 0.6rem !important;
+                border-radius: 5px !important;
+                font-size: 1rem !important;
+            }
+
+            .payment-type {
+                font-size: 1rem !important;
+                color: rgba(0, 0, 0, 0.7) !important;
+                white-space: nowrap !important;
+            }
+
+            .product-buttons-top {
+                flex-direction: row !important;
+                align-items: center !important;
+                gap: 1rem !important;
+            }
+
+            .product-buttons-top button {
+                width: 100% !important;
+                max-width: 250px !important;
+            }
+
+            .product-tags {
+                display: flex !important;
+                flex-wrap: wrap !important;
+                justify-content: center !important;
+                gap: 0.5rem !important;
+                margin-bottom: 0.5rem !important;
+            }
+
+            .tag {
+                font-size: 0.8rem !important;
+                padding: 0.4rem 0.8rem !important;
+                border-radius: 15px !important;
+                white-space: nowrap !important;
+            }
+        }
+
+        /* Mini FAQs Section */
+        @media screen and (max-width: 1024px) {
+            .info-content {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 2rem !important;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .book-info-v2 {
+                padding: 2rem 2rem !important;
+            }
+
+            .info-content {
+                grid-template-columns: 1fr !important;
+                gap: 1.5rem !important;
+            }
+
+            .info-box {
+                padding: 1rem !important;
+                text-align: center !important;
+            }
+
+            .info-icon img {
+                width: 60px !important;
+                margin-bottom: 0.5rem !important;
+            }
+
+            .info-box h2 {
+                font-size: 1.4rem !important;
+            }
+
+            .info-box p {
+                font-size: 0.95rem !important;
+                line-height: 1.5 !important;
+            }
+
+            .info-box:hover {
+                transform: none !important;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .table-of-contents {
+                height: auto !important;
+                /* Allow flexible height */
+                padding: 2rem 0.5rem !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                background: linear-gradient(135deg, #025786, #013B5A) !important;
+            }
+
+            .toc-container {
+                flex-direction: column !important;
+                text-align: center !important;
+                height: auto !important;
+                width: 100% !important;
+            }
+
+            .toc-content {
+                padding: 1.5rem 1.5rem !important;
+                background: rgba(255, 255, 255, 0.1) !important;
+                border-radius: 1rem !important;
+                backdrop-filter: blur(10px) !important;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2) !important;
+                width: 100% !important;
+                margin: 0 auto !important;
+            }
+
+            .toc-content h2 {
+                font-size: 2rem !important;
+                color: #FFD700 !important;
+                text-transform: uppercase !important;
+                letter-spacing: 1px !important;
+                margin-bottom: 1.5rem !important;
+            }
+
+            .toc-content ul {
+                list-style: none !important;
+                padding: 0 !important;
+                display: flex !important;
+                flex-direction: column !important;
+                gap: 1rem !important;
+            }
+
+            .toc-content li {
+                font-size: 1.2rem !important;
+                background: rgba(255, 255, 255, 0.15) !important;
+                padding: 1rem !important;
+                border-radius: 8px !important;
+                display: flex !important;
+                align-items: center !important;
+                gap: 0.8rem !important;
+                justify-content: center !important;
+                transition: all 0.3s ease-in-out !important;
+            }
+
+            .toc-content li:hover {
+                background: rgba(255, 215, 0, 0.3) !important;
+                transform: scale(1.05) !important;
+                cursor: pointer !important;
+            }
+
+            .toc-image {
+                display: none !important;
+            }
+        }
+
+        /* Customer Review Section */
+        @media (max-width: 768px) {
+            .customer-reviews {
+                padding: 1.5rem !important;
+            }
+
+            .customer-reviews h2 {
+                font-size: 2rem !important;
+            }
+
+            .rating-section {
+                max-width: 100% !important;
+                padding: 0 1rem !important;
+            }
+
+            .average-score {
+                font-size: 3rem !important;
+            }
+
+            .average-rating .stars {
+                font-size: 1.8rem !important;
+            }
+
+            .average-rating p {
+                font-size: 1.2rem !important;
+            }
+
+            .reviews-container {
+                max-width: 100% !important;
+                padding: 1rem !important;
+            }
+
+            .rating-bars {
+                gap: 0.8rem !important;
+            }
+
+            .starsss span {
+                font-size: 1.5rem !important;
+            }
+
+            .stars,
+            .count {
+                font-size: 1rem !important;
+                width: 3rem !important;
+            }
+
+            .progress-bar {
+                height: 1rem !important;
+            }
+
+            .write-review {
+                width: 80% !important;
+                font-size: 1rem !important;
+            }
+
+            .review-section {
+                max-width: 100% !important;
+                padding: 1rem !important;
+            }
+
+            .review-item {
+                flex-direction: column !important;
+                text-align: center !important;
+                gap: 0.5rem !important;
+                padding: 0.8rem !important;
+            }
+
+            .review-avatar {
+                width: 4rem !important;
+                height: 4rem !important;
+            }
+
+            .review-text {
+                text-align: center !important;
+            }
+
+            .starss {
+                text-align: center !important;
+            }
+
+            .review-text h4 {
+                font-size: 1.1rem !important;
+            }
+
+            .review-text p {
+                font-size: 0.9rem !important;
+            }
+
+            .toggle-reviews {
+                font-size: 1rem !important;
+                padding: 0.6rem !important;
+            }
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 1024px) {
+            .mayLike {
+                height: auto !important;
+                padding: 2rem 1rem !important;
+            }
+
+            .image-selection {
+                flex-wrap: wrap !important;
+                gap: 1.5rem !important;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .mayLike-text h1 {
+                font-size: 2rem !important;
+            }
+
+            .image-selection {
+                flex-direction: column !important;
+                align-items: center !important;
+            }
+
+            .book-1 {
+                max-width: 75% !important;
+            }
+
+            .book-text {
+                font-size: 1.5rem !important;
+            }
+
+            .book-text-desc {
+                font-size: 1rem !important;
+            }
+        }
+
+        /* Footer Section */
+        @media screen and (max-width: 768px) {
+            .footer-container {
+                height: auto !important;
+            }
+
+            .footer-top {
+                height: 6vh !important;
+            }
+
+            .footer-info {
+                height: auto !important;
+                padding: 1rem !important;
+            }
+
+            .footer-info h4 {
+                font-size: 1.2rem !important;
+                padding: 5px !important;
+            }
+
+            .social-icons {
+                gap: 1rem !important;
+            }
+
+            .social-icons img {
+                width: 40px !important;
+                height: 40px !important;
+            }
+
+            .last-text {
+                font-size: 1.2rem !important;
+                height: 7vh !important;
+                padding: 1rem !important;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .footer-info h4 {
+                font-size: 1rem !important;
+            }
+
+            .social-icons {
+                gap: 0.8rem !important;
+            }
+
+            .social-icons img {
+                width: 35px !important;
+                height: 35px !important;
+            }
+
+            .last-text {
+                font-size: 1.2rem !important;
+                letter-spacing: 0.2rem !important;
+            }
+        }
+
+        .nav-right {
+            display: flex !important;
+            align-items: center !important;
+            gap: 1rem !important;
+        }
+
+        .hamburger {
+            display: none !important;
+            cursor: pointer !important;
+            flex-direction: column !important;
+        }
+
+        .mobile-menu {
+            display: flex !important;
+            position: fixed !important;
+            top: 0 !important;
+            right: -75vw !important;
+            width: 75vw !important;
+            height: 100vh !important;
+            background: white !important;
+            z-index: 1000 !important;
+            transition: right 0.3s ease-in-out, opacity 0.3s ease-in-out !important;
+            opacity: 0 !important;
+            visibility: hidden !important;
+            flex-direction: column !important;
+            justify-content: center !important;
+            padding: 2rem 1.5rem !important;
+        }
+
+        .mobile-menu.active {
+            right: 0 !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+        }
+
+        /* Mobile View */
+        @media (max-width: 768px) {
+            .mobile-menu {
+                background: rgba(0, 113, 151, 0.918) !important;
+            }
+
+            .hamburger div {
+                width: 30px !important;
+                height: 3.5px !important;
+                background-color: white !important;
+                margin: 3px !important;
+                transition: 0.3s !important;
+            }
+
+            .overlay {
+                position: fixed !important;
+                top: 0 !important;
+                left: 0 !important;
+                width: 100vw !important;
+                height: 100vh !important;
+                background: rgba(0, 0, 0, 0.5) !important;
+                opacity: 0 !important;
+                visibility: hidden !important;
+                transition: opacity 0.3s ease-in-out !important;
+                z-index: 998 !important;
+            }
+
+            .overlay.active {
+                opacity: 1 !important;
+                visibility: visible !important;
+            }
+
+            .menu-content {
+                display: flex !important;
+                flex-direction: column !important;
+                gap: 1rem !important;
+                width: 100% !important;
+            }
+
+            .menu-content a {
+                color: white !important;
+                font-size: 1.5rem !important;
+                text-decoration: none !important;
+                font-weight: bold !important;
+                padding: 0.75rem 1.5rem !important;
+                border-radius: 0.5rem !important;
+                transition: background 0.3s ease-in-out !important;
+            }
+
+            .menu-content a.active {
+                background: rgba(255, 69, 0, 0.2) !important;
+                color: #ffffff !important;
+                width: 100% !important;
+                border-left: 6px solid #FF4500 !important;
+                padding-left: 2.5rem !important;
+            }
+
+            body.no-scroll {
+                overflow: hidden !important;
+            }
+
+            .logo img {
+                width: 4.5rem !important;
+                height: 4.5rem !important;
+            }
+
+            .cart-contain {
+                position: relative !important;
+                display: inline-block !important;
+            }
+
+            .cart-count {
+                position: absolute !important;
+                top: -2px !important;
+                right: -5px !important;
+                background: white !important;
+                color: black !important;
+                font-size: 0.9rem !important;
+                min-width: 1.7rem !important;
+                height: 1.7rem !important;
+                padding: 0 0.3rem !important;
+                border-radius: 50% !important;
+                font-weight: bold !important;
+                display: none !important;
+                align-items: center !important;
+                justify-content: center !important;
+                text-align: center !important;
+                transform: scale(0.9) !important;
+            }
+
+            .navbar {
+                padding: 0.5rem 2rem !important;
+            }
+
+            .nav-right {
+                display: flex !important;
+                align-items: center !important;
+                gap: 1.5rem !important;
+            }
+
+            .nav-links,
+            .nav-buttons {
+                display: none !important;
+            }
+
+            .hamburger {
+                display: flex !important;
+            }
+        }
+
+        /* Desktop View */
+        @media (min-width: 769px) {
+            .nav-right .cart-contain {
+                display: none !important;
+            }
+
+            .nav-buttons .cart-contain {
+                display: flex !important;
+            }
+
+            .mobile-menu {
+                display: none !important;
+            }
+        }
     </style>
 </head>
 
@@ -933,10 +1605,30 @@
                 <img src="https://res.cloudinary.com/du0ijg1nu/image/upload/v1740641091/Untitled_design_3_pxsurq.png"
                     alt="Logo" />
             </div>
-            <div class="hamburger" onclick="toggleMenu()">
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
+            <div class="nav-right">
+                <div class="cart-contain">
+                    <a href="/cart">
+                        <img width="50" height="45"
+                            src="https://img.icons8.com/ios-glyphs/60/ff4500/shopping-cart--v1.png"
+                            alt="shopping-cart--v1" />
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+
+                <div class="hamburger" onclick="toggleMenu()">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+
+            <div class="mobile-menu">
+                <div class="menu-content">
+                    <a href="/home" class="nav-link" data-page="home_3">Home</a>
+                    <a href="/shop" class="nav-link" data-page="shop">Shop</a>
+                    <a href="/contact" class="nav-link" data-page="contact">Contact</a>
+                    <a href="/free-book" class="nav-link" data-page="free-book">Free Book!</a>
+                </div>
             </div>
             <div class="nav-links">
                 <a href="/home">Home</a>
@@ -972,17 +1664,17 @@
                         puzzles, and more for fun learning.
                     </p>
                     <div class="product-info">
-                        <span class="price">₱3500</span>
+                        <span class="price">₱350</span>
                         <span class="discount">80% OFF</span>
                         <span class="payment-type"><i>One-time Payment <br />
                                 Instant Download</i></span>
                     </div>
                     <div class="product-buttons-top">
-                        <button id="cart" class="add-to-cart" data-name="Workbook32: Activities" data-price="3500"
+                        <button id="cart" class="add-to-cart" data-name="Workbook32: Activities" data-price="350"
                             data-image="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303465/4_b3oiio.png">
                             Add to Cart
                         </button>
-                        <button id="buy-now" class="buy-now" data-name="Workbook32: Activities" data-price="3500"
+                        <button id="buy-now" class="buy-now" data-name="Workbook32: Activities" data-price="350"
                             data-image="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303465/4_b3oiio.png">
                             Buy Now
                         </button>
@@ -1076,13 +1768,91 @@
         </div>
     </section>
 
+    <section class="benefits">
+        <div class="benefit-container">
+            <h1>Top 10 Benefits of This Book</h1>
+            <div class="benefits-list">
+                <div class="benefit">
+                    <h2>1. Fun and Engaging Learning Activities</h2>
+                    <p>
+                        Interactive exercises make learning enjoyable, keeping readers
+                        motivated while gaining new skills.
+                    </p>
+                </div>
+                <div class="benefit">
+                    <h2>2. Designed for Early Learners (Ages 3+)</h2>
+                    <p>
+                        Activities are age-appropriate and help develop cognitive and
+                        problem-solving skills.
+                    </p>
+                </div>
+                <div class="benefit">
+                    <h2>3. Promotes Early Literacy and Math Skills</h2>
+                    <p>
+                        From alphabet tracing to math exercises, this book strengthens
+                        essential academic foundations.
+                    </p>
+                </div>
+                <div class="benefit">
+                    <h2>4. Boosts Fine Motor Skills</h2>
+                    <p>
+                        Tracing, cutting, and coloring activities enhance hand-eye
+                        coordination and writing skills.
+                    </p>
+                </div>
+                <div class="benefit">
+                    <h2>5. Encourages Creativity and Self-Expression</h2>
+                    <p>
+                        Creative pages inspire imagination, helping children explore and
+                        develop artistic abilities.
+                    </p>
+                </div>
+                <div class="benefit">
+                    <h2>6. Perfect for Independent Learning</h2>
+                    <p>
+                        Simple instructions allow learners to complete activities on their
+                        own, boosting confidence.
+                    </p>
+                </div>
+                <div class="benefit">
+                    <h2>7. Convenient and Versatile</h2>
+                    <p>
+                        Printable and digital formats make it easy to use at home, in
+                        school, or on the go.
+                    </p>
+                </div>
+                <div class="benefit">
+                    <h2>8. A Thoughtful and Meaningful Gift</h2>
+                    <p>
+                        Educational and engaging, this book makes for a perfect and
+                        beneficial present.
+                    </p>
+                </div>
+                <div class="benefit">
+                    <h2>9. Instant Access – Download & Print Anytime</h2>
+                    <p>
+                        Available for immediate download, making learning accessible and
+                        convenient.
+                    </p>
+                </div>
+                <div class="benefit">
+                    <h2>10. Makes Learning Special</h2>
+                    <p>
+                        Transforms education into an enjoyable and memorable experience
+                        for readers of all ages.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="customer-reviews">
         <h2>Customer Reviews</h2>
 
         <div class="rating-section">
             <div class="average-rating">
                 <div class="average-score">4.5</div>
-                <div class="stars">
+                <div class="starsss">
                     <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
                 </div>
                 <p>Based on 150 reviews</p>
@@ -1141,6 +1911,9 @@
                     </div>
                     <div class="review-text">
                         <h4>Christian Ubaldo</h4>
+                        <div class="starss">
+                            <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+                        </div>
                         <p>
                             Great way to learn about writing your own story for kids! Easy
                             to follow.
@@ -1153,6 +1926,9 @@
                     </div>
                     <div class="review-text">
                         <h4>Ana Dela Cruz</h4>
+                        <div class="starss">
+                            <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+                        </div>
                         <p>Very informative and engaging. Highly recommended!</p>
                     </div>
                 </div>
@@ -1162,6 +1938,9 @@
                     </div>
                     <div class="review-text">
                         <h4>Michael Reyes</h4>
+                        <div class="starss">
+                            <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+                        </div>
                         <p>Good insights, but could be improved with more examples.</p>
                     </div>
                 </div>
@@ -1171,6 +1950,9 @@
                     </div>
                     <div class="review-text">
                         <h4>John Doe</h4>
+                        <div class="starss">
+                            <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+                        </div>
                         <p>Very detailed and well-explained!</p>
                     </div>
                 </div>
@@ -1180,6 +1962,9 @@
                     </div>
                     <div class="review-text">
                         <h4>Jane Smith</h4>
+                        <div class="starss">
+                            <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+                        </div>
                         <p>Helpful and insightful. Thanks!</p>
                     </div>
                 </div>
@@ -1201,11 +1986,11 @@
 
                     <!-- 🛒 Add to Cart & Buy Now Buttons Inside Image -->
                     <div class="product-buttons">
-                        <button class="add-to-cart" data-name="Valentine's Day Workbook" data-price="310"
+                        <button class="add-to-cart" data-name="Valentine's Day Workbook" data-price="350"
                             data-image="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303467/1_ggliia.png">
                             <img src="https://img.icons8.com/ios-glyphs/30/ffffff/shopping-cart--v1.png" alt="cart" />
                         </button>
-                        <button class="buy-now" data-name="Valentine's Day Workbook" data-price="310"
+                        <button class="buy-now" data-name="Valentine's Day Workbook" data-price="350"
                             data-image="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303467/1_ggliia.png">
                             Buy Now
                         </button>
@@ -1221,10 +2006,9 @@
 
                 <!-- 💰 Price & Details -->
                 <div class="price-details">
-                    <h3 class="price">P310</h3>
+                    <h3 class="price">P350</h3>
                     <!-- 🏷 Clickable "Details" Without Underline -->
-                    <a href="https://littlelegendslibrary.blogspot.com/2025/03/valentines-day-workbook.html"
-                        class="detail-1 no-underline">Details</a>
+                    <a href="..//Product-Description/Valentines.html" class="detail-1 no-underline">Details</a>
                 </div>
             </div>
 
@@ -1236,11 +2020,11 @@
 
                     <!-- 🛒 Add to Cart & Buy Now Buttons Inside Image -->
                     <div class="product-buttons">
-                        <button class="add-to-cart" data-name="Dinosaur Workbook" data-price="320"
+                        <button class="add-to-cart" data-name="Dinosaur Workbook" data-price="350"
                             data-image="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303460/2_swbioi.png">
                             <img src="https://img.icons8.com/ios-glyphs/30/ffffff/shopping-cart--v1.png" alt="cart" />
                         </button>
-                        <button class="buy-now" data-name="Dinosaur Workbook" data-price="320"
+                        <button class="buy-now" data-name="Dinosaur Workbook" data-price="350"
                             data-image="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303460/2_swbioi.png">
                             Buy Now
                         </button>
@@ -1256,10 +2040,9 @@
 
                 <!-- 💰 Price & Details -->
                 <div class="price-details">
-                    <h3 class="price">P320</h3>
+                    <h3 class="price">P350</h3>
                     <!-- 🏷 Clickable "Details" Without Underline -->
-                    <a href="https://littlelegendslibrary.blogspot.com/2025/03/dinosaur-workbook.html"
-                        class="detail-1 no-underline">Details</a>
+                    <a href="..//Product-Description/dinosaur.html" class="detail-1 no-underline">Details</a>
                 </div>
             </div>
 
@@ -1271,11 +2054,11 @@
 
                     <!-- 🛒 Add to Cart & Buy Now Buttons Inside Image -->
                     <div class="product-buttons">
-                        <button class="add-to-cart" data-name="Prince Workbook" data-price="330"
+                        <button class="add-to-cart" data-name="Prince Workbook" data-price="350"
                             data-image="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303466/3_a5gbhu.png">
                             <img src="https://img.icons8.com/ios-glyphs/30/ffffff/shopping-cart--v1.png" alt="cart" />
                         </button>
-                        <button class="buy-now" data-name="Prince Workbook" data-price="330"
+                        <button class="buy-now" data-name="Prince Workbook" data-price="350"
                             data-image="hhttps://res.cloudinary.com/du0ijg1nu/image/upload/v1742303466/3_a5gbhu.png">
                             Buy Now
                         </button>
@@ -1291,10 +2074,9 @@
 
                 <!-- 💰 Price & Details -->
                 <div class="price-details">
-                    <h3 class="price">P330</h3>
+                    <h3 class="price">P350</h3>
                     <!-- 🏷 Clickable "Details" Without Underline -->
-                    <a href="https://littlelegendslibrary.blogspot.com/2025/03/prince-workbook.html"
-                        class="detail-1 no-underline">Details</a>
+                    <a href="..//Product-Description/prince.html" class="detail-1 no-underline">Details</a>
                 </div>
             </div>
 
@@ -1306,11 +2088,11 @@
 
                     <!-- 🛒 Add to Cart & Buy Now Buttons Inside Image -->
                     <div class="product-buttons">
-                        <button class="add-to-cart" data-name="Ramadan Workbook" data-price="340"
+                        <button class="add-to-cart" data-name="Ramadan Workbook" data-price="350"
                             data-image="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303464/5_xqyfza.png">
                             <img src="https://img.icons8.com/ios-glyphs/30/ffffff/shopping-cart--v1.png" alt="cart" />
                         </button>
-                        <button class="buy-now" data-name="Ramadan Workbook" data-price="340"
+                        <button class="buy-now" data-name="Ramadan Workbook" data-price="350"
                             data-image="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303464/5_xqyfza.png">
                             Buy Now
                         </button>
@@ -1326,10 +2108,9 @@
 
                 <!-- 💰 Price & Details -->
                 <div class="price-details">
-                    <h3 class="price">P340</h3>
+                    <h3 class="price">P350</h3>
                     <!-- 🏷 Clickable "Details" Without Underline -->
-                    <a href="https://littlelegendslibrary.blogspot.com/2025/03/ramadan-workbook.html"
-                        class="detail-1 no-underline">Details</a>
+                    <a href="..//Product-Description/ramadan.html" class="detail-1 no-underline">Details</a>
                 </div>
             </div>
         </div>
@@ -1427,14 +2208,22 @@
     // 🔢 **Update Cart Count Badge**
     function updateCartCount() {
         let cart = JSON.parse(localStorage.getItem("cart")) || [];
-        const cartCount = cart.length; // Only counts unique items
+        let cartCount = cart.length;
 
-        const cartBadge = document.querySelector(".cart-count");
-        if (cartBadge) {
-            cartBadge.textContent = cartCount;
-            cartBadge.style.display = cartCount > 0 ? "flex" : "none"; // Hide if empty
-        }
+        document.querySelectorAll(".cart-count").forEach(cartBadge => {
+            if (cartCount > 0) {
+                cartBadge.textContent = cartCount;
+                cartBadge.classList.add("show"); // Add 'show' class
+                cartBadge.style.display = "flex"; // Make sure it's visible
+            } else {
+                cartBadge.classList.remove("show"); // Remove 'show' class
+                cartBadge.style.display = "none"; // Hide it completely
+            }
+        });
     }
+
+    // Run on page load to apply correct visibility
+    document.addEventListener("DOMContentLoaded", updateCartCount);
 
     // ✅ **Show "Added to Cart" Message**
     function showAddedMessage(text) {
@@ -1468,13 +2257,83 @@
         return 'ORDER-' + Math.floor(Math.random() * 1000000);
     }
 
-
     // Write Review Form
     function writeReview(bookName) {
         const formUrl = "https://docs.google.com/forms/d/e/1FAIpQLSdMAvVk8X06BhMumPkjd9SmHAO_YzJIEit4Df4wOLrMmzmx6A/viewform";
         const prefilledUrl = `${formUrl}?usp=pp_url&entry.386075443=${encodeURIComponent(bookName)}`;
         window.location.href = prefilledUrl;
     }
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const menuToggle = document.querySelector(".hamburger");
+        const mobileMenu = document.querySelector(".mobile-menu");
+        const overlay = document.createElement("div");
+        overlay.classList.add("overlay");
+        document.body.appendChild(overlay);
+
+        function toggleMenu() {
+            const isActive = mobileMenu.classList.contains("active");
+
+            if (isActive) {
+                mobileMenu.classList.remove("active");
+                overlay.classList.remove("active");
+                document.body.classList.remove("no-scroll"); // Restore scrolling
+            } else {
+                mobileMenu.classList.add("active");
+                overlay.classList.add("active");
+                document.body.classList.add("no-scroll"); // Prevent scrolling
+            }
+        }
+
+        menuToggle.addEventListener("click", function (event) {
+            event.stopPropagation();
+            toggleMenu();
+        });
+
+        overlay.addEventListener("click", toggleMenu);
+
+        document.addEventListener("keydown", function (event) {
+            if (event.key === "Escape" && mobileMenu.classList.contains("active")) {
+                toggleMenu();
+            }
+        });
+    });
+
+    function updateCartCount() {
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        let cartCount = cart.length;
+
+        document.querySelectorAll(".cart-count").forEach(cartBadge => {
+            if (cartCount > 0) {
+                cartBadge.textContent = cartCount;
+                cartBadge.classList.add("show"); // Add 'show' class
+                cartBadge.style.display = "flex"; // Make sure it's visible
+            } else {
+                cartBadge.classList.remove("show"); // Remove 'show' class
+                cartBadge.style.display = "none"; // Hide it completely
+            }
+        });
+    }
+
+    // Run on page load to apply correct visibility
+    document.addEventListener("DOMContentLoaded", updateCartCount);
+
+    // Example: Simulating cart count update
+    document.addEventListener("DOMContentLoaded", function () {
+        let cartCount = localStorage.getItem("cartCount") || 0; // Get saved count
+        updateCartCount(cartCount); // Apply it to both elements
+    });
+
+
+    document.addEventListener("DOMContentLoaded", function () {
+        let currentPage = window.location.pathname.split("/").pop().replace(".html", "");
+
+        document.querySelectorAll(".nav-link").forEach(link => {
+            if (link.dataset.page === currentPage) {
+                link.classList.add("active");
+            }
+        });
+    });
 </script>
 
 </html>

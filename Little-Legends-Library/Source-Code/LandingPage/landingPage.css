@@ -785,13 +785,13 @@
 }
 
 .faq-question::after {
-    content: "➕";
+    content: "\2795";
     font-size: 1.5rem;
     transition: transform 0.3s ease;
 }
 
 .faq-item.active .faq-question::after {
-    content: "➖";
+    content: "\2796";
 }
 
 .faq-answer {
@@ -816,7 +816,7 @@
 }
 
 .faq-answer ul li {
-    list-style-type: "✅ ";
+    list-style-type: "\2705 ";
     font-size: 1.2rem;
     margin-bottom: 0.5rem;
 }

@@ -26,8 +26,18 @@
         }
 
         .date-header,
-        .status-msg-wrap {
+        .status-msg-wrap,
+        .post-footer {
             display: none;
+        }
+
+        html .post {
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+
+        html .post-body img {
+            max-width: 100% !important;
         }
 
         .container {
@@ -37,6 +47,11 @@
             display: flex;
             flex-direction: column;
             width: 100%;
+        }
+
+        .date-header,
+        .status-msg-wrap {
+            display: none;
         }
 
         .navbar {
@@ -137,6 +152,7 @@
             text-align: center;
             height: calc(100vh - 5.7rem - 14vh);
             width: 100%;
+            justify-content: center;
         }
 
         /* Flex container for image & product details */
@@ -153,6 +169,8 @@
         .product-image img {
             width: 100%;
             max-width: 300px;
+            width: 20vw;
+            height: 50vh;
             border-radius: 10px;
             transition: 0.3s;
         }
@@ -206,7 +224,6 @@
 
         .discount {
             background: #ff0000;
-            /* or #FF4500 */
             color: white;
             padding: 0.3rem 0.7rem;
             border-radius: 5px;
@@ -219,16 +236,16 @@
             transition: 0.3s;
         }
 
-        .product-buttons {
+        .product-buttons-top {
             display: flex;
             gap: 2rem;
         }
 
-        .product-buttons button {
+        .product-buttons-top button {
             font-weight: 500;
         }
 
-        button {
+        .product-buttons-top button {
             padding: 0.8rem;
             font-size: 1.2rem;
             border: none;
@@ -238,17 +255,17 @@
             transition: 0.3s;
         }
 
-        .add-to-cart {
+        .product-buttons-top #cart {
             background: #FFA500;
             color: white;
         }
 
-        .buy-now {
+        .product-buttons-top #buy-now {
             background: #FF4500;
             color: white;
         }
 
-        button:hover {
+        .product-buttons-top button:hover {
             opacity: 0.8;
             transform: scale(1.05);
         }
@@ -392,7 +409,8 @@
 
         .toc-image img {
             max-width: 85%;
-            height: auto;
+            width: 30vw;
+            height: 65vh;
             border-radius: 1.5rem;
             transition: transform 0.3s ease-in-out;
         }
@@ -402,7 +420,93 @@
             box-shadow: 0px 10px 30px rgba(255, 215, 0, 0.3);
         }
 
-        /* Another Section */
+        /* Benefits Container */
+        .benefits {
+            padding: 4rem 1rem;
+        }
+
+        .benefit-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: #ccd2d5cb;
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .benefits h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 2rem;
+        }
+
+        .benefits-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .benefit {
+            background: linear-gradient(to right, #eef2f3, #ffffff);
+            padding: 1.8rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .benefit:hover {
+            transform: translateY(-5px);
+        }
+
+        .benefit h2 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #34495e;
+            margin-bottom: 0.8rem;
+        }
+
+        .benefit p {
+            font-size: 1rem;
+            color: #555;
+        }
+
+        /* Responsive Design for Benefits */
+        @media screen and (max-width: 768px) {
+            .benefits {
+                padding: 1.5rem 1rem !important;
+            }
+
+            .benefit-container {
+                padding: 1.5rem;
+            }
+
+            .benefits h1 {
+                font-size: 1.8rem;
+                text-align: center;
+            }
+
+            .benefits-list {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .benefit {
+                padding: 1.2rem;
+            }
+
+            .benefit h2 {
+                font-size: 1.1rem;
+            }
+
+            .benefit p {
+                font-size: 0.9rem;
+                line-height: 1.4;
+            }
+        }
+
+        /* Customer Section */
         .customer-reviews {
             padding: 2rem;
             background: #CCD2D5;
@@ -521,6 +625,16 @@
             width: 15%;
         }
 
+        button.write-review {
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-weight: 500;
+        }
+
         /* Review List */
         .review-section {
             width: 100%;
@@ -577,6 +691,19 @@
             margin-bottom: 0.3rem;
         }
 
+        .starsss {
+            font-size: 2rem;
+            color: #ffcc00;
+            margin-bottom: 0.5rem;
+        }
+
+        .starss {
+            text-align: left;
+            font-size: 1rem;
+            color: #ffcc00;
+            margin-bottom: 0.5rem;
+        }
+
         .review-text p {
             font-size: 1rem;
             color: #555;
@@ -604,7 +731,7 @@
         }
 
         /* Another Section */
-        .shop {
+        .mayLike {
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -614,7 +741,7 @@
             padding: 2rem;
         }
 
-        .shop-text h1 {
+        .mayLike-text h1 {
             font-size: 2.5rem;
             color: #000000D9;
             margin-bottom: 0.7rem;
@@ -624,10 +751,11 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            flex-wrap: wrap;
+            text-align: center;
             gap: 1rem;
-            max-width: 100%;
+            flex-wrap: wrap;
             margin-top: 0.3rem;
+            width: 100%;
         }
 
         .book-image {
@@ -637,11 +765,11 @@
         }
 
         .book-1 {
-            width: 30%;
-            max-width: 300px;
-            padding: 25px;
-            border-radius: 20px;
-            transition: 0.5s ease-in-out;
+            width: auto;
+            max-width: 17rem;
+            padding: 1.5rem;
+            border-radius: 1.25rem;
+            transition: 0.3s ease-in-out;
             color: black;
             text-decoration: none;
         }
@@ -658,20 +786,91 @@
         }
 
         .shop-image-container {
+            position: relative;
             text-align: left;
             justify-content: center;
         }
 
+        .book-image {
+            width: 100%;
+            height: auto;
+            border-radius: 0.7rem;
+            display: block;
+        }
+
+        .product-buttons {
+            position: absolute;
+            bottom: 5px;
+            left: 50%;
+            width: 100%;
+            transform: translateX(-50%);
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem;
+            z-index: 10;
+        }
+
+        .product-buttons .add-to-cart {
+            background: #FF4500;
+            border: none;
+            padding: 8px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: 0.3s ease-in-out;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 45px;
+            height: 45px;
+        }
+
+        .product-buttons .add-to-cart img {
+            width: 24px;
+            height: 24px;
+        }
+
+        .product-buttons .add-to-cart:hover img {
+            filter: invert(1);
+        }
+
+        .product-buttons .add-to-cart:hover {
+            background: white;
+            transform: scale(1.1);
+        }
+
+        /* 💳 Buy Now Button */
+        .product-buttons .buy-now {
+            background: #FF4500;
+            color: white;
+            padding: 8px 14px;
+            border-radius: 0.5rem;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: 0.3s ease-in-out;
+        }
+
+        .product-buttons .buy-now:hover {
+            background: white;
+            color: black;
+            transform: scale(1.05);
+        }
+
+        /* 📄 Left-Aligned Book Text */
         .book-text {
             font-size: 1.5rem;
             font-weight: bold;
+            text-align: left;
+            margin-top: 10px;
         }
 
         .book-text-desc {
             font-size: 1rem;
-            line-height: 3vh;
+            text-align: left;
+            line-height: 1.5;
         }
 
+        /* 💰 Price Details */
         .price {
             color: #FF4500;
             font-size: 2rem;
@@ -701,6 +900,11 @@
             color: black;
         }
 
+        /* 🚫 Remove underline from "Details" */
+        .no-underline {
+            text-decoration: none;
+        }
+
         /* Cart container to ensure the badge stays inside the cart icon */
         .cart-container {
             position: relative;
@@ -721,11 +925,24 @@
             border-radius: 50%;
             font-weight: bold;
             display: none;
-            display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             transform: scale(0.9);
+        }
+
+        .cart-count.show {
+            display: flex !important;
+        }
+
+        @media (max-width: 768px) {
+            .cart-count {
+                display: none !important;
+            }
+
+            .cart-count.show {
+                display: flex !important;
+            }
         }
 
         /* ✅ "Added to Cart" Floating Message */
@@ -764,6 +981,620 @@
                 transform: translate(-50%, -100%);
             }
         }
+
+        /* Another Section */
+        footer {
+            width: 100%;
+            margin: 0 auto;
+            background-color: #ffffff;
+            text-align: center;
+        }
+
+        .footer-container {
+            height: 35vh;
+        }
+
+        .footer-top {
+            height: 9vh;
+        }
+
+        .footer-info {
+            padding: 1.5rem;
+            background-color: #025786;
+            color: #ffffff;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            height: 25vh;
+        }
+
+        .footer-info h4 {
+            margin: 0;
+            padding: 10px;
+            font-size: 1.5rem;
+            letter-spacing: 0.2rem;
+            font-weight: 600;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .last-text {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 10vh;
+            text-align: center;
+            font-size: 1.7rem;
+            letter-spacing: 0.3rem;
+            font-weight: 600;
+            background-color: #CCD2D5;
+        }
+
+        .last-text a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .orange {
+            color: orangered;
+            display: inline;
+        }
+
+        /* Mobile Styles */
+        @media screen and (max-width: 768px) {
+            .container {
+                height: auto !important;
+            }
+
+            .product-container {
+                max-width: 90% !important;
+                padding: 1rem !important;
+                height: auto !important;
+                margin: 1.5rem auto !important;
+            }
+
+            .product-content {
+                flex-direction: column !important;
+                text-align: center !important;
+                gap: 0.5rem !important;
+            }
+
+            .product-image img {
+                width: 80% !important;
+                max-width: 250px !important;
+                height: auto !important;
+                margin-top: 1rem !important;
+            }
+
+            .product-details {
+                text-align: center !important;
+                gap: 0.5rem !important;
+            }
+
+            .product-details h1 {
+                font-size: 2rem !important;
+            }
+
+            .product-details p {
+                font-size: 1rem !important;
+            }
+
+            .product-info {
+                display: flex !important;
+                flex-wrap: wrap !important;
+                justify-content: center !important;
+                align-items: center !important;
+                gap: 0.7rem !important;
+                text-align: center !important;
+            }
+
+            .price {
+                font-size: 2rem !important;
+                font-weight: bold !important;
+            }
+
+            .discount {
+                background: #ff0000 !important;
+                color: white !important;
+                padding: 0.3rem 0.6rem !important;
+                border-radius: 5px !important;
+                font-size: 1rem !important;
+            }
+
+            .payment-type {
+                font-size: 1rem !important;
+                color: rgba(0, 0, 0, 0.7) !important;
+                white-space: nowrap !important;
+            }
+
+            .product-buttons-top {
+                flex-direction: row !important;
+                align-items: center !important;
+                gap: 1rem !important;
+            }
+
+            .product-buttons-top button {
+                width: 100% !important;
+                max-width: 250px !important;
+            }
+
+            .product-tags {
+                display: flex !important;
+                flex-wrap: wrap !important;
+                justify-content: center !important;
+                gap: 0.5rem !important;
+                margin-bottom: 0.5rem !important;
+            }
+
+            .tag {
+                font-size: 0.8rem !important;
+                padding: 0.4rem 0.8rem !important;
+                border-radius: 15px !important;
+                white-space: nowrap !important;
+            }
+        }
+
+        /* Mini FAQs Section */
+        @media screen and (max-width: 1024px) {
+            .info-content {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 2rem !important;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .book-info-v2 {
+                padding: 2rem 2rem !important;
+            }
+
+            .info-content {
+                grid-template-columns: 1fr !important;
+                gap: 1.5rem !important;
+            }
+
+            .info-box {
+                padding: 1rem !important;
+                text-align: center !important;
+            }
+
+            .info-icon img {
+                width: 60px !important;
+                margin-bottom: 0.5rem !important;
+            }
+
+            .info-box h2 {
+                font-size: 1.4rem !important;
+            }
+
+            .info-box p {
+                font-size: 0.95rem !important;
+                line-height: 1.5 !important;
+            }
+
+            .info-box:hover {
+                transform: none !important;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .table-of-contents {
+                height: auto !important;
+                /* Allow flexible height */
+                padding: 2rem 0.5rem !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                background: linear-gradient(135deg, #025786, #013B5A) !important;
+            }
+
+            .toc-container {
+                flex-direction: column !important;
+                text-align: center !important;
+                height: auto !important;
+                width: 100% !important;
+            }
+
+            .toc-content {
+                padding: 1.5rem 1.5rem !important;
+                background: rgba(255, 255, 255, 0.1) !important;
+                border-radius: 1rem !important;
+                backdrop-filter: blur(10px) !important;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2) !important;
+                width: 100% !important;
+                margin: 0 auto !important;
+            }
+
+            .toc-content h2 {
+                font-size: 2rem !important;
+                color: #FFD700 !important;
+                text-transform: uppercase !important;
+                letter-spacing: 1px !important;
+                margin-bottom: 1.5rem !important;
+            }
+
+            .toc-content ul {
+                list-style: none !important;
+                padding: 0 !important;
+                display: flex !important;
+                flex-direction: column !important;
+                gap: 1rem !important;
+            }
+
+            .toc-content li {
+                font-size: 1.2rem !important;
+                background: rgba(255, 255, 255, 0.15) !important;
+                padding: 1rem !important;
+                border-radius: 8px !important;
+                display: flex !important;
+                align-items: center !important;
+                gap: 0.8rem !important;
+                justify-content: center !important;
+                transition: all 0.3s ease-in-out !important;
+            }
+
+            .toc-content li:hover {
+                background: rgba(255, 215, 0, 0.3) !important;
+                transform: scale(1.05) !important;
+                cursor: pointer !important;
+            }
+
+            .toc-image {
+                display: none !important;
+            }
+        }
+
+        /* Customer Review Section */
+        @media (max-width: 768px) {
+            .customer-reviews {
+                padding: 1.5rem !important;
+            }
+
+            .customer-reviews h2 {
+                font-size: 2rem !important;
+            }
+
+            .rating-section {
+                max-width: 100% !important;
+                padding: 0 1rem !important;
+            }
+
+            .average-score {
+                font-size: 3rem !important;
+            }
+
+            .average-rating .stars {
+                font-size: 1.8rem !important;
+            }
+
+            .average-rating p {
+                font-size: 1.2rem !important;
+            }
+
+            .reviews-container {
+                max-width: 100% !important;
+                padding: 1rem !important;
+            }
+
+            .rating-bars {
+                gap: 0.8rem !important;
+            }
+
+            .starsss span {
+                font-size: 1.5rem !important;
+            }
+
+            .stars,
+            .count {
+                font-size: 1rem !important;
+                width: 3rem !important;
+            }
+
+            .progress-bar {
+                height: 1rem !important;
+            }
+
+            .write-review {
+                width: 80% !important;
+                font-size: 1rem !important;
+            }
+
+            .review-section {
+                max-width: 100% !important;
+                padding: 1rem !important;
+            }
+
+            .review-item {
+                flex-direction: column !important;
+                text-align: center !important;
+                gap: 0.5rem !important;
+                padding: 0.8rem !important;
+            }
+
+            .review-avatar {
+                width: 4rem !important;
+                height: 4rem !important;
+            }
+
+            .review-text {
+                text-align: center !important;
+            }
+
+            .starss {
+                text-align: center !important;
+            }
+
+            .review-text h4 {
+                font-size: 1.1rem !important;
+            }
+
+            .review-text p {
+                font-size: 0.9rem !important;
+            }
+
+            .toggle-reviews {
+                font-size: 1rem !important;
+                padding: 0.6rem !important;
+            }
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 1024px) {
+            .mayLike {
+                height: auto !important;
+                padding: 2rem 1rem !important;
+            }
+
+            .image-selection {
+                flex-wrap: wrap !important;
+                gap: 1.5rem !important;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .mayLike-text h1 {
+                font-size: 2rem !important;
+            }
+
+            .image-selection {
+                flex-direction: column !important;
+                align-items: center !important;
+            }
+
+            .book-1 {
+                max-width: 75% !important;
+            }
+
+            .book-text {
+                font-size: 1.5rem !important;
+            }
+
+            .book-text-desc {
+                font-size: 1rem !important;
+            }
+        }
+
+        /* Footer Section */
+        @media screen and (max-width: 768px) {
+            .footer-container {
+                height: auto !important;
+            }
+
+            .footer-top {
+                height: 6vh !important;
+            }
+
+            .footer-info {
+                height: auto !important;
+                padding: 1rem !important;
+            }
+
+            .footer-info h4 {
+                font-size: 1.2rem !important;
+                padding: 5px !important;
+            }
+
+            .social-icons {
+                gap: 1rem !important;
+            }
+
+            .social-icons img {
+                width: 40px !important;
+                height: 40px !important;
+            }
+
+            .last-text {
+                font-size: 1.2rem !important;
+                height: 7vh !important;
+                padding: 1rem !important;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .footer-info h4 {
+                font-size: 1rem !important;
+            }
+
+            .social-icons {
+                gap: 0.8rem !important;
+            }
+
+            .social-icons img {
+                width: 35px !important;
+                height: 35px !important;
+            }
+
+            .last-text {
+                font-size: 1.2rem !important;
+                letter-spacing: 0.2rem !important;
+            }
+        }
+
+        .nav-right {
+            display: flex !important;
+            align-items: center !important;
+            gap: 1rem !important;
+        }
+
+        .hamburger {
+            display: none !important;
+            cursor: pointer !important;
+            flex-direction: column !important;
+        }
+
+        .mobile-menu {
+            display: flex !important;
+            position: fixed !important;
+            top: 0 !important;
+            right: -75vw !important;
+            width: 75vw !important;
+            height: 100vh !important;
+            background: white !important;
+            z-index: 1000 !important;
+            transition: right 0.3s ease-in-out, opacity 0.3s ease-in-out !important;
+            opacity: 0 !important;
+            visibility: hidden !important;
+            flex-direction: column !important;
+            justify-content: center !important;
+            padding: 2rem 1.5rem !important;
+        }
+
+        .mobile-menu.active {
+            right: 0 !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+        }
+
+        /* Mobile View */
+        @media (max-width: 768px) {
+            .mobile-menu {
+                background: rgba(0, 113, 151, 0.918) !important;
+            }
+
+            .hamburger div {
+                width: 30px !important;
+                height: 3.5px !important;
+                background-color: white !important;
+                margin: 3px !important;
+                transition: 0.3s !important;
+            }
+
+            .overlay {
+                position: fixed !important;
+                top: 0 !important;
+                left: 0 !important;
+                width: 100vw !important;
+                height: 100vh !important;
+                background: rgba(0, 0, 0, 0.5) !important;
+                opacity: 0 !important;
+                visibility: hidden !important;
+                transition: opacity 0.3s ease-in-out !important;
+                z-index: 998 !important;
+            }
+
+            .overlay.active {
+                opacity: 1 !important;
+                visibility: visible !important;
+            }
+
+            .menu-content {
+                display: flex !important;
+                flex-direction: column !important;
+                gap: 1rem !important;
+                width: 100% !important;
+            }
+
+            .menu-content a {
+                color: white !important;
+                font-size: 1.5rem !important;
+                text-decoration: none !important;
+                font-weight: bold !important;
+                padding: 0.75rem 1.5rem !important;
+                border-radius: 0.5rem !important;
+                transition: background 0.3s ease-in-out !important;
+            }
+
+            .menu-content a.active {
+                background: rgba(255, 69, 0, 0.2) !important;
+                color: #ffffff !important;
+                width: 100% !important;
+                border-left: 6px solid #FF4500 !important;
+                padding-left: 2.5rem !important;
+            }
+
+            body.no-scroll {
+                overflow: hidden !important;
+            }
+
+            .logo img {
+                width: 4.5rem !important;
+                height: 4.5rem !important;
+            }
+
+            .cart-contain {
+                position: relative !important;
+                display: inline-block !important;
+            }
+
+            .cart-count {
+                position: absolute !important;
+                top: -2px !important;
+                right: -5px !important;
+                background: white !important;
+                color: black !important;
+                font-size: 0.9rem !important;
+                min-width: 1.7rem !important;
+                height: 1.7rem !important;
+                padding: 0 0.3rem !important;
+                border-radius: 50% !important;
+                font-weight: bold !important;
+                display: none !important;
+                align-items: center !important;
+                justify-content: center !important;
+                text-align: center !important;
+                transform: scale(0.9) !important;
+            }
+
+            .navbar {
+                padding: 0.5rem 2rem !important;
+            }
+
+            .nav-right {
+                display: flex !important;
+                align-items: center !important;
+                gap: 1.5rem !important;
+            }
+
+            .nav-links,
+            .nav-buttons {
+                display: none !important;
+            }
+
+            .hamburger {
+                display: flex !important;
+            }
+        }
+
+        /* Desktop View */
+        @media (min-width: 769px) {
+            .nav-right .cart-contain {
+                display: none !important;
+            }
+
+            .nav-buttons .cart-contain {
+                display: flex !important;
+            }
+
+            .mobile-menu {
+                display: none !important;
+            }
+        }
     </style>
 </head>
 
@@ -774,33 +1605,53 @@
                 <img src="https://res.cloudinary.com/du0ijg1nu/image/upload/v1740641091/Untitled_design_3_pxsurq.png"
                     alt="Logo" />
             </div>
-            <div class="hamburger" onclick="toggleMenu()">
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
-            </div>
-            <div class="nav-links">
-                <a href="/home">Home</a>
-                <a href="/shop" class="active">Shop</a>
-                <a href="/contact">Contact</a>
-            </div>
-            <div class="nav-buttons">
-                <div class="cart-container">
-                    <a href="/cart">
+            <div class="nav-right">
+                <div class="cart-contain">
+                    <a href="../CartPage/cart.html">
                         <img width="50" height="45"
                             src="https://img.icons8.com/ios-glyphs/60/ff4500/shopping-cart--v1.png"
                             alt="shopping-cart--v1" />
                         <span class="cart-count">0</span>
                     </a>
                 </div>
-                <a href="/free-template" class="nav-free">Free Book!</a>
+
+                <div class="hamburger" onclick="toggleMenu()">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+
+            <div class="mobile-menu">
+                <div class="menu-content">
+                    <a href="../HomePage/home.html" class="nav-link" data-page="home">Home</a>
+                    <a href="../ShopPage/shop.html" class="nav-link" data-page="shop">Shop</a>
+                    <a href="../ContactPage/contact.html" class="nav-link" data-page="contact">Contact</a>
+                    <a href="../FreebookPage/freebook.html" class="nav-link" data-page="freebook">Free Book!</a>
+                </div>
+            </div>
+            <div class="nav-links">
+                <a href="..//HomePage/home.html">Home</a>
+                <a href="..//ShopPage/shop.html" class="active">Shop</a>
+                <a href="..//ContactPage/contact.html">Contact</a>
+            </div>
+            <div class="nav-buttons">
+                <div class="cart-container">
+                    <a href="../CartPage/cart.html">
+                        <img width="50" height="45"
+                            src="https://img.icons8.com/ios-glyphs/60/ff4500/shopping-cart--v1.png"
+                            alt="shopping-cart--v1" />
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+                <a href="..//FreebookPage/freebook.html" class="nav-free">Free Book!</a>
             </div>
         </nav>
 
         <section class="product-container">
             <div class="product-content">
                 <div class="product-image">
-                    <img src="https://res.cloudinary.com/du0ijg1nu/image/upload/v1741241390/Firefly_A_cheerful_white_8-year-old_boy_named_Marco_with_brown_hair_and_blue_eyes_wearing_a_futuris_my6xax.jpg"
+                    <img src="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303460/2_swbioi.png"
                         alt="Product Image" />
                 </div>
                 <div class="product-details">
@@ -809,31 +1660,33 @@
                         Workbook
                     </h1>
                     <p>
-                        A love-themed educational activity <br />
-                        book for children, promoting learning <br />
-                        and creativity.
+                        Fun dinosaur-themed activities like tracing, counting, matching,
+                        and coloring for hands-on learning.
                     </p>
                     <div class="product-info">
-                        <span class="price">₱3400</span>
+                        <span class="price">₱350</span>
                         <span class="discount">80% OFF</span>
                         <span class="payment-type"><i>One-time Payment <br />
                                 Instant Download</i></span>
                     </div>
-                    <div class="product-buttons">
-                        <button class="add-to-cart" data-name="Dinosaur Workbook" data-price="3400"
-                            data-image="https://res.cloudinary.com/du0ijg1nu/image/upload/v1741241390/Firefly_A_cheerful_white_8-year-old_boy_named_Marco_with_brown_hair_and_blue_eyes_wearing_a_futuris_my6xax.jpg">
+                    <div class="product-buttons-top">
+                        <button id="cart" class="add-to-cart" data-name="Dinosaur Workbook" data-price="350"
+                            data-image="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303460/2_swbioi.png">
                             Add to Cart
                         </button>
-                        <button class="buy-now">Buy Now</button>
+                        <button id="buy-now" class="buy-now" data-name="Dinosaur Workbook" data-price="350"
+                            data-image="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303460/2_swbioi.png">
+                            Buy Now
+                        </button>
                     </div>
                 </div>
             </div>
             <div class="product-tags">
                 <span class="tag">Alphabet Tracing</span>
-                <span class="tag">Matching Columns</span>
-                <span class="tag">Drawing</span>
-                <span class="tag">Word Search</span>
-                <span class="tag">Connecting Dots</span>
+                <span class="tag">Matching</span>
+                <span class="tag">Coloring Activities</span>
+                <span class="tag">Counting</span>
+                <span class="tag">Number Tracing</span>
             </div>
         </section>
     </div>
@@ -845,11 +1698,11 @@
                 <div class="info-icon">
                     <img src="https://img.icons8.com/ios-filled/100/book.png" alt="Target Audience" />
                 </div>
-                <h2>Who’s This Book For?</h2>
+                <h2>Who Is This Book Perfect For?</h2>
                 <p>
-                    Valentine’s Day Workbook is perfect for aspiring children’s book
-                    authors, whether you're writing your first book or struggling to get
-                    published.
+                    This book is perfect for children who have a fascination with
+                    dinosaurs and enjoy learning about these ancient creatures through
+                    fun activities.
                 </p>
             </div>
 
@@ -860,8 +1713,8 @@
                 </div>
                 <h2>How Soon Will You Receive It?</h2>
                 <p>
-                    Your book will be sent to your email upon payment confirmation. The
-                    workbook is in PDF format for easy access.
+                    Your book will be sent to your email within 24 hours of payment
+                    confirmation. The workbook is in PDF format for easy access.
                 </p>
             </div>
 
@@ -872,8 +1725,9 @@
                 </div>
                 <h2>What Makes This Book Special?</h2>
                 <p>
-                    Designed with interactive learning and fun activities, this workbook
-                    ensures children stay engaged while developing creativity.
+                    It combines fun dinosaur-themed activities like tracing, counting,
+                    and coloring to help children develop essential skills while
+                    exploring their love for dinosaurs.
                 </p>
             </div>
 
@@ -884,8 +1738,8 @@
                 </div>
                 <h2>What Age Group Is This For?</h2>
                 <p>
-                    This workbook is designed for kids aged 4-8, helping them develop
-                    early learning skills in a fun and engaging way.
+                    This workbook is designed for kids aged 3 and above, helping them
+                    develop early learning skills in a fun and engaging way.
                 </p>
             </div>
         </div>
@@ -896,18 +1750,110 @@
             <div class="toc-content">
                 <h2>📖 Table of Contents</h2>
                 <ul>
-                    <li>💖 Introduction to Valentine's Day</li>
-                    <li>📖 Fun Valentine's Day Stories</li>
-                    <li>✏️ Creative Writing Activities</li>
-                    <li>🎨 Coloring & Drawing Pages</li>
-                    <li>🧩 Puzzles and Brain Teasers</li>
-                    <li>📜 Love Letters & Card Making</li>
-                    <li>📝 Final Review & Bonus Pages</li>
+                    <li>🦕 Special Note & Dino Facts</li>
+                    <li>🔤 Alphabet & Number Tracing</li>
+                    <li>✏️ Let’s Trace & Guide the Dinosaur</li>
+                    <li>🧮 Dino Math & More or Less</li>
+                    <li>🐾 Shadow Matching & Pairing</li>
+                    <li>🔄 Matching & Connecting the Dots</li>
+                    <li>🎨 Color the Alphabet & Fun Activities</li>
+                    <li>✅ My Activity Checklist</li>
                 </ul>
             </div>
             <div class="toc-image">
-                <img src="https://res.cloudinary.com/du0ijg1nu/image/upload/v1741241390/Firefly_A_cheerful_white_8-year-old_boy_named_Marco_with_brown_hair_and_blue_eyes_wearing_a_futuris_my6xax.jpg"
+                <img src="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303460/2_swbioi.png"
                     alt="Valentine's Day Workbook" />
+            </div>
+        </div>
+    </section>
+
+    <section class="benefits">
+        <div class="benefit-container">
+            <h1>Top 10 Benefits of This Book</h1>
+            <div class="benefits-list">
+                <div class="benefit">
+                    <h2>1. Engaging Dinosaur-Themed Learning</h2>
+                    <p>
+                        Interactive exercises make learning enjoyable, keeping readers
+                        motivated while gaining new skills.
+                    </p>
+                </div>
+                <div class="benefit">
+                    <h2>2. Designed for 3-Year-Olds</h2>
+                    <p>
+                        Specifically designed for children ages 3 and up, the Dinosaur
+                        Workbook offers age-appropriate exercises that support early
+                        childhood development. This workbook helps nurture your toddler’s
+                        growth by providing them with educational content tailored to
+                        their developmental needs.
+                    </p>
+                </div>
+                <div class="benefit">
+                    <h2>3. Supports Early Literacy Skills</h2>
+                    <p>
+                        One of the key focuses of the Dinosaur Workbook is to help
+                        toddlers build foundational literacy skills. Through activities
+                        like alphabet recognition, tracing letters, and matching words to
+                        images, this workbook promotes early reading and writing skills.
+                    </p>
+                </div>
+                <div class="benefit">
+                    <h2>4. Promotes Number Recognition and Counting</h2>
+                    <p>
+                        The Dinosaur Workbook includes a variety of counting activities
+                        featuring dinosaurs. Through fun and interactive tasks, children
+                        will practice number recognition and basic math skills.
+                    </p>
+                </div>
+                <div class="benefit">
+                    <h2>5. Fosters Fine Motor Skills</h2>
+                    <p>
+                        By practicing tracing letters and numbers, coloring in dinosaur
+                        illustrations, and completing matching games, your child will work
+                        on their fine motor skills.
+                    </p>
+                </div>
+                <div class="benefit">
+                    <h2>6. Enhances Cognitive Development</h2>
+                    <p>
+                        The Dinosaur Workbook is filled with matching exercises, pattern
+                        recognition activities, and problem-solving challenges that
+                        enhance your child’s cognitive development.
+                    </p>
+                </div>
+                <div class="benefit">
+                    <h2>7. Perfect Gift for Dinosaur Lovers</h2>
+                    <p>
+                        If your child is fascinated by dinosaurs, the Dinosaur Workbook
+                        makes a perfect gift! It combines your child’s love for dinosaurs
+                        with educational content, making learning feel like a personalized
+                        adventure.
+                    </p>
+                </div>
+                <div class="benefit">
+                    <h2>8. Boosts Confidence and Independence</h2>
+                    <p>
+                        The Dinosaur Workbook is designed with simple, clear instructions
+                        that allow children to complete activities independently./p>
+                    </p>
+                </div>
+
+                <div class="benefit">
+                    <h2>9. Inspires Creative Expression</h2>
+                    <p>
+                        With plenty of dinosaur-themed coloring pages and opportunities to
+                        explore artistic expression, the Dinosaur Workbook nurtures
+                        creativity.
+                    </p>
+                </div>
+                <div class="benefit">
+                    <h2>10. An Adventure in Learning</h2>
+                    <p>
+                        The Dinosaur Workbook turns early education into an adventure.
+                        Using exciting dinosaur characters, it keeps children engaged and
+                        motivated to complete activities.
+                    </p>
+                </div>
             </div>
         </div>
     </section>
@@ -918,7 +1864,7 @@
         <div class="rating-section">
             <div class="average-rating">
                 <div class="average-score">4.5</div>
-                <div class="stars">
+                <div class="starsss">
                     <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
                 </div>
                 <p>Based on 150 reviews</p>
@@ -965,7 +1911,9 @@
             </div>
         </div>
 
-        <button class="write-review btn">Write a Review</button>
+        <button class="write-review btn" onclick="writeReview('Dinosaur Workbook')">
+            Write a Review
+        </button>
 
         <div class="review-section">
             <div class="review-list">
@@ -975,6 +1923,9 @@
                     </div>
                     <div class="review-text">
                         <h4>Christian Ubaldo</h4>
+                        <div class="starss">
+                            <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+                        </div>
                         <p>
                             Great way to learn about writing your own story for kids! Easy
                             to follow.
@@ -987,6 +1938,9 @@
                     </div>
                     <div class="review-text">
                         <h4>Ana Dela Cruz</h4>
+                        <div class="starss">
+                            <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+                        </div>
                         <p>Very informative and engaging. Highly recommended!</p>
                     </div>
                 </div>
@@ -996,6 +1950,9 @@
                     </div>
                     <div class="review-text">
                         <h4>Michael Reyes</h4>
+                        <div class="starss">
+                            <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+                        </div>
                         <p>Good insights, but could be improved with more examples.</p>
                     </div>
                 </div>
@@ -1005,6 +1962,9 @@
                     </div>
                     <div class="review-text">
                         <h4>John Doe</h4>
+                        <div class="starss">
+                            <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+                        </div>
                         <p>Very detailed and well-explained!</p>
                     </div>
                 </div>
@@ -1014,89 +1974,188 @@
                     </div>
                     <div class="review-text">
                         <h4>Jane Smith</h4>
+                        <div class="starss">
+                            <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+                        </div>
                         <p>Helpful and insightful. Thanks!</p>
                     </div>
                 </div>
             </div>
-            <button class="toggle-reviews" onclick="toggleReviews(this)">
-                Show More
-            </button>
+            <button class="toggle-reviews">Show More</button>
         </div>
     </section>
 
-    <section class="shop" id="shop">
-        <div class="shop-text">
+    <section class="mayLike" id="mayLike">
+        <div class="mayLike-text">
             <h1>You May Also Like</h1>
         </div>
         <div class="image-selection">
-            <a href="" class="book-1">
+            <div class="book-1">
+                <!-- 📖 Product Image (No Anchor Here) -->
                 <div class="shop-image-container">
-                    <img src="https://res.cloudinary.com/du0ijg1nu/image/upload/v1741241390/Firefly_A_cheerful_white_8-year-old_boy_named_Marco_with_brown_hair_and_blue_eyes_wearing_a_futuris_my6xax.jpg"
-                        alt="" class="book-image" />
-                    <p class="book-text">Valentine's Day <br />Workbook</p>
-                    <p class="book-text-desc">
-                        Engaging and fun learning <br />
-                        materials in PDF format – <br />
-                        download instantly.
-                    </p>
-                    <div class="price-details">
-                        <h3 class="price">P300</h3>
-                        <p class="detail-1">Details</p>
+                    <img src="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303467/1_ggliia.png" alt=""
+                        class="book-image" />
+
+                    <!-- 🛒 Add to Cart & Buy Now Buttons Inside Image -->
+                    <div class="product-buttons">
+                        <button class="add-to-cart" data-name="Valentine's Day Workbook" data-price="350"
+                            data-image="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303467/1_ggliia.png">
+                            <img src="https://img.icons8.com/ios-glyphs/30/ffffff/shopping-cart--v1.png" alt="cart" />
+                        </button>
+                        <button class="buy-now" data-name="Valentine's Day Workbook" data-price="350"
+                            data-image="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303467/1_ggliia.png">
+                            Buy Now
+                        </button>
                     </div>
                 </div>
-            </a>
-            <a href="" class="book-1">
+
+                <!-- 📄 Product Details (Left-Aligned) -->
+                <p class="book-text">Valentine's Day <br />Workbook</p>
+                <p class="book-text-desc">
+                    Learn and celebrate love with fun activities themed around
+                    Valentine’s Day.
+                </p>
+
+                <!-- 💰 Price & Details -->
+                <div class="price-details">
+                    <h3 class="price">P350</h3>
+                    <!-- 🏷 Clickable "Details" Without Underline -->
+                    <a href="https://littlelegendslibrary.blogspot.com/2025/03/valentines-day-workbook.html"
+                        class="detail-1 no-underline">Details</a>
+                </div>
+            </div>
+
+            <div class="book-1">
+                <!-- 📖 Product Image (No Anchor Here) -->
                 <div class="shop-image-container">
-                    <img src="https://res.cloudinary.com/du0ijg1nu/image/upload/v1741241390/Firefly_A_cheerful_white_8-year-old_boy_named_Marco_with_brown_hair_and_blue_eyes_wearing_a_futuris_my6xax.jpg"
-                        alt="" class="book-image" />
-                    <p class="book-text">Dinosaur <br />Workbook</p>
-                    <p class="book-text-desc">
-                        Engaging and fun learning <br />
-                        materials in PDF format – <br />
-                        download instantly.
-                    </p>
-                    <div class="price-details">
-                        <h3 class="price">P300</h3>
-                        <p class="detail-1">Details</p>
+                    <img src="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303466/3_a5gbhu.png" alt=""
+                        class="book-image" />
+
+                    <!-- 🛒 Add to Cart & Buy Now Buttons Inside Image -->
+                    <div class="product-buttons">
+                        <button class="add-to-cart" data-name="Prince Workbook" data-price="350"
+                            data-image="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303466/3_a5gbhu.png">
+                            <img src="https://img.icons8.com/ios-glyphs/30/ffffff/shopping-cart--v1.png" alt="cart" />
+                        </button>
+                        <button class="buy-now" data-name="Prince Workbook" data-price="350"
+                            data-image="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303466/3_a5gbhu.png">
+                            Buy Now
+                        </button>
                     </div>
                 </div>
-            </a>
-            <a href="" class="book-1">
+
+                <!-- 📄 Product Details (Left-Aligned) -->
+                <p class="book-text">Prince <br />Workbook</p>
+                <p class="book-text-desc">
+                    Learn and have fun with a royal touch through tracing, matching, and
+                    mazes!
+                </p>
+
+                <!-- 💰 Price & Details -->
+                <div class="price-details">
+                    <h3 class="price">P350</h3>
+                    <!-- 🏷 Clickable "Details" Without Underline -->
+                    <a href="https://littlelegendslibrary.blogspot.com/2025/03/prince-workbook.html"
+                        class="detail-1 no-underline">Details</a>
+                </div>
+            </div>
+
+            <div class="book-1">
+                <!-- 📖 Product Image (No Anchor Here) -->
                 <div class="shop-image-container">
-                    <img src="https://res.cloudinary.com/du0ijg1nu/image/upload/v1741241390/Firefly_A_cheerful_white_8-year-old_boy_named_Marco_with_brown_hair_and_blue_eyes_wearing_a_futuris_my6xax.jpg"
-                        alt="" class="book-image" />
-                    <p class="book-text">Prince <br />Workbook</p>
-                    <p class="book-text-desc">
-                        Engaging and fun learning <br />
-                        materials in PDF format – <br />
-                        download instantly.
-                    </p>
-                    <div class="price-details">
-                        <h3 class="price">P300</h3>
-                        <p class="detail-1">Details</p>
+                    <img src="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303465/4_b3oiio.png" alt=""
+                        class="book-image" />
+
+                    <!-- 🛒 Add to Cart & Buy Now Buttons Inside Image -->
+                    <div class="product-buttons">
+                        <button class="add-to-cart" data-name="Workbook 32 Activities" data-price="350"
+                            data-image="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303465/4_b3oiio.png">
+                            <img src="https://img.icons8.com/ios-glyphs/30/ffffff/shopping-cart--v1.png" alt="cart" />
+                        </button>
+                        <button class="buy-now" data-name="Workbook 32 Activities" data-price="350"
+                            data-image="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303465/4_b3oiio.png">
+                            Buy Now
+                        </button>
                     </div>
                 </div>
-            </a>
-            <a href="" class="book-1">
+
+                <!-- 📄 Product Details (Left-Aligned) -->
+                <p class="book-text">Workbook 32: <br />Activities</p>
+                <p class="book-text-desc">
+                    Learn and have fun with a mix of engaging puzzles, tracing, and
+                    games!
+                </p>
+
+                <!-- 💰 Price & Details -->
+                <div class="price-details">
+                    <h3 class="price">P350</h3>
+                    <!-- 🏷 Clickable "Details" Without Underline -->
+                    <a href="https://littlelegendslibrary.blogspot.com/2025/03/workbook-32-activities.html"
+                        class="detail-1 no-underline">Details</a>
+                </div>
+            </div>
+
+            <div class="book-1">
+                <!-- 📖 Product Image (No Anchor Here) -->
                 <div class="shop-image-container">
-                    <img src="https://res.cloudinary.com/du0ijg1nu/image/upload/v1741241390/Firefly_A_cheerful_white_8-year-old_boy_named_Marco_with_brown_hair_and_blue_eyes_wearing_a_futuris_my6xax.jpg"
-                        alt="" class="book-image" />
-                    <p class="book-text">Valentine's Day <br />Workbook</p>
-                    <p class="book-text-desc">
-                        Engaging and fun learning <br />
-                        materials in PDF format – <br />
-                        download instantly.
-                    </p>
-                    <div class="price-details">
-                        <h3 class="price">P300</h3>
-                        <p class="detail-1">Details</p>
+                    <img src="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303464/5_xqyfza.png" alt=""
+                        class="book-image" />
+
+                    <!-- 🛒 Add to Cart & Buy Now Buttons Inside Image -->
+                    <div class="product-buttons">
+                        <button class="add-to-cart" data-name="Ramadan Workbook" data-price="350"
+                            data-image="ttps://res.cloudinary.com/du0ijg1nu/image/upload/v1742303464/5_xqyfza.png">
+                            <img src="https://img.icons8.com/ios-glyphs/30/ffffff/shopping-cart--v1.png" alt="cart" />
+                        </button>
+                        <button class="buy-now" data-name="Ramadan Workbook" data-price="350"
+                            data-image="ttps://res.cloudinary.com/du0ijg1nu/image/upload/v1742303464/5_xqyfza.png">
+                            Buy Now
+                        </button>
                     </div>
                 </div>
-            </a>
+
+                <!-- 📄 Product Details (Left-Aligned) -->
+                <p class="book-text">Ramadan <br />Workbook</p>
+                <p class="book-text-desc">
+                    Learn and celebrate Ramadan with tracing, coloring, and fun
+                    activities!
+                </p>
+
+                <!-- 💰 Price & Details -->
+                <div class="price-details">
+                    <h3 class="price">P350</h3>
+                    <!-- 🏷 Clickable "Details" Without Underline -->
+                    <a href="https://littlelegendslibrary.blogspot.com/2025/03/ramadan-workbook.html"
+                        class="detail-1 no-underline">Details</a>
+                </div>
+            </div>
         </div>
     </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-info">
+                <h4>Stay connected! Follow us on social media.</h4>
+                <div class="social-icons">
+                    <a href="facebook.com"><img width="70" height="70"
+                            src="https://img.icons8.com/ios-filled/70/FFFFFF/facebook-new.png" alt="facebook-new" /></a>
+                    <a href="instagram.com"><img width="70" height="70"
+                            src="https://img.icons8.com/ios-glyphs/70/FFFFFF/instagram-circle.png"
+                            alt="instagram-circle" /></a>
+                    <a href="youtube.com"><img width="70" height="70"
+                            src="https://img.icons8.com/ios-filled/70/FFFFFF/youtube-play.png" alt="youtube-play" /></a>
+                </div>
+            </div>
+            <div class="last-text">
+                <a href="#">
+                    <p>LITTLE <span class="orange">LEGENDS</span> LIBRARY</p>
+                </a>
+            </div>
+        </div>
+    </footer>
 </body>
 <script>
+    // Customer Reviews Comment
     document.querySelector(".toggle-reviews").addEventListener("click", function () {
         const hiddenReviews = document.querySelectorAll(".hidden");
         if (this.textContent === "Show More") {
@@ -1108,9 +2167,10 @@
         }
     });
 
+    // Event listeners for Add to Cart and Buy Now buttons
     document.addEventListener("DOMContentLoaded", function () {
-        updateCartCount(); // Ensure count updates on load
 
+        // Handle Add to Cart button click
         document.querySelectorAll(".add-to-cart").forEach(button => {
             button.addEventListener("click", function () {
                 const product = {
@@ -1119,16 +2179,33 @@
                     image: this.dataset.image
                 };
 
-                const isAdded = addToCart(product); // Add to cart and check if it's new
+                const isAdded = addToCart(product);
                 if (isAdded) {
                     showAddedMessage("\u2705 Added to Cart!");
                 } else {
                     showAddedMessage("\u26A0\ufe0f Item is already in the cart!");
                 }
 
-                updateCartCount(); // Update cart count after adding
+                // Update cart count immediately
+                updateCartCount();
             });
         });
+
+        // Handle Buy Now button click
+        document.querySelectorAll(".buy-now").forEach(button => {
+            button.addEventListener("click", function () {
+                const product = {
+                    name: this.dataset.name,
+                    price: parseFloat(this.dataset.price),
+                    image: this.dataset.image
+                };
+
+                goToOrderForm(product); // Go to order form
+            });
+        });
+
+        // Initialize cart count on page load
+        updateCartCount();
     });
 
     // 🛒 **Add to Cart Function (Prevents duplicates)**
@@ -1147,14 +2224,22 @@
     // 🔢 **Update Cart Count Badge**
     function updateCartCount() {
         let cart = JSON.parse(localStorage.getItem("cart")) || [];
-        const cartCount = cart.length; // Only counts unique items
+        let cartCount = cart.length;
 
-        const cartBadge = document.querySelector(".cart-count");
-        if (cartBadge) {
-            cartBadge.textContent = cartCount;
-            cartBadge.style.display = cartCount > 0 ? "flex" : "none"; // Hide if empty
-        }
+        document.querySelectorAll(".cart-count").forEach(cartBadge => {
+            if (cartCount > 0) {
+                cartBadge.textContent = cartCount;
+                cartBadge.classList.add("show"); // Add 'show' class
+                cartBadge.style.display = "flex"; // Make sure it's visible
+            } else {
+                cartBadge.classList.remove("show"); // Remove 'show' class
+                cartBadge.style.display = "none"; // Hide it completely
+            }
+        });
     }
+
+    // Run on page load to apply correct visibility
+    document.addEventListener("DOMContentLoaded", updateCartCount);
 
     // ✅ **Show "Added to Cart" Message**
     function showAddedMessage(text) {
@@ -1169,8 +2254,102 @@
         }, 1000);
     }
 
-    // Ensure cart count updates when page loads
+    // Buy Now Function (Redirect to Google Form)
+    function goToOrderForm(product) {
+        let orderID = generateOrderID();
+        localStorage.setItem("orderID", orderID); // Store Order ID locally
+
+        let formURL = "https://docs.google.com/forms/d/e/1FAIpQLSc9BPxq--g3lNUQ1jtJB3rx6kYPuDrTfaQ-e1BEJ9-z9yvgOw/viewform?";
+        let orderIDField = "entry.771543493=" + encodeURIComponent(orderID);
+        let productField = "&entry.271701913=" + encodeURIComponent(product.name);
+        let priceField = "&entry.827177782=" + encodeURIComponent(product.price);
+
+        sessionStorage.setItem("showOrderSuccess", "true");
+        window.location.href = formURL + orderIDField + productField + priceField;
+    }
+
+    // Generate Order ID Function
+    function generateOrderID() {
+        return 'ORDER-' + Math.floor(Math.random() * 1000000);
+    }
+
+    // Write Review Form
+    function writeReview(bookName) {
+        const formUrl = "https://docs.google.com/forms/d/e/1FAIpQLSdMAvVk8X06BhMumPkjd9SmHAO_YzJIEit4Df4wOLrMmzmx6A/viewform";
+        const prefilledUrl = `${formUrl}?usp=pp_url&entry.386075443=${encodeURIComponent(bookName)}`;
+        window.location.href = prefilledUrl;
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const menuToggle = document.querySelector(".hamburger");
+        const mobileMenu = document.querySelector(".mobile-menu");
+        const overlay = document.createElement("div");
+        overlay.classList.add("overlay");
+        document.body.appendChild(overlay);
+
+        function toggleMenu() {
+            const isActive = mobileMenu.classList.contains("active");
+
+            if (isActive) {
+                mobileMenu.classList.remove("active");
+                overlay.classList.remove("active");
+                document.body.classList.remove("no-scroll"); // Restore scrolling
+            } else {
+                mobileMenu.classList.add("active");
+                overlay.classList.add("active");
+                document.body.classList.add("no-scroll"); // Prevent scrolling
+            }
+        }
+
+        menuToggle.addEventListener("click", function (event) {
+            event.stopPropagation();
+            toggleMenu();
+        });
+
+        overlay.addEventListener("click", toggleMenu);
+
+        document.addEventListener("keydown", function (event) {
+            if (event.key === "Escape" && mobileMenu.classList.contains("active")) {
+                toggleMenu();
+            }
+        });
+    });
+
+    function updateCartCount() {
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        let cartCount = cart.length;
+
+        document.querySelectorAll(".cart-count").forEach(cartBadge => {
+            if (cartCount > 0) {
+                cartBadge.textContent = cartCount;
+                cartBadge.classList.add("show"); // Add 'show' class
+                cartBadge.style.display = "flex"; // Make sure it's visible
+            } else {
+                cartBadge.classList.remove("show"); // Remove 'show' class
+                cartBadge.style.display = "none"; // Hide it completely
+            }
+        });
+    }
+
+    // Run on page load to apply correct visibility
     document.addEventListener("DOMContentLoaded", updateCartCount);
+
+    // Example: Simulating cart count update
+    document.addEventListener("DOMContentLoaded", function () {
+        let cartCount = localStorage.getItem("cartCount") || 0; // Get saved count
+        updateCartCount(cartCount); // Apply it to both elements
+    });
+
+
+    document.addEventListener("DOMContentLoaded", function () {
+        let currentPage = window.location.pathname.split("/").pop().replace(".html", "");
+
+        document.querySelectorAll(".nav-link").forEach(link => {
+            if (link.dataset.page === currentPage) {
+                link.classList.add("active");
+            }
+        });
+    });
 </script>
 
 </html>

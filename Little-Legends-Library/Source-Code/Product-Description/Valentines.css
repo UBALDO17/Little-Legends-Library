@@ -878,7 +878,6 @@ button.write-review {
     display: inline-block;
 }
 
-/* Cart badge styling */
 .cart-count {
     position: absolute;
     bottom: -5px;
@@ -892,11 +891,24 @@ button.write-review {
     border-radius: 50%;
     font-weight: bold;
     display: none;
-    display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     transform: scale(0.9);
+}
+
+.cart-count.show {
+    display: flex !important;
+}
+
+@media (max-width: 768px) {
+    .cart-count {
+        display: none !important;
+    }
+
+    .cart-count.show {
+        display: flex !important;
+    }
 }
 
 /* ✅ "Added to Cart" Floating Message */

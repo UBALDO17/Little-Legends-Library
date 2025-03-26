@@ -97,9 +97,15 @@ function generateOrderID() {
 }
 
 // Search Blogger
-function searchBloggerPosts() {
-    var query = document.getElementById("search-box").value;
+function searchBloggerPosts(searchBoxId) {
+    var query = document.getElementById(searchBoxId).value;
     if (query) {
-        window.location.href = "/search?q=" + encodeURIComponent(query);
+        var baseUrl = "https://littlelegendslibrary.blogspot.com/search?q=" + encodeURIComponent(query);
+
+        // Ensure &m=1 is completely removed
+        var finalUrl = baseUrl.replace("&m=1", "");
+
+        // Force direct access to search results
+        window.location.href = finalUrl + "&m=0";
     }
 }

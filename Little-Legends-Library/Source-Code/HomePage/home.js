@@ -55,14 +55,22 @@ function addToCart(product) {
 // 🔢 **Update Cart Count Badge**
 function updateCartCount() {
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
-    const cartCount = cart.length; // Only counts unique items
+    let cartCount = cart.length;
 
-    const cartBadge = document.querySelector(".cart-count");
-    if (cartBadge) {
-        cartBadge.textContent = cartCount;
-        cartBadge.style.display = cartCount > 0 ? "flex" : "none"; // Hide if empty
-    }
+    document.querySelectorAll(".cart-count").forEach(cartBadge => {
+        if (cartCount > 0) {
+            cartBadge.textContent = cartCount;
+            cartBadge.classList.add("show"); // Add 'show' class
+            cartBadge.style.display = "flex"; // Make sure it's visible
+        } else {
+            cartBadge.classList.remove("show"); // Remove 'show' class
+            cartBadge.style.display = "none"; // Hide it completely
+        }
+    });
 }
+
+// Run on page load to apply correct visibility
+document.addEventListener("DOMContentLoaded", updateCartCount);
 
 // ✅ **Show "Added to Cart" Message**
 function showAddedMessage(text) {

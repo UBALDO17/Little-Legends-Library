@@ -72,15 +72,38 @@
 }
 
 /* Shop Section */
-@media (max-width: 768px) {
-    .book-1 {
-        width: 48% !important;
+@media screen and (max-width: 1024px) {
+    .shop {
+        height: auto !important;
+        padding: 2rem 1rem !important;
+    }
+
+    .image-selection {
+        flex-wrap: wrap !important;
+        gap: 1.5rem !important;
     }
 }
 
-@media (max-width: 480px) {
+@media screen and (max-width: 768px) {
+    .shop-text h1 {
+        font-size: 2.3rem !important;
+    }
+
+    .image-selection {
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+
     .book-1 {
-        width: 100% !important;
+        max-width: 75% !important;
+    }
+
+    .book-text {
+        font-size: 1.5rem !important;
+    }
+
+    .book-text-desc {
+        font-size: 1rem !important;
     }
 }
 

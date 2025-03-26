@@ -25,6 +25,11 @@
             font-family: "Poppins", sans-serif;
         }
 
+        html .post {
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+
         .container {
             background: url('https://res.cloudinary.com/du0ijg1nu/image/upload/v1740640785/Firefly_generate_a_background_for_a_banner_a_book_shop_and_download_instantly_and_this_should_be_the_wfjarm.jpg') no-repeat center center fixed;
             background-size: cover;
@@ -120,7 +125,6 @@
             background-color: #e03e00;
         }
 
-        /* ✨ Smooth White Edge Glow Effect */
         .freebook.active a {
             animation: edgeGlowWhite 1.5s infinite ease-in-out;
         }
@@ -139,13 +143,11 @@
             }
         }
 
-        /* Cart container to ensure the badge stays inside the cart icon */
         .cart-contain {
             position: relative;
             display: inline-block;
         }
 
-        /* Cart badge styling */
         .cart-count {
             position: absolute;
             bottom: -5px;
@@ -159,11 +161,24 @@
             border-radius: 50%;
             font-weight: bold;
             display: none;
-            display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             transform: scale(0.9);
+        }
+
+        .cart-count.show {
+            display: flex !important;
+        }
+
+        @media (max-width: 768px) {
+            .cart-count {
+                display: none !important;
+            }
+
+            .cart-count.show {
+                display: flex !important;
+            }
         }
 
         .hero {
@@ -241,7 +256,6 @@
             box-shadow: 0px 4px 15px rgba(255, 69, 0, 0.6);
         }
 
-        /* Free button (clickable) */
         .free-sticker {
             position: absolute;
             top: 50%;
@@ -267,13 +281,12 @@
             width: 50%;
         }
 
-        /* Hover effect */
         .free-sticker:hover {
             background: #ff5722;
             transform: translateX(-50%) scale(1.1);
         }
 
-        /* Glow pulse animation */
+
         @keyframes glowPulse {
             0% {
                 box-shadow: 0px 0px 10px rgba(255, 69, 0, 0.5);
@@ -291,7 +304,6 @@
             }
         }
 
-        /* Center buttons below books */
         .slide-button {
             display: flex;
             justify-content: center;
@@ -319,6 +331,202 @@
         .next-btn:hover {
             background-color: #e03e00;
         }
+
+        @media (max-width: 768px) {
+            .hero {
+                max-width: 90% !important;
+                height: auto !important;
+                padding: 3rem 1rem !important;
+                margin: 5vh auto !important;
+            }
+
+            .hero h2 {
+                font-size: 1.5rem !important;
+            }
+
+            .book-list {
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
+                width: 100% !important;
+            }
+
+            .book {
+                width: 90% !important;
+                max-width: 300px !important;
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
+                text-align: center !important;
+            }
+
+            .book img {
+                width: 100% !important;
+                height: auto !important;
+            }
+
+            .free-sticker {
+                font-size: 1.2rem !important;
+                padding: 0.7rem 1rem !important;
+                width: 70% !important;
+                text-align: center !important;
+            }
+        }
+
+        .nav-right {
+            display: flex !important;
+            align-items: center !important;
+            gap: 1rem !important;
+        }
+
+        .hamburger {
+            display: none !important;
+            cursor: pointer !important;
+            flex-direction: column !important;
+        }
+
+        .mobile-menu {
+            display: flex !important;
+            position: fixed !important;
+            top: 0 !important;
+            right: -75vw !important;
+            width: 75vw !important;
+            height: 100vh !important;
+            background: white !important;
+            z-index: 1000 !important;
+            transition: right 0.3s ease-in-out, opacity 0.3s ease-in-out !important;
+            opacity: 0 !important;
+            visibility: hidden !important;
+            flex-direction: column !important;
+            justify-content: center !important;
+            padding: 2rem 1.5rem !important;
+        }
+
+        .mobile-menu.active {
+            right: 0 !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+        }
+
+        /* Mobile View */
+        @media (max-width: 768px) {
+            .mobile-menu {
+                background: rgba(0, 113, 151, 0.918) !important;
+            }
+
+            .hamburger div {
+                width: 30px !important;
+                height: 3.5px !important;
+                background-color: white !important;
+                margin: 3px !important;
+                transition: 0.3s !important;
+            }
+
+            .overlay {
+                position: fixed !important;
+                top: 0 !important;
+                left: 0 !important;
+                width: 100vw !important;
+                height: 100vh !important;
+                background: rgba(0, 0, 0, 0.5) !important;
+                opacity: 0 !important;
+                visibility: hidden !important;
+                transition: opacity 0.3s ease-in-out !important;
+                z-index: 998 !important;
+            }
+
+            .overlay.active {
+                opacity: 1 !important;
+                visibility: visible !important;
+            }
+
+            .menu-content {
+                display: flex !important;
+                flex-direction: column !important;
+                gap: 1rem !important;
+                width: 100% !important;
+            }
+
+            .menu-content a {
+                color: white !important;
+                font-size: 1.5rem !important;
+                text-decoration: none !important;
+                font-weight: bold !important;
+                padding: 0.75rem 1.5rem !important;
+                border-radius: 0.5rem !important;
+                transition: background 0.3s ease-in-out !important;
+            }
+
+            .menu-content a.active {
+                background: rgba(255, 69, 0, 0.2) !important;
+                color: #ffffff !important;
+                width: 100% !important;
+                border-left: 6px solid #FF4500 !important;
+                padding-left: 2.5rem !important;
+            }
+
+            body.no-scroll {
+                overflow: hidden !important;
+            }
+
+            .logo img {
+                width: 4.5rem !important;
+                height: 4.5rem !important;
+            }
+
+            .cart-count {
+                position: absolute !important;
+                top: -2px !important;
+                right: -5px !important;
+                background: white !important;
+                color: black !important;
+                font-size: 0.9rem !important;
+                min-width: 1.7rem !important;
+                height: 1.7rem !important;
+                padding: 0 0.3rem !important;
+                border-radius: 50% !important;
+                font-weight: bold !important;
+                display: none !important;
+                align-items: center !important;
+                justify-content: center !important;
+                text-align: center !important;
+                transform: scale(0.9) !important;
+            }
+
+            .navbar {
+                padding: 0.5rem 2rem !important;
+            }
+
+            .nav-right {
+                display: flex !important;
+                align-items: center !important;
+                gap: 1.5rem !important;
+            }
+
+            .nav-links,
+            .nav-buttons {
+                display: none !important;
+            }
+
+            .hamburger {
+                display: flex !important;
+            }
+        }
+
+        /* Desktop View */
+        @media (min-width: 769px) {
+            .nav-right .cart-contain {
+                display: none !important;
+            }
+
+            .nav-buttons .cart-contain {
+                display: flex !important;
+            }
+
+            .mobile-menu {
+                display: none !important;
+            }
+        }
     </style>
 </head>
 
@@ -329,10 +537,30 @@
                 <img src="https://res.cloudinary.com/du0ijg1nu/image/upload/v1740641091/Untitled_design_3_pxsurq.png"
                     alt="Logo" />
             </div>
-            <div class="hamburger" onclick="toggleMenu()">
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
+            <div class="nav-right">
+                <div class="cart-contain">
+                    <a href="/cart">
+                        <img width="50" height="45"
+                            src="https://img.icons8.com/ios-glyphs/60/ff4500/shopping-cart--v1.png"
+                            alt="shopping-cart--v1" />
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+
+                <div class="hamburger" onclick="toggleMenu()">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+
+            <div class="mobile-menu">
+                <div class="menu-content">
+                    <a href="/home" class="nav-link" data-page="home">Home</a>
+                    <a href="/shop" class="nav-link" data-page="shop">Shop</a>
+                    <a href="/contact" class="nav-link" data-page="contact">Contact</a>
+                    <a href="/free-book" class="nav-link" data-page="free-book">Free Book!</a>
+                </div>
             </div>
             <div class="nav-links">
                 <a href="/home">Home</a>
@@ -415,14 +643,22 @@
     // 🔢 **Update Cart Count Badge**
     function updateCartCount() {
         let cart = JSON.parse(localStorage.getItem("cart")) || [];
-        const cartCount = cart.length; // Only counts unique items
+        let cartCount = cart.length;
 
-        const cartBadge = document.querySelector(".cart-count");
-        if (cartBadge) {
-            cartBadge.textContent = cartCount;
-            cartBadge.style.display = cartCount > 0 ? "flex" : "none"; // Hide if empty
-        }
+        document.querySelectorAll(".cart-count").forEach(cartBadge => {
+            if (cartCount > 0) {
+                cartBadge.textContent = cartCount;
+                cartBadge.classList.add("show"); // Add 'show' class
+                cartBadge.style.display = "flex"; // Make sure it's visible
+            } else {
+                cartBadge.classList.remove("show"); // Remove 'show' class
+                cartBadge.style.display = "none"; // Hide it completely
+            }
+        });
     }
+
+    // Run on page load to apply correct visibility
+    document.addEventListener("DOMContentLoaded", updateCartCount);
 
     // ✅ **Show "Added to Cart" Message**
     function showAddedMessage(text) {
@@ -444,26 +680,27 @@
     // Book Slide
     let bookIndex = 0;
     const books = [
-        { img: "https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303467/1_ggliia.png", link: "book-preview1.html" },
-        { img: "https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303460/2_swbioi.png", link: "book-preview2.html" },
-        { img: "https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303466/3_a5gbhu.png", link: "book-preview3.html" },
+        { img: "https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303467/1_ggliia.png", link: "https://heyzine.com/flip-book/e38e304573.html" },
+        { img: "https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303460/2_swbioi.png", link: "https://heyzine.com/flip-book/b65a85dfb5.html" },
+        { img: "https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303466/3_a5gbhu.png", link: "https://heyzine.com/flip-book/a0ebefb2cc.html" },
         { img: "https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303465/4_b3oiio.png", link: "book-preview4.html" },
-        { img: "https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303464/5_xqyfza.png", link: "book-preview5.html" },
-        { img: "https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303461/6_mflbyw.png", link: "book-preview6.html" },
-        { img: "https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303461/7_sutn1d.png", link: "book-preview6.html" }
+        { img: "https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303464/5_xqyfza.png", link: "https://heyzine.com/flip-book/8bdc0f2f8c.html" },
+        { img: "https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303461/6_mflbyw.png", link: "https://heyzine.com/flip-book/2a7fb4c219.html" },
+        { img: "https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303461/7_sutn1d.png", link: "https://heyzine.com/flip-book/6d949c168e.html" },
     ];
 
     function updateBooks() {
         const bookList = document.querySelector(".book-list");
         bookList.innerHTML = "";
 
-        for (let i = bookIndex; i < bookIndex + 3; i++) {
+        let booksPerSlide = window.innerWidth <= 768 ? 1 : 3; // 1 book per slide on mobile
+
+        for (let i = bookIndex; i < bookIndex + booksPerSlide; i++) {
             if (i >= books.length) break;
 
             const bookDiv = document.createElement("div");
             bookDiv.classList.add("book");
 
-            // Book Image Link
             const bookLink = document.createElement("a");
             bookLink.href = books[i].link;
 
@@ -474,7 +711,6 @@
             bookLink.appendChild(bookImg);
             bookDiv.appendChild(bookLink);
 
-            // FREE Button (Clickable)
             const freeSticker = document.createElement("a");
             freeSticker.href = books[i].link;
             freeSticker.classList.add("free-sticker");
@@ -486,24 +722,100 @@
     }
 
     function nextBooks() {
-        if (bookIndex + 3 < books.length) {
-            bookIndex += 3;
+        let booksPerSlide = window.innerWidth <= 768 ? 1 : 3;
+        if (bookIndex + booksPerSlide < books.length) {
+            bookIndex += booksPerSlide;
         } else {
-            bookIndex = 0; // Loop back to the first set of books
+            bookIndex = 0;
         }
         updateBooks();
     }
 
     function prevBooks() {
+        let booksPerSlide = window.innerWidth <= 768 ? 1 : 3;
         if (bookIndex > 0) {
-            bookIndex -= 3;
+            bookIndex -= booksPerSlide;
         } else {
-            bookIndex = books.length - 3; // Jump to the last set of books
+            bookIndex = books.length - booksPerSlide;
         }
         updateBooks();
     }
 
     document.addEventListener("DOMContentLoaded", updateBooks);
+    window.addEventListener("resize", updateBooks);
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const menuToggle = document.querySelector(".hamburger");
+        const mobileMenu = document.querySelector(".mobile-menu");
+        const overlay = document.createElement("div");
+        overlay.classList.add("overlay");
+        document.body.appendChild(overlay);
+
+        function toggleMenu() {
+            const isActive = mobileMenu.classList.contains("active");
+
+            if (isActive) {
+                mobileMenu.classList.remove("active");
+                overlay.classList.remove("active");
+                document.body.classList.remove("no-scroll"); // Restore scrolling
+            } else {
+                mobileMenu.classList.add("active");
+                overlay.classList.add("active");
+                document.body.classList.add("no-scroll"); // Prevent scrolling
+            }
+        }
+
+        menuToggle.addEventListener("click", function (event) {
+            event.stopPropagation();
+            toggleMenu();
+        });
+
+        overlay.addEventListener("click", toggleMenu);
+
+        document.addEventListener("keydown", function (event) {
+            if (event.key === "Escape" && mobileMenu.classList.contains("active")) {
+                toggleMenu();
+            }
+        });
+    });
+
+
+    function updateCartCount() {
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        let cartCount = cart.length;
+
+        document.querySelectorAll(".cart-count").forEach(cartBadge => {
+            if (cartCount > 0) {
+                cartBadge.textContent = cartCount;
+                cartBadge.classList.add("show"); // Add 'show' class
+                cartBadge.style.display = "flex"; // Make sure it's visible
+            } else {
+                cartBadge.classList.remove("show"); // Remove 'show' class
+                cartBadge.style.display = "none"; // Hide it completely
+            }
+        });
+    }
+
+    // Run on page load to apply correct visibility
+    document.addEventListener("DOMContentLoaded", updateCartCount);
+
+
+    // Example: Simulating cart count update
+    document.addEventListener("DOMContentLoaded", function () {
+        let cartCount = localStorage.getItem("cartCount") || 0; // Get saved count
+        updateCartCount(cartCount); // Apply it to both elements
+    });
+
+
+    document.addEventListener("DOMContentLoaded", function () {
+        let currentPage = window.location.pathname.split("/").pop().replace(".html", "");
+
+        document.querySelectorAll(".nav-link").forEach(link => {
+            if (link.dataset.page === currentPage) {
+                link.classList.add("active");
+            }
+        });
+    });
 </script>
 
 </html>

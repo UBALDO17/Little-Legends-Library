@@ -99,11 +99,6 @@
         height: 4.5rem !important;
     }
 
-    .cart-contain {
-        position: relative !important;
-        display: inline-block !important;
-    }
-
     .cart-count {
         position: absolute !important;
         top: -2px !important;
@@ -116,7 +111,7 @@
         padding: 0 0.3rem !important;
         border-radius: 50% !important;
         font-weight: bold !important;
-        display: flex !important;
+        display: none !important;
         align-items: center !important;
         justify-content: center !important;
         text-align: center !important;

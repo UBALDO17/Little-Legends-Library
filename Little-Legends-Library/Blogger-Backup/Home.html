@@ -25,6 +25,15 @@
             font-family: "Poppins", sans-serif;
         }
 
+        html .post {
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+
+        html .post-body img {
+            max-width: 100% !important;
+        }
+
         .container {
             background: url('https://res.cloudinary.com/du0ijg1nu/image/upload/v1740640785/Firefly_generate_a_background_for_a_banner_a_book_shop_and_download_instantly_and_this_should_be_the_wfjarm.jpg') no-repeat center center fixed;
             background-size: cover;
@@ -120,13 +129,11 @@
             background-color: #e03e00;
         }
 
-        /* Cart container to ensure the badge stays inside the cart icon */
         .cart-contain {
             position: relative;
             display: inline-block;
         }
 
-        /* Cart badge styling */
         .cart-count {
             position: absolute;
             bottom: -5px;
@@ -140,11 +147,24 @@
             border-radius: 50%;
             font-weight: bold;
             display: none;
-            display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             transform: scale(0.9);
+        }
+
+        .cart-count.show {
+            display: flex !important;
+        }
+
+        @media (max-width: 768px) {
+            .cart-count {
+                display: none !important;
+            }
+
+            .cart-count.show {
+                display: flex !important;
+            }
         }
 
         .hero {
@@ -240,14 +260,12 @@
             transition: 1s;
         }
 
-        /* 📦 Shop Image Container */
         .shop-image-container {
             position: relative;
             text-align: left;
             justify-content: center;
         }
 
-        /* 📷 Book Image */
         .book-image {
             width: 100%;
             height: auto;
@@ -255,7 +273,6 @@
             display: block;
         }
 
-        /* 🛒 Buttons Positioned at the Bottom Inside the Image */
         .product-buttons {
             position: absolute;
             bottom: 5px;
@@ -268,7 +285,6 @@
             z-index: 10;
         }
 
-        /* 🛒 Add to Cart Button */
         .product-buttons .add-to-cart {
             background: #FF4500;
             border: none;
@@ -297,7 +313,6 @@
             transform: scale(1.1);
         }
 
-        /* 💳 Buy Now Button */
         .product-buttons .buy-now {
             background: #FF4500;
             color: white;
@@ -315,7 +330,6 @@
             transform: scale(1.05);
         }
 
-        /* 📄 Left-Aligned Book Text */
         .book-text {
             font-size: 1.5rem;
             font-weight: bold;
@@ -329,7 +343,6 @@
             line-height: 1.5;
         }
 
-        /* 💰 Price Details */
         .price {
             color: #FF4500;
             font-size: 2rem;
@@ -359,12 +372,10 @@
             color: black;
         }
 
-        /* 🚫 Remove underline from "Details" */
         .no-underline {
             text-decoration: none;
         }
 
-        /* ✅ "Added to Cart" Floating Message */
         .cart-message {
             position: fixed;
             top: 10%;
@@ -380,7 +391,6 @@
             z-index: 1000;
         }
 
-        /* 🔄 Animation */
         @keyframes fadeInOut {
             0% {
                 opacity: 0;
@@ -526,7 +536,6 @@
             padding: 2rem;
         }
 
-        /* 🏆 Title Styling */
         .guide-title {
             font-size: 3.5rem;
             font-weight: bold;
@@ -544,7 +553,6 @@
             max-width: 45rem;
         }
 
-        /* 🔢 Step Container */
         .step {
             display: flex;
             align-items: center;
@@ -554,15 +562,12 @@
             gap: 2rem;
         }
 
-        /* Ensure last step does not have extra margin */
         .step:last-child {
             margin-bottom: 0;
         }
 
-        /* 🔵 Number Circle */
         .circle {
             width: 7rem;
-            /* Match the step-box height */
             height: 7rem;
             background: #025786;
             color: white;
@@ -576,7 +581,6 @@
             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
         }
 
-        /* 📦 Step Box */
         .step-box {
             display: flex;
             align-items: center;
@@ -591,7 +595,6 @@
             padding: 1.5rem;
         }
 
-        /* 🖼️ Icon */
         .step-box img {
             width: 5rem;
             height: 5rem;
@@ -599,7 +602,6 @@
             border-radius: 0.5rem;
         }
 
-        /* 📝 Step Text */
         .step-text {
             flex-grow: 1;
             padding-left: 1.6rem;
@@ -715,7 +717,6 @@
         }
 
         /* Another Section */
-        /* Another Section */
         footer {
             width: 100%;
             margin: 0 auto;
@@ -779,6 +780,509 @@
             color: orangered;
             display: inline;
         }
+
+        @media (max-width: 768px) {
+            .hero {
+                max-width: 90% !important;
+                height: 77% !important;
+                padding: 3rem 1rem !important;
+                margin: 5vh auto !important;
+            }
+
+            .hero-text {
+                margin: 2rem 1rem !important;
+                gap: 0.5rem !important;
+            }
+
+            .hero h1 {
+                font-size: 3rem !important;
+                line-height: 1.2 !important;
+            }
+
+            .hero p {
+                font-size: 1rem !important;
+            }
+
+            .hero a {
+                font-size: 1.2rem !important;
+                padding: 0.8rem 1.5rem !important;
+            }
+        }
+
+        /* Featured Section */
+        @media screen and (max-width: 1024px) {
+            .Featured {
+                height: auto !important;
+                padding: 2rem 1rem !important;
+            }
+
+            .image-selection {
+                flex-wrap: wrap !important;
+                gap: 1.5rem !important;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .featured-text h1 {
+                font-size: 2.3rem !important;
+            }
+
+            .image-selection {
+                flex-direction: column !important;
+                align-items: center !important;
+            }
+
+            .book-1 {
+                max-width: 75% !important;
+            }
+
+            .book-text {
+                font-size: 1.5rem !important;
+            }
+
+            .book-text-desc {
+                font-size: 1rem !important;
+            }
+        }
+
+        /* Another Section */
+        @media (max-width: 768px) {
+            .customer-reviews {
+                height: auto !important;
+                padding: 1.5rem !important;
+            }
+
+            .customer-title {
+                font-size: 2rem !important;
+                padding: 1rem 2rem !important;
+                margin-bottom: 4rem !important;
+            }
+
+            .customer-reviews-slider {
+                max-width: 100% !important;
+                padding: 0 1rem !important;
+            }
+
+            .customer-reviews-container {
+                padding: 4rem 2rem 2rem !important;
+            }
+
+            .profile-container {
+                width: 5rem !important;
+                height: 5rem !important;
+                top: -2.5rem !important;
+            }
+
+            .profile-pic {
+                width: 4rem !important;
+                height: 4rem !important;
+            }
+
+            .customer-reviews-text-comment {
+                font-size: 1.2rem !important;
+                line-height: 1.5 !important;
+            }
+
+            .star-rating {
+                font-size: 2rem !important;
+            }
+
+            .reviewer-name {
+                font-size: 1.5rem !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .customer-title {
+                font-size: 1.8rem !important;
+                padding: 0.8rem 1.5rem !important;
+            }
+
+            .customer-reviews-container {
+                padding: 3rem 1.5rem 1.5rem !important;
+            }
+
+            .profile-container {
+                width: 4rem !important;
+                height: 4rem !important;
+                top: -2rem !important;
+            }
+
+            .profile-pic {
+                width: 3.5rem !important;
+                height: 3.5rem !important;
+            }
+
+            .customer-reviews-text-comment {
+                font-size: 1rem !important;
+            }
+
+            .star-rating {
+                font-size: 1.8rem !important;
+            }
+
+            .reviewer-name {
+                font-size: 1.3rem !important;
+            }
+        }
+
+        /* Another Section */
+        @media (max-width: 768px) {
+            .guide {
+                height: auto !important;
+                padding: 2rem 1rem !important;
+            }
+
+            .guide-title {
+                font-size: 2.5rem !important;
+                padding: 1rem 1.5rem !important;
+            }
+
+            .guide-content {
+                width: 95% !important;
+                max-width: 100% !important;
+            }
+
+            .step {
+                flex-direction: column !important;
+                align-items: center !important;
+                text-align: center !important;
+                gap: 1.5rem !important;
+            }
+
+            .circle {
+                width: 6rem !important;
+                height: 6rem !important;
+                font-size: 2rem !important;
+            }
+
+            .step-box {
+                height: auto !important;
+                width: 100% !important;
+                padding: 1rem !important;
+                flex-direction: column !important;
+                text-align: center !important;
+            }
+
+            .step-box img {
+                width: 4rem !important;
+                height: 4rem !important;
+                margin-bottom: 0.5rem !important;
+            }
+
+            .step-text {
+                padding-left: 0 !important;
+            }
+
+            .step-text h3 {
+                font-size: 1.5rem !important;
+            }
+
+            .step-text p {
+                font-size: 1.1rem !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .guide-title {
+                font-size: 2rem !important;
+                padding: 0.8rem !important;
+            }
+
+            .circle {
+                width: 5rem !important;
+                height: 5rem !important;
+                font-size: 1.8rem !important;
+            }
+
+            .step-box img {
+                width: 4rem !important;
+                height: 4rem !important;
+            }
+
+            .step-text h3 {
+                font-size: 1.3rem !important;
+            }
+
+            .step-text p {
+                font-size: 1rem !important;
+            }
+        }
+
+        /* Another Section */
+        @media screen and (max-width: 768px) {
+            .FAQs {
+                height: auto !important;
+                padding: 5vh 2rem !important;
+                background-attachment: scroll !important;
+            }
+
+            .faqs-main {
+                height: auto !important;
+                margin: 2vh auto !important;
+                padding: 2rem 1rem !important;
+            }
+
+            .faqs-text {
+                margin: 1rem auto !important;
+                width: 95% !important;
+                gap: 0.1rem !important;
+            }
+
+            .faqs-text h2 {
+                font-size: 2rem !important;
+                text-align: center !important;
+                margin-bottom: 1.5rem !important;
+            }
+
+            .faq-item {
+                width: 95% !important;
+                max-width: 600px !important;
+                margin: 1rem auto !important;
+            }
+
+            .faq-question {
+                font-size: 1.2rem !important;
+                padding: 1rem !important;
+            }
+
+            .faq-question::after {
+                font-size: 1.2rem !important;
+            }
+
+            .faq-answer {
+                font-size: 1.1rem !important;
+                padding: 0 1rem !important;
+                max-height: 0 !important;
+                overflow: hidden !important;
+                transition: max-height 0.4s ease-out, padding 0.4s ease-out !important;
+            }
+
+            .faq-item.active .faq-answer {
+                display: block;
+                max-height: 100% !important;
+                padding: 1rem 1.5rem !important;
+            }
+
+            .faq-answer ul {
+                padding-left: 1rem !important;
+            }
+
+            .faq-answer ul li {
+                font-size: 1rem !important;
+            }
+        }
+
+        /* Footer Section */
+        @media screen and (max-width: 768px) {
+            .footer-container {
+                height: auto !important;
+            }
+
+            .footer-top {
+                height: 6vh !important;
+            }
+
+            .footer-info {
+                height: auto !important;
+                padding: 1rem !important;
+            }
+
+            .footer-info h4 {
+                font-size: 1.2rem !important;
+                padding: 5px !important;
+            }
+
+            .social-icons {
+                gap: 1rem !important;
+            }
+
+            .social-icons img {
+                width: 40px !important;
+                height: 40px !important;
+            }
+
+            .last-text {
+                font-size: 1.2rem !important;
+                height: 7vh !important;
+                padding: 1rem !important;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .footer-info h4 {
+                font-size: 1rem !important;
+            }
+
+            .social-icons {
+                gap: 0.8rem !important;
+            }
+
+            .social-icons img {
+                width: 35px !important;
+                height: 35px !important;
+            }
+
+            .last-text {
+                font-size: 1.2rem !important;
+                letter-spacing: 0.2rem !important;
+            }
+        }
+
+        .nav-right {
+            display: flex !important;
+            align-items: center !important;
+            gap: 1rem !important;
+        }
+
+        .hamburger {
+            display: none !important;
+            cursor: pointer !important;
+            flex-direction: column !important;
+        }
+
+        .mobile-menu {
+            display: flex !important;
+            position: fixed !important;
+            top: 0 !important;
+            right: -75vw !important;
+            width: 75vw !important;
+            height: 100vh !important;
+            background: white !important;
+            z-index: 1000 !important;
+            transition: right 0.3s ease-in-out, opacity 0.3s ease-in-out !important;
+            opacity: 0 !important;
+            visibility: hidden !important;
+            flex-direction: column !important;
+            justify-content: center !important;
+            padding: 2rem 1.5rem !important;
+        }
+
+        .mobile-menu.active {
+            right: 0 !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+        }
+
+        /* Mobile View */
+        @media (max-width: 768px) {
+            .mobile-menu {
+                background: rgba(0, 113, 151, 0.918) !important;
+            }
+
+            .hamburger div {
+                width: 30px !important;
+                height: 3.5px !important;
+                background-color: white !important;
+                margin: 3px !important;
+                transition: 0.3s !important;
+            }
+
+            .overlay {
+                position: fixed !important;
+                top: 0 !important;
+                left: 0 !important;
+                width: 100vw !important;
+                height: 100vh !important;
+                background: rgba(0, 0, 0, 0.5) !important;
+                opacity: 0 !important;
+                visibility: hidden !important;
+                transition: opacity 0.3s ease-in-out !important;
+                z-index: 998 !important;
+            }
+
+            .overlay.active {
+                opacity: 1 !important;
+                visibility: visible !important;
+            }
+
+            .menu-content {
+                display: flex !important;
+                flex-direction: column !important;
+                gap: 1rem !important;
+                width: 100% !important;
+            }
+
+            .menu-content a {
+                color: white !important;
+                font-size: 1.5rem !important;
+                text-decoration: none !important;
+                font-weight: bold !important;
+                padding: 0.75rem 1.5rem !important;
+                border-radius: 0.5rem !important;
+                transition: background 0.3s ease-in-out !important;
+            }
+
+            .menu-content a.active {
+                background: rgba(255, 69, 0, 0.2) !important;
+                color: #ffffff !important;
+                width: 100% !important;
+                border-left: 6px solid #FF4500 !important;
+                padding-left: 2.5rem !important;
+            }
+
+            body.no-scroll {
+                overflow: hidden !important;
+            }
+
+            .logo img {
+                width: 4.5rem !important;
+                height: 4.5rem !important;
+            }
+
+            .cart-count {
+                position: absolute !important;
+                top: -2px !important;
+                right: -5px !important;
+                background: white !important;
+                color: black !important;
+                font-size: 0.9rem !important;
+                min-width: 1.7rem !important;
+                height: 1.7rem !important;
+                padding: 0 0.3rem !important;
+                border-radius: 50% !important;
+                font-weight: bold !important;
+                display: none !important;
+                align-items: center !important;
+                justify-content: center !important;
+                text-align: center !important;
+                transform: scale(0.9) !important;
+            }
+
+            .navbar {
+                padding: 0.5rem 2rem !important;
+            }
+
+            .nav-right {
+                display: flex !important;
+                align-items: center !important;
+                gap: 1.5rem !important;
+            }
+
+            .nav-links,
+            .nav-buttons {
+                display: none !important;
+            }
+
+            .hamburger {
+                display: flex !important;
+            }
+        }
+
+        /* Desktop View */
+        @media (min-width: 769px) {
+            .nav-right .cart-contain {
+                display: none !important;
+            }
+
+            .nav-buttons .cart-contain {
+                display: flex !important;
+            }
+
+            .mobile-menu {
+                display: none !important;
+            }
+        }
     </style>
 </head>
 
@@ -789,6 +1293,32 @@
                 <img src="https://res.cloudinary.com/du0ijg1nu/image/upload/v1740641091/Untitled_design_3_pxsurq.png"
                     alt="Logo" />
             </div>
+            <div class="nav-right">
+                <div class="cart-contain">
+                    <a href="/cart">
+                        <img width="50" height="45"
+                            src="https://img.icons8.com/ios-glyphs/60/ff4500/shopping-cart--v1.png"
+                            alt="shopping-cart--v1" />
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+
+                <div class="hamburger" onclick="toggleMenu()">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+
+            <div class="mobile-menu">
+                <div class="menu-content">
+                    <a href="/home" class="nav-link" data-page="home_3">Home</a>
+                    <a href="/shop" class="nav-link" data-page="shop">Shop</a>
+                    <a href="/contact" class="nav-link" data-page="contact">Contact</a>
+                    <a href="/free-book" class="nav-link" data-page="free-book">Free Book!</a>
+                </div>
+            </div>
+
             <div class="nav-links">
                 <a href="/home" class="active">Home</a>
                 <a href="/shop">Shop</a>
@@ -809,10 +1339,7 @@
 
         <section class="hero">
             <div class="hero-text">
-                <h1>
-                    Interactive Digital <br />
-                    Workbooks for Kids!
-                </h1>
+                <h1>Interactive Digital Workbooks for Kids!</h1>
                 <p>
                     Engaging and fun learning materials <br />
                     in PDF format – download instantly.
@@ -828,147 +1355,127 @@
         </div>
         <div class="image-selection">
             <div class="book-1">
-                <!-- 📖 Product Image (No Anchor Here) -->
                 <div class="shop-image-container">
                     <img src="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303467/1_ggliia.png" alt=""
                         class="book-image" />
 
-                    <!-- 🛒 Add to Cart & Buy Now Buttons Inside Image -->
                     <div class="product-buttons">
-                        <button class="add-to-cart" data-name="Valentine's Day Workbook" data-price="310"
+                        <button class="add-to-cart" data-name="Valentine's Day Workbook" data-price="350"
                             data-image="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303467/1_ggliia.png">
                             <img src="https://img.icons8.com/ios-glyphs/30/ffffff/shopping-cart--v1.png" alt="cart" />
                         </button>
-                        <button id="buy-now" class="buy-now" data-name="Valentine's Day Workbook" data-price="310"
+                        <button id="buy-now" class="buy-now" data-name="Valentine's Day Workbook" data-price="350"
                             data-image="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303467/1_ggliia.png">
                             Buy Now
                         </button>
                     </div>
                 </div>
 
-                <!-- 📄 Product Details (Left-Aligned) -->
                 <p class="book-text">Valentine's Day <br />Workbook</p>
                 <p class="book-text-desc">
                     Learn and celebrate love with fun activities themed around
                     Valentine’s Day.
                 </p>
 
-                <!-- 💰 Price & Details -->
                 <div class="price-details">
-                    <h3 class="price">P310</h3>
-                    <!-- 🏷 Clickable "Details" Without Underline -->
+                    <h3 class="price">P350</h3>
                     <a href="https://littlelegendslibrary.blogspot.com/2025/03/valentines-day-workbook.html"
                         class="detail-1 no-underline">Details</a>
                 </div>
             </div>
 
             <div class="book-1">
-                <!-- 📖 Product Image (No Anchor Here) -->
                 <div class="shop-image-container">
                     <img src="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303460/2_swbioi.png" alt=""
                         class="book-image" />
 
-                    <!-- 🛒 Add to Cart & Buy Now Buttons Inside Image -->
                     <div class="product-buttons">
-                        <button class="add-to-cart" data-name="Dinosaur Workbook" data-price="320"
+                        <button class="add-to-cart" data-name="Dinosaur Workbook" data-price="350"
                             data-image="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303460/2_swbioi.png">
                             <img src="https://img.icons8.com/ios-glyphs/30/ffffff/shopping-cart--v1.png" alt="cart" />
                         </button>
-                        <button id="buy-now" class="buy-now" data-name="Dinosaur Workbook" data-price="320"
+                        <button id="buy-now" class="buy-now" data-name="Dinosaur Workbook" data-price="350"
                             data-image="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303460/2_swbioi.png">
                             Buy Now
                         </button>
                     </div>
                 </div>
 
-                <!-- 📄 Product Details (Left-Aligned) -->
                 <p class="book-text">Dinosaur <br />Workbook</p>
                 <p class="book-text-desc">
                     Learn with dinosaurs through tracing, counting, and coloring fun
                     activities!
                 </p>
 
-                <!-- 💰 Price & Details -->
                 <div class="price-details">
-                    <h3 class="price">P320</h3>
-                    <!-- 🏷 Clickable "Details" Without Underline -->
+                    <h3 class="price">P350</h3>
                     <a href="https://littlelegendslibrary.blogspot.com/2025/03/dinosaur-workbook.html"
                         class="detail-1 no-underline">Details</a>
                 </div>
             </div>
 
             <div class="book-1">
-                <!-- 📖 Product Image (No Anchor Here) -->
                 <div class="shop-image-container">
                     <img src="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303466/3_a5gbhu.png" alt=""
                         class="book-image" />
 
-                    <!-- 🛒 Add to Cart & Buy Now Buttons Inside Image -->
                     <div class="product-buttons">
-                        <button class="add-to-cart" data-name="Prince Workbook" data-price="330"
+                        <button class="add-to-cart" data-name="Prince Workbook" data-price="350"
                             data-image="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303466/3_a5gbhu.png">
                             <img src="https://img.icons8.com/ios-glyphs/30/ffffff/shopping-cart--v1.png" alt="cart" />
                         </button>
-                        <button id="buy-now" class="buy-now" data-name="Prince Workbook" data-price="330"
+                        <button id="buy-now" class="buy-now" data-name="Prince Workbook" data-price="350"
                             data-image="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303466/3_a5gbhu.png">
                             Buy Now
                         </button>
                     </div>
                 </div>
 
-                <!-- 📄 Product Details (Left-Aligned) -->
                 <p class="book-text">Prince <br />Workbook</p>
                 <p class="book-text-desc">
                     Learn and have fun with a royal touch through tracing, matching, and
                     mazes!
                 </p>
 
-                <!-- 💰 Price & Details -->
                 <div class="price-details">
-                    <h3 class="price">P330</h3>
-                    <!-- 🏷 Clickable "Details" Without Underline -->
+                    <h3 class="price">P350</h3>
                     <a href="https://littlelegendslibrary.blogspot.com/2025/03/prince-workbook.html"
                         class="detail-1 no-underline">Details</a>
                 </div>
             </div>
 
             <div class="book-1">
-                <!-- 📖 Product Image (No Anchor Here) -->
                 <div class="shop-image-container">
                     <img src="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303465/4_b3oiio.png" alt=""
                         class="book-image" />
 
-                    <!-- 🛒 Add to Cart & Buy Now Buttons Inside Image -->
                     <div class="product-buttons">
-                        <button class="add-to-cart" data-name="Workbook 32 Workbook" data-price="340"
+                        <button class="add-to-cart" data-name="Workbook 32 Workbook" data-price="350"
                             data-image="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303465/4_b3oiio.png">
                             <img src="https://img.icons8.com/ios-glyphs/30/ffffff/shopping-cart--v1.png" alt="cart" />
                         </button>
-                        <button id="buy-now" class="buy-now" data-name="Workbook 32 Workbook" data-price="340"
+                        <button id="buy-now" class="buy-now" data-name="Workbook 32 Workbook" data-price="350"
                             data-image="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303465/4_b3oiio.png">
                             Buy Now
                         </button>
                     </div>
                 </div>
 
-                <!-- 📄 Product Details (Left-Aligned) -->
                 <p class="book-text">Workbook 32 <br />Workbook</p>
                 <p class="book-text-desc">
                     Learn and have fun with a mix of engaging puzzles, tracing, and
                     games!
                 </p>
 
-                <!-- 💰 Price & Details -->
                 <div class="price-details">
-                    <h3 class="price">P340</h3>
-                    <!-- 🏷 Clickable "Details" Without Underline -->
+                    <h3 class="price">P350</h3>
                     <a href="https://littlelegendslibrary.blogspot.com/2025/03/workbook-32-activities.html"
                         class="detail-1 no-underline">Details</a>
                 </div>
             </div>
         </div>
         <div class="button-container">
-            <button class="btn view-workbooks" onclick="window.location.assign('../p/shop.html#shop')">
+            <button class="btn view-workbooks" onclick="window.location.href='/p/shop.html#shop'">
                 View All Workbooks
             </button>
         </div>
@@ -1214,14 +1721,23 @@
     // 🔢 **Update Cart Count Badge**
     function updateCartCount() {
         let cart = JSON.parse(localStorage.getItem("cart")) || [];
-        const cartCount = cart.length; // Only counts unique items
+        let cartCount = cart.length;
 
-        const cartBadge = document.querySelector(".cart-count");
-        if (cartBadge) {
-            cartBadge.textContent = cartCount;
-            cartBadge.style.display = cartCount > 0 ? "flex" : "none"; // Hide if empty
-        }
+        document.querySelectorAll(".cart-count").forEach(cartBadge => {
+            if (cartCount > 0) {
+                cartBadge.textContent = cartCount;
+                cartBadge.classList.add("show"); // Add 'show' class
+                cartBadge.style.display = "flex"; // Make sure it's visible
+            } else {
+                cartBadge.classList.remove("show"); // Remove 'show' class
+                cartBadge.style.display = "none"; // Hide it completely
+            }
+        });
     }
+
+    // Run on page load to apply correct visibility
+    document.addEventListener("DOMContentLoaded", updateCartCount);
+
 
     // ✅ **Show "Added to Cart" Message**
     function showAddedMessage(text) {
@@ -1302,6 +1818,58 @@
                     faqs.forEach(item => item.style.display = "block"); // Show all FAQs when closing
                 }
             });
+        });
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const menuToggle = document.querySelector(".hamburger");
+        const mobileMenu = document.querySelector(".mobile-menu");
+        const overlay = document.createElement("div");
+        overlay.classList.add("overlay");
+        document.body.appendChild(overlay);
+
+        function toggleMenu() {
+            const isActive = mobileMenu.classList.contains("active");
+
+            if (isActive) {
+                mobileMenu.classList.remove("active");
+                overlay.classList.remove("active");
+                document.body.classList.remove("no-scroll"); // Restore scrolling
+            } else {
+                mobileMenu.classList.add("active");
+                overlay.classList.add("active");
+                document.body.classList.add("no-scroll"); // Prevent scrolling
+            }
+        }
+
+        menuToggle.addEventListener("click", function (event) {
+            event.stopPropagation();
+            toggleMenu();
+        });
+
+        overlay.addEventListener("click", toggleMenu);
+
+        document.addEventListener("keydown", function (event) {
+            if (event.key === "Escape" && mobileMenu.classList.contains("active")) {
+                toggleMenu();
+            }
+        });
+    });
+
+    // Example: Simulating cart count update
+    document.addEventListener("DOMContentLoaded", function () {
+        let cartCount = localStorage.getItem("cartCount") || 0; // Get saved count
+        updateCartCount(cartCount); // Apply it to both elements
+    });
+
+
+    document.addEventListener("DOMContentLoaded", function () {
+        let currentPage = window.location.pathname.split("/").pop().replace(".html", "");
+
+        document.querySelectorAll(".nav-link").forEach(link => {
+            if (link.dataset.page === currentPage) {
+                link.classList.add("active");
+            }
         });
     });
 </script>

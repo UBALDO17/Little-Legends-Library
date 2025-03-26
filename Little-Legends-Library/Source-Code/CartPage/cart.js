@@ -70,12 +70,22 @@ function removeItem(index) {
 // 🔢 **Update Cart Count**
 function updateCartCount() {
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
-    const cartBadge = document.querySelector(".cart-count");
-    if (cartBadge) {
-        cartBadge.textContent = cart.length;
-        cartBadge.style.display = cart.length > 0 ? "flex" : "none";
-    }
+    let cartCount = cart.length;
+
+    document.querySelectorAll(".cart-count").forEach(cartBadge => {
+        if (cartCount > 0) {
+            cartBadge.textContent = cartCount;
+            cartBadge.classList.add("show"); // Add 'show' class
+            cartBadge.style.display = "flex"; // Make sure it's visible
+        } else {
+            cartBadge.classList.remove("show"); // Remove 'show' class
+            cartBadge.style.display = "none"; // Hide it completely
+        }
+    });
 }
+
+// Run on page load to apply correct visibility
+document.addEventListener("DOMContentLoaded", updateCartCount);
 
 // 🛍 **Update Cart Display**
 function updateCart() {

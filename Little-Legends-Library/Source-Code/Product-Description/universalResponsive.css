@@ -306,24 +306,6 @@
         flex-wrap: wrap !important;
         gap: 1.5rem !important;
     }
-
-    .book-1 {
-        max-width: 15rem !important;
-        padding: 1rem !important;
-    }
-
-    .product-buttons {
-        padding: 0.8rem !important;
-    }
-
-    .product-buttons .buy-now {
-        font-size: 0.9rem !important;
-        padding: 6px 12px !important;
-    }
-
-    .price {
-        font-size: 1.5rem !important;
-    }
 }
 
 @media screen and (max-width: 768px) {
@@ -337,7 +319,7 @@
     }
 
     .book-1 {
-        max-width: 80% !important;
+        max-width: 75% !important;
     }
 
     .book-text {
@@ -345,7 +327,7 @@
     }
 
     .book-text-desc {
-        font-size: 0.9rem !important;
+        font-size: 1rem !important;
     }
 }
 

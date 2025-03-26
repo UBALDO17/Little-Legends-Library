@@ -38,10 +38,19 @@ function updateCartCount() {
     let cartCount = cart.length;
 
     document.querySelectorAll(".cart-count").forEach(cartBadge => {
-        cartBadge.textContent = cartCount;
-        cartBadge.style.display = cartCount > 0 ? "flex" : "none"; // Hide when empty
+        if (cartCount > 0) {
+            cartBadge.textContent = cartCount;
+            cartBadge.classList.add("show"); // Add 'show' class
+            cartBadge.style.display = "flex"; // Make sure it's visible
+        } else {
+            cartBadge.classList.remove("show"); // Remove 'show' class
+            cartBadge.style.display = "none"; // Hide it completely
+        }
     });
 }
+
+// Run on page load to apply correct visibility
+document.addEventListener("DOMContentLoaded", updateCartCount);
 
 // Example: Simulating cart count update
 document.addEventListener("DOMContentLoaded", function () {

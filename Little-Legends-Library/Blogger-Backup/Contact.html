@@ -25,378 +25,9 @@
             font-family: "Poppins", sans-serif;
         }
 
-        .container {
-            background: url('https://res.cloudinary.com/du0ijg1nu/image/upload/v1740640785/Firefly_generate_a_background_for_a_banner_a_book_shop_and_download_instantly_and_this_should_be_the_wfjarm.jpg') no-repeat center center fixed;
-            background-size: cover;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            width: 100%;
-        }
-
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(0, 114, 151, 0.2);
-            padding: 0.5rem 12.75rem;
-            height: 5.7rem;
-            box-shadow: 0 0.25rem 0.375rem rgba(0, 0, 0, 0.1);
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            margin-right: 3.5rem;
-        }
-
-        .logo img {
-            width: 5.31rem;
-            height: 5.31rem;
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-right: auto;
-        }
-
-        .nav-links a,
-        .nav-buttons a {
-            text-decoration: none;
-            color: #FFFFFF;
-            font-size: 1.7rem;
-            font-weight: 500;
-            transition: 0.3s ease-in-out;
-            padding: 0.35rem 1.76rem;
-            border-radius: 2.19rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-width: 8rem;
-            text-align: center;
-        }
-
-        .nav-links a.active {
-            background: #FF4500;
-            color: #ffffff;
-        }
-
-        .nav-links a:hover {
-            background: rgba(255, 69, 0, 0.8);
-            color: #ffffff;
-        }
-
-        .nav-buttons {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .nav-free {
-            padding: 0.625rem 1.76rem;
-            background: #FF4500;
-            color: #ffffff;
-            border: none;
-            border-radius: 2.19rem;
-            text-decoration: none;
-        }
-
-        .btn {
-            font-weight: 500;
-            padding: 1rem 2.5rem;
-            background: #FF4500;
-            color: #ffffff;
-            border: none;
-            border-radius: 0.625rem;
-            cursor: pointer;
-            text-decoration: none;
-            transition: 0.5s ease-in-out;
-        }
-
-        .btn:hover {
-            transform: scale(0.9);
-            background-color: #e03e00;
-        }
-
-        /* Cart container to ensure the badge stays inside the cart icon */
-        .cart-contain {
-            position: relative;
-            display: inline-block;
-        }
-
-        /* Cart badge styling */
-        .cart-count {
-            position: absolute;
-            bottom: -5px;
-            right: 0px;
-            background: white;
-            color: black;
-            font-size: 1rem;
-            min-width: 2rem;
-            height: 2rem;
-            padding: 0 0.3rem;
-            border-radius: 50%;
-            font-weight: bold;
-            display: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            transform: scale(0.9);
-        }
-
-        .hero {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            background: rgba(217, 217, 217, 0.8);
-            border-radius: 1.25rem;
-            max-width: 67%;
-            height: calc(100vh - 5.7rem - 14vh);
-            margin: 7vh auto;
-            width: 100%;
-            line-height: 1.4;
-        }
-
-        .hero-text {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.75rem;
-            margin: 4rem 1rem 2.5rem 1rem;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            color: rgba(0, 0, 0, 0.7);
-            font-weight: 600;
-        }
-
-        .hero p {
-            font-size: 1.6rem;
-            font-weight: 500;
-            color: rgba(0, 0, 0, 0.493);
-            margin: 0.5rem 0 1rem;
-        }
-
-        .hero a {
-            font-size: 1.5rem;
-        }
-
-        .contact-form {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            max-width: 700px;
-            width: 100%;
-            margin-top: 0.2rem;
-        }
-
-        .contact-text {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
-
-        .input-group {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .input-group input,
-        textarea {
-            flex: 1;
-            padding: 0.8rem;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 1rem;
-            background: #585653;
-            color: white;
-            height: 4rem;
-            border-radius: 7px;
-        }
-
-        textarea {
-            min-height: 4rem;
-            max-height: 12rem;
-            resize: vertical;
-            overflow-y: auto;
-        }
-
-        /* Placeholder Text Color */
-        .input-group input::placeholder,
-        textarea::placeholder {
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        button {
-            padding: 0.8rem;
-            background: #FF4500;
-            color: white;
-            font-size: 1.2rem;
-            border: none;
-            border-radius: 7px;
-            cursor: pointer;
-            width: 150px;
-        }
-
-        button:hover {
-            background: #e03e00;
-        }
-    </style>
-</head>
-
-<body>
-    <div class="container">
-        <nav class="navbar">
-            <div class="logo">
-                <img src="https://res.cloudinary.com/du0ijg1nu/image/upload/v1740641091/Untitled_design_3_pxsurq.png"
-                    alt="Logo" />
-            </div>
-            <div class="hamburger" onclick="toggleMenu()">
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
-            </div>
-            <div class="nav-links">
-                <a href="/home">Home</a>
-                <a href="/shop">Shop</a>
-                <a href="/contact" class="active">Contact</a>
-            </div>
-            <div class="nav-buttons">
-                <div class="cart-contain">
-                    <a href="/cart">
-                        <img width="50" height="45"
-                            src="https://img.icons8.com/ios-glyphs/60/ff4500/shopping-cart--v1.png"
-                            alt="shopping-cart--v1" />
-                        <span class="cart-count">0</span>
-                    </a>
-                </div>
-                <a href="/free-book" class="nav-free">Free Book!</a>
-            </div>
-        </nav>
-
-        <section class="hero">
-            <div class="contact-text">
-                <h1>Contact Us</h1>
-                <p>Any questions or remarks? Just write us a message</p>
-
-                <form class="contact-form" action="https://formsubmit.co/mghs.christiantsu@gmail.com" method="POST">
-                    <div class="input-group">
-                        <input type="text" name="name" placeholder="Enter your name" required />
-                        <input type="email" name="email" placeholder="Enter your email" required />
-                    </div>
-                    <textarea name="message" placeholder="Enter your message" rows="5" required></textarea>
-                    <div class="button-container">
-                        <button type="submit">Submit</button>
-                    </div>
-
-                    <!-- Hidden fields (optional) -->
-                    <input type="hidden" name="_subject" value="New Contact Form Submission" />
-                    <input type="hidden" name="_captcha" value="false" />
-                </form>
-            </div>
-        </section>
-    </div>
-</body>
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        updateCartCount(); // Ensure count updates on load
-
-        document.querySelectorAll(".add-to-cart").forEach(button => {
-            button.addEventListener("click", function () {
-                const product = {
-                    name: this.dataset.name,
-                    price: parseFloat(this.dataset.price),
-                    image: this.dataset.image
-                };
-
-                const isAdded = addToCart(product); // Add to cart and check if it's new
-                if (isAdded) {
-                    showAddedMessage("\u2705 Added to Cart!");
-                } else {
-                    showAddedMessage("\u26A0\ufe0f Item is already in the cart!");
-                }
-
-                updateCartCount(); // Update cart count after adding
-            });
-        });
-    });
-
-    // 🛒 **Add to Cart Function (Prevents duplicates)**
-    function addToCart(product) {
-        let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-        // Check if the item already exists
-        const existingProduct = cart.find(item => item.name === product.name);
-        if (!existingProduct) {
-            cart.push(product); // Add only if not already in the cart
-        }
-
-        localStorage.setItem("cart", JSON.stringify(cart));
-        return !existingProduct; // Return true if new item added, false if already exists
-    }
-
-    // 🔢 **Update Cart Count Badge**
-    function updateCartCount() {
-        let cart = JSON.parse(localStorage.getItem("cart")) || [];
-        const cartCount = cart.length; // Only counts unique items
-
-        const cartBadge = document.querySelector(".cart-count");
-        if (cartBadge) {
-            cartBadge.textContent = cartCount;
-            cartBadge.style.display = cartCount > 0 ? "flex" : "none"; // Hide if empty
-        }
-    }
-
-    // ✅ **Show "Added to Cart" Message**
-    function showAddedMessage(text) {
-        const message = document.createElement("div");
-        message.textContent = text;
-        message.classList.add("cart-message");
-        document.body.appendChild(message);
-
-        setTimeout(() => {
-            message.classList.add("fade-out"); // Fade out animation
-            setTimeout(() => message.remove(), 1000);
-        }, 1000);
-    }
-
-    // Ensure cart count updates when page loads
-    document.addEventListener("DOMContentLoaded", updateCartCount);
-</script>
-
-</html>
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DJHG2RBWRB"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-
-        gtag('config', 'G-DJHG2RBWRB');
-    </script>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Little Legends Library</title>
-
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: "Poppins", sans-serif;
+        html .post {
+            padding: 0 !important;
+            margin: 0 !important;
         }
 
         .container {
@@ -494,13 +125,11 @@
             background-color: #e03e00;
         }
 
-        /* Cart container to ensure the badge stays inside the cart icon */
         .cart-contain {
             position: relative;
             display: inline-block;
         }
 
-        /* Cart badge styling */
         .cart-count {
             position: absolute;
             bottom: -5px;
@@ -514,11 +143,24 @@
             border-radius: 50%;
             font-weight: bold;
             display: none;
-            display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             transform: scale(0.9);
+        }
+
+        .cart-count.show {
+            display: flex !important;
+        }
+
+        @media (max-width: 768px) {
+            .cart-count {
+                display: none !important;
+            }
+
+            .cart-count.show {
+                display: flex !important;
+            }
         }
 
         .hero {
@@ -535,7 +177,7 @@
             line-height: 1.4;
         }
 
-        .hero-text {
+        .contact-text {
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -543,20 +185,20 @@
             margin: 4rem 1rem 2.5rem 1rem;
         }
 
-        .hero h1 {
+        .contact-text h1 {
             font-size: 3rem;
             color: rgba(0, 0, 0, 0.7);
             font-weight: 600;
         }
 
-        .hero p {
+        .contact-text p {
             font-size: 1.6rem;
             font-weight: 500;
             color: rgba(0, 0, 0, 0.493);
             margin: 0.5rem 0 1rem;
         }
 
-        .hero a {
+        .contact-text a {
             font-size: 1.5rem;
         }
 
@@ -575,11 +217,13 @@
             justify-content: center;
             align-items: center;
             text-align: center;
+            padding: 1rem;
         }
 
         .input-group {
             display: flex;
             gap: 1rem;
+
         }
 
         .input-group input,
@@ -602,7 +246,6 @@
             overflow-y: auto;
         }
 
-        /* Placeholder Text Color */
         .input-group input::placeholder,
         textarea::placeholder {
             color: rgba(255, 255, 255, 0.7);
@@ -622,6 +265,201 @@
         button:hover {
             background: #e03e00;
         }
+
+        /* Mobile View */
+        @media (max-width: 768px) {
+            .hero {
+                max-width: 90% !important;
+                height: 77% !important;
+                padding: 2rem 1rem !important;
+                margin: 5vh auto !important;
+            }
+
+            .contact-text {
+                margin: 2rem 1rem !important;
+                gap: 0.3rem !important;
+            }
+
+            .contact-text h1 {
+                font-size: 2.5rem !important;
+            }
+
+            .contact-text p {
+                font-size: 1.1rem !important;
+                margin: 0.3rem 0 0.9rem !important;
+            }
+        }
+
+
+        @media (max-width: 768px) {
+            .input-group {
+                flex-direction: column !important;
+                gap: 0.5rem !important;
+            }
+
+            .contact-text {
+                padding: 1rem !important;
+            }
+
+            button {
+                width: 100% !important;
+            }
+        }
+
+        .nav-right {
+            display: flex !important;
+            align-items: center !important;
+            gap: 1rem !important;
+        }
+
+        .hamburger {
+            display: none !important;
+            cursor: pointer !important;
+            flex-direction: column !important;
+        }
+
+        .mobile-menu {
+            display: flex !important;
+            position: fixed !important;
+            top: 0 !important;
+            right: -75vw !important;
+            width: 75vw !important;
+            height: 100vh !important;
+            background: white !important;
+            z-index: 1000 !important;
+            transition: right 0.3s ease-in-out, opacity 0.3s ease-in-out !important;
+            opacity: 0 !important;
+            visibility: hidden !important;
+            flex-direction: column !important;
+            justify-content: center !important;
+            padding: 2rem 1.5rem !important;
+        }
+
+        .mobile-menu.active {
+            right: 0 !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+        }
+
+        /* Mobile View */
+        @media (max-width: 768px) {
+            .mobile-menu {
+                background: rgba(0, 113, 151, 0.918) !important;
+            }
+
+            .hamburger div {
+                width: 30px !important;
+                height: 3.5px !important;
+                background-color: white !important;
+                margin: 3px !important;
+                transition: 0.3s !important;
+            }
+
+            .overlay {
+                position: fixed !important;
+                top: 0 !important;
+                left: 0 !important;
+                width: 100vw !important;
+                height: 100vh !important;
+                background: rgba(0, 0, 0, 0.5) !important;
+                opacity: 0 !important;
+                visibility: hidden !important;
+                transition: opacity 0.3s ease-in-out !important;
+                z-index: 998 !important;
+            }
+
+            .overlay.active {
+                opacity: 1 !important;
+                visibility: visible !important;
+            }
+
+            .menu-content {
+                display: flex !important;
+                flex-direction: column !important;
+                gap: 1rem !important;
+                width: 100% !important;
+            }
+
+            .menu-content a {
+                color: white !important;
+                font-size: 1.5rem !important;
+                text-decoration: none !important;
+                font-weight: bold !important;
+                padding: 0.75rem 1.5rem !important;
+                border-radius: 0.5rem !important;
+                transition: background 0.3s ease-in-out !important;
+            }
+
+            .menu-content a.active {
+                background: rgba(255, 69, 0, 0.2) !important;
+                color: #ffffff !important;
+                width: 100% !important;
+                border-left: 6px solid #FF4500 !important;
+                padding-left: 2.5rem !important;
+            }
+
+            body.no-scroll {
+                overflow: hidden !important;
+            }
+
+            .logo img {
+                width: 4.5rem !important;
+                height: 4.5rem !important;
+            }
+
+            .cart-count {
+                position: absolute !important;
+                top: -2px !important;
+                right: -5px !important;
+                background: white !important;
+                color: black !important;
+                font-size: 0.9rem !important;
+                min-width: 1.7rem !important;
+                height: 1.7rem !important;
+                padding: 0 0.3rem !important;
+                border-radius: 50% !important;
+                font-weight: bold !important;
+                display: none !important;
+                align-items: center !important;
+                justify-content: center !important;
+                text-align: center !important;
+                transform: scale(0.9) !important;
+            }
+
+            .navbar {
+                padding: 0.5rem 2rem !important;
+            }
+
+            .nav-right {
+                display: flex !important;
+                align-items: center !important;
+                gap: 1.5rem !important;
+            }
+
+            .nav-links,
+            .nav-buttons {
+                display: none !important;
+            }
+
+            .hamburger {
+                display: flex !important;
+            }
+        }
+
+        /* Desktop View */
+        @media (min-width: 769px) {
+            .nav-right .cart-contain {
+                display: none !important;
+            }
+
+            .nav-buttons .cart-contain {
+                display: flex !important;
+            }
+
+            .mobile-menu {
+                display: none !important;
+            }
+        }
     </style>
 </head>
 
@@ -632,10 +470,30 @@
                 <img src="https://res.cloudinary.com/du0ijg1nu/image/upload/v1740641091/Untitled_design_3_pxsurq.png"
                     alt="Logo" />
             </div>
-            <div class="hamburger" onclick="toggleMenu()">
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
+            <div class="nav-right">
+                <div class="cart-contain">
+                    <a href="/cart">
+                        <img width="50" height="45"
+                            src="https://img.icons8.com/ios-glyphs/60/ff4500/shopping-cart--v1.png"
+                            alt="shopping-cart--v1" />
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+
+                <div class="hamburger" onclick="toggleMenu()">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+
+            <div class="mobile-menu">
+                <div class="menu-content">
+                    <a href="/home" class="nav-link" data-page="home_3">Home</a>
+                    <a href="/shop" class="nav-link" data-page="shop">Shop</a>
+                    <a href="/contact" class="nav-link" data-page="contact">Contact</a>
+                    <a href="/free-book" class="nav-link" data-page="free-book">Free Book!</a>
+                </div>
             </div>
             <div class="nav-links">
                 <a href="/home">Home</a>
@@ -719,14 +577,22 @@
     // 🔢 **Update Cart Count Badge**
     function updateCartCount() {
         let cart = JSON.parse(localStorage.getItem("cart")) || [];
-        const cartCount = cart.length; // Only counts unique items
+        let cartCount = cart.length;
 
-        const cartBadge = document.querySelector(".cart-count");
-        if (cartBadge) {
-            cartBadge.textContent = cartCount;
-            cartBadge.style.display = cartCount > 0 ? "flex" : "none"; // Hide if empty
-        }
+        document.querySelectorAll(".cart-count").forEach(cartBadge => {
+            if (cartCount > 0) {
+                cartBadge.textContent = cartCount;
+                cartBadge.classList.add("show"); // Add 'show' class
+                cartBadge.style.display = "flex"; // Make sure it's visible
+            } else {
+                cartBadge.classList.remove("show"); // Remove 'show' class
+                cartBadge.style.display = "none"; // Hide it completely
+            }
+        });
     }
+
+    // Run on page load to apply correct visibility
+    document.addEventListener("DOMContentLoaded", updateCartCount);
 
     // ✅ **Show "Added to Cart" Message**
     function showAddedMessage(text) {
@@ -743,6 +609,79 @@
 
     // Ensure cart count updates when page loads
     document.addEventListener("DOMContentLoaded", updateCartCount);
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const menuToggle = document.querySelector(".hamburger");
+        const mobileMenu = document.querySelector(".mobile-menu");
+        const overlay = document.createElement("div");
+        overlay.classList.add("overlay");
+        document.body.appendChild(overlay);
+
+        function toggleMenu() {
+            const isActive = mobileMenu.classList.contains("active");
+
+            if (isActive) {
+                mobileMenu.classList.remove("active");
+                overlay.classList.remove("active");
+                document.body.classList.remove("no-scroll"); // Restore scrolling
+            } else {
+                mobileMenu.classList.add("active");
+                overlay.classList.add("active");
+                document.body.classList.add("no-scroll"); // Prevent scrolling
+            }
+        }
+
+        menuToggle.addEventListener("click", function (event) {
+            event.stopPropagation();
+            toggleMenu();
+        });
+
+        overlay.addEventListener("click", toggleMenu);
+
+        document.addEventListener("keydown", function (event) {
+            if (event.key === "Escape" && mobileMenu.classList.contains("active")) {
+                toggleMenu();
+            }
+        });
+    });
+
+
+    function updateCartCount() {
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        let cartCount = cart.length;
+
+        document.querySelectorAll(".cart-count").forEach(cartBadge => {
+            if (cartCount > 0) {
+                cartBadge.textContent = cartCount;
+                cartBadge.classList.add("show"); // Add 'show' class
+                cartBadge.style.display = "flex"; // Make sure it's visible
+            } else {
+                cartBadge.classList.remove("show"); // Remove 'show' class
+                cartBadge.style.display = "none"; // Hide it completely
+            }
+        });
+    }
+
+    // Run on page load to apply correct visibility
+    document.addEventListener("DOMContentLoaded", updateCartCount);
+
+
+    // Example: Simulating cart count update
+    document.addEventListener("DOMContentLoaded", function () {
+        let cartCount = localStorage.getItem("cartCount") || 0; // Get saved count
+        updateCartCount(cartCount); // Apply it to both elements
+    });
+
+
+    document.addEventListener("DOMContentLoaded", function () {
+        let currentPage = window.location.pathname.split("/").pop().replace(".html", "");
+
+        document.querySelectorAll(".nav-link").forEach(link => {
+            if (link.dataset.page === currentPage) {
+                link.classList.add("active");
+            }
+        });
+    });
 </script>
 
 </html>
