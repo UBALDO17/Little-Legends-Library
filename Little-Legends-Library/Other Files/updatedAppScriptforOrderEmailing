@@ -1,0 +1,580 @@
+function sendEmailNotification(e) {
+    var sheet = e.source.getActiveSheet();
+    var row = sheet.getLastRow(); // Get the last submitted row
+
+    // ✅ Ensure Order Type is set
+    updateOrderTypeForRow(row);
+
+    // ✅ Fetch latest Order Type
+    var orderType = String(sheet.getRange(row, 15).getValue() || "").trim();
+
+    // ✅ Get form submission values
+    var rowData = e.values;
+    var orderID = rowData[1]; // Column B (Order ID)
+    var booksOrdered = rowData[2]; // Column C
+    var totalPrice = rowData[3]; // Column D
+    var customerName = rowData[4]; // Column E
+    var customerEmail = rowData[5]; // Column F
+    var contactNumber = rowData[6]; // Column G
+    var deliveryAddress = rowData[7]; // Column H
+    var paymentScreenshot = rowData[8]; // Column I
+
+    var recipient = "mghs.christiantsu@gmail.com";
+    var subject = "📢 New Order Alert: " + orderID;
+
+    var message = "A new order has been placed!\n\n" +
+        "📌 Order ID: " + orderID + "\n" +
+        "👤 Customer Name: " + customerName + "\n" +
+        "📧 Customer Email: " + customerEmail + "\n" +
+        "📚 Books Ordered: " + "\n" + booksOrdered + "\n" +
+        "💰 Total Price: ₱" + totalPrice + "\n" +
+        "📦 Order Type: " + orderType + "\n\n";
+
+    if (orderType === "Physical" || orderType === "Both") {
+        message += "📞 Contact Number: " + contactNumber + "\n" +
+                   "📍 Delivery Address: " + deliveryAddress + "\n\n";
+    }
+
+    message += "📎 Payment Screenshot: " + paymentScreenshot + "\n\n" +
+               "✅ Please verify the payment and process the order.";
+
+    MailApp.sendEmail(recipient, subject, message);
+}
+
+
+function onEdit(e) {
+    var sheet = e.source.getActiveSheet();
+    var range = e.range;
+    var row = range.getRow();
+    var column = range.getColumn();
+
+    // Column mappings
+    var paymentColumn = 10; // Column J - Payment Verified
+    var paymentDateColumn = 11; // Column K - Payment Date
+    var deliveryStatusColumn = 16; // Column P - Delivery Status
+    var trackingNumberColumn = 17; // Column Q - Tracking Number
+    var shippingProviderColumn = 18; // Column R - Shipping Provider
+    var orderTypeColumn = 15; // Column O - Order Type
+    var booksOrderedColumn = 3; // Column C - Books Ordered 📚
+    var customerEmailColumn = 6; // Column F - Email Address 📩
+    var customerNameColumn = 5; // Column E - Customer Name 📝
+    var orderIDColumn = 2; // Column B - Order ID 🆔
+
+    // Get values from relevant columns
+    var orderType = String(sheet.getRange(row, orderTypeColumn).getValue() || "").trim();
+    var paymentVerified = String(range.getValue() || "").trim().toLowerCase();
+    var deliveryStatus = String(sheet.getRange(row, deliveryStatusColumn).getValue() || "").trim();
+    var trackingNumber = String(sheet.getRange(row, trackingNumberColumn).getValue() || "").trim();
+    var shippingProvider = String(sheet.getRange(row, shippingProviderColumn).getValue() || "").trim();
+    var booksOrdered = String(sheet.getRange(row, booksOrderedColumn).getValue() || "").trim();
+    var customerEmail = String(sheet.getRange(row, customerEmailColumn).getValue() || "").trim();
+    var customerName = String(sheet.getRange(row, customerNameColumn).getValue() || "").trim();
+    var orderID = String(sheet.getRange(row, orderIDColumn).getValue() || "").trim();
+
+    // Debugging
+    Logger.log("Row: " + row + ", Column: " + column + " - Payment Verified: " + paymentVerified + ", Delivery Status: " + deliveryStatus);
+
+    // ✅ When payment is verified, update payment date and send ebook if applicable
+    if (column === paymentColumn && paymentVerified === "yes") {
+        sheet.getRange(row, paymentDateColumn).setValue(new Date());
+
+        if (orderType === "Digital" || orderType === "Both") {
+            sendBookEmail(row); // Send ebooks
+        }
+
+        updateOrderStatus(row);
+    }
+
+    // ✅ When delivery status changes, update order status
+    if (column === deliveryStatusColumn) {
+        updateOrderStatus(row);
+
+        // If "📦 Waiting for Shipment", notify customer
+        if (deliveryStatus === "📦 Waiting for Shipment") {
+            sendDeliveryConfirmation(row);
+        }
+
+        // If order is delivered, notify customer
+        if (deliveryStatus === "✅ Delivered") {
+            sendDeliveryConfirmationEmail(row, customerEmail, customerName, orderID, booksOrdered, 12, 14);
+        }
+    }
+
+    // ✅ Ensure tracking info email is sent when all required fields are filled
+    if (
+        (column === deliveryStatusColumn || column === trackingNumberColumn || column === shippingProviderColumn) &&
+        deliveryStatus === "🚚 Out for Delivery" &&
+        trackingNumber !== "" &&
+        shippingProvider !== ""
+    ) {
+        Logger.log("✅ Sending tracking info email...");
+        updateTrackingInfo(row);
+    }
+}
+
+
+function sendBookEmail(row) {
+    var ss = SpreadsheetApp.getActiveSpreadsheet();
+    var sheet = ss.getActiveSheet();
+    var booksSheet = ss.getSheetByName("Book Links"); // Get the Book Links sheet
+
+    if (!booksSheet) {
+        Logger.log("⚠️ ERROR: 'Book Links' sheet not found!");
+        return;
+    }
+
+    var adminEmail = "mghs.christiantsu@gmail.com"; // Admin notification
+    var customerEmail = sheet.getRange(row, 6).getValue().trim();
+    var customerName = sheet.getRange(row, 5).getValue().trim();
+    var booksOrdered = sheet.getRange(row, 3).getValue().trim();
+    var orderType = sheet.getRange(row, 15).getValue().trim(); // Column O (Order Type)
+    var digitalStatusColumn = 13; // Column M (Digital Status)
+    var physicalStatusColumn = 14; // Column N (Physical Status)
+
+    // **Start with Processing status for digital orders only**
+    if (orderType !== "Physical") {
+        sheet.getRange(row, digitalStatusColumn).setValue("Processing...");
+    }
+
+    if (!customerEmail || !booksOrdered) {
+        sheet.getRange(row, digitalStatusColumn).setValue("❌ Error: Missing Email or Books");
+        Logger.log("⚠️ ERROR: Missing customer email or books in row " + row);
+        return;
+    }
+
+    var bookList = booksOrdered.split(",").map(book => book.trim()); // Trim spaces
+    var digitalBooks = [];
+    var missingDigitalBooks = [];
+
+    // Get all book titles and links from the "Book Links" sheet
+    var data = booksSheet.getDataRange().getValues();
+
+    for (var i = 0; i < bookList.length; i++) {
+        var bookName = bookList[i];
+
+        // ✅ Extract title only (remove format & price)
+        var cleanBookName = bookName.replace(/ - (Digital|Physical) \(₱\d+\)/i, "").trim();
+
+        // **Skip Physical books from processing**
+        if (bookName.includes("Physical")) {
+            Logger.log("ℹ️ Skipping physical book: " + bookName);
+            continue;
+        }
+
+        var found = false;
+        for (var j = 1; j < data.length; j++) { // Start from row 2 (skip headers)
+            if (data[j][0].trim().toLowerCase() === cleanBookName.toLowerCase()) { // Case-insensitive match
+                digitalBooks.push("📖 " + bookName + " - " + data[j][1]); // Add to list
+                found = true;
+                break;
+            }
+        }
+
+        if (!found) {
+            missingDigitalBooks.push(bookName); // Track missing digital books only
+        }
+    }
+
+    // **If order is only for Physical books, update status and stop here**
+    if (orderType === "Physical") {
+        sheet.getRange(row, physicalStatusColumn).setValue("📦 Physical Order - Waiting for Shipment");
+        Logger.log("ℹ️ Physical book order detected. No email sent.");
+        return;
+    }
+
+    // **If no digital books were found at all**
+    if (digitalBooks.length === 0) {
+        sheet.getRange(row, digitalStatusColumn).setValue("❌ Error: No digital books found!");
+        Logger.log("⚠️ ERROR: No matching digital books for row " + row);
+        return;
+    }
+
+    // **Prepare the email**
+    var subject = "📖 Your Digital Book Order is Ready!";
+    var message = "Hello " + customerName + ",\n\n" +
+        "Thank you for your order! Your payment has been verified, and your digital books are now ready to download.\n\n" +
+        digitalBooks.join("\n") + "\n\n";
+
+    // **Handle missing digital books separately**
+    if (missingDigitalBooks.length > 0) {
+        message += "⚠️ Note: The following digital books are missing: " + missingDigitalBooks.join(", ") + ".\n" +
+            "We will send another email once they become available.\n\n";
+        sheet.getRange(row, digitalStatusColumn).setValue("⚠️ Partial: Missing Digital Books - " + missingDigitalBooks.join(", "));
+    } else {
+        sheet.getRange(row, digitalStatusColumn).setValue("✅ Digital Sent");
+    }
+
+    message += "Happy reading!\n\nBest Regards,\nLittle Legends Library";
+
+    try {
+        MailApp.sendEmail(customerEmail, subject, message);
+        Logger.log("✅ Email sent to: " + customerEmail);
+
+        // If the order includes Physical books, mark as waiting for shipment
+        if (orderType === "Both") {
+            sheet.getRange(row, physicalStatusColumn).setValue("⏳ Waiting for Shipment");
+        }
+    } catch (error) {
+        sheet.getRange(row, digitalStatusColumn).setValue("❌ Error: Email Failed");
+        Logger.log("❌ ERROR: Failed to send email to " + customerEmail + " - " + error.message);
+    }
+}
+
+
+function updateOrderType() {
+  var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+  var data = sheet.getDataRange().getValues(); // Get all sheet data
+
+  for (var i = 1; i < data.length; i++) { // Start from row 2 (skip headers)
+    var booksOrdered = data[i][2]; // Column C (Books Ordered)
+    if (!booksOrdered || booksOrdered.trim() === "") continue; // Skip empty rows
+
+    var orderType = "";
+
+    // Check for Physical or Digital keywords
+    var hasPhysical = /\bPhysical\b/i.test(booksOrdered);
+    var hasDigital = /\bDigital\b/i.test(booksOrdered);
+
+    if (hasPhysical && hasDigital) {
+      orderType = "Both";
+    } else if (hasPhysical) {
+      orderType = "Physical";
+    } else {
+      orderType = "Digital"; // Assume Digital if no format is specified
+    }
+
+    // Update Order Type in Column 15 (O)
+    sheet.getRange(i + 1, 15).setValue(orderType);
+    Logger.log("✅ Updated Order Type for Row " + (i + 1) + ": " + orderType);
+  }
+}
+
+
+function sendDeliveryConfirmation(row) {
+    var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+    
+    var customerEmail = sheet.getRange(row, 6).getValue().trim(); // Column F - Email Address
+    var customerName = sheet.getRange(row, 5).getValue().trim(); // Column E - Customer Name
+    var orderID = sheet.getRange(row, 2).getValue().trim(); // Column B - Order ID
+    var booksOrdered = sheet.getRange(row, 3).getValue().trim(); // Column C - Books Ordered
+    var deliveryStatus = sheet.getRange(row, 16).getValue().trim(); // Column P - Delivery Status
+    var orderType = sheet.getRange(row, 15).getValue().trim(); // Column O - Order Type
+    var statusColumn = 12; // Column L - Overall Status
+    var physicalStatusColumn = 14; // Column N - Physical Status
+
+    Logger.log("Delivery Status: " + deliveryStatus);
+    
+    // Extract only physical books if the order type is "Both"
+    var physicalBooks = (orderType === "Both") ? extractPhysicalBooks(booksOrdered) : booksOrdered;
+    
+    // If delivery status is "📦 Waiting for Shipment" and order contains a physical book
+    if (deliveryStatus === "📦 Waiting for Shipment" && (orderType === "Physical" || orderType === "Both")) {
+        Logger.log("ℹ️ Order contains a physical book and is waiting for shipment. Sending preparation email.");
+
+        var subject = "🚚 Your Physical Order is Being Prepared!";
+        var message = "Hello " + customerName + ",\n\n" +
+            "Your physical order " + orderID + " is being prepared for shipment!\n\n" +
+            "📚 Physical Books Ordered: " + (physicalBooks.length > 0 ? physicalBooks.join(", ") : "No physical books in this order.") + "\n\n" +
+            "Our team will contact you soon for delivery updates.\n\n" +
+            "Thank you for shopping with us!\n\n" +
+            "Best Regards,\nLittle Legends Library 📚";
+
+        try {
+            // Send email to the customer
+            MailApp.sendEmail(customerEmail, subject, message);
+            
+            // Update order status
+            updateOrderStatus(row);
+
+            // Update physical status column to "📦 Preparing for Shipment"
+            sheet.getRange(row, physicalStatusColumn).setValue("📦 Preparing for Shipment");
+            Logger.log("✅ Preparation email sent to: " + customerEmail);
+        } catch (error) {
+            // If email fails, mark the error in status and physical status columns
+            sheet.getRange(row, statusColumn).setValue("❌ Error: Preparation Email Failed");
+            sheet.getRange(row, physicalStatusColumn).setValue("❌ Error: Preparation Email Failed");
+            Logger.log("❌ ERROR: Failed to send preparation email to " + customerEmail + " - " + error.message);
+        }
+    } else if (deliveryStatus === "✅ Delivered") {
+        Logger.log("ℹ️ Order is already delivered. Sending confirmation email.");
+        sendDeliveryConfirmationEmail(row, customerEmail, customerName, orderID, physicalBooks, statusColumn, physicalStatusColumn);
+        sheet.getRange(row, physicalStatusColumn).setValue("✅ Delivered");
+    } else {
+        Logger.log("ℹ️ No action taken. Order is neither being prepared nor delivered.");
+    }
+}
+
+function updateOrderStatus(row) {
+    var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+    
+    var paymentVerified = String(sheet.getRange(row, 10).getValue() || "").trim(); // Payment Verified
+    var deliveryStatus = String(sheet.getRange(row, 16).getValue() || "").trim(); // Delivery Status
+    var orderType = String(sheet.getRange(row, 15).getValue() || "").trim(); // Order Type
+    var statusColumn = 12; // Order Status Column
+
+    if (paymentVerified !== "Yes") {
+        sheet.getRange(row, statusColumn).setValue("⏳ Waiting for Payment");
+        return;
+    }
+
+    if (orderType === "Digital") {
+        sheet.getRange(row, statusColumn).setValue("✅ Completed (Digital Sent)");
+    } else if (orderType === "Physical") {
+        if (deliveryStatus === "🚚 Out for Delivery") {
+            sheet.getRange(row, statusColumn).setValue("📦 Physical - In Transit");
+        } else if (deliveryStatus === "✅ Delivered") {
+            sheet.getRange(row, statusColumn).setValue("✅ Completed (Physical Delivered)");
+        } else {
+            sheet.getRange(row, statusColumn).setValue("📦 Waiting for Shipment");
+        }
+    } else if (orderType === "Both") {
+        if (deliveryStatus === "🚚 Out for Delivery") {
+            sheet.getRange(row, statusColumn).setValue("✅ Digital Sent | 📦 Physical - In Transit");
+        } else if (deliveryStatus === "✅ Delivered") {
+            sheet.getRange(row, statusColumn).setValue("✅ Completed (Digital & Physical Delivered)");
+        } else {
+            sheet.getRange(row, statusColumn).setValue("✅ Digital Sent | 📦 Waiting for Shipment");
+        }
+    }
+}
+
+function updateTrackingInfo(row) {
+    var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+
+    // Retrieve relevant data from the row
+    var customerEmail = String(sheet.getRange(row, 6).getValue() || "").trim(); // Column F - Customer Email
+    var customerName = String(sheet.getRange(row, 5).getValue() || "").trim(); // Column E - Customer Name
+    var orderID = String(sheet.getRange(row, 2).getValue() || "").trim(); // Column B - Order ID
+    var trackingNumber = String(sheet.getRange(row, 17).getValue() || "").trim(); // Column Q - Tracking Number
+    var shippingProvider = String(sheet.getRange(row, 18).getValue() || "").trim(); // Column R - Shipping Provider
+    var deliveryStatus = String(sheet.getRange(row, 16).getValue() || "").trim(); // Column P - Delivery Status
+    var orderType = String(sheet.getRange(row, 15).getValue() || "").trim(); // Column O - Order Type
+    var physicalStatusColumn = 14; // Column N - Physical Status
+
+    // Log for debugging
+    Logger.log("Customer Email: " + customerEmail);
+    Logger.log("Tracking Number: " + trackingNumber);
+    Logger.log("Shipping Provider: " + shippingProvider);
+    Logger.log("Delivery Status: " + deliveryStatus);
+    Logger.log("Order Type: " + orderType);
+
+    // ❌ Exit if missing required fields (tracking number or shipping provider)
+    if (!trackingNumber || !shippingProvider) {
+        Logger.log("⚠️ ERROR: Missing tracking number or shipping provider for row " + row);
+        return;
+    }
+
+    // ❌ Skip tracking updates for digital orders
+    if (orderType === "Digital") {
+        Logger.log("ℹ️ Skipping tracking update: Digital order does not require shipping.");
+        return;
+    }
+
+    // ✅ If status is "🚚 Out for Delivery", send tracking email
+    if (deliveryStatus === "🚚 Out for Delivery") {
+        var subject = "📦 Your Physical Order " + orderID + " is on the way!";
+        var message = "Hello " + customerName + ",\n\n" +
+                      "Your physical order " + orderID + " has been handed to the delivery partner and is now out for delivery!\n\n" +
+                      "🚚 Shipping Provider: " + shippingProvider + "\n" +
+                      "📦 Tracking Number: " + trackingNumber + "\n\n" +
+                      "🔗 Track your package using the shipping provider’s website.\n\n" +
+                      "📌 If you have any concerns, feel free to contact our support team.\n\n" +
+                      "Thank you for shopping with us!\n\n" +
+                      "Best Regards,\n" +
+                      "Little Legends Library 📚";
+
+        try {
+            MailApp.sendEmail(customerEmail, subject, message);
+            updateOrderStatus(row); // Update order status
+            sheet.getRange(row, physicalStatusColumn).setValue("🚚 Shipment is on the way"); // Update status
+            Logger.log("✅ Tracking info sent to: " + customerEmail);
+        } catch (error) {
+            Logger.log("❌ ERROR: Failed to send tracking info - " + error.message);
+        }
+    } else {
+        Logger.log("ℹ️ Order status is not 'Out for Delivery'. No email sent.");
+    }
+}
+
+function updateOrderTypeForRow(row) {
+    var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+    var booksOrdered = sheet.getRange(row, 3).getValue(); // Column C (Books Ordered)
+    
+    if (!booksOrdered || booksOrdered.trim() === "") return; // Skip empty rows
+
+    var orderType = "";
+    var hasPhysical = booksOrdered.match(/\bPhysical\b/i);
+    var hasDigital = booksOrdered.match(/\bDigital\b/i);
+
+    if (hasPhysical && hasDigital) {
+        orderType = "Both";
+    } else if (hasPhysical) {
+        orderType = "Physical";
+    } else {
+        orderType = "Digital";
+    }
+
+    sheet.getRange(row, 15).setValue(orderType); // Column M (Order Type)
+}
+
+function toggleDeliveryStatus() {
+    var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+    var range = sheet.getActiveRange();
+    var row = range.getRow();
+    var column = 16; // Column P - Delivery Status
+
+    if (row <= 1) {
+        SpreadsheetApp.getUi().alert("⚠️ Please select a valid order row!");
+        return;
+    }
+
+    var currentStatus = String(sheet.getRange(row, column).getValue() || "").trim();
+    var newStatus = "";
+
+    if (currentStatus === "" || currentStatus === "📦 Waiting for Shipment") {
+        newStatus = "🚚 Out for Delivery";
+    } else if (currentStatus === "🚚 Out for Delivery") {
+        newStatus = "✅ Delivered";
+    } else {
+        newStatus = "📦 Waiting for Shipment"; // Reset if Delivered
+    }
+
+    sheet.getRange(row, column).setValue(newStatus);
+    updateOrderStatus(row); // Ensure order status updates
+}
+
+function sendDeliveryConfirmationEmail(row, customerEmail, customerName, orderID, booksOrdered, statusColumn, physicalStatusColumn) {
+    var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+    
+    // Check if booksOrdered is defined and not empty
+    if (!booksOrdered || booksOrdered.trim() === "") {
+        Logger.log("⚠️ ERROR: booksOrdered is undefined or empty.");
+        return; // Exit the function if booksOrdered is missing or empty
+    }
+    
+    var allBooks = booksOrdered.split(","); // Assuming books are comma-separated
+    var physicalBooks = [];
+
+    // Loop through booksOrdered to filter out digital books
+    for (var i = 0; i < allBooks.length; i++) {
+        var book = allBooks[i].trim();
+
+        // Assuming 'Digital' is a keyword that indicates a digital book in your data
+        if (!book.toLowerCase().includes('digital')) {  // Modify condition based on how digital books are marked
+            physicalBooks.push(book);
+        }
+    }
+
+    var subject = "📦 Your Order Has Been Delivered!";
+    var message = "Hello " + customerName + ",\n\n" +
+        "We’re happy to inform you that your order " + orderID + " has been successfully delivered!\n\n" +
+        "📚 Physical Books Ordered: " + (physicalBooks.length > 0 ? physicalBooks.join(", ") : "No physical books in this order.") + "\n\n" +
+        "If you have any questions, feel free to contact our support team.\n\n" +
+        "Thank you for shopping with us!\n\n" +
+        "Best Regards,\nLittle Legends Library 📚";
+
+    try {
+    // Send the tracking email to the customer
+    MailApp.sendEmail(customerEmail, subject, message);
+    Logger.log("✅ Delivery confirmation sent to: " + customerEmail);
+
+    // Update the status using the updateOrderStatus function
+    updateOrderStatus(row); // This will handle updating the status based on payment and delivery status
+
+    // Check if physicalBooks array has books and update physical status column accordingly
+    if (physicalBooks.length > 0) {
+        sheet.getRange(row, physicalStatusColumn).setValue("✅ Delivered: " + physicalBooks.join(", ")); // Update physical column with the delivered books
+    } else {
+        sheet.getRange(row, physicalStatusColumn).setValue("No physical books"); // Update physical column if no physical books
+    }
+
+} catch (error) {
+    // If there was an error, set the status to indicate failure
+    sheet.getRange(row, statusColumn).setValue("❌ Error: Confirmation Email Failed");
+    Logger.log("❌ ERROR: Failed to send delivery confirmation to " + customerEmail + " - " + error.message);
+}
+}
+
+function extractPhysicalBooks(booksOrdered) {
+    var allBooks = booksOrdered.split(",").map(book => book.trim());
+    return allBooks.filter(book => !book.toLowerCase().includes("digital"));
+}
+
+// 📦 FUNCTION: Show a dialog to enter Order ID & resend tracking info
+function showTrackingDialog() {
+    var ui = SpreadsheetApp.getUi();
+    var response = ui.prompt("🔄 Resend Tracking Info", "Enter Order ID:", ui.ButtonSet.OK_CANCEL);
+
+    if (response.getSelectedButton() == ui.Button.OK) {
+        var orderID = response.getResponseText().trim();
+        if (!orderID) {
+            ui.alert("⚠️ Please enter a valid Order ID.");
+            return;
+        }
+
+        var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+        var data = sheet.getDataRange().getValues();
+        var orderIDColumn = 2; // Column B (Order ID)
+        var found = false;
+
+        for (var i = 1; i < data.length; i++) { // Start from row 2
+            if (data[i][orderIDColumn - 1].toString().trim().toLowerCase() === orderID.toLowerCase()) {
+                found = true;
+                updateTrackingInfo(i + 1); // Call tracking function
+                ui.alert("✅ Tracking info resent for Order ID: " + orderID);
+                break;
+            }
+        }
+
+        if (!found) {
+            ui.alert("❌ Order ID not found!");
+        }
+    }
+}
+
+// 📦 FUNCTION: Resend Tracking Info & Update Order Status
+function updateTrackingInfo(row) {
+    var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+
+    var customerEmail = sheet.getRange(row, 6).getValue().trim();
+    var customerName = sheet.getRange(row, 5).getValue().trim();
+    var orderID = sheet.getRange(row, 2).getValue().trim();
+    var trackingNumber = sheet.getRange(row, 17).getValue().trim(); // Column Q
+    var shippingProvider = sheet.getRange(row, 18).getValue().trim(); // Column R
+    var statusColumn = 12; // Column L (Order Status)
+
+    if (!customerEmail) {
+        Logger.log("⚠️ ERROR: No customer email found for Order ID: " + orderID);
+        return;
+    }
+    if (!trackingNumber || !shippingProvider) {
+        Logger.log("⚠️ ERROR: Missing tracking number or shipping provider for Order ID: " + orderID);
+        return;
+    }
+
+    var currentStatus = sheet.getRange(row, statusColumn).getValue().trim();
+    if (!currentStatus.includes("In Transit")) {
+        if (currentStatus.includes("✅ Digital Sent")) {
+            sheet.getRange(row, statusColumn).setValue("✅ Digital Sent | 📦 Physical - In Transit");
+        } else {
+            sheet.getRange(row, statusColumn).setValue("📦 Shipped - In Transit");
+        }
+    }
+
+    // 📧 Send tracking email
+    var subject = "📦 Tracking Info for Order " + orderID;
+    var message = "Hello " + customerName + ",\n\n" +
+                  "Your order " + orderID + " has been shipped!\n\n" +
+                  "🚚 Shipping Provider: " + shippingProvider + "\n" +
+                  "📦 Tracking Number: " + trackingNumber + "\n\n" +
+                  "You can track your package on the shipping provider’s website.\n\n" +
+                  "Thank you for shopping with us!\n\n" +
+                  "Best Regards,\nLittle Legends Library";
+
+    try {
+        MailApp.sendEmail(customerEmail, subject, message);
+        Logger.log("✅ Tracking info sent to: " + customerEmail);
+    } catch (error) {
+        Logger.log("❌ ERROR: Failed to send tracking info to " + customerEmail + " - " + error.message);
+    }
+}
