@@ -186,7 +186,6 @@ function generateOrderID() {
 }
 
 
-
 // Customer Reviews
 document.addEventListener("DOMContentLoaded", function () {
     const reviews = document.querySelectorAll(".customer-reviews-container");
@@ -235,6 +234,54 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+
+// Show popup after 5 seconds
+document.addEventListener("DOMContentLoaded", function () {
+  setTimeout(function () {
+    if (!sessionStorage.getItem("newsletterShown")) {
+      document.getElementById("popup").classList.add("show-popup");
+      document.getElementById("popup-overlay").style.display = "block";
+      
+      // ✅ Mark popup as shown
+      sessionStorage.setItem("newsletterShown", "true");
+    }
+  }, 5000); // Show after 5 seconds
+});
+
+// Close popup function
+function closePopup() {
+  document.getElementById("popup").classList.remove("show-popup");
+  document.getElementById("popup-overlay").style.display = "none";
+}
+
+function subscribe() {
+  const email = document.getElementById("email").value.trim();
+  
+  if (!email) {
+    alert("Please enter a valid email.");
+    return;
+  }
+
+  fetch("https://script.google.com/macros/s/AKfycbwjxg179TSqiesC4cQsDU8ho54qJtbiOtK194VF8U_GV2DFRPbs9RXJa8z94UXNhPkEMQ/exec", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ email: email }),
+    mode: "no-cors" // ✅ Required to prevent CORS issues
+  })
+  .then(() => {
+    // Hide success message after 3 seconds
+    const successPopup = document.getElementById("success-popup");
+    successPopup.style.display = "block";
+    setTimeout(() => {
+      document.getElementById("success-popup").style.display = "none";
+    }, 3000);
+    closePopup();
+    document.getElementById("email").value = "";
+  })
+}
+
 
 
 

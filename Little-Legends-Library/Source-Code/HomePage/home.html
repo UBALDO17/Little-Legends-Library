@@ -646,6 +646,161 @@
             </div>
         </div>
     </div>
+
+    <style>
+        /* Overlay - Darkens the background */
+        .popup-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+
+        /* Popup container */
+        .popup-container {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.8);
+            width: 90%;
+            max-width: 400px;
+            background: #fff;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        /* Close button */
+        .popup-close {
+            position: absolute;
+            top: 12px;
+            right: 15px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+            color: #555;
+            transition: 0.2s;
+        }
+
+        .popup-close:hover {
+            color: #ff5733;
+        }
+
+        /* Heading */
+        .popup-container h3 {
+            font-size: 22px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        /* Description */
+        .popup-container p {
+            font-size: 15px;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        /* Input styling */
+        .popup-container input {
+            width: 90%;
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+
+        /* Subscribe Button */
+        .popup-container button {
+            background: #ff5733;
+            color: white;
+            border: none;
+            padding: 12px;
+            margin-top: 15px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .popup-container button:hover {
+            background: #e04a2b;
+        }
+
+        /* Animation class */
+        .show-popup {
+            display: block !important;
+            opacity: 1 !important;
+            transform: translate(-50%, -50%) scale(1) !important;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 480px) {
+            .popup-container {
+                width: 90%;
+                max-width: 320px;
+                padding: 20px;
+            }
+
+            .popup-container h3 {
+                font-size: 20px;
+            }
+
+            .popup-container p {
+                font-size: 14px;
+            }
+
+            .popup-container button {
+                font-size: 14px;
+                padding: 10px;
+            }
+        }
+    </style>
+
+    <!-- Overlay -->
+    <div class="popup-overlay" id="popup-overlay"></div>
+
+    <!-- Popup Box -->
+    <div class="popup-container" id="popup">
+        <span class="popup-close" onclick="closePopup()">✖</span>
+        <h3>Stay Updated!</h3>
+        <p>Subscribe to our newsletter for the latest updates and exclusive content.</p>
+        <input type="email" id="email" placeholder="Enter your email" required>
+        <button onclick="subscribe()">Subscribe Now</button>
+    </div>
+
+    <!-- Success Popup -->
+    <style>
+        .success-popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            z-index: 1000;
+            text-align: center;
+        }
+    </style>
+
+    <div class="success-popup" id="success-popup">
+        <p>Subscription successful!</p>
+    </div>
+
 </body>
 <script src="home.js"></script>
 <script src="nav.js"></script>
