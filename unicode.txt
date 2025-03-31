@@ -1,0 +1,4 @@
+plus \2795
+minus \2796
+check \2705
+pesos sign  \u20B1 === let formattedProductName
