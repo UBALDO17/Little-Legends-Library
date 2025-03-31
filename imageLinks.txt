@@ -20,3 +20,40 @@ Easter: https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303461/6_mflbyw.p
 
 Unesco: https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303461/7_sutn1d.png
 
+Animal:
+
+Birthday:
+
+Coloring:
+
+Comprehensive:
+
+Countandtrace:
+
+Dhuman:
+
+Discover:
+
+Ehuman:
+
+Enchanting:
+
+Eprincess:
+
+Explore:
+
+Houses:
+
+Learnandtrace:
+
+Princess:
+
+Ring:
+
+Spooky:
+
+Thanksgiving:
+
+Vegetables:
+
+Vehicles:
