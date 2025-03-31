@@ -76,13 +76,18 @@ function onEdit(e) {
 
     // ✅ When payment is verified, update payment date and send ebook if applicable
     if (column === paymentColumn && paymentVerified === "yes") {
-        sheet.getRange(row, paymentDateColumn).setValue(new Date());
+    sheet.getRange(row, paymentDateColumn).setValue(new Date());
 
-        if (orderType === "Digital" || orderType === "Both") {
-            sendBookEmail(row); // Send ebooks
-        }
+    if (orderType === "Digital" || orderType === "Both") {
+        sendBookEmail(row); // Send ebooks
+    }
 
-        updateOrderStatus(row);
+    // ✅ Call the physical order email function if it's a physical order
+    if (orderType === "Physical" || orderType === "Both") {
+        sendPhysicalOrderEmail(row, customerEmail, customerName, sheet);
+    }
+
+    updateOrderStatus(row);
     }
 
     // ✅ When delivery status changes, update order status
@@ -111,7 +116,6 @@ function onEdit(e) {
         updateTrackingInfo(row);
     }
 }
-
 
 function sendBookEmail(row) {
     var ss = SpreadsheetApp.getActiveSpreadsheet();
@@ -175,13 +179,6 @@ function sendBookEmail(row) {
         }
     }
 
-    // **If order is only for Physical books, update status and stop here**
-    if (orderType === "Physical") {
-        sheet.getRange(row, physicalStatusColumn).setValue("📦 Physical Order - Waiting for Shipment");
-        Logger.log("ℹ️ Physical book order detected. No email sent.");
-        return;
-    }
-
     // **If no digital books were found at all**
     if (digitalBooks.length === 0) {
         sheet.getRange(row, digitalStatusColumn).setValue("❌ Error: No digital books found!");
@@ -219,7 +216,6 @@ function sendBookEmail(row) {
         Logger.log("❌ ERROR: Failed to send email to " + customerEmail + " - " + error.message);
     }
 }
-
 
 function updateOrderType() {
   var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
@@ -274,7 +270,7 @@ function sendDeliveryConfirmation(row) {
         var subject = "🚚 Your Physical Order is Being Prepared!";
         var message = "Hello " + customerName + ",\n\n" +
             "Your physical order " + orderID + " is being prepared for shipment!\n\n" +
-            "📚 Physical Books Ordered: " + (physicalBooks.length > 0 ? physicalBooks.join(", ") : "No physical books in this order.") + "\n\n" +
+            "📚 Physical Books Ordered: " + (Array.isArray(physicalBooks) ? physicalBooks.join(", ") : physicalBooks) + "\n\n" +
             "Our team will contact you soon for delivery updates.\n\n" +
             "Thank you for shopping with us!\n\n" +
             "Best Regards,\nLittle Legends Library 📚";
@@ -396,6 +392,95 @@ function updateTrackingInfo(row) {
     }
 }
 
+// 📦 FUNCTION: Show a dialog to enter Order ID & resend tracking info
+function showTrackingDialog() {
+    var ui = SpreadsheetApp.getUi();
+    var response = ui.prompt("🔄 Resend Tracking Info", "Enter Order ID:", ui.ButtonSet.OK_CANCEL);
+
+    if (response.getSelectedButton() == ui.Button.OK) {
+        var orderID = response.getResponseText().trim();
+        if (!orderID) {
+            ui.alert("⚠️ Please enter a valid Order ID.");
+            return;
+        }
+
+        var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+        var data = sheet.getDataRange().getValues();
+        var orderIDColumn = 2; // Column B (Order ID)
+        var found = false;
+
+        for (var i = 1; i < data.length; i++) { // Start from row 2
+            if (data[i][orderIDColumn - 1].toString().trim().toLowerCase() === orderID.toLowerCase()) {
+                found = true;
+                resendTrackingInfo(i + 1); // Call tracking function
+                ui.alert("✅ Tracking info resent for Order ID: " + orderID);
+                break;
+            }
+        }
+
+        if (!found) {
+            ui.alert("❌ Order ID not found!");
+        }
+    }
+}
+
+// 📦 FUNCTION: Resend Tracking Info & Update Order Status
+function resendTrackingInfo(row) {
+    var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+
+    var customerEmail = String(sheet.getRange(row, 6).getValue() || "").trim();
+    var customerName = String(sheet.getRange(row, 5).getValue() || "").trim();
+    var orderID = String(sheet.getRange(row, 2).getValue() || "").trim();
+    var trackingNumber = String(sheet.getRange(row, 17).getValue() || "").trim();
+    var shippingProvider = String(sheet.getRange(row, 18).getValue() || "").trim();
+    var deliveryStatus = String(sheet.getRange(row, 16).getValue() || "").trim();
+    var orderType = String(sheet.getRange(row, 15).getValue() || "").trim();
+    var physicalStatusColumn = 14; // Column N - Physical Status
+
+    Logger.log("Customer Email: " + customerEmail);
+    Logger.log("Tracking Number: " + trackingNumber);
+    Logger.log("Shipping Provider: " + shippingProvider);
+    Logger.log("Delivery Status: " + deliveryStatus);
+    Logger.log("Order Type: " + orderType);
+
+    // ❌ Exit if missing tracking number or shipping provider
+    if (!trackingNumber || !shippingProvider) {
+        Logger.log("⚠️ ERROR: Missing tracking number or shipping provider for row " + row);
+        return;
+    }
+
+    // ❌ Skip tracking updates for digital orders
+    if (orderType === "Digital") {
+        Logger.log("ℹ️ Skipping tracking update: Digital order does not require shipping.");
+        return;
+    }
+
+    // ✅ Send tracking email only if status is "🚚 Out for Delivery"
+    if (deliveryStatus === "🚚 Out for Delivery") {
+        var subject = "📦 Your Physical Order " + orderID + " is on the way!";
+        var message = "Hello " + customerName + ",\n\n" +
+                      "Your physical order " + orderID + " has been handed to the delivery partner and is now out for delivery!\n\n" +
+                      "🚚 Shipping Provider: " + shippingProvider + "\n" +
+                      "📦 Tracking Number: " + trackingNumber + "\n\n" +
+                      "🔗 Track your package using the shipping provider’s website.\n\n" +
+                      "📌 If you have any concerns, feel free to contact our support team.\n\n" +
+                      "Thank you for shopping with us!\n\n" +
+                      "Best Regards,\n" +
+                      "Little Legends Library 📚";
+
+        try {
+            MailApp.sendEmail(customerEmail, subject, message);
+            updateOrderStatus(row); // ✅ Update order status
+            sheet.getRange(row, physicalStatusColumn).setValue("🚚 Shipment is on the way"); // ✅ Update physical status
+            Logger.log("✅ Tracking info sent to: " + customerEmail);
+        } catch (error) {
+            Logger.log("❌ ERROR: Failed to send tracking info - " + error.message);
+        }
+    } else {
+        Logger.log("ℹ️ Order status is not 'Out for Delivery'. No email sent.");
+    }
+}
+
 function updateOrderTypeForRow(row) {
     var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
     var booksOrdered = sheet.getRange(row, 3).getValue(); // Column C (Books Ordered)
@@ -493,88 +578,4 @@ function sendDeliveryConfirmationEmail(row, customerEmail, customerName, orderID
     sheet.getRange(row, statusColumn).setValue("❌ Error: Confirmation Email Failed");
     Logger.log("❌ ERROR: Failed to send delivery confirmation to " + customerEmail + " - " + error.message);
 }
-}
-
-function extractPhysicalBooks(booksOrdered) {
-    var allBooks = booksOrdered.split(",").map(book => book.trim());
-    return allBooks.filter(book => !book.toLowerCase().includes("digital"));
-}
-
-// 📦 FUNCTION: Show a dialog to enter Order ID & resend tracking info
-function showTrackingDialog() {
-    var ui = SpreadsheetApp.getUi();
-    var response = ui.prompt("🔄 Resend Tracking Info", "Enter Order ID:", ui.ButtonSet.OK_CANCEL);
-
-    if (response.getSelectedButton() == ui.Button.OK) {
-        var orderID = response.getResponseText().trim();
-        if (!orderID) {
-            ui.alert("⚠️ Please enter a valid Order ID.");
-            return;
-        }
-
-        var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
-        var data = sheet.getDataRange().getValues();
-        var orderIDColumn = 2; // Column B (Order ID)
-        var found = false;
-
-        for (var i = 1; i < data.length; i++) { // Start from row 2
-            if (data[i][orderIDColumn - 1].toString().trim().toLowerCase() === orderID.toLowerCase()) {
-                found = true;
-                updateTrackingInfo(i + 1); // Call tracking function
-                ui.alert("✅ Tracking info resent for Order ID: " + orderID);
-                break;
-            }
-        }
-
-        if (!found) {
-            ui.alert("❌ Order ID not found!");
-        }
-    }
-}
-
-// 📦 FUNCTION: Resend Tracking Info & Update Order Status
-function updateTrackingInfo(row) {
-    var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
-
-    var customerEmail = sheet.getRange(row, 6).getValue().trim();
-    var customerName = sheet.getRange(row, 5).getValue().trim();
-    var orderID = sheet.getRange(row, 2).getValue().trim();
-    var trackingNumber = sheet.getRange(row, 17).getValue().trim(); // Column Q
-    var shippingProvider = sheet.getRange(row, 18).getValue().trim(); // Column R
-    var statusColumn = 12; // Column L (Order Status)
-
-    if (!customerEmail) {
-        Logger.log("⚠️ ERROR: No customer email found for Order ID: " + orderID);
-        return;
-    }
-    if (!trackingNumber || !shippingProvider) {
-        Logger.log("⚠️ ERROR: Missing tracking number or shipping provider for Order ID: " + orderID);
-        return;
-    }
-
-    var currentStatus = sheet.getRange(row, statusColumn).getValue().trim();
-    if (!currentStatus.includes("In Transit")) {
-        if (currentStatus.includes("✅ Digital Sent")) {
-            sheet.getRange(row, statusColumn).setValue("✅ Digital Sent | 📦 Physical - In Transit");
-        } else {
-            sheet.getRange(row, statusColumn).setValue("📦 Shipped - In Transit");
-        }
-    }
-
-    // 📧 Send tracking email
-    var subject = "📦 Tracking Info for Order " + orderID;
-    var message = "Hello " + customerName + ",\n\n" +
-                  "Your order " + orderID + " has been shipped!\n\n" +
-                  "🚚 Shipping Provider: " + shippingProvider + "\n" +
-                  "📦 Tracking Number: " + trackingNumber + "\n\n" +
-                  "You can track your package on the shipping provider’s website.\n\n" +
-                  "Thank you for shopping with us!\n\n" +
-                  "Best Regards,\nLittle Legends Library";
-
-    try {
-        MailApp.sendEmail(customerEmail, subject, message);
-        Logger.log("✅ Tracking info sent to: " + customerEmail);
-    } catch (error) {
-        Logger.log("❌ ERROR: Failed to send tracking info to " + customerEmail + " - " + error.message);
-    }
 }
