@@ -1595,6 +1595,468 @@
                 display: none !important;
             }
         }
+
+        /* 📚 Book Selection Container */
+        .book-item {
+            display: flex;
+            flex-direction: column;
+            background: #f9f9f9;
+            padding: 0.7rem;
+            border-radius: 8px;
+            margin-bottom: 0.5rem;
+            text-align: left;
+        }
+
+        /* 🏷 Book Title */
+        .book-item p {
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        /* 📌 Radio Buttons (Styled like buttons) */
+        .format-options {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .format-options label {
+            flex: 1;
+            background: white;
+            padding: 0.7rem;
+            border: 2px solid #ccc;
+            border-radius: 6px;
+            text-align: center;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: 0.3s ease-in-out;
+        }
+
+        .format-options input[type="radio"] {
+            display: none;
+        }
+
+        .format-options input[type="radio"]:checked+label {
+            background: #FF4500;
+            color: white;
+            border-color: #FF4500;
+        }
+
+        /* 🚀 MODAL STYLES */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        /* Hide the modal unless it has the "show" class */
+        .modal.hidden {
+            display: none !important;
+        }
+
+        /* Modal Box */
+        .modal-content {
+            background: white;
+            width: 90%;
+            max-width: 400px;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            animation: fadeIn 0.3s ease-in-out;
+            max-height: 80vh;
+            /* Prevent modal from exceeding viewport */
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Make only the form section scrollable */
+        .modal-body {
+            overflow-y: auto;
+            max-height: 60vh;
+            padding-bottom: 1rem;
+        }
+
+        /* 🏆 HEADINGS */
+        .modal h2 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .modal p {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 1rem;
+        }
+
+        /* 🛒 INPUT FIELDS */
+        .modal input,
+        .modal textarea {
+            width: 100%;
+            padding: 0.8rem;
+            margin: 0.5rem 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: 0.3s;
+        }
+
+        .modal input:focus,
+        .modal textarea:focus {
+            border-color: #FF4500;
+            outline: none;
+        }
+
+        /* 🚚 DELIVERY SECTION */
+        #delivery-section {
+            display: none;
+            margin-top: 1rem;
+        }
+
+        /* Ensure buttons remain fixed at the bottom */
+        .modal-buttons {
+            display: flex;
+            justify-content: space-between;
+            position: sticky;
+            bottom: 0;
+            background: white;
+            padding: 1rem;
+            border-top: 1px solid #ddd;
+        }
+
+        .confirm-btn,
+        .cancel-btn {
+            width: 48%;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 0.5rem;
+        }
+
+        .confirm-btn {
+            background: #FF4500;
+            color: white;
+        }
+
+        .confirm-btn:hover {
+            background: #E03E00;
+        }
+
+        .cancel-btn {
+            background: #ccc;
+            color: black;
+        }
+
+        .cancel-btn:hover {
+            background: #bbb;
+        }
+
+        /* Delivery Fee Note */
+        #delivery-note {
+            font-size: 0.8rem;
+            color: #FF4500;
+            font-weight: bold;
+            margin-top: 0.3rem;
+            text-align: center;
+            display: none;
+        }
+
+        /* ✨ Fade-in Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* 📱 MOBILE RESPONSIVENESS */
+        @media (max-width: 480px) {
+            .modal-content {
+                width: 95%;
+                padding: 1.2rem;
+            }
+
+            .modal h2 {
+                font-size: 1.3rem;
+            }
+
+            .modal p {
+                font-size: 0.9rem;
+            }
+
+            .modal input,
+            .modal textarea {
+                font-size: 0.9rem;
+            }
+
+            .confirm-btn,
+            .cancel-btn {
+                font-size: 0.9rem;
+            }
+
+            .book-item {
+                padding: 0.8rem;
+            }
+
+            .format-options {
+                flex-direction: column;
+            }
+
+            .format-options label {
+                padding: 0.6rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* 📚 Book Selection Container */
+        .book-item {
+            display: flex;
+            flex-direction: column;
+            background: #f9f9f9;
+            padding: 0.7rem;
+            border-radius: 8px;
+            margin-bottom: 0.5rem;
+            text-align: left;
+        }
+
+        /* 🏷 Book Title */
+        .book-item p {
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        /* 📌 Radio Buttons (Styled like buttons) */
+        .format-options {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .format-options label {
+            flex: 1;
+            background: white;
+            padding: 0.7rem;
+            border: 2px solid #ccc;
+            border-radius: 6px;
+            text-align: center;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: 0.3s ease-in-out;
+        }
+
+        .format-options input[type="radio"] {
+            display: none;
+        }
+
+        .format-options input[type="radio"]:checked+label {
+            background: #FF4500;
+            color: white;
+            border-color: #FF4500;
+        }
+
+        /* 🚀 MODAL STYLES */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        /* Hide the modal unless it has the "show" class */
+        .modal.hidden {
+            display: none !important;
+        }
+
+        /* Modal Box */
+        .modal-content {
+            background: white;
+            width: 90%;
+            max-width: 400px;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            animation: fadeIn 0.3s ease-in-out;
+            max-height: 80vh;
+            /* Prevent modal from exceeding viewport */
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Make only the form section scrollable */
+        .modal-body {
+            overflow-y: auto;
+            max-height: 60vh;
+            padding-bottom: 1rem;
+        }
+
+        /* 🏆 HEADINGS */
+        .modal h2 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .modal p {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 1rem;
+        }
+
+        /* 🛒 INPUT FIELDS */
+        .modal input,
+        .modal textarea {
+            width: 100%;
+            padding: 0.8rem;
+            margin: 0.5rem 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: 0.3s;
+        }
+
+        .modal input:focus,
+        .modal textarea:focus {
+            border-color: #FF4500;
+            outline: none;
+        }
+
+        /* 🚚 DELIVERY SECTION */
+        #delivery-section {
+            display: none;
+            margin-top: 1rem;
+        }
+
+        /* Ensure buttons remain fixed at the bottom */
+        .modal-buttons {
+            display: flex;
+            justify-content: space-between;
+            position: sticky;
+            bottom: 0;
+            background: white;
+            padding: 1rem;
+            border-top: 1px solid #ddd;
+        }
+
+        .confirm-btn,
+        .cancel-btn {
+            width: 48%;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 0.5rem;
+        }
+
+        .confirm-btn {
+            background: #FF4500;
+            color: white;
+        }
+
+        .confirm-btn:hover {
+            background: #E03E00;
+        }
+
+        .cancel-btn {
+            background: #ccc;
+            color: black;
+        }
+
+        .cancel-btn:hover {
+            background: #bbb;
+        }
+
+        /* Delivery Fee Note */
+        #delivery-note {
+            font-size: 0.8rem;
+            color: #FF4500;
+            font-weight: bold;
+            margin-top: 0.3rem;
+            text-align: center;
+            display: none;
+        }
+
+        /* ✨ Fade-in Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* 📱 MOBILE RESPONSIVENESS */
+        @media (max-width: 480px) {
+            .modal-content {
+                width: 95%;
+                padding: 1.2rem;
+            }
+
+            .modal h2 {
+                font-size: 1.3rem;
+            }
+
+            .modal p {
+                font-size: 0.9rem;
+            }
+
+            .modal input,
+            .modal textarea {
+                font-size: 0.9rem;
+            }
+
+            .confirm-btn,
+            .cancel-btn {
+                font-size: 0.9rem;
+            }
+
+            .book-item {
+                padding: 0.8rem;
+            }
+
+            .format-options {
+                flex-direction: column;
+            }
+
+            .format-options label {
+                padding: 0.6rem;
+                font-size: 0.9rem;
+            }
+        }
     </style>
 </head>
 
@@ -2077,7 +2539,59 @@
                 </div>
             </div>
         </div>
+
+
+
     </section>
+
+    <!-- Order Modal -->
+    <div id="order-modal" class="modal hidden">
+        <div class="modal-content">
+            <h2>Order Details</h2>
+            <p>Select book format and provide contact details.</p>
+
+            <!-- Scrollable Content -->
+            <div class="modal-body">
+                <!-- Customer Information -->
+                <div class="customer-info">
+                    <label for="customer-name">👤 Full Name:</label>
+                    <input type="text" id="customer-name" placeholder="Enter your full name" required>
+
+                    <label for="customer-email">📧 Email Address:</label>
+                    <input type="email" id="customer-email" placeholder="Enter your email" required>
+                </div>
+
+                <!-- Book Selection Section -->
+                <div id="book-selection"></div>
+
+                <!-- Delivery Details (Hidden by Default) -->
+                <div id="delivery-section" class="hidden">
+                    <h3>Delivery Details</h3>
+                    <label for="contact-number">📞 Contact Number:</label>
+                    <input type="text" id="contact-number" placeholder="Enter your contact number">
+
+                    <label for="delivery-address">📍 Delivery Address:</label>
+                    <textarea id="delivery-address" placeholder="Enter delivery address"></textarea>
+
+                    <!-- Delivery Fee Notice -->
+                    <p id="delivery-note">
+                        Note: A ₱50 delivery fee applies only if your order includes a physical book, regardless of
+                        quantity.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Fixed Buttons -->
+            <div class="modal-buttons">
+                <button class="confirm-btn" onclick="submitOrder()">Confirm Order</button>
+                <button class="cancel-btn" onclick="closeModal()">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+
+
+
 
     <footer>
         <div class="footer-container">
@@ -2102,6 +2616,104 @@
     </footer>
 </body>
 <script>
+
+    // 🎯 FUNCTION: Open Order Modal for Direct Purchase
+    function goToOrderForm(product) {
+        let orderID = generateOrderID();
+        localStorage.setItem("orderID", orderID); // Store Order ID locally
+        localStorage.setItem("selectedProduct", JSON.stringify(product)); // Store product details
+
+        let bookSelectionContainer = document.getElementById("book-selection");
+        bookSelectionContainer.innerHTML = `
+        <div class="book-item">
+            <p>${product.name}</p>
+            <div class="format-options">
+                <input type="radio" id="digital" name="format" value="Digital" checked>
+                <label for="digital">Digital (₱350)</label>
+
+                <input type="radio" id="physical" name="format" value="Physical">
+                <label for="physical">Physical (₱700)</label>
+            </div>
+        </div>
+    `;
+
+        document.querySelectorAll('input[type="radio"]').forEach(radio => {
+            radio.addEventListener("change", toggleDeliverySection);
+        });
+
+        toggleDeliverySection(); // Ensure correct delivery section visibility
+
+        document.getElementById("order-modal").classList.remove("hidden");
+    }
+
+    // 🎯 FUNCTION: Show/Hide Delivery Section Based on Selection
+    function toggleDeliverySection() {
+        let requiresDelivery = document.querySelector('input[name="format"]:checked').value === "Physical";
+
+        document.getElementById("delivery-section").style.display = requiresDelivery ? "block" : "none";
+        document.getElementById("delivery-note").style.display = requiresDelivery ? "block" : "none";
+    }
+
+    // 🎯 FUNCTION: Close Modal
+    function closeModal() {
+        document.getElementById("order-modal").classList.add("hidden");
+    }
+
+    // 🎯 FUNCTION: Submit Order & Redirect to Google Form
+    function submitOrder() {
+        let orderID = localStorage.getItem("orderID") || generateOrderID();
+
+        // Retrieve product details from localStorage
+        let storedProduct = localStorage.getItem("selectedProduct");
+        let product = storedProduct ? JSON.parse(storedProduct) : { name: "Unknown Product" };
+
+        // Check if format is selected
+        let formatElement = document.querySelector('input[name="format"]:checked');
+        if (!formatElement) {
+            alert("⚠️ Please select a book format.");
+            return;
+        }
+        let format = formatElement.value;
+
+        let price = format === "Physical" ? 700 : 350;
+        let requiresDelivery = format === "Physical";
+
+        // Get user inputs safely
+        let customerName = document.getElementById("customer-name")?.value.trim() || "";
+        let customerEmail = document.getElementById("customer-email")?.value.trim() || "";
+        let contactNumber = document.getElementById("contact-number")?.value.trim() || "";
+        let deliveryAddress = document.getElementById("delivery-address")?.value.trim() || "";
+
+        // Validate required fields
+        if (!customerName || !customerEmail) {
+            alert("⚠️ Please enter your name and email.");
+            return;
+        }
+        if (requiresDelivery && (!contactNumber || !deliveryAddress)) {
+            alert("⚠️ Please enter your contact number and delivery address.");
+            return;
+        }
+
+        if (requiresDelivery) price += 50; // Add delivery fee
+
+        // ✅ Update product name format
+        let formattedProductName = `${product.name} - ${format} (₱${price})`;
+
+        let formURL = "https://docs.google.com/forms/d/e/1FAIpQLSc9BPxq--g3lNUQ1jtJB3rx6kYPuDrTfaQ-e1BEJ9-z9yvgOw/viewform?";
+        let orderIDField = "entry.771543493=" + encodeURIComponent(orderID);
+        let productField = "&entry.271701913=" + encodeURIComponent(formattedProductName);
+        let priceField = "&entry.827177782=" + encodeURIComponent(price);
+        let nameField = "&entry.903715558=" + encodeURIComponent(customerName);
+        let emailField = "&entry.955335245=" + encodeURIComponent(customerEmail);
+        let contactField = requiresDelivery ? "&entry.1904338608=" + encodeURIComponent(contactNumber) : "";
+        let deliveryField = requiresDelivery ? "&entry.2124188500=" + encodeURIComponent(deliveryAddress) : "";
+
+        sessionStorage.setItem("showOrderSuccess", "true");
+        window.location.href = formURL + orderIDField + productField + priceField + nameField + emailField + contactField + deliveryField;
+    }
+
+
+
     // Customer Reviews Comment
     document.querySelector(".toggle-reviews").addEventListener("click", function () {
         const hiddenReviews = document.querySelectorAll(".hidden");
@@ -2297,6 +2909,100 @@
             }
         });
     });
+    // 🎯 FUNCTION: Open Order Modal for Direct Purchase
+    function goToOrderForm(product) {
+        let orderID = generateOrderID();
+        localStorage.setItem("orderID", orderID); // Store Order ID locally
+        localStorage.setItem("selectedProduct", JSON.stringify(product)); // Store product details
+
+        let bookSelectionContainer = document.getElementById("book-selection");
+        bookSelectionContainer.innerHTML = `
+        <div class="book-item">
+            <p>${product.name}</p>
+            <div class="format-options">
+                <input type="radio" id="digital" name="format" value="Digital" checked>
+                <label for="digital">Digital (₱350)</label>
+
+                <input type="radio" id="physical" name="format" value="Physical">
+                <label for="physical">Physical (₱700)</label>
+            </div>
+        </div>
+    `;
+
+        document.querySelectorAll('input[type="radio"]').forEach(radio => {
+            radio.addEventListener("change", toggleDeliverySection);
+        });
+
+        toggleDeliverySection(); // Ensure correct delivery section visibility
+
+        document.getElementById("order-modal").classList.remove("hidden");
+    }
+
+    // 🎯 FUNCTION: Show/Hide Delivery Section Based on Selection
+    function toggleDeliverySection() {
+        let requiresDelivery = document.querySelector('input[name="format"]:checked').value === "Physical";
+
+        document.getElementById("delivery-section").style.display = requiresDelivery ? "block" : "none";
+        document.getElementById("delivery-note").style.display = requiresDelivery ? "block" : "none";
+    }
+
+    // 🎯 FUNCTION: Close Modal
+    function closeModal() {
+        document.getElementById("order-modal").classList.add("hidden");
+    }
+
+    // 🎯 FUNCTION: Submit Order & Redirect to Google Form
+    function submitOrder() {
+        let orderID = localStorage.getItem("orderID") || generateOrderID();
+
+        // Retrieve product details from localStorage
+        let storedProduct = localStorage.getItem("selectedProduct");
+        let product = storedProduct ? JSON.parse(storedProduct) : { name: "Unknown Product" };
+
+        // Check if format is selected
+        let formatElement = document.querySelector('input[name="format"]:checked');
+        if (!formatElement) {
+            alert("⚠️ Please select a book format.");
+            return;
+        }
+        let format = formatElement.value;
+
+        let price = format === "Physical" ? 700 : 350;
+        let requiresDelivery = format === "Physical";
+
+        // Get user inputs safely
+        let customerName = document.getElementById("customer-name")?.value.trim() || "";
+        let customerEmail = document.getElementById("customer-email")?.value.trim() || "";
+        let contactNumber = document.getElementById("contact-number")?.value.trim() || "";
+        let deliveryAddress = document.getElementById("delivery-address")?.value.trim() || "";
+
+        // Validate required fields
+        if (!customerName || !customerEmail) {
+            alert("⚠️ Please enter your name and email.");
+            return;
+        }
+        if (requiresDelivery && (!contactNumber || !deliveryAddress)) {
+            alert("⚠️ Please enter your contact number and delivery address.");
+            return;
+        }
+
+        if (requiresDelivery) price += 50; // Add delivery fee
+
+        // ✅ Update product name format
+        let formattedProductName = `${product.name} - ${format} (₱${price})`;
+
+        let formURL = "https://docs.google.com/forms/d/e/1FAIpQLSc9BPxq--g3lNUQ1jtJB3rx6kYPuDrTfaQ-e1BEJ9-z9yvgOw/viewform?";
+        let orderIDField = "entry.771543493=" + encodeURIComponent(orderID);
+        let productField = "&entry.271701913=" + encodeURIComponent(formattedProductName);
+        let priceField = "&entry.827177782=" + encodeURIComponent(price);
+        let nameField = "&entry.903715558=" + encodeURIComponent(customerName);
+        let emailField = "&entry.955335245=" + encodeURIComponent(customerEmail);
+        let contactField = requiresDelivery ? "&entry.1904338608=" + encodeURIComponent(contactNumber) : "";
+        let deliveryField = requiresDelivery ? "&entry.2124188500=" + encodeURIComponent(deliveryAddress) : "";
+
+        sessionStorage.setItem("showOrderSuccess", "true");
+        window.location.href = formURL + orderIDField + productField + priceField + nameField + emailField + contactField + deliveryField;
+    }
 </script>
 
 </html>

@@ -839,6 +839,237 @@
             }
         }
 
+        /* 📚 Book Selection Container */
+        .book-item {
+            display: flex;
+            flex-direction: column;
+            background: #f9f9f9;
+            padding: 0.7rem;
+            border-radius: 8px;
+            margin-bottom: 0.5rem;
+            text-align: left;
+        }
+
+        /* 🏷 Book Title */
+        .book-item p {
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        /* 📌 Radio Buttons (Styled like buttons) */
+        .format-options {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .format-options label {
+            flex: 1;
+            background: white;
+            padding: 0.7rem;
+            border: 2px solid #ccc;
+            border-radius: 6px;
+            text-align: center;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: 0.3s ease-in-out;
+        }
+
+        .format-options input[type="radio"] {
+            display: none;
+        }
+
+        .format-options input[type="radio"]:checked+label {
+            background: #FF4500;
+            color: white;
+            border-color: #FF4500;
+        }
+
+        /* 🚀 MODAL STYLES */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        /* Hide the modal unless it has the "show" class */
+        .modal.hidden {
+            display: none !important;
+        }
+
+        /* Modal Box */
+        .modal-content {
+            background: white;
+            width: 90%;
+            max-width: 400px;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            animation: fadeIn 0.3s ease-in-out;
+            max-height: 80vh;
+            /* Prevent modal from exceeding viewport */
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Make only the form section scrollable */
+        .modal-body {
+            overflow-y: auto;
+            max-height: 60vh;
+            padding-bottom: 1rem;
+        }
+
+        /* 🏆 HEADINGS */
+        .modal h2 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .modal p {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 1rem;
+        }
+
+        /* 🛒 INPUT FIELDS */
+        .modal input,
+        .modal textarea {
+            width: 100%;
+            padding: 0.8rem;
+            margin: 0.5rem 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: 0.3s;
+        }
+
+        .modal input:focus,
+        .modal textarea:focus {
+            border-color: #FF4500;
+            outline: none;
+        }
+
+        /* 🚚 DELIVERY SECTION */
+        #delivery-section {
+            display: none;
+            margin-top: 1rem;
+        }
+
+        /* Ensure buttons remain fixed at the bottom */
+        .modal-buttons {
+            display: flex;
+            justify-content: space-between;
+            position: sticky;
+            bottom: 0;
+            background: white;
+            padding: 1rem;
+            border-top: 1px solid #ddd;
+        }
+
+        .confirm-btn,
+        .cancel-btn {
+            width: 48%;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 0.5rem;
+        }
+
+        .confirm-btn {
+            background: #FF4500;
+            color: white;
+        }
+
+        .confirm-btn:hover {
+            background: #E03E00;
+        }
+
+        .cancel-btn {
+            background: #ccc;
+            color: black;
+        }
+
+        .cancel-btn:hover {
+            background: #bbb;
+        }
+
+        /* Delivery Fee Note */
+        #delivery-note {
+            font-size: 0.8rem;
+            color: #FF4500;
+            font-weight: bold;
+            margin-top: 0.3rem;
+            text-align: center;
+            display: none;
+        }
+
+        /* ✨ Fade-in Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* 📱 MOBILE RESPONSIVENESS */
+        @media (max-width: 480px) {
+            .modal-content {
+                width: 95%;
+                padding: 1.2rem;
+            }
+
+            .modal h2 {
+                font-size: 1.3rem;
+            }
+
+            .modal p {
+                font-size: 0.9rem;
+            }
+
+            .modal input,
+            .modal textarea {
+                font-size: 0.9rem;
+            }
+
+            .confirm-btn,
+            .cancel-btn {
+                font-size: 0.9rem;
+            }
+
+            .book-item {
+                padding: 0.8rem;
+            }
+
+            .format-options {
+                flex-direction: column;
+            }
+
+            .format-options label {
+                padding: 0.6rem;
+                font-size: 0.9rem;
+            }
+        }
+
         /* Desktop View */
         @media (min-width: 769px) {
             .nav-right .cart-contain {
@@ -1157,6 +1388,8 @@
                 </div>
             </div>
 
+            <!--==================================== NEW BOOKS  ===================================-->
+
             <div class="book-1">
                 <!-- 📖 Product Image (No Anchor Here) -->
                 <div class="shop-image-container">
@@ -1165,11 +1398,11 @@
 
                     <!-- 🛒 Add to Cart & Buy Now Buttons Inside Image -->
                     <div class="product-buttons">
-                        <button class="add-to-cart" data-name="Unesco Destination" data-price="350"
+                        <button class="add-to-cart" data-name="UNESCO Destination" data-price="350"
                             data-image="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303461/7_sutn1d.png">
                             <img src="https://img.icons8.com/ios-glyphs/30/ffffff/shopping-cart--v1.png" alt="cart" />
                         </button>
-                        <button id="buy-now" class="buy-now" data-name="Unesco Destination" data-price="350"
+                        <button id="buy-now" class="buy-now" data-name="UNESCO Destination" data-price="350"
                             data-image="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303461/7_sutn1d.png">
                             Buy Now
                         </button>
@@ -1177,7 +1410,7 @@
                 </div>
 
                 <!-- 📄 Product Details (Left-Aligned) -->
-                <p class="book-text">Unesco <br />Destination</p>
+                <p class="book-text">UNESCO <br />Destination</p>
                 <p class="book-text-desc">
                     Engaging and fun learning <br />
                     materials in PDF format – <br />
@@ -1193,8 +1426,741 @@
                 </div>
             </div>
 
+            <div class="book-1">
+                <!-- 📖 Product Image (No Anchor Here) -->
+                <div class="shop-image-container">
+                    <img src="https://res.cloudinary.com/dqqgrakth/image/upload/v1743386524/26_ogpd7b.png" alt=""
+                        class="book-image" />
+
+                    <!-- 🛒 Add to Cart & Buy Now Buttons Inside Image -->
+                    <div class="product-buttons">
+                        <button class="add-to-cart" data-name="Animal Workbook" data-price="350"
+                            data-image="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303461/7_sutn1d.png">
+                            <img src="https://img.icons8.com/ios-glyphs/30/ffffff/shopping-cart--v1.png" alt="cart" />
+                        </button>
+                        <button id="buy-now" class="buy-now" data-name="Animal Workbook" data-price="350"
+                            data-image="https://res.cloudinary.com/dqqgrakth/image/upload/v1743380168/Matching_Type_PDF-_ANIMALS_exsyxj.png">
+                            Buy Now
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 📄 Product Details (Left-Aligned) -->
+                <p class="book-text">ANIMALS <br />Workbook</p>
+                <p class="book-text-desc">
+                    Engaging and fun learning <br />
+                    materials in PDF format – <br />
+                    download instantly.
+                </p>
+
+                <!-- 💰 Price & Details -->
+                <div class="price-details">
+                    <h3 class="price">P350</h3>
+                    <!-- 🏷 Clickable "Details" Without Underline -->
+                    <a href="https://littlelegendslibrary.blogspot.com/2025/03/animals-workbook.html"
+                        class="detail-1 no-underline">Details</a>
+                </div>
+            </div>
+
+            <div class="book-1">
+                <!-- 📖 Product Image (No Anchor Here) -->
+                <div class="shop-image-container">
+                    <img src="https://res.cloudinary.com/dqqgrakth/image/upload/v1743386434/19_drftvx.png" alt=""
+                        class="book-image" />
+
+                    <!-- 🛒 Add to Cart & Buy Now Buttons Inside Image -->
+                    <div class="product-buttons">
+                        <button class="add-to-cart" data-name="Explore the World of Flags" data-price="350"
+                            data-image="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303461/7_sutn1d.png">
+                            <img src="https://img.icons8.com/ios-glyphs/30/ffffff/shopping-cart--v1.png" alt="cart" />
+                        </button>
+                        <button id="buy-now" class="buy-now" data-name="Explore the World of Flags" data-price="350"
+                            data-image="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303461/7_sutn1d.png">
+                            Buy Now
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 📄 Product Details (Left-Aligned) -->
+                <p class="book-text">Explore <br />The World of Flags</p>
+                <p class="book-text-desc">
+                    Engaging and fun learning <br />
+                    materials in PDF format – <br />
+                    download instantly.
+                </p>
+
+                <!-- 💰 Price & Details -->
+                <div class="price-details">
+                    <h3 class="price">P350</h3>
+                    <!-- 🏷 Clickable "Details" Without Underline -->
+                    <a href="https://littlelegendslibrary.blogspot.com/2025/03/explore-world-of-flags.html"
+                        class="detail-1 no-underline">Details</a>
+                </div>
+            </div>
+
+
+            <div class="book-1">
+                <!-- 📖 Product Image (No Anchor Here) -->
+                <div class="shop-image-container">
+                    <img src="https://res.cloudinary.com/dqqgrakth/image/upload/v1743386434/19_drftvx.png" alt=""
+                        class="book-image" />
+
+                    <!-- 🛒 Add to Cart & Buy Now Buttons Inside Image -->
+                    <div class="product-buttons">
+                        <button class="add-to-cart" data-name="Discover the World Through Flags" data-price="350"
+                            data-image="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303461/7_sutn1d.png">
+                            <img src="https://img.icons8.com/ios-glyphs/30/ffffff/shopping-cart--v1.png" alt="cart" />
+                        </button>
+                        <button id="buy-now" class="buy-now" data-name="Discover the World Through Flags"
+                            data-price="350"
+                            data-image="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303461/7_sutn1d.png">
+                            Buy Now
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 📄 Product Details (Left-Aligned) -->
+                <p class="book-text">Discover World<br /> through Flags</p>
+                <p class="book-text-desc">
+                    Engaging and fun learning <br />
+                    materials in PDF format – <br />
+                    download instantly.
+                </p>
+
+                <!-- 💰 Price & Details -->
+                <div class="price-details">
+                    <h3 class="price">P350</h3>
+                    <!-- 🏷 Clickable "Details" Without Underline -->
+                    <a href="https://littlelegendslibrary.blogspot.com/2025/03/discover-world-of-flags.html"
+                        class="detail-1 no-underline">Details</a>
+                </div>
+            </div>
+
+
+            <div class="book-1">
+                <!-- 📖 Product Image (No Anchor Here) -->
+                <div class="shop-image-container">
+                    <img src="https://res.cloudinary.com/dqqgrakth/image/upload/v1743386457/20_xv7djc.png" alt=""
+                        class="book-image" />
+
+                    <!-- 🛒 Add to Cart & Buy Now Buttons Inside Image -->
+                    <div class="product-buttons">
+                        <button class="add-to-cart" data-name="Fun with Fruits and Vegetables" data-price="350"
+                            data-image="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303461/7_sutn1d.png">
+                            <img src="https://img.icons8.com/ios-glyphs/30/ffffff/shopping-cart--v1.png" alt="cart" />
+                        </button>
+                        <button id="buy-now" class="buy-now" data-name="Fun with Fruits and Vegetables" data-price="350"
+                            data-image="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303461/7_sutn1d.png">
+                            Buy Now
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 📄 Product Details (Left-Aligned) -->
+                <p class="book-text">Fun Fruits<br /> and Vegetables</p>
+                <p class="book-text-desc">
+                    Engaging and fun learning <br />
+                    materials in PDF format – <br />
+                    download instantly.
+                </p>
+
+                <!-- 💰 Price & Details -->
+                <div class="price-details">
+                    <h3 class="price">P350</h3>
+                    <!-- 🏷 Clickable "Details" Without Underline -->
+                    <a href="https://littlelegendslibrary.blogspot.com/2025/03/fun-with-fruits-and-vegetables.html"
+                        class="detail-1 no-underline">Details</a>
+                </div>
+            </div>
+
+            <div class="book-1">
+                <!-- 📖 Product Image (No Anchor Here) -->
+                <div class="shop-image-container">
+                    <img src="https://res.cloudinary.com/dqqgrakth/image/upload/v1743386541/23_gshc28.png" alt=""
+                        class="book-image" />
+
+                    <!-- 🛒 Add to Cart & Buy Now Buttons Inside Image -->
+                    <div class="product-buttons">
+                        <button class="add-to-cart" data-name="Explore the World of Houses" data-price="350"
+                            data-image="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303461/7_sutn1d.png">
+                            <img src="https://img.icons8.com/ios-glyphs/30/ffffff/shopping-cart--v1.png" alt="cart" />
+                        </button>
+                        <button id="buy-now" class="buy-now" data-name="Explore the World of Houses" data-price="350"
+                            data-image="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303461/7_sutn1d.png">
+                            Buy Now
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 📄 Product Details (Left-Aligned) -->
+                <p class="book-text">Explore the<br />World of Houses</p>
+                <p class="book-text-desc">
+                    Engaging and fun learning <br />
+                    materials in PDF format – <br />
+                    download instantly.
+                </p>
+
+                <!-- 💰 Price & Details -->
+                <div class="price-details">
+                    <h3 class="price">P350</h3>
+                    <!-- 🏷 Clickable "Details" Without Underline -->
+                    <a href="https://littlelegendslibrary.blogspot.com/2025/03/explore-houses.html"
+                        class="detail-1 no-underline">Details</a>
+                </div>
+            </div>
+
+            <div class="book-1">
+                <!-- 📖 Product Image (No Anchor Here) -->
+                <div class="shop-image-container">
+                    <img src="https://res.cloudinary.com/dqqgrakth/image/upload/v1743386494/24_igqk5f.png" alt=""
+                        class="book-image" />
+
+                    <!-- 🛒 Add to Cart & Buy Now Buttons Inside Image -->
+                    <div class="product-buttons">
+                        <button class="add-to-cart" data-name="Discover the Human Body" data-price="350"
+                            data-image="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303461/7_sutn1d.png">
+                            <img src="https://img.icons8.com/ios-glyphs/30/ffffff/shopping-cart--v1.png" alt="cart" />
+                        </button>
+                        <button id="buy-now" class="buy-now" data-name="Discover the Human Body" data-price="350"
+                            data-image="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303461/7_sutn1d.png">
+                            Buy Now
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 📄 Product Details (Left-Aligned) -->
+                <p class="book-text">Discover<br />the Human Body</p>
+                <p class="book-text-desc">
+                    Engaging and fun learning <br />
+                    materials in PDF format – <br />
+                    download instantly.
+                </p>
+
+                <!-- 💰 Price & Details -->
+                <div class="price-details">
+                    <h3 class="price">P350</h3>
+                    <!-- 🏷 Clickable "Details" Without Underline -->
+                    <a href="https://littlelegendslibrary.blogspot.com/2025/03/discover-human-body.html"
+                        class="detail-1 no-underline">Details</a>
+                </div>
+            </div>
+
+            <div class="book-1">
+                <!-- 📖 Product Image (No Anchor Here) -->
+                <div class="shop-image-container">
+                    <img src="https://res.cloudinary.com/dqqgrakth/image/upload/v1743386476/25_otc4ay.png" alt=""
+                        class="book-image" />
+
+                    <!-- 🛒 Add to Cart & Buy Now Buttons Inside Image -->
+                    <div class="product-buttons">
+                        <button class="add-to-cart" data-name="Explore the Human Body" data-price="350"
+                            data-image="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303461/7_sutn1d.png">
+                            <img src="https://img.icons8.com/ios-glyphs/30/ffffff/shopping-cart--v1.png" alt="cart" />
+                        </button>
+                        <button id="buy-now" class="buy-now" data-name="Explore the Human Body" data-price="350"
+                            data-image="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303461/7_sutn1d.png">
+                            Buy Now
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 📄 Product Details (Left-Aligned) -->
+                <p class="book-text">Explore the<br />Human Body</p>
+                <p class="book-text-desc">
+                    Engaging and fun learning <br />
+                    materials in PDF format – <br />
+                    download instantly.
+                </p>
+
+                <!-- 💰 Price & Details -->
+                <div class="price-details">
+                    <h3 class="price">P350</h3>
+                    <!-- 🏷 Clickable "Details" Without Underline -->
+                    <a href="https://littlelegendslibrary.blogspot.com/2025/03/explore-human-body.html"
+                        class="detail-1 no-underline">Details</a>
+                </div>
+            </div>
+
+            <div class="book-1">
+                <!-- 📖 Product Image (No Anchor Here) -->
+                <div class="shop-image-container">
+                    <img src="https://res.cloudinary.com/dqqgrakth/image/upload/v1743386464/11_tnzry9.png" alt=""
+                        class="book-image" />
+
+                    <!-- 🛒 Add to Cart & Buy Now Buttons Inside Image -->
+                    <div class="product-buttons">
+                        <button class="add-to-cart" data-name="Explore Vehicles" data-price="350"
+                            data-image="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303461/7_sutn1d.png">
+                            <img src="https://img.icons8.com/ios-glyphs/30/ffffff/shopping-cart--v1.png" alt="cart" />
+                        </button>
+                        <button id="buy-now" class="buy-now" data-name="Explore Vehicles" data-price="350"
+                            data-image="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303461/7_sutn1d.png">
+                            Buy Now
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 📄 Product Details (Left-Aligned) -->
+                <p class="book-text">Explore<br />Vehicles</p>
+                <p class="book-text-desc">
+                    Engaging and fun learning <br />
+                    materials in PDF format – <br />
+                    download instantly.
+                </p>
+
+                <!-- 💰 Price & Details -->
+                <div class="price-details">
+                    <h3 class="price">P350</h3>
+                    <!-- 🏷 Clickable "Details" Without Underline -->
+                    <a href="https://littlelegendslibrary.blogspot.com/2025/03/explore-vehicles.html"
+                        class="detail-1 no-underline">Details</a>
+                </div>
+            </div>
+
+            <div class="book-1">
+                <!-- 📖 Product Image (No Anchor Here) -->
+                <div class="shop-image-container">
+                    <img src="https://res.cloudinary.com/dqqgrakth/image/upload/v1743386434/17_zj19xl.png" alt=""
+                        class="book-image" />
+
+                    <!-- 🛒 Add to Cart & Buy Now Buttons Inside Image -->
+                    <div class="product-buttons">
+                        <button class="add-to-cart" data-name="Birthday Workbook " data-price="350"
+                            data-image="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303461/7_sutn1d.png">
+                            <img src="https://img.icons8.com/ios-glyphs/30/ffffff/shopping-cart--v1.png" alt="cart" />
+                        </button>
+                        <button id="buy-now" class="buy-now" data-name="Birthday Workbook " data-price="350"
+                            data-image="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303461/7_sutn1d.png">
+                            Buy Now
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 📄 Product Details (Left-Aligned) -->
+                <p class="book-text">Birthday<br />Workbook</p>
+                <p class="book-text-desc">
+                    Engaging and fun learning <br />
+                    materials in PDF format – <br />
+                    download instantly.
+                </p>
+
+                <!-- 💰 Price & Details -->
+                <div class="price-details">
+                    <h3 class="price">P350</h3>
+                    <!-- 🏷 Clickable "Details" Without Underline -->
+                    <a href="https://littlelegendslibrary.blogspot.com/2025/03/birthday-workbook.html"
+                        class="detail-1 no-underline">Details</a>
+                </div>
+            </div>
+
+            <div class="book-1">
+                <!-- 📖 Product Image (No Anchor Here) -->
+                <div class="shop-image-container">
+                    <img src="https://res.cloudinary.com/dqqgrakth/image/upload/v1743386369/13_hhgywj.png" alt=""
+                        class="book-image" />
+
+                    <!-- 🛒 Add to Cart & Buy Now Buttons Inside Image -->
+                    <div class="product-buttons">
+                        <button class="add-to-cart" data-name="Enchanting Christmas Workbook" data-price="350"
+                            data-image="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303461/7_sutn1d.png">
+                            <img src="https://img.icons8.com/ios-glyphs/30/ffffff/shopping-cart--v1.png" alt="cart" />
+                        </button>
+                        <button id="buy-now" class="buy-now" data-name="Enchanting Christmas Workbook" data-price="350"
+                            data-image="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303461/7_sutn1d.png">
+                            Buy Now
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 📄 Product Details (Left-Aligned) -->
+                <p class="book-text">Enchanting<br />Christmas</p>
+                <p class="book-text-desc">
+                    Engaging and fun learning <br />
+                    materials in PDF format – <br />
+                    download instantly.
+                </p>
+
+                <!-- 💰 Price & Details -->
+                <div class="price-details">
+                    <h3 class="price">P350</h3>
+                    <!-- 🏷 Clickable "Details" Without Underline -->
+                    <a href="https://littlelegendslibrary.blogspot.com/2025/03/enchanting-christmas-workbook.html"
+                        class="detail-1 no-underline">Details</a>
+                </div>
+            </div>
+
+            <div class="book-1">
+                <!-- 📖 Product Image (No Anchor Here) -->
+                <div class="shop-image-container">
+                    <img src="https://res.cloudinary.com/dqqgrakth/image/upload/v1743386394/15_uqc7iu.png" alt=""
+                        class="book-image" />
+
+                    <!-- 🛒 Add to Cart & Buy Now Buttons Inside Image -->
+                    <div class="product-buttons">
+                        <button class="add-to-cart" data-name="Ring in the New Year" data-price="350"
+                            data-image="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303461/7_sutn1d.png">
+                            <img src="https://img.icons8.com/ios-glyphs/30/ffffff/shopping-cart--v1.png" alt="cart" />
+                        </button>
+                        <button id="buy-now" class="buy-now" data-name="Ring in the New Year" data-price="350"
+                            data-image="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303461/7_sutn1d.png">
+                            Buy Now
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 📄 Product Details (Left-Aligned) -->
+                <p class="book-text">Ring in<br />the New Year</p>
+                <p class="book-text-desc">
+                    Engaging and fun learning <br />
+                    materials in PDF format – <br />
+                    download instantly.
+                </p>
+
+                <!-- 💰 Price & Details -->
+                <div class="price-details">
+                    <h3 class="price">P350</h3>
+                    <!-- 🏷 Clickable "Details" Without Underline -->
+                    <a href="https://littlelegendslibrary.blogspot.com/2025/03/new-year.html"
+                        class="detail-1 no-underline">Details</a>
+                </div>
+            </div>
+
+            <div class="book-1">
+                <!-- 📖 Product Image (No Anchor Here) -->
+                <div class="shop-image-container">
+                    <img src="https://res.cloudinary.com/dqqgrakth/image/upload/v1743386339/9_ajlxna.png" alt=""
+                        class="book-image" />
+
+                    <!-- 🛒 Add to Cart & Buy Now Buttons Inside Image -->
+                    <div class="product-buttons">
+                        <button class="add-to-cart" data-name="Enchanting Adventures with Princesses" data-price="350"
+                            data-image="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303461/7_sutn1d.png">
+                            <img src="https://img.icons8.com/ios-glyphs/30/ffffff/shopping-cart--v1.png" alt="cart" />
+                        </button>
+                        <button id="buy-now" class="buy-now" data-name="Enchanting Adventures with Princesses"
+                            data-price="350"
+                            data-image="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303461/7_sutn1d.png">
+                            Buy Now
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 📄 Product Details (Left-Aligned) -->
+                <p class="book-text">Enchanting<br />Adventures</p>
+                <p class="book-text-desc">
+                    Engaging and fun learning <br />
+                    materials in PDF format – <br />
+                    download instantly.
+                </p>
+
+                <!-- 💰 Price & Details -->
+                <div class="price-details">
+                    <h3 class="price">P350</h3>
+                    <!-- 🏷 Clickable "Details" Without Underline -->
+                    <a href="https://littlelegendslibrary.blogspot.com/2025/03/enchanting-princesses.html"
+                        class="detail-1 no-underline">Details</a>
+                </div>
+            </div>
+
+            <div class="book-1">
+                <!-- 📖 Product Image (No Anchor Here) -->
+                <div class="shop-image-container">
+                    <img src="https://res.cloudinary.com/dqqgrakth/image/upload/v1743386379/12_cww92t.png" alt=""
+                        class="book-image" />
+
+                    <!-- 🛒 Add to Cart & Buy Now Buttons Inside Image -->
+                    <div class="product-buttons">
+                        <button class="add-to-cart" data-name="Princess Adventures" data-price="350"
+                            data-image="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303461/7_sutn1d.png">
+                            <img src="https://img.icons8.com/ios-glyphs/30/ffffff/shopping-cart--v1.png" alt="cart" />
+                        </button>
+                        <button id="buy-now" class="buy-now" data-name="Princess Adventures" data-price="350"
+                            data-image="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303461/7_sutn1d.png">
+                            Buy Now
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 📄 Product Details (Left-Aligned) -->
+                <p class="book-text">Princess<br />Adventures</p>
+                <p class="book-text-desc">
+                    Engaging and fun learning <br />
+                    materials in PDF format – <br />
+                    download instantly.
+                </p>
+
+                <!-- 💰 Price & Details -->
+                <div class="price-details">
+                    <h3 class="price">P350</h3>
+                    <!-- 🏷 Clickable "Details" Without Underline -->
+                    <a href="https://littlelegendslibrary.blogspot.com/2025/03/princess-adventures.html"
+                        class="detail-1 no-underline">Details</a>
+                </div>
+            </div>
+
+            <div class="book-1">
+                <!-- 📖 Product Image (No Anchor Here) -->
+                <div class="shop-image-container">
+                    <img src="https://res.cloudinary.com/dqqgrakth/image/upload/v1743386387/8_o8xsui.png" alt=""
+                        class="book-image" />
+
+                    <!-- 🛒 Add to Cart & Buy Now Buttons Inside Image -->
+                    <div class="product-buttons">
+                        <button class="add-to-cart" data-name="Thanksgiving Workbook" data-price="350"
+                            data-image="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303461/7_sutn1d.png">
+                            <img src="https://img.icons8.com/ios-glyphs/30/ffffff/shopping-cart--v1.png" alt="cart" />
+                        </button>
+                        <button id="buy-now" class="buy-now" data-name="Thanksgiving Workbook" data-price="350"
+                            data-image="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303461/7_sutn1d.png">
+                            Buy Now
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 📄 Product Details (Left-Aligned) -->
+                <p class="book-text">Thanksgiving<br />Workbook</p>
+                <p class="book-text-desc">
+                    Engaging and fun learning <br />
+                    materials in PDF format – <br />
+                    download instantly.
+                </p>
+
+                <!-- 💰 Price & Details -->
+                <div class="price-details">
+                    <h3 class="price">P350</h3>
+                    <!-- 🏷 Clickable "Details" Without Underline -->
+                    <a href="https://littlelegendslibrary.blogspot.com/2025/03/thanksgiving-workbook.html"
+                        class="detail-1 no-underline">Details</a>
+                </div>
+            </div>
+
+            <div class="book-1">
+                <!-- 📖 Product Image (No Anchor Here) -->
+                <div class="shop-image-container">
+                    <img src="https://res.cloudinary.com/dqqgrakth/image/upload/v1743386386/14_wta0ki.png" alt=""
+                        class="book-image" />
+
+                    <!-- 🛒 Add to Cart & Buy Now Buttons Inside Image -->
+                    <div class="product-buttons">
+                        <button class="add-to-cart" data-name="Spooky Fun with Halloween" data-price="350"
+                            data-image="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303461/7_sutn1d.png">
+                            <img src="https://img.icons8.com/ios-glyphs/30/ffffff/shopping-cart--v1.png" alt="cart" />
+                        </button>
+                        <button id="buy-now" class="buy-now" data-name="Spooky Fun with Halloween" data-price="350"
+                            data-image="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303461/7_sutn1d.png">
+                            Buy Now
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 📄 Product Details (Left-Aligned) -->
+                <p class="book-text">Spooky Fun<br />with Halloween</p>
+                <p class="book-text-desc">
+                    Engaging and fun learning <br />
+                    materials in PDF format – <br />
+                    download instantly.
+                </p>
+
+                <!-- 💰 Price & Details -->
+                <div class="price-details">
+                    <h3 class="price">P350</h3>
+                    <!-- 🏷 Clickable "Details" Without Underline -->
+                    <a href="https://littlelegendslibrary.blogspot.com/2025/03/spooky-fun-with-halloween.html"
+                        class="detail-1 no-underline">Details</a>
+                </div>
+            </div>
+
+            <div class="book-1">
+                <!-- 📖 Product Image (No Anchor Here) -->
+                <div class="shop-image-container">
+                    <img src="https://res.cloudinary.com/dqqgrakth/image/upload/v1743386541/21_tdczul.png" alt=""
+                        class="book-image" />
+
+                    <!-- 🛒 Add to Cart & Buy Now Buttons Inside Image -->
+                    <div class="product-buttons">
+                        <button class="add-to-cart" data-name="Coloring Book for Toddlers" data-price="350"
+                            data-image="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303461/7_sutn1d.png">
+                            <img src="https://img.icons8.com/ios-glyphs/30/ffffff/shopping-cart--v1.png" alt="cart" />
+                        </button>
+                        <button id="buy-now" class="buy-now" data-name="Coloring Book for Toddlers" data-price="350"
+                            data-image="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303461/7_sutn1d.png">
+                            Buy Now
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 📄 Product Details (Left-Aligned) -->
+                <p class="book-text">Coloring Book<br />for Toddlers</p>
+                <p class="book-text-desc">
+                    Engaging and fun learning <br />
+                    materials in PDF format – <br />
+                    download instantly.
+                </p>
+
+                <!-- 💰 Price & Details -->
+                <div class="price-details">
+                    <h3 class="price">P350</h3>
+                    <!-- 🏷 Clickable "Details" Without Underline -->
+                    <a href="https://littlelegendslibrary.blogspot.com/2025/03/coloring-book-for-toddlers.html"
+                        class="detail-1 no-underline">Details</a>
+                </div>
+            </div>
+
+            <div class="book-1">
+                <!-- 📖 Product Image (No Anchor Here) -->
+                <div class="shop-image-container">
+                    <img src="https://res.cloudinary.com/dqqgrakth/image/upload/v1743386339/10_x4ilc1.png" alt=""
+                        class="book-image" />
+
+                    <!-- 🛒 Add to Cart & Buy Now Buttons Inside Image -->
+                    <div class="product-buttons">
+                        <button class="add-to-cart" data-name="Learn and Trace" data-price="350"
+                            data-image="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303461/7_sutn1d.png">
+                            <img src="https://img.icons8.com/ios-glyphs/30/ffffff/shopping-cart--v1.png" alt="cart" />
+                        </button>
+                        <button id="buy-now" class="buy-now" data-name="Learn and Trace" data-price="350"
+                            data-image="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303461/7_sutn1d.png">
+                            Buy Now
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 📄 Product Details (Left-Aligned) -->
+                <p class="book-text">Learn<br />and Trace</p>
+                <p class="book-text-desc">
+                    Engaging and fun learning <br />
+                    materials in PDF format – <br />
+                    download instantly.
+                </p>
+
+                <!-- 💰 Price & Details -->
+                <div class="price-details">
+                    <h3 class="price">P350</h3>
+                    <!-- 🏷 Clickable "Details" Without Underline -->
+                    <a href="https://littlelegendslibrary.blogspot.com/2025/03/learn-and-trace.html"
+                        class="detail-1 no-underline">Details</a>
+                </div>
+            </div>
+
+            <div class="book-1">
+                <!-- 📖 Product Image (No Anchor Here) -->
+                <div class="shop-image-container">
+                    <img src="https://res.cloudinary.com/dqqgrakth/image/upload/v1743386394/16_s4uhzn.png" alt=""
+                        class="book-image" />
+
+                    <!-- 🛒 Add to Cart & Buy Now Buttons Inside Image -->
+                    <div class="product-buttons">
+                        <button class="add-to-cart" data-name="Count and Trace" data-price="350"
+                            data-image="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303461/7_sutn1d.png">
+                            <img src="https://img.icons8.com/ios-glyphs/30/ffffff/shopping-cart--v1.png" alt="cart" />
+                        </button>
+                        <button id="buy-now" class="buy-now" data-name="Count and Trace" data-price="350"
+                            data-image="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303461/7_sutn1d.png">
+                            Buy Now
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 📄 Product Details (Left-Aligned) -->
+                <p class="book-text">Count<br />and Trace</p>
+                <p class="book-text-desc">
+                    Engaging and fun learning <br />
+                    materials in PDF format – <br />
+                    download instantly.
+                </p>
+
+                <!-- 💰 Price & Details -->
+                <div class="price-details">
+                    <h3 class="price">P350</h3>
+                    <!-- 🏷 Clickable "Details" Without Underline -->
+                    <a href="https://littlelegendslibrary.blogspot.com/2025/03/count-and-trace.html"
+                        class="detail-1 no-underline">Details</a>
+                </div>
+            </div>
+
+            <div class="book-1">
+                <!-- 📖 Product Image (No Anchor Here) -->
+                <div class="shop-image-container">
+                    <img src="https://res.cloudinary.com/dqqgrakth/image/upload/v1743386546/22_ghjxkw.png" alt=""
+                        class="book-image" />
+
+                    <!-- 🛒 Add to Cart & Buy Now Buttons Inside Image -->
+                    <div class="product-buttons">
+                        <button class="add-to-cart" data-name="Mandala Workbook" data-price="350"
+                            data-image="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303461/7_sutn1d.png">
+                            <img src="https://img.icons8.com/ios-glyphs/30/ffffff/shopping-cart--v1.png" alt="cart" />
+                        </button>
+                        <button id="buy-now" class="buy-now" data-name="Mandala Workbook" data-price="350"
+                            data-image="https://res.cloudinary.com/du0ijg1nu/image/upload/v1742303461/7_sutn1d.png">
+                            Buy Now
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 📄 Product Details (Left-Aligned) -->
+                <p class="book-text">Mandala<br />Workbook</p>
+                <p class="book-text-desc">
+                    Engaging and fun learning <br />
+                    materials in PDF format – <br />
+                    download instantly.
+                </p>
+
+                <!-- 💰 Price & Details -->
+                <div class="price-details">
+                    <h3 class="price">P350</h3>
+                    <!-- 🏷 Clickable "Details" Without Underline -->
+                    <a href="https://littlelegendslibrary.blogspot.com/2025/03/mandala-workbook.html"
+                        class="detail-1 no-underline">Details</a>
+                </div>
+            </div>
 
         </div>
+
+        <!-- Order Modal -->
+        <div id="order-modal" class="modal hidden">
+            <div class="modal-content">
+                <h2>Order Details</h2>
+                <p>Select book format and provide contact details.</p>
+
+                <!-- Scrollable Content -->
+                <div class="modal-body">
+                    <!-- Customer Information -->
+                    <div class="customer-info">
+                        <label for="customer-name">👤 Full Name:</label>
+                        <input type="text" id="customer-name" placeholder="Enter your full name" required>
+
+                        <label for="customer-email">📧 Email Address:</label>
+                        <input type="email" id="customer-email" placeholder="Enter your email" required>
+                    </div>
+
+                    <!-- Book Selection Section -->
+                    <div id="book-selection"></div>
+
+                    <!-- Delivery Details (Hidden by Default) -->
+                    <div id="delivery-section" class="hidden">
+                        <h3>Delivery Details</h3>
+                        <label for="contact-number">📞 Contact Number:</label>
+                        <input type="text" id="contact-number" placeholder="Enter your contact number">
+
+                        <label for="delivery-address">📍 Delivery Address:</label>
+                        <textarea id="delivery-address" placeholder="Enter delivery address"></textarea>
+
+                        <!-- Delivery Fee Notice -->
+                        <p id="delivery-note">
+                            Note: A ₱50 delivery fee applies only if your order includes a physical book, regardless of
+                            quantity.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Fixed Buttons -->
+                <div class="modal-buttons">
+                    <button class="confirm-btn" onclick="submitOrder()">Confirm Order</button>
+                    <button class="cancel-btn" onclick="closeModal()">Cancel</button>
+                </div>
+            </div>
+        </div>
+
     </section>
 
     <footer>
@@ -1278,22 +2244,14 @@
     // 🔢 **Update Cart Count Badge**
     function updateCartCount() {
         let cart = JSON.parse(localStorage.getItem("cart")) || [];
-        let cartCount = cart.length;
+        const cartCount = cart.length; // Only counts unique items
 
-        document.querySelectorAll(".cart-count").forEach(cartBadge => {
-            if (cartCount > 0) {
-                cartBadge.textContent = cartCount;
-                cartBadge.classList.add("show"); // Add 'show' class
-                cartBadge.style.display = "flex"; // Make sure it's visible
-            } else {
-                cartBadge.classList.remove("show"); // Remove 'show' class
-                cartBadge.style.display = "none"; // Hide it completely
-            }
-        });
+        const cartBadge = document.querySelector(".cart-count");
+        if (cartBadge) {
+            cartBadge.textContent = cartCount;
+            cartBadge.style.display = cartCount > 0 ? "flex" : "none"; // Hide if empty
+        }
     }
-
-    // Run on page load to apply correct visibility
-    document.addEventListener("DOMContentLoaded", updateCartCount);
 
     // ✅ **Show "Added to Cart" Message**
     function showAddedMessage(text) {
@@ -1308,23 +2266,104 @@
         }, 1000);
     }
 
-    // Buy Now Function (Redirect to Google Form)
+    // 🎯 FUNCTION: Open Order Modal for Direct Purchase
     function goToOrderForm(product) {
         let orderID = generateOrderID();
         localStorage.setItem("orderID", orderID); // Store Order ID locally
+        localStorage.setItem("selectedProduct", JSON.stringify(product)); // Store product details
+
+        let bookSelectionContainer = document.getElementById("book-selection");
+        bookSelectionContainer.innerHTML = `
+        <div class="book-item">
+            <p>${product.name}</p>
+            <div class="format-options">
+                <input type="radio" id="digital" name="format" value="Digital" checked>
+                <label for="digital">Digital (₱350)</label>
+
+                <input type="radio" id="physical" name="format" value="Physical">
+                <label for="physical">Physical (₱700)</label>
+            </div>
+        </div>
+    `;
+
+        document.querySelectorAll('input[type="radio"]').forEach(radio => {
+            radio.addEventListener("change", toggleDeliverySection);
+        });
+
+        toggleDeliverySection(); // Ensure correct delivery section visibility
+
+        document.getElementById("order-modal").classList.remove("hidden");
+    }
+
+    // 🎯 FUNCTION: Show/Hide Delivery Section Based on Selection
+    function toggleDeliverySection() {
+        let requiresDelivery = document.querySelector('input[name="format"]:checked').value === "Physical";
+
+        document.getElementById("delivery-section").style.display = requiresDelivery ? "block" : "none";
+        document.getElementById("delivery-note").style.display = requiresDelivery ? "block" : "none";
+    }
+
+    // 🎯 FUNCTION: Close Modal
+    function closeModal() {
+        document.getElementById("order-modal").classList.add("hidden");
+    }
+
+    // 🎯 FUNCTION: Submit Order & Redirect to Google Form
+    function submitOrder() {
+        let orderID = localStorage.getItem("orderID") || generateOrderID();
+
+        // Retrieve product details from localStorage
+        let storedProduct = localStorage.getItem("selectedProduct");
+        let product = storedProduct ? JSON.parse(storedProduct) : { name: "Unknown Product" };
+
+        // Check if format is selected
+        let formatElement = document.querySelector('input[name="format"]:checked');
+        if (!formatElement) {
+            alert("⚠️ Please select a book format.");
+            return;
+        }
+        let format = formatElement.value;
+
+        let price = format === "Physical" ? 700 : 350;
+        let requiresDelivery = format === "Physical";
+
+        // Get user inputs safely
+        let customerName = document.getElementById("customer-name")?.value.trim() || "";
+        let customerEmail = document.getElementById("customer-email")?.value.trim() || "";
+        let contactNumber = document.getElementById("contact-number")?.value.trim() || "";
+        let deliveryAddress = document.getElementById("delivery-address")?.value.trim() || "";
+
+        // Validate required fields
+        if (!customerName || !customerEmail) {
+            alert("⚠️ Please enter your name and email.");
+            return;
+        }
+        if (requiresDelivery && (!contactNumber || !deliveryAddress)) {
+            alert("⚠️ Please enter your contact number and delivery address.");
+            return;
+        }
+
+        if (requiresDelivery) price += 50; // Add delivery fee
+
+        // ✅ Update product name format
+        let formattedProductName = `${product.name} - ${format} (\u20B1${price})`;
 
         let formURL = "https://docs.google.com/forms/d/e/1FAIpQLSc9BPxq--g3lNUQ1jtJB3rx6kYPuDrTfaQ-e1BEJ9-z9yvgOw/viewform?";
         let orderIDField = "entry.771543493=" + encodeURIComponent(orderID);
-        let productField = "&entry.271701913=" + encodeURIComponent(product.name);
-        let priceField = "&entry.827177782=" + encodeURIComponent(product.price);
+        let productField = "&entry.271701913=" + encodeURIComponent(formattedProductName);
+        let priceField = "&entry.827177782=" + encodeURIComponent(price);
+        let nameField = "&entry.903715558=" + encodeURIComponent(customerName);
+        let emailField = "&entry.955335245=" + encodeURIComponent(customerEmail);
+        let contactField = requiresDelivery ? "&entry.1904338608=" + encodeURIComponent(contactNumber) : "";
+        let deliveryField = requiresDelivery ? "&entry.2124188500=" + encodeURIComponent(deliveryAddress) : "";
 
         sessionStorage.setItem("showOrderSuccess", "true");
-        window.location.href = formURL + orderIDField + productField + priceField;
+        window.location.href = formURL + orderIDField + productField + priceField + nameField + emailField + contactField + deliveryField;
     }
 
-    // Generate Order ID Function
+    // 🏷 FUNCTION: Generate Order ID (if missing)
     function generateOrderID() {
-        return 'ORDER-' + Math.floor(Math.random() * 1000000);
+        return "ORDER-" + Math.floor(Math.random() * 1000000);
     }
 
     // Search Blogger
@@ -1340,7 +2379,6 @@
             window.location.href = finalUrl + "&m=0";
         }
     }
-
 
     document.addEventListener("DOMContentLoaded", function () {
         const menuToggle = document.querySelector(".hamburger");
@@ -1383,11 +2421,19 @@
         let cartCount = cart.length;
 
         document.querySelectorAll(".cart-count").forEach(cartBadge => {
-            cartBadge.textContent = cartCount;
-            cartBadge.style.display = cartCount > 0 ? "flex" : "none"; // Hide when empty
+            if (cartCount > 0) {
+                cartBadge.textContent = cartCount;
+                cartBadge.classList.add("show"); // Add 'show' class
+                cartBadge.style.display = "flex"; // Make sure it's visible
+            } else {
+                cartBadge.classList.remove("show"); // Remove 'show' class
+                cartBadge.style.display = "none"; // Hide it completely
+            }
         });
     }
 
+    // Run on page load to apply correct visibility
+    document.addEventListener("DOMContentLoaded", updateCartCount);
 
     // Example: Simulating cart count update
     document.addEventListener("DOMContentLoaded", function () {
