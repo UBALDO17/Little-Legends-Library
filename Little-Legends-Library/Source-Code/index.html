@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <title>Loading...</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <style>
         body {
             display: flex;
@@ -16,7 +17,8 @@
 
         .logo {
             width: 120px;
-            height: 120px;
+            max-width: 90%;
+            height: auto;
             animation: pulse 2s ease-in-out infinite;
             filter: drop-shadow(0 0 5px rgba(255, 69, 0, 0.6));
         }
@@ -32,6 +34,12 @@
             50% {
                 transform: scale(1.1);
                 filter: drop-shadow(0 0 20px rgba(255, 69, 0, 1));
+            }
+        }
+
+        @media (max-width: 720px) {
+            .logo {
+                width: 110px;
             }
         }
     </style>
