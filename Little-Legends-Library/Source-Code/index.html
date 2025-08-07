@@ -1,13 +1,53 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <meta http-equiv="refresh" content="0; url=/HomePage/home.html" />
-    <title>Redirecting...</title>
+    <meta charset="UTF-8" />
+    <title>Loading...</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #ffffff;
+        }
+
+        .logo {
+            width: 120px;
+            height: 120px;
+            animation: pulse 2s ease-in-out infinite;
+            filter: drop-shadow(0 0 5px rgba(255, 69, 0, 0.6));
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+                filter: drop-shadow(0 0 5px rgba(255, 69, 0, 0.6));
+            }
+
+            50% {
+                transform: scale(1.1);
+                filter: drop-shadow(0 0 20px rgba(255, 69, 0, 1));
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <p>Redirecting to <a href="/HomePage/home.html">home.html</a>...</p>
+
+    <img src="https://res.cloudinary.com/du0ijg1nu/image/upload/v1740641091/Untitled_design_3_pxsurq.png" alt="Logo"
+        class="logo" />
+
+    <script>
+        setTimeout(() => {
+            window.location.href = "/HomePage/home.html";
+        }, 2000);
+    </script>
+
 </body>
 
 </html>
